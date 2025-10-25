@@ -51,7 +51,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://ain.hmgf.hxcn.space' }
+      { icon: 'qq', link: 'https://qm.qq.com/q/ZlktjRUdqg' }
     ]
   }
 })
