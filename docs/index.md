@@ -21,7 +21,7 @@ hero:
       link: /guides
     - theme: alt
       text: 资源
-      link: /resource/2025.md
+      link: resource/2025-lesson0.md
     - theme: alt
       text: 竞赛
       link: /competition

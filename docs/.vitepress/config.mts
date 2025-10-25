@@ -12,7 +12,7 @@ export default defineConfig({
       { text: '讲义', link: '/handouts' },
       { text: '幻灯片', link: '/slides' },
       { text: '教程', link: '/guides/devcpp-guide' },
-      { text: '资源', link: '/resource/2025'},
+      { text: '资源', link: 'resource/2025-lesson0'},
       { text: '竞赛', link: 'competition' }
     ],
 
@@ -38,7 +38,7 @@ export default defineConfig({
       {
         text: 'resource',
         items: [
-      { text: '2025年第零堂课', link: '/resource/2025'}, 
+      { text: '2025年第零堂课', link: 'resource/2025-lesson0'}, 
       { text: '2025年见面会', link: '/resource/2025见面会'},//第0课等
         ]
       },
