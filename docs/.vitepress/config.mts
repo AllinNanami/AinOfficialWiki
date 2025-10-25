@@ -11,7 +11,7 @@ export default defineConfig({
       { text: '主页', link: '/' },
       { text: '讲义', link: '/handouts' },
       { text: '幻灯片', link: '/slides' },
-      { text: '教程', link: '/guides/Dev' },
+      { text: '教程', link: '/guides/devcpp-guide' },
       { text: '资源', link: '/resource/2025'},
       { text: '竞赛', link: 'competition' }
     ],
@@ -32,7 +32,7 @@ export default defineConfig({
       {
         text: 'guides',
         items: [
-      { text: 'Dev教程', link: '/guides/Dev' }, //教程罗列
+      { text: 'Dev教程', link: '/guides/devcpp-guide' }, //教程罗列
         ]
       },
       {
