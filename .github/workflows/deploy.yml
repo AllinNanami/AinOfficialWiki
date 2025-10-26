@@ -33,6 +33,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ✨ 关键解决方案：在这里单独安装 Playwright
+      # 这个步骤专门为 Slidev 的构建（build）功能安装它所必需的浏览器引擎。
+      - name: Install Playwright Browsers for Slidev
+        run: npx playwright install --with-deps chromium
+
       - name: Build Slidev presentations
         run: |
           npx slidev build slides/2025-guide.md --out docs/public/slides/2025-guide
