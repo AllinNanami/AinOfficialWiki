@@ -38,9 +38,9 @@ jobs:
 
       - name: Build Slidev presentations
         run: |
-          npx slidev build src-slides/2025-guide.md --out docs/public/slides/2025-guide
-          npx slidev build src-slides/cpp-basics.md --out docs/public/slides/cpp-basics
-          npx slidev build src-slides/demo.md --out docs/public/slides/demo
+          npx slidev build slides/2025-guide.md --out docs/public/slides/2025-guide
+          npx slidev build slides/cpp-basics.md --out docs/public/slides/cpp-basics
+          npx slidev build slides/demo.md --out docs/public/slides/demo
 
       - name: Build VitePress site
         run: npm run docs:build
