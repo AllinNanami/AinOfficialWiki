@@ -31,7 +31,7 @@
 
 ## 相关资源
 
-查看 [资源页面](/resource/lesson0-2025.md) 获取更多学习资料。
+查看 [资源页面](/resource/lesson0-2025) 获取更多学习资料。
 
 ::: tip 提示
 加入我们的 [QQ群](https://qm.qq.com/q/ZlktjRUdqg) 获取最新竞赛资讯！

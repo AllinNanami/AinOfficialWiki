@@ -17,18 +17,18 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
-      { text: '讲义', link: '/handouts' },
+      { text: '讲义', link: '/handouts/' },
       { text: '幻灯片', link: '/slides/' },
       { text: '教程', link: '/guides/devcpp-guide' },
       { text: '资源', link: '/resource/lesson0-2025'},
-      { text: '竞赛', link: '/competition' }
+      { text: '竞赛', link: '/competition/' }
     ],
 
     sidebar: [
       {
         text: '讲义',
         items: [
-          { text: '讲义总览', link: '/handouts' },
+          { text: '讲义总览', link: '/handouts/' },
           { text: 'C++ 输入输出与基础', link: '/handouts/lesson1-cpp-2025' },
           { text: 'Markdown 示例', link: '/handouts/markdown-examples' }
         ]
@@ -58,7 +58,7 @@ export default defineConfig({
       {
         text: '竞赛',
         items: [
-          { text: '竞赛总览', link: '/competition' },
+          { text: '竞赛总览', link: '/competition/' },
           { text: '2025年教育部认可竞赛榜单', link: '/competition/competition-lists-2025' }
         ]
       }

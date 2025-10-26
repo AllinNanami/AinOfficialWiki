@@ -12,10 +12,10 @@ hero:
       link: https://qm.qq.com/q/ZlktjRUdqg
     - theme: alt
       text: 讲义
-      link: /handouts
+      link: /handouts/
     - theme: alt
       text: 幻灯片
-      link: /slides 
+      link: /slides/
     - theme: alt
       text:  教程
       link: /guides/devcpp-guide
@@ -24,7 +24,7 @@ hero:
       link: /resource/lesson0-2025
     - theme: alt
       text: 竞赛
-      link: /competition
+      link: /competition/
 features:
   - title: 讲义&幻灯片
     details: C/c++，算法，Python等课程讲义...
