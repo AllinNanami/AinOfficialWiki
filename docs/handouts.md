@@ -10,7 +10,7 @@
 
 ### 示例与资源
 
-- [Markdown 示例](./Handouts/markdown-examples.md) - 展示 VitePress 中 Markdown 的各种用法
+- [Markdown 示例](./handouts/markdown-examples.md) - 展示 VitePress 中 Markdown 的各种用法
 
 ## 即将推出
 

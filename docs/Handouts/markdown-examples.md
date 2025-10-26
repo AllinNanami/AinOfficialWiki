@@ -100,7 +100,7 @@ You can embed interactive presentations created with Slidev directly in VitePres
 或者直接点击下方链接访问：
 :::
 
-[💻 查看演示幻灯片](../slides/demo.md)
+[💻 查看演示幻灯片](/slides)
 ## More
 
 Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
