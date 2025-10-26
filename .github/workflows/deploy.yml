@@ -1,24 +1,31 @@
+# .github/workflows/deploy.yml
+
 name: Deploy VitePress site to Pages
 
 on:
+  # 在推送到 main 分支时运行
   push:
     branches:
-      - main  # 当 main 分支有 push 操作时触发
+      - main
 
+# GITHUB_TOKEN 的权限设置，以允许部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# 只允许一个并发部署，防止旧的部署覆盖新的部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
+  # 构建任务
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          # 如果你的项目包含 Git LFS 文件，取消下一行的注释
-          # lfs: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -27,33 +34,25 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci # 使用 ci 更适合自动化环境，能确保依赖版本一致性
+        run: npm ci
 
-      # 🌟 关键步骤 1：编译所有幻灯片并输出到 public 目录
-      # VitePress 会自动将 public 目录下的内容复制到最终网站的根目录。
-      # 这是确保幻灯片链接正确的最佳实践。
-      - name: Build demo slides
-        run: npx slidev build docs/slides/demo.md --out docs/public/slides/demo
+      - name: Build Slidev presentations
+        run: |
+          npx slidev build src-slides/2025-guide.md --out docs/public/slides/2025-guide
+          npx slidev build src-slides/cpp-basics.md --out docs/public/slides/cpp-basics
+          npx slidev build src-slides/demo.md --out docs/public/slides/demo
 
-      - name: Build 2025-guide slides
-        run: npx slidev build docs/slides/2025-guide.md --out docs/public/slides/2025
-
-      - name: Build cpp-basics slides
-        run: npx slidev build docs/slides/cpp-basics.md --out docs/public/slides/cpp-basics # 注意这里我把输出目录改成了 cpp-basics，以匹配你的 config.js
-
-      # 🌟 关键步骤 2：构建 VitePress 网站
-      # 此时，VitePress 会将文档和 public 目录下的幻灯片一起打包。
       - name: Build VitePress site
         run: npm run docs:build
 
-      # 🌟 关键步骤 3：上传最终构建好的产物，以供部署
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
 
+  # 部署任务
   deploy:
-    needs: build # 依赖 build 任务成功完成
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
