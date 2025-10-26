@@ -6,22 +6,21 @@ export default defineConfig({
   title: "3D环梦工坊编程竞赛组",
   description: '官方网站&知识库',
 
-  // ✨ 1. 因为 slides 源文件已移出 docs 目录，这一行不再需要，可以安全删除
-  // srcExclude: ['**/slides/**'],
-
-  // ✨ 2. 添加此配置，以防止 VitePress 报错说找不到 PPT 的链接
+  // ✨ 最终解决方案：确保这个配置存在且正确
+  // 它告诉 VitePress 不要检查幻-灯片链接和任何 localhost 链接
   ignoreDeadLinks: [
-    /^\/slides\//
+    /^\/slides\//,
+    /^http:\/\/localhost/
   ],
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '主页', link: '/' }, // 推荐使用 / 作为主页链接
+      { text: '主页', link: '/' },
       { text: '讲义', link: '/handouts' },
-      { text: '幻灯片', link: '/slides/' }, // 链接到一个具体的PPT，体验更好
+      { text: '幻灯片', link: '/slides/' },
       { text: '教程', link: '/guides/devcpp-guide' },
-      { text: '资源', link: '/resource/lesson0-2025' },
+      { text: '资源', link: '/resource/lesson0-2025'},
       { text: '竞赛', link: '/competition/competition-lists-2025' }
     ],
 
@@ -35,8 +34,8 @@ export default defineConfig({
       {
         text: '幻灯片',
         items: [
-          { text: '2025-指南', link: '/slides/' },
-          { text: 'C++ PPT', link: '/slides/' },
+          { text: '2025-指南', link: '/slides/' }, 
+          { text: 'C++ PPT', link: '/slides/' }, 
           { text: '演示示例', link: '/slides/' },
         ]
       },
@@ -49,9 +48,9 @@ export default defineConfig({
       {
         text: '资源',
         items: [
-          { text: '2025年第0节课', link: '/resource/lesson0-2025' },
-          { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025' },
-          { text: 'VJudge 使用指南', link: '/resource/virtual-judge-guide' },
+          { text: '2025年第0节课', link: '/resource/lesson0-2025'}, 
+          { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025'},
+          { text: 'VJudge 使用指南', link: '/resource/virtual-judge-guide'},
         ]
       },
       {
