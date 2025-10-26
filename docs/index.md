@@ -24,7 +24,7 @@ hero:
       link: /resource/lesson0-2025
     - theme: alt
       text: 竞赛
-      link: /competition/competition-lists-2025
+      link: /competition
 features:
   - title: 讲义&幻灯片
     details: C/c++，算法，Python等课程讲义...
