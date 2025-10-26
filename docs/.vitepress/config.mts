@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/vitepress/',
+  base: '/',
   title: "3D环梦工坊编程竞赛组",
   description: '官方网站&知识库',
   srcExclude: ['**/slides/**'],  // 排除 slides 目录，避免 VitePress 处理 Slidev 文件
