@@ -39,7 +39,8 @@ export default defineConfig({
         text: '资源',
         items: [
       { text: '2025年第0节课', link: 'resource/lesson0-2025'}, 
-      { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025'},//第0课等
+      { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025'},
+      { text: 'VJudge 使用指南', link: '/resource/vj使用指南'},
         ]
       },
       {
