@@ -60,10 +60,11 @@ vitepress/
 │   ├── guides/              # 教程目录
 │   ├── Handouts/            # 讲义目录
 │   ├── resource/            # 资源目录
+│   ├── slides/              # Slidev 幻灯片
+│   │   ├── demo.md          # 示例幻灯片
+│   │   ├── 2025-guide.md    # 2025新生指南幻灯片
+│   │   └── cpp-basics.md    # C++基础教程幻灯片
 │   └── index.md             # 首页
-├── slides/                  # Slidev 幻灯片
-│   ├── demo.md              # 示例幻灯片
-│   └── 2025-guide.md        # 2025新生指南幻灯片
 └── package.json             # 项目配置
 ```
 
@@ -75,7 +76,7 @@ vitepress/
 
 ### 创建幻灯片
 
-1. 在 `slides/` 目录下创建新的 `.md` 文件
+1. 在 `docs/slides/` 目录下创建新的 `.md` 文件
 2. 使用 Slidev 语法编写幻灯片
 3. 在 `package.json` 中添加对应的启动脚本
 

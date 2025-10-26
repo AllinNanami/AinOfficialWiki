@@ -10,14 +10,14 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "slides:dev": "slidev slides/demo.md --port 3030",
-    "slides:build": "slidev build slides/demo.md",
-    "slides:export": "slidev export slides/demo.md",
-    "slides:2025": "slidev slides/2025-guide.md --port 3031",
-    "slides:2025:build": "slidev build slides/2025-guide.md",
-    "slides:2025:export": "slidev export slides/2025-guide.md",
-    "slides:cpp": "slidev slides/cpp-basics.md --port 3032",
-    "slides:cpp:build": "slidev build slides/cpp-basics.md",
-    "slides:cpp:export": "slidev export slides/cpp-basics.md"
+    "slides:dev": "slidev docs/slides/demo.md --port 3030",
+    "slides:build": "slidev build docs/slides/demo.md",
+    "slides:export": "slidev export docs/slides/demo.md",
+    "slides:2025": "slidev docs/slides/2025-guide.md --port 3031",
+    "slides:2025:build": "slidev build docs/slides/2025-guide.md",
+    "slides:2025:export": "slidev export docs/slides/2025-guide.md",
+    "slides:cpp": "slidev docs/slides/cpp-basics.md --port 3032",
+    "slides:cpp:build": "slidev build docs/slides/cpp-basics.md",
+    "slides:cpp:export": "slidev export docs/slides/cpp-basics.md"
   }
 }

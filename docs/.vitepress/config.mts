@@ -5,6 +5,7 @@ export default defineConfig({
   base: '/',
   title: "3D环梦工坊编程竞赛组",
   description: '官方网站&知识库',
+  srcExclude: ['**/slides/**'],  // 排除 slides 目录，避免 VitePress 处理 Slidev 文件
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
