@@ -6,11 +6,11 @@
 
 ### 基础教程
 
- - [C++ 输入输出与基础](/handouts/lesson1-cpp-2025.md) - C++ 输入输出、变量、数据类型、控制流与数组基础
+ - [C++ 输入输出与基础](./handouts/lesson1-cpp-2025.md) - C++ 输入输出、变量、数据类型、控制流与数组基础
 
 ### 示例与资源
 
- - [Markdown 示例](/handouts/markdown-examples.md) - 展示 VitePress 中 Markdown 的各种用法
+ - [Markdown 示例](./handouts/markdown-examples.md) - 展示 VitePress 中 Markdown 的各种用法
 
 ## 即将推出
 
