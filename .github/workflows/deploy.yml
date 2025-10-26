@@ -1,12 +1,15 @@
 name: Deploy VitePress site to Pages
+
 on:
   push:
     branches:
       - main
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,10 +21,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'  # 缓存依赖，加速安装
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci  # 安装 package.json 中的所有依赖（包括 @slidev/cli）
+        run: npm ci
+
+      # 🌟 修正步驟：安裝 Playwright Chromium 核心
+      # 這是 Slidev 匯出（build）功能所必須的依賴，用於解決之前的錯誤。
+      - name: Install Playwright for Slidev Export
+        run: npm install playwright-chromium --save-dev
 
       # 编译 3 个幻灯片（使用 npx 调用本地安装的 slidev，确保命令可识别）
       - name: Build demo slides
@@ -46,6 +54,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
