@@ -1,33 +1,54 @@
 name: Deploy VitePress site to Pages
 on:
- push:
-   branches:
-     - main
+  push:
+    branches:
+      - main
 permissions:
- contents: read
- pages: write
- id-token: write
+  contents: read
+  pages: write
+  id-token: write
 jobs:
- build:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Checkout code
-       uses: actions/checkout@v4
-     - name: Setup Node.js
-       uses: actions/setup-node@v4
-       with:
-         node-version: '20'
-     - name: Install dependencies
-       run: npm ci
-     - name: Build site
-       run: npm run docs:build
-     - name: Upload artifact
-       uses: actions/upload-pages-artifact@v3
-       with:
-         path: docs/.vitepress/dist
- deploy:
-   needs: build
-   runs-on: ubuntu-latest
-   steps:
-     - name: Deploy to GitHub Pages
-       uses: actions/deploy-pages@v4
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'  # 缓存依赖加速构建
+
+      - name: Install dependencies
+        run: npm ci
+
+      # 1. 编译 demo 幻灯片（输出到 VitePress 的 dist 目录下）
+      - name: Build demo slides
+        run: slide          slidev build docs/slides/demo.md --out docs/.vitepress/dist/slides/demo
+
+      # 2. 编译 2025-guide 幻灯片
+      - name: Build 2025-guide slides
+        run:
+          slidev build docs/slides/2025-guide.md --out docs/.vitepress/dist/slides/2025
+
+      # 3. 编译 cpp-basics 幻灯片
+      - name: Build cpp-basics slides
+        run:
+          slidev build docs/slides/cpp-basics.md --out docs/.vitepress/dist/slides/cpp
+
+      # 构建 VitePress 文档（此时已包含所有幻灯片）
+      - name: Build VitePress site
+        run: npm run docs:build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist  # 包含文档和3个幻灯片的最终目录
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
