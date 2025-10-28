@@ -38,7 +38,7 @@ import {
   watchEffect
 } from "./chunk-JAPIL3UL.js";
 
-// node_modules/@vueuse/shared/index.mjs
+// node_modules/vitepress/node_modules/@vueuse/shared/index.mjs
 function computedEager(fn, options) {
   var _a;
   const result = shallowRef();
@@ -1572,7 +1572,7 @@ function whenever(source, cb, options) {
   return stop;
 }
 
-// node_modules/@vueuse/core/index.mjs
+// node_modules/vitepress/node_modules/@vueuse/core/index.mjs
 function computedAsync(evaluationCallback, initialState, optionsOrRef) {
   var _a;
   let options;

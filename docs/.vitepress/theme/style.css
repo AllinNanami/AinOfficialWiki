@@ -91,12 +91,8 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(
-    120deg,
-    #bd34fe 30%,
-    #41d1ff
-  );
+  --vp-home-hero-name-color: white;
+  --vp-home-hero-name-background: transparent;
 
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
@@ -135,5 +131,244 @@
 
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+/**
+ * Custom: 液态玻璃效果 (Liquid Glass Effect)
+ * -------------------------------------------------------------------------- */
+
+/* 首页背景渐变 */
+.VPHome {
+  position: relative;
+  background: linear-gradient(45deg, #2a2a72 0%, #009ffd 100%);
+  overflow: hidden;
+}
+
+/* 背景动态光球 */
+.VPHome::before,
+.VPHome::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.VPHome::before {
+  width: 450px;
+  height: 450px;
+  background-color: rgba(255, 0, 255, 0.5);
+  top: 5%;
+  left: 10%;
+  animation: moveOrb1 15s infinite alternate;
+}
+
+.VPHome::after {
+  width: 500px;
+  height: 500px;
+  background-color: rgba(0, 255, 255, 0.4);
+  bottom: 10%;
+  right: 15%;
+  animation: moveOrb2 20s infinite alternate-reverse;
+}
+
+@keyframes moveOrb1 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(80px, -100px) scale(1.1); }
+}
+
+@keyframes moveOrb2 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-60px, 80px) scale(1.15); }
+}
+
+/* 玻璃态容器效果 */
+.VPHome .VPHero {
+  position: relative;
+  z-index: 1;
+  padding: 60px 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+/* 英雄区域文字增强*/
+.VPHome .VPHero .name,
+.VPHome .VPHero .text {
+  text-shadow: 
+    0 0 30px rgba(0, 0, 0, 0.9),
+    0 0 15px rgba(0, 0, 0, 0.9),
+    0 3px 6px rgba(0, 0, 0, 1),
+    0 2px 4px rgba(0, 0, 0, 1) !important;
+  color: white !important;
+  font-weight: 800 !important;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) !important;
+  background: transparent !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+}
+
+.VPHome .VPHero .name {
+  animation: fadeInDown 1s ease-out;
+}
+
+.VPHome .VPHero .text {
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.VPHome .VPHero .tagline {
+  text-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.8),
+    0 2px 8px rgba(0, 0, 0, 0.9),
+    0 1px 4px rgba(0, 0, 0, 1) !important;
+  color: rgba(255, 255, 255, 0.98) !important;
+  font-weight: 600 !important;
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3)) !important;
+}
+
+/* 按钮增强效果 - 更柔和自然 */
+.VPHome .VPHero .actions {
+  animation: fadeInUp 1s ease-out 0.6s backwards;
+}
+
+.VPHome .VPHero .VPButton {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.VPHome .VPHero .VPButton:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.VPHome .VPHero .VPButton.brand {
+  background: rgba(66, 184, 131, 0.25) !important;
+  border-color: rgba(66, 184, 131, 0.4) !important;
+  box-shadow: 0 2px 8px rgba(66, 184, 131, 0.2) !important;
+}
+
+.VPHome .VPHero .VPButton.brand:hover {
+  background: rgba(66, 184, 131, 0.4) !important;
+  border-color: rgba(66, 184, 131, 0.6) !important;
+  box-shadow: 0 4px 12px rgba(66, 184, 131, 0.3) !important;
+}
+
+.VPHome .VPHero .VPButton.alt {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.VPHome .VPHero .VPButton.alt:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.VPHome .VPFeatures {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px;
+}
+
+.VPHome .VPFeatures .VPFeature {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.35s ease !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.VPHome .VPFeatures .VPFeature:nth-child(1) { animation-delay: 0.1s; }
+.VPHome .VPFeatures .VPFeature:nth-child(2) { animation-delay: 0.2s; }
+.VPHome .VPFeatures .VPFeature:nth-child(3) { animation-delay: 0.3s; }
+.VPHome .VPFeatures .VPFeature:nth-child(4) { animation-delay: 0.4s; }
+
+.VPHome .VPFeatures .VPFeature:hover {
+  transform: translateY(-6px) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.VPHome .VPFeatures .VPFeature .title {
+  color: white !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  font-weight: 600 !important;
+}
+
+.VPHome .VPFeatures .VPFeature .details {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 鼠标光晕效果 */
+.VPHome .glass-spotlight {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 动画关键帧 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .VPHome::before,
+  .VPHome::after {
+    filter: blur(60px);
+  }
+  
+  .VPHome::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .VPHome::after {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .VPHome .VPHero {
+    padding: 40px 24px;
+    margin: 20px;
+  }
 }
 
