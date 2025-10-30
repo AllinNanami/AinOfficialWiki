@@ -8,9 +8,12 @@
 
  - [C++ 输入输出与基础](/handouts/lesson1-cpp-2025) - C++ 输入输出、变量、数据类型、控制流与数组基础
 
-### 示例与资源
+ - [C++ 函数和结构体](/handouts/lesson2-cpp-2025-function) - C++ 函数和结构体的使用，以及其他小工具
 
- - [Markdown 示例](/handouts/markdown-examples) - 展示 VitePress 中 Markdown 的各种用法
+ - [C++ STL库](/handouts/lesson2-cpp-2025-STL) - C++ STL的使用
+
+ - [git使用教程](/handouts/lesson2-git-2025) - git 的使用
+
 
 ## 即将推出
 

@@ -1,8 +1,15 @@
+---
+head:
+  - - link
+    - rel: stylesheet
+      href: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css
+---
+
 # 一.C++ 输入与输出基础
 
 
 
-在 C++ 中，输入与输出（Input/Output, 简称 I/O）是程序与外界（如用户、文件、网络）交换信息的核心机制。你可以把它想象成程序与你对话的“嘴巴”（输出）和“耳朵”（输入）。
+在 C++ 中，输入与输出（Input/Output, 简称 I/O）是程序与外界（如用户、文件、网络）交换信息的核心机制。你可以把它想象成程序与你对话的"嘴巴"（输出）和"耳朵"（输入）。
 
 C++ 提供了两种主要的 I/O 方式：
 

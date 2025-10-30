@@ -20,5 +20,8 @@
     "slides:cpp": "slidev slides/cpp-basics.md --port 3032",
     "slides:cpp:build": "slidev build slides/cpp-basics.md",
     "slides:cpp:export": "slidev export slides/cpp-basics.md"
+  },
+  "dependencies": {
+    "markdown-it-katex": "^2.0.3"
   }
 }

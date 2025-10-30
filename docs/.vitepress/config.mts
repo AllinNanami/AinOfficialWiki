@@ -1,4 +1,93 @@
 import { defineConfig } from 'vitepress'
+import markdownItKatex from 'markdown-it-katex'
+
+const customElements = [
+  'math',
+  'maction',
+  'maligngroup',
+  'malignmark',
+  'menclose',
+  'merror',
+  'mfenced',
+  'mfrac',
+  'mi',
+  'mlongdiv',
+  'mmultiscripts',
+  'mn',
+  'mo',
+  'mover',
+  'mpadded',
+  'mphantom',
+  'mroot',
+  'mrow',
+  'ms',
+  'mscarries',
+  'mscarry',
+  'mscarries',
+  'msgroup',
+  'mstack',
+  'mlongdiv',
+  'msline',
+  'mstack',
+  'mspace',
+  'msqrt',
+  'msrow',
+  'mstack',
+  'mstack',
+  'mstyle',
+  'msub',
+  'msup',
+  'msubsup',
+  'mtable',
+  'mtd',
+  'mtext',
+  'mtr',
+  'munder',
+  'munderover',
+  'semantics',
+  'math',
+  'mi',
+  'mn',
+  'mo',
+  'ms',
+  'mspace',
+  'mtext',
+  'menclose',
+  'merror',
+  'mfenced',
+  'mfrac',
+  'mpadded',
+  'mphantom',
+  'mroot',
+  'mrow',
+  'msqrt',
+  'mstyle',
+  'mmultiscripts',
+  'mover',
+  'mprescripts',
+  'msub',
+  'msubsup',
+  'msup',
+  'munder',
+  'munderover',
+  'none',
+  'maligngroup',
+  'malignmark',
+  'mtable',
+  'mtd',
+  'mtr',
+  'mlongdiv',
+  'mscarries',
+  'mscarry',
+  'msgroup',
+  'msline',
+  'msrow',
+  'mstack',
+  'maction',
+  'semantics',
+  'annotation',
+  'annotation-xml'
+]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,6 +101,22 @@ export default defineConfig({
     /^\/slides\//,
     /^http:\/\/localhost/
   ],
+
+  // 启用 KaTeX 数学公式支持
+  markdown: {
+    config: (md) => {
+      md.use(markdownItKatex)
+    }
+  },
+
+  // 配置 Vue 以识别 KaTeX 自定义元素
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => customElements.includes(tag)
+      }
+    }
+  },
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -32,7 +137,9 @@ export default defineConfig({
           items: [
             { text: '讲义总览', link: '/handouts/' },
             { text: 'C++ 输入输出与基础', link: '/handouts/lesson1-cpp-2025' },
-            { text: 'Markdown 示例', link: '/handouts/markdown-examples' }
+            { text: 'C++ 函数和结构体', link: '/handouts/lesson2-cpp-2025-function' },
+            { text: 'C++ STL库', link: '/handouts/lesson2-cpp-2025-STL' },
+            { text: 'git使用教程', link: '/handouts/lesson2-git-2025' }
           ]
         }
       ],
