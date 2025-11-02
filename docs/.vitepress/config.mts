@@ -149,9 +149,7 @@ export default defineConfig({
         {
           text: '幻灯片',
           items: [
-            { text: '2025-指南', link: '/slides/' }, 
-            { text: 'C++ PPT', link: '/slides/' }, 
-            { text: '演示示例', link: '/slides/' },
+            { text: '幻灯片总览', link: '/slides/' },
           ]
         }
       ],
