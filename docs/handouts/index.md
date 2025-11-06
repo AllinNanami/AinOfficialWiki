@@ -14,6 +14,8 @@
 
  - [git使用教程](/handouts/lesson2-git-2025) - git 的使用
 
+ - [复杂度、排序与二分查找](/handouts/lesson3-sort-2025) - 算法入门：复杂度、排序与二分查找
+
 
 ## 即将推出
 

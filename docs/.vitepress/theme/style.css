@@ -49,10 +49,11 @@
   --vp-c-default-3: var(--vp-c-gray-3);
   --vp-c-default-soft: var(--vp-c-gray-soft);
 
-  --vp-c-brand-1: var(--vp-c-indigo-1);
-  --vp-c-brand-2: var(--vp-c-indigo-2);
-  --vp-c-brand-3: var(--vp-c-indigo-3);
-  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+  /* 液态玻璃渐变色系 - 梦幻紫青 */
+  --vp-c-brand-1: #8b5cf6;
+  --vp-c-brand-2: #a78bfa;
+  --vp-c-brand-3: #7c3aed;
+  --vp-c-brand-soft: rgba(139, 92, 246, 0.14);
 
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);
@@ -134,14 +135,150 @@
 }
 
 /**
+ * Custom: 导航栏液态玻璃效果
+ * -------------------------------------------------------------------------- */
+
+/* 导航栏玻璃态效果 */
+.VPNav {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.08) !important;
+  transition: all 0.3s ease !important;
+}
+
+.VPNav:not(.has-sidebar) {
+  background: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* 导航栏链接悬停效果 */
+.VPNavBar .VPLink:hover {
+  color: var(--vp-c-brand-1) !important;
+  transition: color 0.25s ease;
+}
+
+.VPNavBar .VPMenuLink:hover {
+  background: rgba(139, 92, 246, 0.08) !important;
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* 侧边栏玻璃态效果 */
+.VPSidebar {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border-right: 1px solid rgba(139, 92, 246, 0.1) !important;
+}
+
+/* 侧边栏链接激活状态 */
+.VPSidebarItem.is-active > .item .link,
+.VPSidebarItem.is-active > .item .text {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600;
+}
+
+.VPSidebarItem.is-active > .item {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent) !important;
+  border-left: 3px solid var(--vp-c-brand-1) !important;
+}
+
+/* 侧边栏链接悬停效果 */
+.VPSidebarItem:hover > .item {
+  background: rgba(139, 92, 246, 0.05) !important;
+}
+
+/* 本地搜索按钮美化 */
+.VPNavBarSearch .DocSearch-Button {
+  background: rgba(139, 92, 246, 0.08) !important;
+  border: 1px solid rgba(139, 92, 246, 0.2) !important;
+  transition: all 0.25s ease !important;
+}
+
+.VPNavBarSearch .DocSearch-Button:hover {
+  background: rgba(139, 92, 246, 0.15) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2) !important;
+}
+
+/* 返回顶部按钮美化 */
+.VPBackdrop {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/**
+ * Custom: 深色模式液态玻璃效果
+ * -------------------------------------------------------------------------- */
+
+/* 深色模式 - 主题色调整 */
+.dark {
+  /* 品牌色在深色模式下稍微提亮 */
+  --vp-c-brand-1: #a78bfa;
+  --vp-c-brand-2: #c4b5fd;
+  --vp-c-brand-3: #8b5cf6;
+  --vp-c-brand-soft: rgba(167, 139, 250, 0.16);
+}
+
+/* 深色模式 - 导航栏 */
+.dark .VPNav {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.15) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .VPNav:not(.has-sidebar) {
+  background: rgba(15, 23, 42, 0.85) !important;
+}
+
+/* 深色模式 - 侧边栏 */
+.dark .VPSidebar {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-right: 1px solid rgba(167, 139, 250, 0.15) !important;
+}
+
+/* 深色模式 - 侧边栏激活项 */
+.dark .VPSidebarItem.is-active > .item {
+  background: linear-gradient(90deg, rgba(167, 139, 250, 0.15), transparent) !important;
+  border-left: 3px solid var(--vp-c-brand-1) !important;
+}
+
+/* 深色模式 - 侧边栏悬停 */
+.dark .VPSidebarItem:hover > .item {
+  background: rgba(167, 139, 250, 0.08) !important;
+}
+
+/* 深色模式 - 导航栏菜单悬停 */
+.dark .VPNavBar .VPMenuLink:hover {
+  background: rgba(167, 139, 250, 0.12) !important;
+}
+
+/* 深色模式 - 搜索按钮 */
+.dark .VPNavBarSearch .DocSearch-Button {
+  background: rgba(167, 139, 250, 0.1) !important;
+  border: 1px solid rgba(167, 139, 250, 0.2) !important;
+}
+
+.dark .VPNavBarSearch .DocSearch-Button:hover {
+  background: rgba(167, 139, 250, 0.18) !important;
+  border-color: rgba(167, 139, 250, 0.35) !important;
+  box-shadow: 0 2px 12px rgba(167, 139, 250, 0.25) !important;
+}
+
+/**
  * Custom: 液态玻璃效果 (Liquid Glass Effect)
  * -------------------------------------------------------------------------- */
 
-/* 首页背景渐变 */
+/* 首页背景渐变 - 梦幻液态玻璃（亮色模式）*/
 .VPHome {
   position: relative;
-  background: linear-gradient(45deg, #2a2a72 0%, #009ffd 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 100%);
   overflow: hidden;
+}
+
+/* 深色模式 - 首页背景 */
+.dark .VPHome {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #4c1d95 50%, #1e3a8a 100%);
 }
 
 /* 背景动态光球 */
@@ -156,21 +293,30 @@
 }
 
 .VPHome::before {
-  width: 450px;
-  height: 450px;
-  background-color: rgba(255, 0, 255, 0.5);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(240, 147, 251, 0.6) 0%, rgba(245, 101, 101, 0.3) 100%);
   top: 5%;
   left: 10%;
   animation: moveOrb1 15s infinite alternate;
 }
 
 .VPHome::after {
-  width: 500px;
-  height: 500px;
-  background-color: rgba(0, 255, 255, 0.4);
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.5) 0%, rgba(102, 126, 234, 0.3) 100%);
   bottom: 10%;
   right: 15%;
   animation: moveOrb2 20s infinite alternate-reverse;
+}
+
+/* 深色模式 - 光球效果 */
+.dark .VPHome::before {
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.4) 0%, rgba(139, 92, 246, 0.2) 100%);
+}
+
+.dark .VPHome::after {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, rgba(79, 70, 229, 0.2) 100%);
 }
 
 @keyframes moveOrb1 {
@@ -251,15 +397,15 @@
 }
 
 .VPHome .VPHero .VPButton.brand {
-  background: rgba(66, 184, 131, 0.25) !important;
-  border-color: rgba(66, 184, 131, 0.4) !important;
-  box-shadow: 0 2px 8px rgba(66, 184, 131, 0.2) !important;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(79, 172, 254, 0.3)) !important;
+  border-color: rgba(139, 92, 246, 0.5) !important;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.3), 0 0 20px rgba(139, 92, 246, 0.2) !important;
 }
 
 .VPHome .VPHero .VPButton.brand:hover {
-  background: rgba(66, 184, 131, 0.4) !important;
-  border-color: rgba(66, 184, 131, 0.6) !important;
-  box-shadow: 0 4px 12px rgba(66, 184, 131, 0.3) !important;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(79, 172, 254, 0.5)) !important;
+  border-color: rgba(139, 92, 246, 0.7) !important;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.4), 0 0 30px rgba(139, 92, 246, 0.3) !important;
 }
 
 .VPHome .VPHero .VPButton.alt {
@@ -270,6 +416,19 @@
 .VPHome .VPHero .VPButton.alt:hover {
   background: rgba(255, 255, 255, 0.15) !important;
   border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* 深色模式 - 首页按钮 */
+.dark .VPHome .VPHero .VPButton.brand {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.25), rgba(79, 172, 254, 0.25)) !important;
+  border-color: rgba(167, 139, 250, 0.5) !important;
+  box-shadow: 0 2px 12px rgba(167, 139, 250, 0.3), 0 0 20px rgba(167, 139, 250, 0.15) !important;
+}
+
+.dark .VPHome .VPHero .VPButton.brand:hover {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.4), rgba(79, 172, 254, 0.4)) !important;
+  border-color: rgba(167, 139, 250, 0.7) !important;
+  box-shadow: 0 4px 16px rgba(167, 139, 250, 0.4), 0 0 30px rgba(167, 139, 250, 0.25) !important;
 }
 
 .VPHome .VPFeatures {
@@ -312,6 +471,19 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* 深色模式 - 功能卡片 */
+.dark .VPHome .VPFeatures .VPFeature {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(167, 139, 250, 0.15) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .VPHome .VPFeatures .VPFeature:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(167, 139, 250, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(167, 139, 250, 0.2) !important;
+}
+
 /* 鼠标光晕效果 */
 .VPHome .glass-spotlight {
   position: fixed;
@@ -324,6 +496,97 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+/* 深色模式 - 光晕效果 */
+.dark .VPHome .glass-spotlight {
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.25) 0%, rgba(167, 139, 250, 0) 70%);
+}
+
+/**
+ * Custom: 内容页面优化
+ * -------------------------------------------------------------------------- */
+
+/* 文档内容区域 */
+.VPDoc .container {
+  backdrop-filter: blur(2px);
+}
+
+/* 文档链接美化 */
+.vp-doc a {
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-2);
+  text-decoration: underline;
+}
+
+/* 代码块优化 */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.vp-doc div[class*='language-']:hover {
+  border-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+}
+
+/* 深色模式 - 代码块 */
+.dark .vp-doc div[class*='language-'] {
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark .vp-doc div[class*='language-']:hover {
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.15);
+}
+
+/* 自定义容器美化 */
+.vp-doc .custom-block {
+  border-radius: 8px;
+  border-left-width: 4px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.vp-doc .custom-block:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+}
+
+.dark .vp-doc .custom-block:hover {
+  box-shadow: 0 2px 12px rgba(167, 139, 250, 0.15);
+}
+
+/* 表格优化 */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vp-doc th {
+  background: rgba(139, 92, 246, 0.08) !important;
+  font-weight: 600;
+}
+
+.dark .vp-doc th {
+  background: rgba(167, 139, 250, 0.1) !important;
+}
+
+.vp-doc tr:hover {
+  background: rgba(139, 92, 246, 0.03) !important;
+}
+
+.dark .vp-doc tr:hover {
+  background: rgba(167, 139, 250, 0.05) !important;
 }
 
 /* 动画关键帧 */
@@ -371,4 +634,102 @@
     margin: 20px;
   }
 }
+
+/* ====================================================================
+ * 🎨 其他液态玻璃配色方案（可选）
+ * ==================================================================== 
+ * 
+ * 💡 使用说明：
+ * 1. 选择你喜欢的配色方案
+ * 2. 将对应的CSS代码复制到文件顶部相应位置
+ * 3. 深色模式会自动适配你选择的配色，无需额外配置
+ * 
+ * 如需更换配色，请将下面任意一组配色复制到上面对应位置：
+ * 
+ * ──────────────────────────────────────────────────────────────────
+ * 方案1：梦幻紫青（当前使用）✨
+ * ──────────────────────────────────────────────────────────────────
+ * 背景渐变：
+ * background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 100%);
+ * 
+ * 光球1：
+ * background: radial-gradient(circle, rgba(240, 147, 251, 0.6) 0%, rgba(245, 101, 101, 0.3) 100%);
+ * 
+ * 光球2：
+ * background: radial-gradient(circle, rgba(79, 172, 254, 0.5) 0%, rgba(102, 126, 234, 0.3) 100%);
+ * 
+ * 主题色：
+ * --vp-c-brand-1: #8b5cf6;
+ * --vp-c-brand-2: #a78bfa;
+ * --vp-c-brand-3: #7c3aed;
+ * 
+ * ──────────────────────────────────────────────────────────────────
+ * 方案2：日落霞光 🌅
+ * ──────────────────────────────────────────────────────────────────
+ * 背景渐变：
+ * background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 25%, #c471f5 50%, #12c2e9 100%);
+ * 
+ * 光球1：
+ * background: radial-gradient(circle, rgba(255, 106, 136, 0.6) 0%, rgba(255, 154, 86, 0.4) 100%);
+ * 
+ * 光球2：
+ * background: radial-gradient(circle, rgba(196, 113, 245, 0.5) 0%, rgba(18, 194, 233, 0.3) 100%);
+ * 
+ * 主题色：
+ * --vp-c-brand-1: #ff6a88;
+ * --vp-c-brand-2: #ff9a56;
+ * --vp-c-brand-3: #c471f5;
+ * 
+ * ──────────────────────────────────────────────────────────────────
+ * 方案3：北极光 🌌
+ * ──────────────────────────────────────────────────────────────────
+ * 背景渐变：
+ * background: linear-gradient(135deg, #0093E9 0%, #80D0C7 35%, #a8edea 70%, #fed6e3 100%);
+ * 
+ * 光球1：
+ * background: radial-gradient(circle, rgba(128, 208, 199, 0.6) 0%, rgba(168, 237, 234, 0.3) 100%);
+ * 
+ * 光球2：
+ * background: radial-gradient(circle, rgba(0, 147, 233, 0.5) 0%, rgba(254, 214, 227, 0.3) 100%);
+ * 
+ * 主题色：
+ * --vp-c-brand-1: #0093E9;
+ * --vp-c-brand-2: #80D0C7;
+ * --vp-c-brand-3: #00b4d8;
+ * 
+ * ──────────────────────────────────────────────────────────────────
+ * 方案4：薰衣草雾 💜
+ * ──────────────────────────────────────────────────────────────────
+ * 背景渐变：
+ * background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 50%, #d299c2 100%);
+ * 
+ * 光球1：
+ * background: radial-gradient(circle, rgba(224, 195, 252, 0.6) 0%, rgba(210, 153, 194, 0.4) 100%);
+ * 
+ * 光球2：
+ * background: radial-gradient(circle, rgba(142, 197, 252, 0.5) 0%, rgba(224, 195, 252, 0.3) 100%);
+ * 
+ * 主题色：
+ * --vp-c-brand-1: #c084fc;
+ * --vp-c-brand-2: #d8b4fe;
+ * --vp-c-brand-3: #a855f7;
+ * 
+ * ──────────────────────────────────────────────────────────────────
+ * 方案5：霓虹夜色 🌃
+ * ──────────────────────────────────────────────────────────────────
+ * 背景渐变：
+ * background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 25%, #be185d 50%, #0284c7 100%);
+ * 
+ * 光球1：
+ * background: radial-gradient(circle, rgba(190, 24, 93, 0.6) 0%, rgba(219, 39, 119, 0.3) 100%);
+ * 
+ * 光球2：
+ * background: radial-gradient(circle, rgba(2, 132, 199, 0.5) 0%, rgba(76, 29, 149, 0.3) 100%);
+ * 
+ * 主题色：
+ * --vp-c-brand-1: #06b6d4;
+ * --vp-c-brand-2: #67e8f9;
+ * --vp-c-brand-3: #0891b2;
+ * 
+ * ────────────────────────────────────────────────────────────────── */
 
