@@ -82,6 +82,32 @@
 
 ---
 
+### 算法入门：复杂度、排序与二分查找 🔍
+
+深入学习算法分析基础，包括时间空间复杂度、快速排序、归并排序、二分查找算法及其应用。
+
+::: tip 使用说明
+- 点击幻灯片可以获得焦点
+- 使用键盘方向键 ← → 或空格键切换幻灯片
+- 点击左下角按钮或按 `F` 键进入全屏模式
+- 按 `O` 键查看大纲
+- 按 `D` 键切换暗色模式
+:::
+
+<iframe 
+  src="http://localhost:3034"    
+  width="100%" 
+  height="600"    
+  frameborder="0"  
+  scrolling="no" 
+  allow="fullscreen"
+  allowfullscreen
+  style="border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin: 20px 0;"  
+  title="算法入门：复杂度、排序与二分查找" 
+></iframe>
+
+---
+
 ### 编程入门演示 💻
 
 这是一个示例幻灯片，展示了如何在 VitePress 中嵌入 Slidev 幻灯片。

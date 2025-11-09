@@ -7,7 +7,7 @@
     "vitepress": "^2.0.0-alpha.12"
   },
   "scripts": {
-    "dev": "concurrently \"npm run docs:dev\" \"npm run slides:dev\" \"npm run slides:2025\" \"npm run slides:cpp\" \"npm run slides:lesson2\" --names \"docs,demo,2025,cpp,lesson2\" --prefix-colors \"cyan,magenta,green,blue,yellow\"",
+    "dev": "concurrently \"npm run docs:dev\" \"npm run slides:dev\" \"npm run slides:2025\" \"npm run slides:cpp\" \"npm run slides:lesson2\" \"npm run slides:lesson3\" --names \"docs,demo,2025,cpp,lesson2,lesson3\" --prefix-colors \"cyan,magenta,green,blue,yellow,red\"",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
@@ -22,7 +22,10 @@
     "slides:cpp:export": "slidev export slides/cpp-basics.md",
     "slides:lesson2": "slidev slides/lesson2-function-stl.md --port 3033",
     "slides:lesson2:build": "slidev build slides/lesson2-function-stl.md",
-    "slides:lesson2:export": "slidev export slides/lesson2-function-stl.md"
+    "slides:lesson2:export": "slidev export slides/lesson2-function-stl.md",
+    "slides:lesson3": "slidev slides/lesson3-sort-2025.md --port 3034",
+    "slides:lesson3:build": "slidev build slides/lesson3-sort-2025.md",
+    "slides:lesson3:export": "slidev export slides/lesson3-sort-2025.md"
   },
   "dependencies": {
     "markdown-it-katex": "^2.0.3"
