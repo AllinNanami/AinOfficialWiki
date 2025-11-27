@@ -81,6 +81,21 @@ layout: section
 | $O(\log N)$ | 对数时间 | 二分查找、GCD |
 | $O(\sqrt{N})$ | 平方根时间 | 质数判定 |
 | $O(N)$ | 线性时间 | 数组遍历 |
+
+</div>
+
+---
+
+# 时间复杂度表示法（续）
+
+更复杂的时间复杂度
+
+<div class="mt-6">
+
+### 常见的时间复杂度（续）
+
+| 复杂度 | 名称 | 示例 |
+|--------|------|------|
 | $O(N \log N)$ | 线性对数时间 | 快排、归并排序 |
 | $O(N^2)$ | 平方时间 | 冒泡排序、双层循环 |
 | $O(2^N)$ | 指数时间 | 枚举子集 |
@@ -389,20 +404,23 @@ void bubble_sort_optimized(int a[], int n) {
 
 ### 排序过程
 
-**第 1 轮：**
-- (5, 3) → (3, 5, 8, 4, 2)
-- (8, 4) → (3, 5, 4, 8, 2)
-- (8, 2) → (3, 5, 4, 2, **8**) ✓
+**第 1 轮：**（比较相邻元素）
+- 比较 5 和 3，交换 → `[3, 5, 8, 4, 2]`
+- 比较 5 和 8，不交换 → `[3, 5, 8, 4, 2]`
+- 比较 8 和 4，交换 → `[3, 5, 4, 8, 2]`
+- 比较 8 和 2，交换 → `[3, 5, 4, 2, 8]` ✓ 最大值就位
 
 **第 2 轮：**
-- (5, 4) → (3, 4, 5, 2, 8)
-- (5, 2) → (3, 4, 2, **5, 8**) ✓
+- 比较 3 和 5，不交换 → `[3, 5, 4, 2, 8]`
+- 比较 5 和 4，交换 → `[3, 4, 5, 2, 8]`
+- 比较 5 和 2，交换 → `[3, 4, 2, 5, 8]` ✓ 次大值就位
 
 **第 3 轮：**
-- (4, 2) → (3, 2, **4, 5, 8**) ✓
+- 比较 3 和 4，不交换 → `[3, 4, 2, 5, 8]`
+- 比较 4 和 2，交换 → `[3, 2, 4, 5, 8]` ✓
 
 **第 4 轮：**
-- (3, 2) → (**2, 3, 4, 5, 8**) ✓
+- 比较 3 和 2，交换 → `[2, 3, 4, 5, 8]` ✓ 排序完成
 
 </div>
 
@@ -659,26 +677,21 @@ layout: section
 // a[] 和 N 是全局的
 void merge_sort(int l, int r) {
     if (l >= r) return; // 递归出口
-
     // 1. 临时数组，用于合并
     int temp[N];
-    
     // 2. 分：计算中点并递归
     int mid = l + r >> 1;
     merge_sort(l, mid);
     merge_sort(mid + 1, r);
-
     // 3. 合：合并两个有序子数组 [l, mid] 和 [mid+1, r]
     int k = 0, i = l, j = mid + 1;
     while (i <= mid && j <= r) {
         if (a[i] < a[j]) temp[k++] = a[i++];
         else temp[k++] = a[j++];
     }
-
     // 4. 处理剩余元素
     while (i <= mid) temp[k++] = a[i++];
     while (j <= r) temp[k++] = a[j++];
-
     // 5. 将排好序的 temp 数组复制回原数组 a
     for (int i = l, j = 0; i <= r; i++, j++) a[i] = temp[j];
 }
@@ -1093,256 +1106,6 @@ layout: section
 - **无序数组：** 顺序查找 O(N)
 - **频繁查询：** 先排序再二分
 - **动态数据：** 使用 `set` 或 `map`
-
-</div>
-
-</div>
-
----
-layout: section
----
-
-# 七. 例题讲解
-
----
-
-# 例题 1：求第 k 小的数
-
-P1923 【深基9.例4】
-
-<div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded">
-
-### 题目描述
-
-输入 $n$ 个数字，输出这些数字的第 $k$ 小的数（最小的数是第 0 小）
-
-**数据范围：** $1 \le n < 5,000,000$，$1 \le a_i < 10^9$
-
-</div>
-
-<div class="mt-6 p-4 bg-green-50 dark:bg-green-900 rounded">
-
-### 输入输出样例
-
-**输入：**
-```
-5 1
-4 3 2 1 5
-```
-
-**输出：**
-```
-2
-```
-
-</div>
-
----
-
-# 例题 1：解题思路
-
-使用快速排序的分治思想
-
-```cpp {all|6-16|17-18}
-#include<bits/stdc++.h>
-using namespace std;
-int miku[5000000];
-
-void fufu(int a, int b) {
-    int mid = miku[(a + b) / 2], i = a, j = b;
-    while (i <= j) {
-        while(miku[i] < mid) i++;
-        while(miku[j] > mid) j--;
-        if (i <= j) {
-            swap(miku[i], miku[j]);
-            i++;
-            j--;
-        }
-    }
-    if (i < b) fufu(i, b);
-    if (j > a) fufu(a, j);
-}
-
-int main() {
-    int n, k;
-    scanf("%d %d", &n, &k);
-    for (int i = 0; i < n; i++) scanf("%d", &miku[i]);
-    fufu(0, n - 1);
-    printf("%d", miku[k]);
-    return 0;
-}
-```
-
----
-
-# 例题 2：一元三次方程求解
-
-P1024 [NOIP 2001 提高组]
-
-<div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded">
-
-### 题目描述
-
-有一元三次方程：$ax^3 + bx^2 + cx + d = 0$
-
-给出系数 $a, b, c, d$，求三个不同的实根（精确到小数点后 2 位）
-
-**约定：** 三个实根存在，范围在 $[-100, 100]$，根与根之差 $\ge 1$
-
-</div>
-
-<div class="mt-6 p-4 bg-green-50 dark:bg-green-900 rounded">
-
-### 输入输出样例
-
-**输入：** `1 -5 -4 20`
-
-**输出：** `-2.00 2.00 5.00`
-
-</div>
-
----
-
-# 例题 2：解题思路
-
-暴力枚举 + 精度判断
-
-```cpp {all|5-8|10-11|12-17}
-#include<iostream>
-using namespace std;
-double a, b, c, d;
-int sum = 0;
-
-double check(double x) {
-    return a*x*x*x + b*x*x + c*x + d;
-}
-
-int main() {
-    cin >> a >> b >> c >> d;
-    for(double i = -100.0; i < 100.0; i += 0.001) {
-        if(check(i) - 0 < 1e-4 && 0 - check(i) < 1e-4) {
-            printf("%.2lf ", i);
-            sum++;
-            if(sum == 3) break;
-        }
-    }
-    return 0;
-}
-```
-
-<div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900 rounded text-sm">
-
-💡 **技巧：** 使用小步长遍历 + 精度判断来寻找根
-
-</div>
-
----
-
-# 例题 3：木材加工
-
-P2440 - 二分答案
-
-<div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded">
-
-### 题目描述
-
-有 $n$ 根原木，要切割成 $k$ 段长度均为 $l$ 的小段木头
-
-求 $l$ 的最大值
-
-**数据范围：** $1 \le n \le 10^5$，$1 \le k \le 10^8$，$1 \le L_i \le 10^8$
-
-</div>
-
-<div class="mt-6 p-4 bg-green-50 dark:bg-green-900 rounded">
-
-### 输入输出样例
-
-**输入：**
-```
-3 7
-232
-124
-456
-```
-
-**输出：** `114`
-
-</div>
-
----
-
-# 例题 3：解题思路
-
-二分答案 + 贪心判断
-
-```cpp {all|7-13|19-24}
-#include<iostream>
-#include<algorithm>
-using namespace std;
-const int N = 1e8 + 10;
-int miku[N];
-int n, k;
-
-bool check(int x) {
-    int s = 0;
-    for(int i = 0; i < n; i++) {
-        s += miku[i] / x;
-    }
-    return s >= k;
-}
-
-int main() {
-    cin >> n >> k;
-    for(int i = 0; i < n; i++) cin >> miku[i];
-    sort(miku, miku + n);
-    
-    int l = 0, r = miku[n - 1];
-    while(l < r) {
-        int mid = l + r + 1 >> 1;
-        if(!check(mid)) r = mid - 1;
-        else l = mid;
-    }
-    cout << l;
-    return 0;
-}
-```
-
----
-
-# 例题 3：思路分析
-
-二分答案的典型应用
-
-<div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded">
-
-### 核心思想
-
-- **问题：** 求满足条件的最大值
-- **解法：** 二分答案 + 验证可行性
-- **check 函数：** 判断长度为 x 时能否切出 k 段
-
-</div>
-
-<div class="mt-6 grid grid-cols-2 gap-4">
-
-<div class="p-4 bg-green-50 dark:bg-green-900 rounded">
-
-### 为什么用二分？
-
-- 答案具有**单调性**
-- 如果长度 x 可行，则 < x 的都可行
-- 如果长度 x 不可行，则 > x 的都不可行
-
-</div>
-
-<div class="p-4 bg-purple-50 dark:bg-purple-900 rounded">
-
-### 使用模板 2
-
-- 求**最大值**，用模板 2
-- `l = mid`，所以 `mid + 1`
-- 查找最后一个满足条件的
 
 </div>
 

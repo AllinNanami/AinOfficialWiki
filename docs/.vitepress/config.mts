@@ -140,7 +140,8 @@ export default defineConfig({
             { text: 'C++ 函数和结构体', link: '/handouts/lesson2-cpp-2025-function' },
             { text: 'C++ STL库', link: '/handouts/lesson2-cpp-2025-STL' },
             { text: 'git使用教程', link: '/handouts/lesson2-git-2025' },
-            { text: '算法入门：复杂度、排序与二分查找', link: '/handouts/lesson3-sort-2025' }
+            { text: '算法入门：复杂度、排序与二分查找', link: '/handouts/lesson3-sort-2025' },
+            { text: 'python基础教学', link: '/handouts/lesson4-Python' },
           ]
         }
       ],
