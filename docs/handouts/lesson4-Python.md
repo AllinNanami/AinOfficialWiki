@@ -383,3 +383,193 @@ for letter in 'Runoob':
    print('当前字母 :', letter)
 ```
 
+---
+
+
+
+## 11. Python 3 函数 (Function) 教程
+
+函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。函数能提高应用的模块性，和代码的重复利用率。
+
+
+
+### 1\. 定义一个函数
+
+你可以定义一个由自己想要功能的函数，以下是简单的规则：
+
+  * 函数代码块以 `def` 关键词开头，后接函数标识符名称和圆括号 `()`。
+  * 任何传入参数和自变量必须放在圆括号中间。圆括号之间可以用于定义参数。
+  * 函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。
+  * 函数内容以冒号 `:` 起始，并且缩进。
+  * `return [表达式]` 结束函数，选择性地返回一个值给调用方。不带表达式的 return 相当于返回 None。
+
+**语法**
+
+```python
+def 函数名(参数列表):
+    "函数_文档字符串"
+    函数体
+    return [表达式]
+```
+
+**实例**
+
+```python
+def hello():
+    print("Hello, World!")
+
+hello() # 调用函数
+```
+
+-----
+
+
+
+### 2\. 参数传递 (重点)
+
+在 Python 中，类型属于对象，变量是没有类型的：
+
+```python
+a = [1,2,3]
+a = "Runoob"
+```
+
+以上代码中，`[1,2,3]` 是 List 类型，`"Runoob"` 是 String 类型，而变量 `a` 是没有类型的，它仅仅是一个对象的引用（一个指针），可以指向 List 也可以指向 String。
+
+
+
+**可变(Mutable)与不可变(Immutable)对象**
+
+在 Python 中，strings, tuples, 和 numbers 是**不可变**的对象，而 list, dict 等则是**可变**的对象。
+
+1.  **不可变类型传递**：类似 C++ 的值传递，如 整数、字符串、元组。如 `fun(a)`，传递的只是 `a` 的值，没有影响 `a` 对象本身。如果在 `fun(a)` 内部修改 `a` 的值，则是新生成一个 `a` 的对象。
+2.  **可变类型传递**：类似 C++ 的引用传递，如 列表，字典。如 `fun(la)`，则是将 `la` 真正的传过去，修改后 `fun` 外部的 `la` 也会受影响。
+
+**实例：传不可变对象**
+
+```python
+def change_int(a):
+    a = 10
+
+b = 2
+change_int(b)
+print(b) # 结果是 2，没有变
+```
+
+**实例：传可变对象**
+
+```python
+def change_list(mylist):
+   mylist.append([1, 2, 3, 4])
+   print("函数内取值: ", mylist)
+
+mylist = [10, 20, 30]
+change_list(mylist)
+print("函数外取值: ", mylist)
+# 函数外取值也会包含 [1, 2, 3, 4]，因为列表被修改了
+```
+
+-----
+
+
+
+### 3\. 参数类型
+
+调用函数时可使用的正式参数类型：
+
+**必需参数**
+
+必需参数须以正确的顺序传入函数。调用时的数量必须和声明时的一样。
+
+```python
+def printme(str):
+    print(str)
+    return
+
+# printme() # 报错：缺少参数
+printme("Runoob") # 正确
+```
+
+**关键字参数**
+
+使用关键字参数允许函数调用时参数的顺序与声明时不一致，因为 Python 解释器能够用参数名匹配参数值。
+
+```python
+def printinfo(name, age):
+   print(f"名字: {name}, 年龄: {age}")
+   return
+printinfo(age=18, name="Runoob") # 顺序不同也没关系
+```
+
+**默认参数**
+
+调用函数时，如果没有传递参数，则会使用默认参数。
+
+```python
+def printinfo(name, age=35):
+   print(f"名字: {name}, 年龄: {age}")
+
+printinfo(name="miki") # age 默认为 35
+printinfo(name="miki", age=18)
+```
+
+---
+
+
+
+### 4. return 语句
+
+`return` 语句退出函数。
+
+```python
+def sum(arg1, arg2):
+   total = arg1 + arg2
+   print("函数内 : ", total)
+   return total
+
+total = sum(10, 20)
+```
+
+-----
+
+
+
+### 5. 变量作用域
+
+Python 中，程序的变量并不是在哪个位置都可以访问的，访问权限决定于这个变量是在哪里赋值的。
+
+  * **全局变量 (Global)**: 定义在函数外部的变量。
+  * **局部变量 (Local)**: 定义在函数内部的变量。
+
+```python
+total = 0 # 这是一个全局变量
+
+def sum(arg1, arg2):
+   total = arg1 + arg2 # total在这里是局部变量
+   print("函数内是局部变量 : ", total)
+   return total
+
+sum(10, 20)
+print("函数外是全局变量 : ", total)
+```
+
+---
+
+
+
+### 6. global 关键字
+
+如果要修改全局变量，需要使用 `global` 关键字。
+
+```python
+num = 1
+def fun1():
+    global num  # 需要使用 global 关键字声明
+    print(num) 
+    num = 123
+    print(num)
+
+fun1()
+print(num) # 全局变量也被修改为 123
+```
+
