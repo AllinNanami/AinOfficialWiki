@@ -16,6 +16,8 @@
 
  - [复杂度、排序与二分查找](/handouts/lesson3-sort-2025) - 算法入门：复杂度、排序与二分查找
 
+ - [python基础教学](/handouts/lesson4-Python) - python教学
+
 
 ## 即将推出
 
