@@ -142,6 +142,8 @@ export default defineConfig({
             { text: 'git使用教程', link: '/handouts/lesson2-git-2025' },
             { text: '算法入门：复杂度、排序与二分查找', link: '/handouts/lesson3-sort-2025' },
             { text: 'python基础教学', link: '/handouts/lesson4-Python' },
+            { text: 'web预习', link: '/handouts/lesson4_weblearn' },
+            { text: 'html and css', link: '/handouts/lesson4-html_and_css' },
           ]
         }
       ],

@@ -18,6 +18,10 @@
 
  - [python基础教学](/handouts/lesson4-Python) - python教学
 
+ - [web预习](/handouts/lesson4_weblearm) - web预习
+
+ - [html and css](/handouts/lesson4-html_and_css) - html和css教学
+
 
 ## 即将推出
 
