@@ -189,7 +189,7 @@ export default defineConfig({
             { text: '资源总览', link: '/resource/' },
             { text: '2025年第0节课', link: '/resource/lesson0-2025'}, 
             { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025'},
-            { text: '2024 第一次虚拟机安装', link: '/resource/first-vm-2024' },
+            { text: '安装年轻人的第一个Linux虚拟机', link: '/resource/first-vm-2024' },
             { text: 'Git使用基础和工作流', link: '/resource/git-basics' },
             { text: '线性代数的艺术（中文）', link: '/resource/the-art-of-linear-algebra-zh-cn' },
           ]
