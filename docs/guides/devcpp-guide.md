@@ -3,6 +3,8 @@ title: DevC++使用教程 - C++编译器安装配置
 description: Dev-C++编译器安装配置教程，详细图文步骤教你如何下载安装DevC++并编写运行第一个C++程序。
 ---
 
+# DevC++ 使用教程
+
 **Dev使用教程**
 
 **前言**
@@ -54,6 +56,5 @@ description: Dev-C++编译器安装配置教程，详细图文步骤教你如何
 **双击下方错误**，定位到代码具体行数进行修改
 
 ![image-20251025102252889](https://gastigado.cnies.org/d/public/image-20251025102252889.png)
-
 
 

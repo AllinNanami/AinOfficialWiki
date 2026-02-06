@@ -1,6 +1,9 @@
 ---
 comments: true
 ---
+
+# 安装年轻人的第一个 Linux 虚拟机
+
 ## 前情提要
 
 在 Windows 下想要完成 Linux 虚拟机的搭建，通常有以下几种常用方法：
