@@ -1,6 +1,8 @@
 ---
-comments: true
+title: The Art of Linear Algebra
+description: 线性代数图解笔记（中文），帮助理解矩阵分解与线性代数核心概念。
 ---
+
 # The Art of Linear Algebra
 #### -- Graphic Notes on “Linear Algebra for Everyone" --
 

@@ -1,4 +1,6 @@
 ---
+title: C++ STL（标准模板库）
+description: C++ STL 讲义，介绍常用容器、迭代器与基础算法的核心用法。
 head:
   - - link
     - rel: stylesheet
@@ -918,4 +920,3 @@ int main() {
     return 0 ;
 }
 ```
-

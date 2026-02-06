@@ -1,5 +1,6 @@
 ---
-comments: true
+title: 安装年轻人的第一个 Linux 虚拟机
+description: 安装 Vmware/HyperV/WSL等虚拟机详细指南
 ---
 
 # 安装年轻人的第一个 Linux 虚拟机

@@ -1,3 +1,8 @@
+---
+title: Python 3 基础教程
+description: Python 3 基础讲义，包含语法、运算符、数据结构与控制流程入门。
+---
+
 # Python 3 基础教程 
 
 本教程基于 Python 3.x 版本，涵盖基础语法、数据结构及控制流程。

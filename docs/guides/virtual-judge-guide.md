@@ -1,3 +1,8 @@
+---
+title: Virtual Judge 使用指南
+description: Virtual Judge 平台使用指南，包含账号注册、题单刷题与提交流程说明。
+---
+
 # Virtual Judge 使用指南
 
 **VJ使用指南**

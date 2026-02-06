@@ -1,4 +1,9 @@
-# 🎀 **【GitHub 协作教程】爱莉希雅特别版** 🎀
+---
+title: GitHub爱莉希雅特别版
+description: GitHub 协作与 Git 工作流讲义，覆盖 SSH、分支管理、Fork 与 Pull Request 流程。
+---
+
+# 🎀 【GitHub 协作教程】爱莉希雅特别版 🎀
 
 
 

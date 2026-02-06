@@ -1,4 +1,6 @@
 ---
+title: C++ 函数与结构体
+description: C++ 进阶讲义，包含函数定义、参数传递、结构体与常见语法实践。
 head:
   - - link
     - rel: stylesheet
