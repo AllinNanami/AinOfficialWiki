@@ -281,6 +281,9 @@ export default defineConfig({
           items: [
             { text: 'DevC++使用教程', link: '/guides/devcpp-guide' },
             { text: 'Virtual Judge 使用指南', link: '/guides/virtual-judge-guide'},
+            { text: '安装年轻人的第一个Linux虚拟机', link: '/guides/first-vm-2024' },
+            { text: 'Git使用基础和工作流', link: '/guides/git-basics' },
+            { text: '线性代数的艺术（中文）', link: '/guides/the-art-of-linear-algebra-zh-cn' }
           ]
         }
       ],
@@ -292,10 +295,7 @@ export default defineConfig({
           items: [
             { text: '资源总览', link: '/resource/' },
             { text: '2025年第0节课', link: '/resource/lesson0-2025'}, 
-            { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025'},
-            { text: '安装年轻人的第一个Linux虚拟机', link: '/resource/first-vm-2024' },
-            { text: 'Git使用基础和工作流', link: '/resource/git-basics' },
-            { text: '线性代数的艺术（中文）', link: '/resource/the-art-of-linear-algebra-zh-cn' },
+            { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025'}
           ]
         }
       ],
@@ -306,7 +306,8 @@ export default defineConfig({
           text: '竞赛',
           items: [
             { text: '竞赛总览', link: '/competition/' },
-            { text: '2025年教育部认可竞赛榜单', link: '/competition/competition-lists-2025' }
+            { text: '2025年教育部认可竞赛榜单', link: '/competition/competition-lists-2025' },
+            { text: '春季学期重要竞赛一览', link: '/competition/competition-introductions'}
           ]
         }
       ]
