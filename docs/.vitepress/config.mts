@@ -230,6 +230,9 @@ export default defineConfig({
 
   lastUpdated: true,
 
+  // Keep explicit to avoid framework-default changes introducing URL redirects in production.
+  cleanUrls: false,
+
   sitemap: {
     hostname: SITE_URL,
     lastmodDateOnly: false,

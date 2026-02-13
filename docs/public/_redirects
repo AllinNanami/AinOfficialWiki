@@ -1,5 +1,59 @@
+# Slidev SPA fallback
 /decks/demo/* /decks/demo/index.html 200
 /decks/guide-2025/* /decks/guide-2025/index.html 200
 /decks/cpp-basics/* /decks/cpp-basics/index.html 200
 /decks/cpp-function-stl/* /decks/cpp-function-stl/index.html 200
 /decks/algorithm-intro/* /decks/algorithm-intro/index.html 200
+
+# VitePress section index (avoid slash-normalization redirects)
+/competition /competition/index.html 200
+/guides /guides/index.html 200
+/handouts /handouts/index.html 200
+/resource /resource/index.html 200
+/slides /slides/index.html 200
+
+# Extensionless document URLs -> canonical .html (rewrite with 200, not 301/302)
+/competition/competition-introductions /competition/competition-introductions.html 200
+/competition/competition-introductions/ /competition/competition-introductions.html 200
+/competition/competition-lists-2025 /competition/competition-lists-2025.html 200
+/competition/competition-lists-2025/ /competition/competition-lists-2025.html 200
+/guides/devcpp-guide /guides/devcpp-guide.html 200
+/guides/devcpp-guide/ /guides/devcpp-guide.html 200
+/guides/first-vm-2024 /guides/first-vm-2024.html 200
+/guides/first-vm-2024/ /guides/first-vm-2024.html 200
+/guides/git-basics /guides/git-basics.html 200
+/guides/git-basics/ /guides/git-basics.html 200
+/guides/the-art-of-linear-algebra-zh-cn /guides/the-art-of-linear-algebra-zh-cn.html 200
+/guides/the-art-of-linear-algebra-zh-cn/ /guides/the-art-of-linear-algebra-zh-cn.html 200
+/guides/virtual-judge-guide /guides/virtual-judge-guide.html 200
+/guides/virtual-judge-guide/ /guides/virtual-judge-guide.html 200
+/handouts/lesson1-cpp-2025 /handouts/lesson1-cpp-2025.html 200
+/handouts/lesson1-cpp-2025/ /handouts/lesson1-cpp-2025.html 200
+/handouts/lesson2-cpp-2025-STL /handouts/lesson2-cpp-2025-STL.html 200
+/handouts/lesson2-cpp-2025-STL/ /handouts/lesson2-cpp-2025-STL.html 200
+/handouts/lesson2-cpp-2025-function /handouts/lesson2-cpp-2025-function.html 200
+/handouts/lesson2-cpp-2025-function/ /handouts/lesson2-cpp-2025-function.html 200
+/handouts/lesson2-git-2025 /handouts/lesson2-git-2025.html 200
+/handouts/lesson2-git-2025/ /handouts/lesson2-git-2025.html 200
+/handouts/lesson3-sort-2025 /handouts/lesson3-sort-2025.html 200
+/handouts/lesson3-sort-2025/ /handouts/lesson3-sort-2025.html 200
+/handouts/lesson4-Python /handouts/lesson4-Python.html 200
+/handouts/lesson4-Python/ /handouts/lesson4-Python.html 200
+/handouts/lesson4-html_and_css /handouts/lesson4-html_and_css.html 200
+/handouts/lesson4-html_and_css/ /handouts/lesson4-html_and_css.html 200
+/handouts/lesson4_weblearn /handouts/lesson4_weblearn.html 200
+/handouts/lesson4_weblearn/ /handouts/lesson4_weblearn.html 200
+/resource/lesson0-2025 /resource/lesson0-2025.html 200
+/resource/lesson0-2025/ /resource/lesson0-2025.html 200
+/resource/meet-and-greet-2025 /resource/meet-and-greet-2025.html 200
+/resource/meet-and-greet-2025/ /resource/meet-and-greet-2025.html 200
+/slides/algorithm-intro /slides/algorithm-intro.html 200
+/slides/algorithm-intro/ /slides/algorithm-intro.html 200
+/slides/cpp-basics /slides/cpp-basics.html 200
+/slides/cpp-basics/ /slides/cpp-basics.html 200
+/slides/cpp-function-stl /slides/cpp-function-stl.html 200
+/slides/cpp-function-stl/ /slides/cpp-function-stl.html 200
+/slides/demo /slides/demo.html 200
+/slides/demo/ /slides/demo.html 200
+/slides/guide-2025 /slides/guide-2025.html 200
+/slides/guide-2025/ /slides/guide-2025.html 200

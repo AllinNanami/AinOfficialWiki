@@ -135,7 +135,9 @@ npm run cf:build
 
 - VitePress 页面路径：`/slides/*.html`
 - 嵌入 Slidev 路径：`/decks/*/`
-- SPA fallback 规则位于：`docs/public/_redirects`
+- 路由重写规则位于：`docs/public/_redirects`
+- 文档页采用“无后缀 URL -> `.html`”的 `200` 重写，避免 `301/302` 链影响搜索引擎抓取
+- 不要添加全局规则 `/* /index.html 200`，否则会误伤 `assets` / `sitemap.xml` 等静态资源
 
 ## 幻灯片嵌入规范
 
@@ -238,9 +240,12 @@ Slidev 的 `--out` 是相对入口文件目录解析。
 download: false
 ```
 
-### 4) deck 子路由刷新 404
+### 4) 子路由刷新异常（deck 或文档页）
 
-确认 `docs/public/_redirects` 中包含对应 `/decks/<name>/*` fallback 规则。
+确认 `docs/public/_redirects` 中包含：
+
+- deck 的 `/decks/<name>/* -> /decks/<name>/index.html 200`
+- 文档页的“无后缀 URL -> `.html`”规则（如 `/guides/git-basics -> /guides/git-basics.html 200`）
 
 ### 5) 控制台警告：`Allow attribute will take precedence over 'allowfullscreen'`
 
