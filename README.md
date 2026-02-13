@@ -133,10 +133,10 @@ npm run cf:build
 
 ### 路由说明
 
-- VitePress 页面路径：`/slides/*.html`
+- VitePress 页面路径：`/slides/*`（clean URLs）
 - 嵌入 Slidev 路径：`/decks/*/`
 - 路由重写规则位于：`docs/public/_redirects`
-- 文档页采用“无后缀 URL -> `.html`”的 `200` 重写，避免 `301/302` 链影响搜索引擎抓取
+- `_redirects` 仅用于 deck 的 SPA fallback，不要为 VitePress 文档页添加“无后缀 -> .html”重写
 - 不要添加全局规则 `/* /index.html 200`，否则会误伤 `assets` / `sitemap.xml` 等静态资源
 
 ## 幻灯片嵌入规范
@@ -245,7 +245,7 @@ download: false
 确认 `docs/public/_redirects` 中包含：
 
 - deck 的 `/decks/<name>/* -> /decks/<name>/index.html 200`
-- 文档页的“无后缀 URL -> `.html`”规则（如 `/guides/git-basics -> /guides/git-basics.html 200`）
+- 不要给 VitePress 文档页配置“无后缀 URL -> `.html`”重写，否则在 Cloudflare Pages 上可能触发 `308` 自跳循环
 
 ### 5) 控制台警告：`Allow attribute will take precedence over 'allowfullscreen'`
 

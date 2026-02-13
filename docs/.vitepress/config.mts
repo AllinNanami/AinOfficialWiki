@@ -13,7 +13,7 @@ function toCanonicalPath(relativePath: string): string {
     return `/${normalized.slice(0, -'index.md'.length)}`
   }
 
-  return `/${normalized.replace(/\.md$/, '')}.html`
+  return `/${normalized.replace(/\.md$/, '')}`
 }
 
 function isSlidesUrl(url: string): boolean {
@@ -230,8 +230,8 @@ export default defineConfig({
 
   lastUpdated: true,
 
-  // Keep explicit to avoid framework-default changes introducing URL redirects in production.
-  cleanUrls: false,
+  // Keep URL shape aligned with Cloudflare Pages clean URL behavior.
+  cleanUrls: true,
 
   sitemap: {
     hostname: SITE_URL,
