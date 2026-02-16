@@ -139,6 +139,38 @@ npm run cf:build
 - `_redirects` 仅用于 deck 的 SPA fallback，不要为 VitePress 文档页添加“无后缀 -> .html”重写
 - 不要添加全局规则 `/* /index.html 200`，否则会误伤 `assets` / `sitemap.xml` 等静态资源
 
+## Vercel 部署
+
+仓库已提供 `vercel.json`，可直接复用 Cloudflare 的单产物构建：
+
+1. 导入本仓库到 Vercel
+2. 构建命令：`npm run cf:build`
+3. 输出目录：`.cloudflare-dist`
+4. Node 版本设置为 `20+`
+
+### 路由说明
+
+- `vercel.json` 已启用 `cleanUrls: true`（与当前 VitePress `cleanUrls` 一致）
+- deck 的 SPA fallback 通过 `rewrites` 定向到 `/decks/<name>/index`
+- 不要添加全局规则 `/(.*) -> /index`，否则会破坏 VitePress 多页面路由
+
+## EdgeOne Pages 部署
+
+仓库已提供 `edgeone.json` 与 `middleware.js`：
+
+1. 导入本仓库到 EdgeOne Pages
+2. 构建命令：`npm run cf:build`
+3. 输出目录：`.cloudflare-dist`
+4. Node 版本设置为 `20+`
+
+### 路由说明
+
+- EdgeOne 官方 `edgeone.json` 的 `rewrites` 不支持 SPA 前端路由回退
+- 当前项目通过 `middleware.js` 为 `/decks/:deck/:path*` 做回退：
+  - 静态资源（如 `assets/*`、`*.js`、`*.css`）保持直出
+  - 非文件子路由回退到 `/decks/<deck>/index.html`
+- 不要配置全局 `/* -> /index.html`，避免误伤文档页和静态资源
+
 ## 幻灯片嵌入规范
 
 文档页面（`docs/slides/*.md`）统一使用主题组件 `SlideEmbed`，不要直接写原始 `iframe`：
@@ -179,6 +211,7 @@ npm run cf:build
 5. 新增/修改文档嵌入页 `docs/slides/*.md`，`iframe src` 指向 `/decks/new-topic/`
 6. 如需要，更新 `docs/public/_redirects` 添加：
    - `/decks/new-topic/* /decks/new-topic/index.html 200`
+7. 若部署到 Vercel，同步更新 `vercel.json` 的 deck fallback 规则
 
 ## Cloudflare 性能优化（已落地）
 

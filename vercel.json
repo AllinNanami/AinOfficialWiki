@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run cf:build",
+  "outputDirectory": ".cloudflare-dist",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/decks/demo/:path*",
+      "destination": "/decks/demo/index"
+    },
+    {
+      "source": "/decks/guide-2025/:path*",
+      "destination": "/decks/guide-2025/index"
+    },
+    {
+      "source": "/decks/cpp-basics/:path*",
+      "destination": "/decks/cpp-basics/index"
+    },
+    {
+      "source": "/decks/cpp-function-stl/:path*",
+      "destination": "/decks/cpp-function-stl/index"
+    },
+    {
+      "source": "/decks/algorithm-intro/:path*",
+      "destination": "/decks/algorithm-intro/index"
+    }
+  ]
+}
