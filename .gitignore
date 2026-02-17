@@ -50,4 +50,4 @@ coverage
 docs/.vitepress/cache/*
 .cloudflare-dist/
 slides/.cloudflare-dist/
-docs/.vitepress/cache/
+docs/.vitepress/cache/*

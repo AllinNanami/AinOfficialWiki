@@ -37,6 +37,7 @@
     "cf:build": "npm run cf:build:clean && npm run cf:build:docs && npm run cf:build:slides"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "katex": "^0.16.21",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-katex": "^2.0.3"
