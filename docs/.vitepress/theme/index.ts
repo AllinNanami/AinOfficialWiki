@@ -30,6 +30,8 @@ import { setupCopyInteractions, syncInlineCodeCopyTargets } from './copy-interac
 import { prepareMarkdownCodeBlocks, syncMarkdownCodeLanguageLabels } from './markdown-code-labels'
 import { prepareMarkdownTables } from './markdown-tables'
 
+import HomeLanding from './components/HomeLanding.vue'
+
 export default {
   extends: DefaultTheme,
   setup() {
@@ -84,6 +86,7 @@ export default {
     })
   },
   enhanceApp({ app }) {
+    app.component('HomeLanding', HomeLanding)
     app.component('SlideEmbed', SlideEmbed)
     app.component('LinkCard', LinkCard)
     app.component('Aside', Aside)
