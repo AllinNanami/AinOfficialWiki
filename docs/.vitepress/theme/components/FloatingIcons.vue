@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onUnmounted } from 'vue'
+import BaseIcon from './ui/BaseIcon.vue'
 
 const props = defineProps<{
   mouseX: number
@@ -247,6 +248,25 @@ onUnmounted(() => {
           <div class="stat-label">技术文档</div>
         </div>
       </div>
+
+      <!-- Added Small Tech Icons -->
+      <div class="floating-item item-5" :style="floatingItemStyle(1.1)">
+        <div class="mini-tech-chip chip-linux" aria-label="Ubuntu">
+          <BaseIcon icon="mdi:ubuntu" :width="18" :height="18" />
+        </div>
+      </div>
+
+      <div class="floating-item item-6" :style="floatingItemStyle(1.35)">
+        <div class="mini-tech-chip chip-git" aria-label="Git">
+          <BaseIcon icon="mdi:git" :width="18" :height="18" />
+        </div>
+      </div>
+
+      <div class="floating-item item-7" :style="floatingItemStyle(0.95)">
+        <div class="mini-tech-chip chip-docker" aria-label="Docker">
+          <BaseIcon icon="mdi:docker" :width="18" :height="18" />
+        </div>
+      </div>
     </div>
     </div>
   </div>
@@ -372,6 +392,9 @@ onUnmounted(() => {
 .item-2 { bottom: -20px; left: -40px; }
 .item-3 { bottom: 40px; right: -50px; z-index: 4; }
 .item-4 { top: 40px; left: -60px; z-index: 4; }
+.item-5 { top: 2px; right: 86px; z-index: 5; }
+.item-6 { bottom: -8px; right: 32px; z-index: 5; }
+.item-7 { top: 140px; right: -74px; z-index: 5; }
 
 .icon-box {
   width: 60px;
@@ -424,6 +447,33 @@ onUnmounted(() => {
   color: var(--vp-c-text-2);
 }
 
+.mini-tech-chip {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--vp-c-divider-light);
+  background: var(--vp-c-bg);
+  box-shadow: var(--vp-shadow-1);
+}
+
+.chip-linux {
+  color: #111827;
+  border-color: rgba(100, 116, 139, 0.45);
+}
+
+.chip-git {
+  color: #f14e32;
+  border-color: color-mix(in srgb, #f14e32 55%, transparent);
+}
+
+.chip-docker {
+  color: #2496ed;
+  border-color: color-mix(in srgb, #2496ed 55%, transparent);
+}
+
 /* Dark mode adjustments */
 :root.dark .code-line { background: #334155; }
 :root.dark .code-block { color: #e2e8f0; }
@@ -434,6 +484,10 @@ onUnmounted(() => {
 :root.dark .token-fn  { color: #79c0ff; }
 :root.dark .token-str { color: #a5d6ff; }
 :root.dark .token-cm  { color: #8b949e; }
+:root.dark .chip-linux {
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.45);
+}
 
 @media (max-width: 960px) {
   .cards-scale-wrapper {

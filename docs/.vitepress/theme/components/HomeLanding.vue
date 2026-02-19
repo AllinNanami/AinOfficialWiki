@@ -58,7 +58,6 @@ onUnmounted(() => {
               加入社群
             </a>
           </div>
-          
         </div>
 
         <div class="hero-visual">
