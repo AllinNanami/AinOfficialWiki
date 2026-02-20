@@ -29,7 +29,12 @@ description: 安装 Vmware/HyperV/WSL等虚拟机详细指南
    - **不支持图形界面**：WSL目前主要支持命令行工具，不适合需要图形界面的应用程序。
    - **功能有限**：相较于完整的虚拟机，WSL在功能上可能有一定的限制，特别是对于需要完整Linux环境的应用场景。
 
-本文将逐一介绍 VMware Workstation 安装 Ubuntu 22.04、Hyper-v 安装 Debian 12、WSL 安装 Ubuntu。
+本文将逐一介绍 VMware Workstation 安装 Ubuntu 22.04、Hyper-v 安装 Debian 12、WSL 安装 Ubuntu。如果要安装 Ubuntu 双系统，请阅读这篇文章：
+
+<LinkCard
+  title="从零开始：2026年Ubuntu 24.04 LTS + Win11双系统安装教程"
+  href="https://hs.cnies.org/archives/dual-boot-ubuntu2404-win11"
+/>
 
 ## 获取系统镜像
 

@@ -465,7 +465,11 @@ export default defineConfig({
             {
               text: 'C++ 基础',
               items: [
-                { text: 'C++ 输入输出与基础', link: '/handouts/lesson1-cpp-2025' },
+                { text: 'C++ 输入与输出基础', link: '/handouts/lesson1-cpp-2025' },
+                { text: 'C++ 基础：变量、数据类型、常量与注释', link: '/handouts/lesson1-cpp-2025-2-types' },
+                { text: 'C++ 控制流基础', link: '/handouts/lesson1-cpp-2025-3-control-flow' },
+                { text: 'C++ 数组基础', link: '/handouts/lesson1-cpp-2025-4-array-basics' },
+                { text: 'C++ 数组常见操作', link: '/handouts/lesson1-cpp-2025-5-array-ops' },
                 { text: 'C++ 函数和结构体', link: '/handouts/lesson2-cpp-2025-function' },
                 { text: 'C++ STL库', link: '/handouts/lesson2-cpp-2025-STL' }
               ]
@@ -591,7 +595,7 @@ export default defineConfig({
             {
               text: 'AI写作',
               items: [
-                { text: '如何清理 AI 生成的草稿，去除 ChatGPT 味', link: '/guides/ai-editing-202601' }
+                { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/guides/ai-editing-202601' }
               ]
             }
           ]

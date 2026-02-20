@@ -33,6 +33,16 @@ description: 3D环梦工坊编程竞赛组教程导航页，汇总开发环境�
 
 - [线性代数的艺术（中文）](/guides/the-art-of-linear-algebra-zh-cn) - 算法学习相关数学拓展阅读。
 
+## AI 相关
+
+### Vibe Coding
+
+[通过 Skills 改善前端设计](/guides/improving-frontend-design-through-skills)
+
+### AI写作
+
+[如何清理 AI 生成的草稿，去除 ChatGPT 味](/guides/ai-editing-202601)
+
 ## 编程语言
 
 - [DevC++ 使用教程](/guides/devcpp-guide) - C++ 学习环境安装与基础使用。

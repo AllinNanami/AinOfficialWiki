@@ -746,13 +746,10 @@ Typora 是一款将 Markdown 的简洁性发挥到极致的桌面编辑器。
 道阻且长，行则将至！一起加油吧！
 
 >Ps:师哥师姐们的博客：
->
->​	[萑澈的寒舍](https://hs.cnies.org/)
->
->​	[薰逸的猫窝](https://caoxunyi.cn/)
->
->​	[Hutao](https://ciallo.hxcn.space/)
+>​	<LinkButton href="https://hs.cnies.org/" variant="outline">萑澈的寒舍</LinkButton>&nbsp;
+>​	<LinkButton href="https://caoxunyi.cn" variant="outline">薰逸的猫窝</LinkButton>&nbsp;
+>​	<LinkButton href="https://titroupast.github.io/fufu_Blog/" variant="outline">芙芙の小窝</LinkButton>
 
-作者：[薰逸喵~](https://github.com/awkker)   
+作者：<LinkButton href="https://github.com/awkker" variant="outline">薰逸喵~</LinkButton>
 
-审阅：[郑文卿](https://github.com/zwqking666)、[芙芙天下第一喵~](https://github.com/Titroupast)、[萑澈](https://hxcn.cnies.org)
+审阅：<LinkButton href="https://github.com/zwqking666" variant="outline">郑文卿</LinkButton>&nbsp;<LinkButton href="https://github.com/Titroupast" variant="outline">芙芙天下第一喵~</LinkButton>&nbsp;<LinkButton href="https://hxcn.cnies.org" variant="outline">萑澈</LinkButton>

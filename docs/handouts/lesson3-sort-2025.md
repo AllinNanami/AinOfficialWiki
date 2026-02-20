@@ -51,7 +51,7 @@ description: 算法入门讲义，涵盖时间复杂度、空间复杂度、排�
 
 - **伪代码结构：**
 
-  ```
+  ```cpp
   const int MAXN = 200000 + 5; // 常见做法，分配稍大的数组以防越界
   int a[MAXN]; // 或使用 vector<int> a;
   int n;
@@ -78,7 +78,7 @@ description: 算法入门讲义，涵盖时间复杂度、空间复杂度、排�
 
 - **示例代码 (递归)：**
 
-  ```
+  ```cpp
   int gcd(int x, int y) {
       if (y == 0) {
           return x;
@@ -95,7 +95,7 @@ description: 算法入门讲义，涵盖时间复杂度、空间复杂度、排�
 
 - **代码示例：**
 
-  ```
+  ```cpp
   int n; // 假设 n 已经输入
   long long c = 0; // 计数器
   for (int i = 1; i <= n; ++i) {

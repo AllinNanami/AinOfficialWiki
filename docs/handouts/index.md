@@ -11,7 +11,7 @@ description: 3D环梦工坊编程竞赛组课程讲义，涵盖C++基础、STL�
 
 ### C++ 基础
 
-- [C++ 输入输出与基础](/handouts/lesson1-cpp-2025) - 输入输出、变量、控制流与数组基础。
+- [C++ 输入输出与基础](/handouts/lesson1-cpp-2025) - 输入输出、变量、控制流与数组基础（已拆分为多篇文章）。
 - [C++ 函数和结构体](/handouts/lesson2-cpp-2025-function) - 函数、结构体与参数传递等核心语法。
 - [C++ STL库](/handouts/lesson2-cpp-2025-STL) - 常用容器与基础算法入门。
 
