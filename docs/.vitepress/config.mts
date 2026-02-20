@@ -555,7 +555,8 @@ export default defineConfig({
             {
               text: 'Linux',
               items: [
-                { text: '安装年轻人的第一个Linux虚拟机', link: '/guides/first-vm-2024' }
+                { text: '安装年轻人的第一个Linux虚拟机', link: '/guides/first-vm-2024' },
+                { text: '解决WSL与Docker删除文件后磁盘空间不释放的问题', link: '/guides/compact-docker-wsl-vdisk.md'}
               ]
             },
             {
