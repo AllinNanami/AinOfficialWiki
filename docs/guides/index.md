@@ -38,6 +38,7 @@ description: 3D环梦工坊编程竞赛组教程导航页，汇总开发环境�
 ### Vibe Coding
 
 [通过 Skills 改善前端设计](/guides/improving-frontend-design-through-skills)
+[在AI编程工具中使用自定义API](/guides/ai-custom-api-for-coding-tools)
 
 ### AI写作
 
