@@ -621,7 +621,21 @@ export default defineConfig({
           text: '导学与活动',
           items: [
             { text: '2025年第0节课', link: '/resource/lesson0-2025' },
-            { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025' }
+            { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025' },
+            { text: '2026 寒假纳新题目', link: '/resource/timu/timu' }
+          ]
+        },
+        {
+          text: '2026 寒假纳新',
+          items: [
+            { text: '2026 寒假纳新考核指南与提交规范', link: '/resource/timu/timu' },
+            { text : 'A题', link: '/resource/timu/A' },
+            { text : 'B题', link: '/resource/timu/B' },
+            { text : 'C题', link: '/resource/timu/C' },
+            { text : 'D题', link: '/resource/timu/D' },
+            { text : 'E题', link: '/resource/timu/E' },
+            { text : 'F题', link: '/resource/timu/F' },
+            { text : 'G题', link: '/resource/timu/G' }
           ]
         },
         {
