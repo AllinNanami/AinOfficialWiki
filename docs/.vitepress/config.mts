@@ -635,7 +635,8 @@ export default defineConfig({
             { text : 'D题', link: '/resource/timu/D' },
             { text : 'E题', link: '/resource/timu/E' },
             { text : 'F题', link: '/resource/timu/F' },
-            { text : 'G题', link: '/resource/timu/G' }
+            { text : 'G题', link: '/resource/timu/G' },
+            { text : '纳新抽奖', link: '/resource/timu/2026-winter-projects-draw' }
           ]
         },
         {
