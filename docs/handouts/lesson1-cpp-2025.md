@@ -35,7 +35,7 @@ C++ 提供了两种主要的 I/O 方式：
 
 C++
 
-```
+```cpp
 #include <iostream> // 包含输入输出流头文件
 
 // 'std' 是一个命名空间，cout 和 endl 都在里面。
@@ -74,7 +74,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Hello, C++!
 Your age is: 20
 Next year, you will be: 21
@@ -91,7 +91,7 @@ Goodbye!
 
 C++
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -123,7 +123,7 @@ int main() {
 
 **运行结果示例 (用户输入 25，然后输入 30 1.75):**
 
-```
+```text
 Please enter your age: 25
 Your age is: 25
 Enter your age and height (separated by a space): 30 1.75
@@ -160,7 +160,7 @@ New age: 30, Height: 1.75
 
 C++
 
-```
+```cpp
 #include <cstdio> // 包含 C 风格 I/O 头文件
 
 int main() {
@@ -190,7 +190,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Hello, C-style output!
 Age: 20
 Name: Alice, Grade: A, Height: 1.780000
@@ -209,7 +209,7 @@ Height (2 decimal places): 1.78
 
 C++
 
-```
+```cpp
 #include <cstdio>
 
 int main() {
@@ -246,7 +246,7 @@ int main() {
 
 **运行结果示例 (用户输入 25，然后输入 30 1.75，然后输入 Bob):**
 
-```
+```text
 Please enter your age: 25
 Your age is: 25
 Enter your age and height (separated by a space): 30 1.75
@@ -281,7 +281,7 @@ Hello, Bob!
 
 C++
 
-```
+```cpp
 #include <iostream>
 #include <string> // 必须包含 <string> 才能使用 std::string 和 getline
 using namespace std;
@@ -303,7 +303,7 @@ int main() {
 
 **运行结果示例 (用户输入 "John Doe"):**
 
-```
+```text
 Please enter your full name: John Doe
 Hello, John Doe!
 ```
@@ -322,7 +322,7 @@ Hello, John Doe!
 
    C++
 
-   ```
+   ```cpp
    int age;
    // 错误！没有 &。程序会尝试写入一个无效的内存地址
    // 极有可能导致 "段错误" (Segmentation Fault) 或程序崩溃
@@ -338,7 +338,7 @@ Hello, John Doe!
 
    C++
 
-   ```
+   ```cpp
    int id;
    string name;
    
@@ -364,7 +364,7 @@ Hello, John Doe!
 
    C++
 
-   ```
+   ```cpp
    // ...
    cin >> id; 
    cin.ignore(); // 忽略掉缓冲区里的一个字符（那个换行符）
@@ -378,7 +378,7 @@ Hello, John Doe!
 
    C++
 
-   ```
+   ```cpp
    // 错误：用 %d (整数) 打印 %f (浮点数)
    printf("%d", 3.14); // 输出垃圾值
    
@@ -396,7 +396,7 @@ Hello, John Doe!
 
    C++
 
-   ```
+   ```cpp
    #include <cstdio>
    
    int main() {

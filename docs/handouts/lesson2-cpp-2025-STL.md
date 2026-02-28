@@ -97,7 +97,7 @@ head:
 
 ### 输入 #1
 
-```
+```text
 3
 senpai 114 51 4
 lxl 114 10 23
@@ -106,7 +106,7 @@ fafa 51 42 60
 
 ### 输出 #1
 
-```
+```text
 senpai 114 51 4
 ```
 
@@ -243,14 +243,14 @@ for (auto i : v) { // auto 自动推导类型
 
 ### 输入 #1
 
-```
+```text
 10
 1 2 3 2 4 5 6 8 5 9
 ```
 
 ### 输出 #1
 
-```
+```text
 5
 ```
 
@@ -397,13 +397,13 @@ map<int, char> mp; // int -> char
 
 ### 输入 #1
 
-```
+```text
 error
 ```
 
 ### 输出 #1
 
-```
+```text
 Lucky Word
 2
 ```
@@ -412,13 +412,13 @@ Lucky Word
 
 ### 输入 #2
 
-```
+```text
 olympic
 ```
 
 ### 输出 #2
 
-```
+```text
 No Answer
 0
 ```
@@ -541,7 +541,7 @@ queue<typename> name;
 
 ### 输入 #1
 
-```
+```text
 13
 1 2
 3
@@ -560,7 +560,7 @@ queue<typename> name;
 
 ### 输出 #1
 
-```
+```text
 2
 1
 2
@@ -675,7 +675,7 @@ stack<typename> name;
 
 ### 输入 #1
 
-```
+```text
 2
 5
 push 2
@@ -691,7 +691,7 @@ size
 
 ### 输出 #1
 
-```
+```text
 2
 1
 Anguei!
@@ -834,14 +834,14 @@ for(auto i : st) {
 
 ### 输入 #1
 
-```
+```text
 10 3
 1 3 3 7 2 5 1 2 4 6
 ```
 
 ### 输出 #1
 
-```
+```text
 3
 ```
 

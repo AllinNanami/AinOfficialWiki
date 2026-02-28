@@ -89,7 +89,7 @@
 
 Bash
 
-```
+```bash
 # 1. 安装 toolkit (Ubuntu示例)
 sudo apt-get install -y nvidia-container-toolkit
 sudo nvidia-ctk runtime configure --runtime=docker
@@ -120,7 +120,7 @@ docker run --rm --gpus all nvidia/cuda:12.4.1-base-ubuntu22.04 nvidia-smi
 
 Bash
 
-```
+```bash
 # 示例：启动一个兼容 OpenAI API 的服务
 python3 -m vllm.entrypoints.openai.api_server \
     --model /models/your-chosen-model \

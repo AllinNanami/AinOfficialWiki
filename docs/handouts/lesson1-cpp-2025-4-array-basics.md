@@ -52,7 +52,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 numbers[0] = 10
 numbers[1] = 20
 numbers[2] = 30
@@ -113,7 +113,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 arr1: 1 2 3 4 5 
 arr3: 1 2 3 0 0 
 ```
@@ -174,7 +174,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 matrix[0][0] = 1
 matrix[0][1] = 2
 matrix[0][2] = 3
@@ -238,7 +238,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 cube[0][0][0] = 1
 cube[0][0][1] = 2
 cube[0][1][0] = 3
@@ -307,7 +307,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 str1: Hello
 str2: World
 Length of str1: 5
@@ -395,7 +395,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Original array:
 Array elements: 1 2 3 4 5 
 Maximum value: 5

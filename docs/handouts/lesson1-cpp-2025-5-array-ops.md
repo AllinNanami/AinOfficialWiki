@@ -98,7 +98,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Original array: 64 34 25 12 22 11 90 
 Found 25 at index 2
 Sum: 258

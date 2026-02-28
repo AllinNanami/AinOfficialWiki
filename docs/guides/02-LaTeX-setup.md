@@ -28,23 +28,23 @@ comments: true
 ![](https://raw.githubusercontent.com/qinnian/FigureBed/master/20200213094506.png)
 
 4. 检查安装是否成功
-```
+```bash
 tex -v //查看 tex 的版本信息
 ```
 ![](https://raw.githubusercontent.com/qinnian/FigureBed/master/20200215092012.png)
 
-```
+```bash
 latex -v //查看 laTeX 的版本信息
 ```
 ![](https://raw.githubusercontent.com/qinnian/FigureBed/master/20200215133653.png)
 
-```
+```bash
 xelatex -v //查看 XeTeX 的版本信息
 ```
 
 ![](https://raw.githubusercontent.com/qinnian/FigureBed/master/20200215133831.png)
 
-```
+```bash
 pdflatex -v //查看 pdfTeX 的版本信息
 ```
 ![](https://raw.githubusercontent.com/qinnian/FigureBed/master/20200216093131.png)

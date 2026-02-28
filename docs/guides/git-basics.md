@@ -406,7 +406,7 @@ git log [--oneline] [--graph]
 ```
 
 除此之外还能看到 提交的哈希值、作者、提交日期和提交消息。
-```
+```text
 `-p` ：显示提交的具体提交内容
 `--oneline` ：选项查看历史记录的简洁的版本
 `--graph` ：开启了拓扑图选项查看历史中什么时候出现了分支、合并
@@ -448,7 +448,7 @@ git diff [first-branch]...[second-branch]
 
 #### git diff 显示内容
 
-```
+```md
 diff --git a/<文件名> b/<文件名>
 index <旧版本哈希>..<新版本哈希> <文件权限>
 --- a/<文件名>
@@ -499,27 +499,27 @@ https://www.jianshu.com/p/c2ec5f06cf1a
 
 从Git仓库中删除文件。
 
-```
+```bash
 git rm [-f] [--cached] <file>
 ```
 
 将某文件从工作目录中删除（删除后会自动将该更改加入暂存区）：
-```
+```bash
 git rm <file>
 ```
 
 如果删除之前修改过并且已经放到暂存区域的话，则必须要用`-f`选项强行从暂存区和工作区中删除修改后的文件：
-```
+```bash
 git rm -f <file>
 ```
 
 使用`--cached`选项，将文件删除的更改加入暂存区，不删除工作目录中的该文件（文件会因此处于未跟踪状态）：
-```
+```bash
 git rm --cached <file>
 ```
 
 如果删除的是目录，可以用`-r`选项递归删除。
-```
+```bash
 git rm -r <directory>
 ```
 
@@ -527,7 +527,7 @@ git rm -r <directory>
 
 移动或重命名一个文件、目录或软连接，并自动将更改加入暂存区：
 
-```
+```bash
 git mv [-f] <file> <new-file>
 ```
 
@@ -539,32 +539,32 @@ git mv [-f] <file> <new-file>
 用于给仓库中的特定提交点加上标记，通常用于发布版本（如 v1.0, v2.0）。**标签不能重复**。
 
 为最新的提交打上标签：
-```
+```bash
 git tag <tag>
 ```
 
 为标签添加注解和消息：
-```
+```bash
 git tag -a <tag> -m <message>
 ```
 
 为某个版本创建标签：
-```
+```bash
 git tag <tag> <commit>
 ```
 
 查看已有标签：
-```
+```bash
 git tag
 ```
 
 查看某个标签对应提交的信息：
-```
+```bash
 git show [tag]
 ```
 
 删除标签：
-```
+```bash
 git tag -d <tag>
 ```
 
@@ -618,36 +618,36 @@ git tag -d <tag>
 
 用于分支管理：
 
-```
+```bash
 git branch [-d] [branch]
 ```
 
 查看当前的分支列表
-```
+```bash
 git branch
 ```
 
 新建分支
-```
+```bash
 git branch <branch>
 ```
 
 删除分支
-```
+```bash
 git branch –d <branch>
 ```
 
 ### git checkout
 
 用于切换分支。
-```
+```bash
 git checkout [-b] <branch>
 ```
 
 checkout命令职责较多，新版git提供了switch命令，以明确切换分支的行为。因此使用checkout和switch均可切换分支。
 
 切换到某分支
-```
+```bash
 git checkout <branch> 或 git switch <branch>
 ```
 新建并切换到此分支
@@ -657,7 +657,7 @@ git switch –c <branch>
 # 两条指令左右是相同的
 ```
 此命令相当于以下两条命令一起执行
-```
+```bash
 git branch <branch>
 git checkout <branch>
 ```
@@ -666,7 +666,7 @@ git checkout <branch>
 
 用于合并指定分支到当前分支。
 
-```
+```bash
 git merge [--squash | --no-ff] <branch>
 ```
 
@@ -763,19 +763,19 @@ git merge [--squash | --no-ff] <branch>
 ### git remote（远程开发）
 
 添加远程仓库：
-```
+```bash
 git remote add <远程主机名> <url>
 ```
 
 
 查看当前配置有哪些远程仓库。加上 -v 参数可以看到每个别名的实际链接地址：
-```
+```bash
 git remote [-v]
 ```
 
 
 删除远程仓库：
-```
+```bash
 git remote rm <shortname>
 ```
 
@@ -783,12 +783,12 @@ git remote rm <shortname>
 ### git push
 
 用于从将本地的分支版本上传到远程并合并。
-```
+```bash
  git push [-u] <远程主机名> <本地分支名>:<远程分支名>
 ```
 
 E.g.
-```
+```bash
 git push origin master:master
 git push origin master
 ```
@@ -797,21 +797,21 @@ git push origin master
 ### git fetch/pull
 
 `git fetch` 命令用于从远程获取代码库中更新的内容。
-```
+```bash
  git fetch [shortname]
 ```
 获取到之后可以将其merge。
-```
+```bash
  git merge [shortname]/[branch]
 ```
 
 
 `git pull`命令简化了上述流程，用于从远程获取更新代码并自动合并本地的版本。
-```
+```bash
 git pull <远程主机名> <远程分支名>:<本地分支名>
 ```
 E.g.
-```
+```bash
  git pull
  git pull origin
  git pull origin master:master

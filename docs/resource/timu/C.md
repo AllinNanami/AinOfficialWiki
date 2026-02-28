@@ -139,7 +139,7 @@
 
 Python
 
-```
+```python
 # 保存为 fix_memory.py 并运行
 import os
 

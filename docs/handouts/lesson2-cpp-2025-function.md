@@ -62,7 +62,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 5 + 3 = 8
 Hello, Alice!
 ```
@@ -121,7 +121,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Original num = 10
 Inside modifyByValue, x = 100
 After modifyByValue, num = 10
@@ -257,7 +257,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 --- Sorted Students ---
 Alice (ID: 1001) Score: 95.5
 Charlie (ID: 1003) Score: 95.5

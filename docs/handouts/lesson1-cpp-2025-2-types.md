@@ -25,7 +25,7 @@ C++ 中有两种注释方式：
 
 C++
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -52,7 +52,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Hello!
 y = 10
 ```
@@ -73,7 +73,7 @@ y = 10
 
 C++
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -108,7 +108,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Age after assignment: 20
 Initial score: 100
 Initial height: 1.75
@@ -137,7 +137,7 @@ Final score: 95
 
 C++
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -177,7 +177,7 @@ int main() {
 
 **运行结果示例 (在 64 位系统上):**
 
-```
+```text
 Integer: 123
 Double: 3.14159
 Char: J
@@ -206,7 +206,7 @@ Size of bool: 1 byte
 
 C++
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -238,7 +238,7 @@ int main() {
 
 **运行结果示例:**
 
-```
+```text
 Constant PI: 3.14159
 Constant Site: MyWebsite.com
 Max array size: 100
