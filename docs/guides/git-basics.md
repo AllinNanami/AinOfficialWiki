@@ -873,4 +873,4 @@ Docs like code是一种强调使用软件开发的最佳实践来进行文档创
 参考资料：
 
 - [Markdown 排版指北](https://fosscope.com/wiki/fosscope-workflow/markdown-format-guidelines)
-- [LaTex 的基本介绍](https://sdnuroboticsailab.github.io/resource/software/LaTeX/01-LaTeX-Introduction/)
+- [LaTex 的基本介绍](./01-LaTeX-Introduction.md)
