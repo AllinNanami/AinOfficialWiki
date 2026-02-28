@@ -542,9 +542,47 @@ export default defineConfig({
           ]
         },
         {
-          text: '前端开发',
+          text: '编程语言',
           items: [
-            { text: '建设中', link: '/guides/' }
+            { text: 'DevC++使用教程', link: '/guides/devcpp-guide' },
+            { text: 'Virtual Judge 使用指南', link: '/guides/virtual-judge-guide' }
+          ]
+        },
+        {
+          text: '运维与软件开发',
+          items: [
+            {
+              text: 'linux',
+              items: [
+                { text: '安装年轻人的第一个Linux虚拟机', link: '/guides/first-vm-2024' },
+                { text: '解决WSL与Docker删除文件后磁盘空间不释放的问题', link: '/guides/compact-docker-wsl-vdisk.md'}
+              ]
+            },
+            {
+              text: 'Git',
+              items: [
+                { text: 'Git使用基础和工作流', link: '/guides/git-basics' }
+              ]
+            }
+          ]
+        },
+        {
+          text: 'AI',
+          items: [
+            {
+              text: 'VibeCoding',
+              items: [
+                { text: '通过 Skills 改善前端设计', link: '/guides/improving-frontend-design-through-skills' },
+                { text: '在AI编程工具中使用自定义API', link: '/guides/ai-custom-api-for-coding-tools' },
+                { text: 'MCP与Skills应用指南', link: '/guides/mcp-skills-guide' }
+              ]
+            },
+            {
+              text: 'AI写作',
+              items: [
+                { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/guides/ai-editing-202601' }
+              ]
+            }
           ]
         },
         {
@@ -554,27 +592,9 @@ export default defineConfig({
           ]
         },
         {
-          text: 'SRE',
+          text: '前端开发',
           items: [
-            {
-              text: 'Linux',
-              items: [
-                { text: '安装年轻人的第一个Linux虚拟机', link: '/guides/first-vm-2024' },
-                { text: '解决WSL与Docker删除文件后磁盘空间不释放的问题', link: '/guides/compact-docker-wsl-vdisk.md'}
-              ]
-            },
-            {
-              text: 'Git版本控制',
-              items: [
-                { text: 'Git使用基础和工作流', link: '/guides/git-basics' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'OJ平台',
-          items: [
-            { text: 'Virtual Judge 使用指南', link: '/guides/virtual-judge-guide' }
+            { text: '建设中', link: '/guides/' }
           ]
         },
         {
@@ -598,31 +618,6 @@ export default defineConfig({
                 { text: 'LaTeX 样式设定', link: '/guides/06-LaTeX-style' }
               ]
             }
-          ]
-        },
-        {
-          text: 'AI',
-          items: [
-            {
-              text: 'Vibe Coding',
-              items: [
-                { text: '通过 Skills 改善前端设计', link: '/guides/improving-frontend-design-through-skills' },
-                { text: '在AI编程工具中使用自定义API', link: '/guides/ai-custom-api-for-coding-tools' },
-                { text: 'MCP与Skills应用指南', link: '/guides/mcp-skills-guide' }
-              ]
-            },
-            {
-              text: 'AI写作',
-              items: [
-                { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/guides/ai-editing-202601' }
-              ]
-            }
-          ]
-        },
-        {
-          text: '编程语言',
-          items: [
-            { text: 'DevC++使用教程', link: '/guides/devcpp-guide' }
           ]
         }
       ],
