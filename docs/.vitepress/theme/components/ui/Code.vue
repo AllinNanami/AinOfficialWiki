@@ -17,6 +17,7 @@ const SHIKI_LANGS = [
   'txt',
   'md',
   'markdown',
+  'latex',
   'js',
   'jsx',
   'ts',
@@ -52,6 +53,7 @@ const SHIKI_LANGS = [
 const SHIKI_LANGUAGE_ALIAS_MAP: Record<string, string> = {
   text: 'txt',
   md: 'markdown',
+  tex: 'latex',
   yml: 'yaml',
   react: 'jsx',
   angular: 'ts',
