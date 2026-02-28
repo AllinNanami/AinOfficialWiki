@@ -584,6 +584,23 @@ export default defineConfig({
           ]
         },
         {
+          text: '文档写作',
+          items: [
+            {
+              text: 'LaTeX',
+              items: [
+                { text: 'LaTeX 基本介绍', link: '/guides/01-LaTeX-Introduction' },
+                { text: 'LaTeX 安装与配置', link: '/guides/02-LaTeX-setup' },
+                { text: 'LaTeX 文本语法', link: '/guides/03-LaTex-text' },
+                { text: 'LaTeX 公式速查', link: '/guides/04-Latex-formula' },
+                { text: 'LaTeX 公式符号总表', link: '/guides/04-Latex-formula-list' },
+                { text: 'LaTeX 文档元素', link: '/guides/05-LaTeX-doc' },
+                { text: 'LaTeX 样式设定', link: '/guides/06-LaTeX-style' }
+              ]
+            }
+          ]
+        },
+        {
           text: 'AI',
           items: [
             {
