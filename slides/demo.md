@@ -1,6 +1,6 @@
 ---
 # 主题配置
-theme: default
+theme: ./theme-ain
 # 幻灯片标题
 title: 3D环梦工坊 - 编程入门
 # 幻灯片下载

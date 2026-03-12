@@ -1,5 +1,5 @@
 ---
-theme: default
+theme: ./theme-ain
 title: 从蒟蒻到大佬的第一步
 download: false
 lineNumbers: true

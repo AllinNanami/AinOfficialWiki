@@ -1,0 +1,21 @@
+{
+  "name": "slidev-theme-ain",
+  "private": true,
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "slidev": {
+    "defaults": {
+      "fonts": {
+        "provider": "none",
+        "sans": "Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif",
+        "serif": "Noto Serif SC, Source Han Serif SC, serif",
+        "mono": "JetBrains Mono, Fira Code, Consolas, monospace"
+      },
+      "themeConfig": {
+        "primary": "#0f6bff"
+      }
+    }
+  }
+}
