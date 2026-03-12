@@ -1440,6 +1440,25 @@ h4,
   letter-spacing: 0.04em;
 }
 
+.vp-pro-code__badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--vp-c-danger-1) 24%, transparent);
+  padding: 2px 8px;
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: color-mix(in srgb, var(--vp-c-danger-1) 72%, var(--vp-c-text-1));
+  background: color-mix(in srgb, var(--vp-c-danger-1) 10%, transparent);
+  white-space: nowrap;
+}
+
+.vp-pro-code__badge--root {
+  text-transform: lowercase;
+}
+
 .vp-pro-code__copy {
   min-height: 24px;
   border: 1px solid var(--vp-c-divider-light);
@@ -1583,6 +1602,15 @@ h4,
 .vp-pro-code__pre .line::before,
 .vp-doc div[class*='language-'] > pre .line::before {
   counter-increment: vp-pro-code-line;
+}
+
+.vp-pro-code.is-shell-code .vp-pro-code__pre .line::before,
+.vp-doc div[class*='language-'].is-shell-code > pre .line::before {
+  content: var(--vp-pro-code-prompt);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--vp-pro-code-accent) 78%, var(--vp-c-text-2));
 }
 
 .vp-pro-code__pre :is(code, .shiki code) .line:empty,

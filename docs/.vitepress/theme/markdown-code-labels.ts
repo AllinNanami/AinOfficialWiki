@@ -1,4 +1,5 @@
 import { buildIcon, loadIcon } from '@iconify/vue'
+import { resolveCodeLanguageMeta } from '../shared/code-language-meta'
 import { resolveLanguageLabel, resolveLanguageShortLabel } from '../shared/language-labels'
 import { resolveLanguageAccent, resolveLanguageIcon } from './components/ui/icon-map'
 
@@ -34,6 +35,17 @@ function readLanguageFromClassName(className: string): string {
   return token.slice('language-'.length)
 }
 
+function readLanguageMeta(block: HTMLElement) {
+  const datasetLanguage = block.dataset.codeLanguage
+
+  if (datasetLanguage) {
+    const rawLanguage = block.dataset.codeRoot === 'true' ? `${datasetLanguage}-root` : datasetLanguage
+    return resolveCodeLanguageMeta(rawLanguage)
+  }
+
+  return resolveCodeLanguageMeta(readLanguageFromClassName(block.className))
+}
+
 function findDirectChildByClass(element: HTMLElement, className: string): HTMLElement | null {
   const child = Array.from(element.children).find((node) => {
     return node instanceof HTMLElement && node.classList.contains(className)
@@ -60,6 +72,27 @@ function createLanguageIconNode(): HTMLSpanElement {
   iconNode.className = 'vp-pro-code__lang-icon vp-pro-md-code__lang-icon'
   iconNode.setAttribute('aria-hidden', 'true')
   return iconNode
+}
+
+function createRootBadgeNode(label: string): HTMLSpanElement {
+  const badgeNode = document.createElement('span')
+  badgeNode.className = 'vp-pro-code__badge vp-pro-code__badge--root vp-pro-md-code__badge'
+  badgeNode.textContent = label
+  badgeNode.setAttribute('aria-label', '需要 root 用户执行')
+  return badgeNode
+}
+
+function applyCodePromptState(block: HTMLElement, promptSymbol: string | null): void {
+  block.classList.toggle('is-shell-code', Boolean(promptSymbol))
+
+  if (promptSymbol) {
+    block.style.setProperty('--vp-pro-code-prompt', `'${promptSymbol}'`)
+    block.dataset.codePrompt = promptSymbol
+    return
+  }
+
+  block.style.removeProperty('--vp-pro-code-prompt')
+  delete block.dataset.codePrompt
 }
 
 async function syncLanguageIcon(iconNode: HTMLElement, language: string): Promise<void> {
@@ -96,8 +129,10 @@ function ensureMarkdownCodeHeader(block: HTMLElement): void {
     copyButton.className = 'copy'
   }
 
-  const language = readLanguageFromClassName(block.className)
-  block.style.setProperty('--vp-pro-code-accent', resolveLanguageAccent(language))
+  const languageMeta = readLanguageMeta(block)
+  block.style.setProperty('--vp-pro-code-accent', resolveLanguageAccent(languageMeta.language))
+  applyCodePromptState(block, languageMeta.promptSymbol)
+  block.classList.toggle('is-root-code', languageMeta.isRootUser)
 
   const filenameNode = findDirectChildByClass(block, 'filename')
 
@@ -112,10 +147,14 @@ function ensureMarkdownCodeHeader(block: HTMLElement): void {
 
   const iconNode = createLanguageIconNode()
   lead.appendChild(iconNode)
-  void syncLanguageIcon(iconNode, language)
+  void syncLanguageIcon(iconNode, languageMeta.language)
 
   langNode.classList.add('vp-pro-code__lang', 'vp-pro-md-code__lang')
   lead.appendChild(langNode)
+
+  if (languageMeta.isRootUser) {
+    lead.appendChild(createRootBadgeNode(languageMeta.rootBadgeLabel))
+  }
 
   if (filenameNode) {
     filenameNode.classList.remove('filename')
@@ -169,9 +208,9 @@ export function syncMarkdownCodeLanguageLabels(root: ParentNode = document): voi
 
     if (!langNode) continue
 
-    const language = readLanguageFromClassName(block.className)
-    const fullLabel = resolveLanguageLabel(language)
-    const shortLabel = resolveLanguageShortLabel(language)
+    const languageMeta = readLanguageMeta(block)
+    const fullLabel = resolveLanguageLabel(languageMeta.language)
+    const shortLabel = resolveLanguageShortLabel(languageMeta.language)
     const useShort = shouldUseShortLabel(block, isPortrait)
 
     langNode.dataset.langFull = fullLabel
@@ -179,10 +218,12 @@ export function syncMarkdownCodeLanguageLabels(root: ParentNode = document): voi
     langNode.textContent = useShort ? shortLabel : fullLabel
     langNode.classList.toggle('is-short', useShort)
     block.classList.toggle('is-lang-short', useShort)
+    block.classList.toggle('is-root-code', languageMeta.isRootUser)
+    applyCodePromptState(block, languageMeta.promptSymbol)
 
     const iconNode = block.querySelector<HTMLElement>(':scope > .vp-pro-md-code__header .vp-pro-md-code__lang-icon')
     if (iconNode) {
-      void syncLanguageIcon(iconNode, language)
+      void syncLanguageIcon(iconNode, languageMeta.language)
     }
   }
 }

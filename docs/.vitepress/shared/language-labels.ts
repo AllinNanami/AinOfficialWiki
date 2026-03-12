@@ -92,6 +92,52 @@ function normalizeInput(value: string): string {
   return value.trim().toLowerCase()
 }
 
+type ParsedLanguageToken = {
+  language: string
+  variant: 'root' | null
+}
+
+function parseLanguageToken(value?: string): ParsedLanguageToken {
+  if (!value) {
+    return {
+      language: 'text',
+      variant: null
+    }
+  }
+
+  let normalized = normalizeInput(value)
+
+  if (!normalized) {
+    return {
+      language: 'text',
+      variant: null
+    }
+  }
+
+  if (normalized.startsWith('language-')) {
+    normalized = normalized.slice('language-'.length)
+  }
+
+  let variant: ParsedLanguageToken['variant'] = null
+
+  if (normalized.endsWith('-root')) {
+    normalized = normalized.slice(0, -'-root'.length)
+    variant = 'root'
+  }
+
+  if (!normalized) {
+    return {
+      language: 'text',
+      variant
+    }
+  }
+
+  return {
+    language: normalized,
+    variant
+  }
+}
+
 function fallbackFullLabel(language: string): string {
   const cleaned = language.replace(/[_-]+/g, ' ').trim()
   if (!cleaned) return 'Plain Text'
@@ -114,16 +160,12 @@ function fallbackShortLabel(language: string): string {
 }
 
 export function normalizeLanguageId(value?: string): string {
-  if (!value) return 'text'
+  const { language } = parseLanguageToken(value)
+  return LANGUAGE_ALIASES[language] ?? language
+}
 
-  let normalized = normalizeInput(value)
-  if (!normalized) return 'text'
-
-  if (normalized.startsWith('language-')) {
-    normalized = normalized.slice('language-'.length)
-  }
-
-  return LANGUAGE_ALIASES[normalized] ?? normalized
+export function resolveLanguageVariant(value?: string): 'root' | null {
+  return parseLanguageToken(value).variant
 }
 
 export function resolveLanguageLabel(language?: string): string {

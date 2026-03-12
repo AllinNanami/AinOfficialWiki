@@ -73,6 +73,65 @@ export function createCard(title: string, href: string) {
 ```
 ````
 
+## 支持的语言
+
+常见 `lang` / Markdown fence 语言标识目前支持：
+
+- 文本与文档：`text`、`md`、`latex`
+- Web 前端：`js`、`jsx`、`ts`、`tsx`、`vue`、`svelte`、`astro`、`html`、`css`、`scss`、`less`
+- 数据与配置：`json`、`yaml`、`toml`、`xml`
+- 通用编程：`py`、`c`、`cpp`、`java`、`go`、`rs`、`php`、`ruby`、`sql`
+- Shell 与终端：`sh`、`bash`、`zsh`、`fish`、`nu`、`cmd`、`powershell`
+
+也支持一部分常见别名，例如：
+
+- `python -> py`
+- `rust -> rs`
+- `shellscript -> sh`
+- `yml -> yaml`
+- `ps1` / `pwsh -> powershell`
+
+## Shell 与 root 用法
+
+对于 `sh`、`bash`、`zsh`、`fish`、`nu` 这类 shell 语言：
+
+- 默认会在每行前显示 `$`
+- 如果需要表示必须使用 `root` 用户执行，可以写成 `<语言>-root`
+- `-root` 会额外显示一个 `root` badge，并把每行前缀切换为 `#`
+- 这些前缀是界面装饰，不会被复制按钮或鼠标拖拽复制进剪贴板
+
+### Markdown 原生代码块
+
+```bash-root
+apt update
+apt install -y nginx
+systemctl restart nginx
+```
+
+````md
+```bash-root
+apt update
+apt install -y nginx
+systemctl restart nginx
+```
+````
+
+### `Code` 组件写法
+
+<Code lang="zsh-root" path="scripts/bootstrap.zsh">
+brew update
+brew install bun
+source ~/.zshrc
+</Code>
+
+```md
+<Code lang="zsh-root" path="scripts/bootstrap.zsh">
+brew update
+brew install bun
+source ~/.zshrc
+</Code>
+```
+
 ## 自动换行与自定义强调色
 
 <Code

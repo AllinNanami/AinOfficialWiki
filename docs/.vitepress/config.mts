@@ -1,7 +1,8 @@
 import { defineConfig, type DefaultTheme } from 'vitepress'
 import markdownItFootnote from 'markdown-it-footnote'
 import markdownItKatexModern from './markdown-it-katex-modern'
-import { normalizeLanguageId, resolveLanguageLabel, resolveLanguageShortLabel } from './shared/language-labels'
+import { resolveCodeLanguageMeta } from './shared/code-language-meta'
+import { resolveLanguageLabel, resolveLanguageShortLabel } from './shared/language-labels'
 
 const SITE_URL = 'https://ain.hmgf.hxcn.space'
 const SOCIAL_IMAGE_URL = new URL('/favicon.ico', SITE_URL).toString()
@@ -165,21 +166,46 @@ function enhanceFenceLanguageLabel(md: any) {
   if (typeof originalFenceRenderer !== 'function') return
 
   md.renderer.rules.fence = (tokens: any[], idx: number, options: any, env: any, self: any) => {
-    const html = originalFenceRenderer(tokens, idx, options, env, self)
     const token = tokens[idx]
-    const info = String(token?.info ?? '').trim()
-    const rawInfo = info.match(/^([^\s{]+)/)?.[1] ?? ''
-    const normalizedLanguage = normalizeLanguageId(rawInfo || 'text')
-    const fullLabel = resolveLanguageLabel(normalizedLanguage)
-    const shortLabel = resolveLanguageShortLabel(normalizedLanguage)
+    const info = String(token?.info ?? '')
+    const rawInfo = info.trim().match(/^([^\s{]+)/)?.[1] ?? ''
+    const languageMeta = resolveCodeLanguageMeta(rawInfo || 'text')
+    const normalizedInfo = rawInfo ? info.replace(rawInfo, languageMeta.language) : info
+    const originalInfo = token?.info
+
+    if (token && normalizedInfo !== info) {
+      token.info = normalizedInfo
+    }
+
+    const html = originalFenceRenderer(tokens, idx, options, env, self)
+
+    if (token) {
+      token.info = originalInfo
+    }
+
+    const fullLabel = resolveLanguageLabel(languageMeta.language)
+    const shortLabel = resolveLanguageShortLabel(languageMeta.language)
     const safeFullLabel = md.utils.escapeHtml(fullLabel)
     const safeFullData = escapeHtmlAttribute(fullLabel)
     const safeShortData = escapeHtmlAttribute(shortLabel)
+    const extraAttributes = [
+      `data-code-language="${escapeHtmlAttribute(languageMeta.language)}"`
+    ]
 
-    return html.replace(
-      /<span class="lang">.*?<\/span>/,
-      `<span class="lang" data-lang-full="${safeFullData}" data-lang-short="${safeShortData}">${safeFullLabel}</span>`
-    )
+    if (languageMeta.isRootUser) {
+      extraAttributes.push('data-code-root="true"')
+    }
+
+    if (languageMeta.promptSymbol) {
+      extraAttributes.push(`data-code-prompt="${escapeHtmlAttribute(languageMeta.promptSymbol)}"`)
+    }
+
+    return html
+      .replace(/<div class="([^"]*language-[^"]*)">/, `<div class="$1" ${extraAttributes.join(' ')}>`)
+      .replace(
+        /<span class="lang">.*?<\/span>/,
+        `<span class="lang" data-lang-full="${safeFullData}" data-lang-short="${safeShortData}">${safeFullLabel}</span>`
+      )
   }
 }
 

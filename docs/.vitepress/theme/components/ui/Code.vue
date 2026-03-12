@@ -2,6 +2,7 @@
 import { createHighlighter } from 'shiki'
 import { computed, onBeforeUnmount, onMounted, ref, useSlots, watch } from 'vue'
 import type { CSSProperties, VNode } from 'vue'
+import { resolveCodeLanguageMeta } from '../../../shared/code-language-meta'
 import { resolveLanguageLabel, resolveLanguageShortLabel } from '../../../shared/language-labels'
 import { addToast } from './toast'
 import BaseIcon from './BaseIcon.vue'
@@ -193,7 +194,8 @@ function normalizeCodeContent(value: string): string {
   return lines.join('\n')
 }
 
-const normalizedLang = computed(() => normalizeLanguage(props.lang))
+const languageMeta = computed(() => resolveCodeLanguageMeta(props.lang))
+const normalizedLang = computed(() => normalizeLanguage(languageMeta.value.language))
 
 const slotCode = computed(() => {
   const nodes = slots.default?.() ?? []
@@ -213,9 +215,17 @@ const resolvedIcon = computed(() => {
   return resolveLanguageIcon(normalizedLang.value)
 })
 
-const customStyle = computed<CSSProperties>(() => ({
-  '--vp-pro-code-accent': props.color || resolveLanguageAccent(normalizedLang.value)
-}))
+const customStyle = computed<CSSProperties>(() => {
+  const style: CSSProperties = {
+    '--vp-pro-code-accent': props.color || resolveLanguageAccent(normalizedLang.value)
+  }
+
+  if (languageMeta.value.promptSymbol) {
+    style['--vp-pro-code-prompt'] = `'${languageMeta.value.promptSymbol}'`
+  }
+
+  return style
+})
 
 const isPathLong = computed(() => resolvedPath.value.length > 70)
 const useShortLanguageLabel = computed(() => hasPath.value && (isPortrait.value || isPathLong.value))
@@ -361,7 +371,11 @@ onBeforeUnmount(() => {
 <template>
   <section
     class="vp-pro-code"
-    :class="{ 'is-line-numbers-hidden': !showLineNumbers }"
+    :class="{
+      'is-line-numbers-hidden': !showLineNumbers,
+      'is-shell-code': languageMeta.showsShellPrompt,
+      'is-root-code': languageMeta.isRootUser
+    }"
     :style="customStyle"
   >
     <header class="vp-pro-code__header">
@@ -381,6 +395,10 @@ onBeforeUnmount(() => {
         >
           {{ languageLabel }}
         </span>
+
+        <span v-if="languageMeta.isRootUser" class="vp-pro-code__badge vp-pro-code__badge--root">
+          {{ languageMeta.rootBadgeLabel }}
+        </span>
       </span>
 
       <span class="vp-pro-code__actions">
@@ -390,6 +408,10 @@ onBeforeUnmount(() => {
           :class="{ 'is-short': useShortLanguageLabel }"
         >
           {{ languageLabel }}
+        </span>
+
+        <span v-if="hasPath && languageMeta.isRootUser" class="vp-pro-code__badge vp-pro-code__badge--root">
+          {{ languageMeta.rootBadgeLabel }}
         </span>
 
         <button
