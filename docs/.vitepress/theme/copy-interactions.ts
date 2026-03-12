@@ -1,5 +1,6 @@
 import { addToast } from './components/ui/toast'
 import { tableToHtml, tableToMarkdown, tableToStyledHtml } from './markdown-tables'
+import type { TableCopyFormat } from '../shared/table-directives'
 import { writeClipboard } from './utils/clipboard'
 
 let suppressCopyrightToastUntil = 0
@@ -63,7 +64,7 @@ async function handleClick(event: MouseEvent): Promise<void> {
     const table = shell?.querySelector<HTMLTableElement>('table')
     if (!table) return
 
-    const format = tableCopyButton.dataset.format
+    const format = tableCopyButton.dataset.format as TableCopyFormat | undefined
 
     if (format === 'html') {
       const html = tableToHtml(table)
@@ -76,6 +77,8 @@ async function handleClick(event: MouseEvent): Promise<void> {
       await copyTextWithToast(styledHtml, '表格样式 HTML 已复制到剪贴板。')
       return
     }
+
+    if (format !== 'markdown') return
 
     const markdown = tableToMarkdown(table)
     await copyTextWithToast(markdown, '表格 Markdown 已复制到剪贴板。')

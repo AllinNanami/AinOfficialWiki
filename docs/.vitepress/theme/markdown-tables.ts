@@ -1,3 +1,9 @@
+import {
+  DEFAULT_TABLE_DIRECTIVE_OPTIONS,
+  resolveTableCopyFormats,
+  type TableCopyFormat
+} from '../shared/table-directives'
+
 function normalizeCellContent(raw: string): string {
   return raw
     .replace(/\r\n/g, '\n')
@@ -212,8 +218,6 @@ function applyMergeRules(table: HTMLTableElement): void {
   table.dataset.vpProTableMerged = 'true'
 }
 
-type TableCopyFormat = 'markdown' | 'html' | 'styled-html'
-
 function createCopyButton(label: string, format: TableCopyFormat): HTMLButtonElement {
   const button = document.createElement('button')
   button.type = 'button'
@@ -225,8 +229,40 @@ function createCopyButton(label: string, format: TableCopyFormat): HTMLButtonEle
   return button
 }
 
-function ensureActionButton(shell: HTMLElement, label: string, format: TableCopyFormat): void {
+function getTableDirectiveRoot(table: HTMLTableElement): HTMLElement | null {
+  return table.closest<HTMLElement>('.vp-pro-table-directive')
+}
+
+function isTruthyDataValue(raw: string | null | undefined): boolean {
+  if (!raw) return false
+  const normalized = raw.trim().toLowerCase()
+  return ['1', 'true', 'yes', 'on'].includes(normalized)
+}
+
+function resolveAllowedCopyFormats(table: HTMLTableElement): TableCopyFormat[] {
+  const wrapper = getTableDirectiveRoot(table)
+  const rawCopy = table.getAttribute('data-vp-pro-table-copy') ?? wrapper?.getAttribute('data-vp-pro-table-copy')
+  return resolveTableCopyFormats(rawCopy)
+}
+
+function removeActionButton(shell: HTMLElement, format: TableCopyFormat): void {
+  shell.querySelector<HTMLElement>(`:scope > .vp-pro-table-actions .vp-pro-table-copy[data-format="${format}"]`)?.remove()
+}
+
+function ensureActionButton(actions: HTMLElement, label: string, format: TableCopyFormat): void {
+  const selector = `.vp-pro-table-copy[data-format="${format}"]`
+  if (actions.querySelector(selector)) return
+
+  actions.appendChild(createCopyButton(label, format))
+}
+
+function syncTableActions(shell: HTMLElement, allowedFormats: TableCopyFormat[]): void {
   let actions = shell.querySelector<HTMLElement>(':scope > .vp-pro-table-actions')
+
+  if (allowedFormats.length === 0) {
+    actions?.remove()
+    return
+  }
 
   if (!actions) {
     actions = document.createElement('div')
@@ -234,18 +270,27 @@ function ensureActionButton(shell: HTMLElement, label: string, format: TableCopy
     shell.appendChild(actions)
   }
 
-  const selector = `.vp-pro-table-copy[data-format="${format}"]`
-  if (actions.querySelector(selector)) return
+  const buttonMap: Record<TableCopyFormat, string> = {
+    markdown: '复制 Markdown',
+    html: '复制 HTML',
+    'styled-html': '复制样式 HTML'
+  }
 
-  actions.appendChild(createCopyButton(label, format))
+  for (const format of DEFAULT_TABLE_DIRECTIVE_OPTIONS.copyFormats) {
+    if (!allowedFormats.includes(format)) {
+      removeActionButton(shell, format)
+      continue
+    }
+
+    ensureActionButton(actions, buttonMap[format], format)
+  }
 }
 
 function ensureTableShell(table: HTMLTableElement): void {
+  const allowedFormats = resolveAllowedCopyFormats(table)
   const existingShell = table.closest<HTMLElement>('.vp-pro-table-shell')
   if (existingShell) {
-    ensureActionButton(existingShell, '复制 Markdown', 'markdown')
-    ensureActionButton(existingShell, '复制 HTML', 'html')
-    ensureActionButton(existingShell, '复制样式 HTML', 'styled-html')
+    syncTableActions(existingShell, allowedFormats)
     return
   }
 
@@ -262,9 +307,17 @@ function ensureTableShell(table: HTMLTableElement): void {
   shell.appendChild(scroll)
   scroll.appendChild(table)
 
-  ensureActionButton(shell, '复制 Markdown', 'markdown')
-  ensureActionButton(shell, '复制 HTML', 'html')
-  ensureActionButton(shell, '复制样式 HTML', 'styled-html')
+  syncTableActions(shell, allowedFormats)
+}
+
+export function isMatrixTable(table: HTMLTableElement): boolean {
+  const wrapper = getTableDirectiveRoot(table)
+  const raw = table.getAttribute('data-vp-pro-table-matrix') ?? wrapper?.getAttribute('data-vp-pro-table-matrix')
+  return isTruthyDataValue(raw)
+}
+
+export function shouldApplyHeaderStyle(isHeaderCell: boolean, matrix: boolean): boolean {
+  return isHeaderCell && !matrix
 }
 
 export function tableToMarkdown(table: HTMLTableElement): string {
@@ -313,6 +366,7 @@ function applyInlineCellStyle(cell: HTMLTableCellElement, isHeader: boolean): vo
 
 export function tableToStyledHtml(table: HTMLTableElement): string {
   const clone = table.cloneNode(true) as HTMLTableElement
+  const matrix = isMatrixTable(table)
 
   clone.style.borderCollapse = 'collapse'
   clone.style.width = '100%'
@@ -325,21 +379,22 @@ export function tableToStyledHtml(table: HTMLTableElement): string {
 
   const headerCells = clone.querySelectorAll<HTMLTableCellElement>('thead th')
   for (const cell of headerCells) {
-    applyInlineCellStyle(cell, true)
+    applyInlineCellStyle(cell, shouldApplyHeaderStyle(true, matrix))
   }
 
   const bodyRows = Array.from(clone.tBodies).flatMap((body) => Array.from(body.rows))
   for (const row of bodyRows) {
     const cells = Array.from(row.cells)
     for (const cell of cells) {
-      const isHeader = cell.tagName === 'TH'
+      const isHeader = shouldApplyHeaderStyle(cell.tagName === 'TH', matrix)
       applyInlineCellStyle(cell, isHeader)
     }
   }
 
   const footerCells = clone.querySelectorAll<HTMLTableCellElement>('tfoot th, tfoot td')
   for (const cell of footerCells) {
-    applyInlineCellStyle(cell, false)
+    const isHeader = shouldApplyHeaderStyle(cell.tagName === 'TH', matrix)
+    applyInlineCellStyle(cell, isHeader)
   }
 
   return clone.outerHTML.trim()
@@ -352,6 +407,7 @@ export function prepareMarkdownTables(root: ParentNode = document): void {
 
   for (const table of tables) {
     applyMergeRules(table)
+    table.dataset.vpProTableMatrix = String(isMatrixTable(table))
     ensureTableShell(table)
   }
 }
