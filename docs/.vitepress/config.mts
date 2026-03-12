@@ -731,6 +731,22 @@ export default defineConfig({
             { text: '竞赛报销说明', link: '/competition/reimbursement-guide' }
           ]
         }
+      ],
+
+      // 科研侧边栏 - 只在访问 /research/ 路径时显示
+      '/research/': [
+        {
+          text: '总览',
+          items: [
+            { text: '科研总览', link: '/research/' }
+          ]
+        },
+        {
+          text: '文献综述',
+          items: [
+            { text: '从零开始使用 CiteSpace 完成文献综述', link: '/research/citespace-from-scratch' }
+          ]
+        }
       ]
     }),
 
