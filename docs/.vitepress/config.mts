@@ -543,6 +543,12 @@ export default defineConfig({
           text: 'SRE基础',
           items: [
             {
+              text: 'Linux基础',
+              items: [
+                { text: 'Linux 基础入门', link: '/handouts/lesson5-linux' }
+              ]
+            },
+            {
               text: 'Git版本控制',
               items: [
                 { text: 'GitHub协作教程', link: '/handouts/lesson2-git-2025' }
