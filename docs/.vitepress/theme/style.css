@@ -926,7 +926,7 @@ h4,
   color: inherit !important;
   border: 1px solid var(--vp-c-divider-light);
   border-radius: 14px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(244, 249, 255, 0.9));
+  background: rgba(244, 249, 255, 0.9);
   box-shadow: var(--vp-shadow-1);
   padding: 14px;
   transition:
@@ -936,7 +936,7 @@ h4,
 }
 
 .dark .vp-pro-link-card__anchor {
-  background: linear-gradient(145deg, rgba(22, 39, 61, 0.86), rgba(15, 27, 44, 0.9));
+  background: rgba(15, 27, 44, 0.9);
 }
 
 .vp-pro-link-card__anchor:hover {
@@ -1330,11 +1330,7 @@ h4,
   gap: 8px;
   padding: 10px 12px;
   border-bottom: 1px solid var(--vp-c-divider-light);
-  background: linear-gradient(
-    140deg,
-    color-mix(in srgb, var(--vp-pro-code-accent) 11%, transparent),
-    transparent 80%
-  );
+  background: color-mix(in srgb, var(--vp-pro-code-accent) 7%, var(--vp-c-bg-soft));
 }
 
 .vp-pro-code__lead,
@@ -3152,54 +3148,38 @@ h4,
 
 .vp-pro-popover.is-primary {
   --vp-pro-popover-border: rgba(15, 107, 255, 0.18);
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(15, 107, 255, 0.14) 0%, rgba(15, 107, 255, 0.07) 100%),
-    rgba(255, 255, 255, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, var(--vp-c-brand-1) 8%, rgba(255, 255, 255, 0.98));
 }
 
 .vp-pro-popover.is-success {
   --vp-pro-popover-border: rgba(22, 163, 74, 0.18);
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(22, 163, 74, 0.16) 0%, rgba(22, 163, 74, 0.08) 100%),
-    rgba(255, 255, 255, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, #16a34a 8%, rgba(255, 255, 255, 0.98));
 }
 
 .vp-pro-popover.is-warning {
   --vp-pro-popover-border: rgba(217, 119, 6, 0.18);
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(217, 119, 6, 0.18) 0%, rgba(245, 158, 11, 0.08) 100%),
-    rgba(255, 255, 255, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, #d97706 8%, rgba(255, 255, 255, 0.98));
 }
 
 .vp-pro-popover.is-danger {
   --vp-pro-popover-border: rgba(220, 38, 38, 0.18);
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(220, 38, 38, 0.18) 0%, rgba(239, 68, 68, 0.08) 100%),
-    rgba(255, 255, 255, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, #dc2626 8%, rgba(255, 255, 255, 0.98));
 }
 
 .dark .vp-pro-popover.is-primary {
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(15, 107, 255, 0.24) 0%, rgba(15, 107, 255, 0.12) 100%),
-    rgba(14, 28, 47, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, var(--vp-c-brand-1) 12%, rgba(14, 28, 47, 0.98));
 }
 
 .dark .vp-pro-popover.is-success {
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(22, 163, 74, 0.22) 0%, rgba(22, 163, 74, 0.12) 100%),
-    rgba(14, 28, 47, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, #16a34a 12%, rgba(14, 28, 47, 0.98));
 }
 
 .dark .vp-pro-popover.is-warning {
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(217, 119, 6, 0.24) 0%, rgba(245, 158, 11, 0.12) 100%),
-    rgba(14, 28, 47, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, #d97706 12%, rgba(14, 28, 47, 0.98));
 }
 
 .dark .vp-pro-popover.is-danger {
-  --vp-pro-popover-bg:
-    linear-gradient(180deg, rgba(220, 38, 38, 0.24) 0%, rgba(239, 68, 68, 0.12) 100%),
-    rgba(14, 28, 47, 0.98);
+  --vp-pro-popover-bg: color-mix(in srgb, #dc2626 12%, rgba(14, 28, 47, 0.98));
 }
 
 .vp-pro-popover__title {
@@ -3322,12 +3302,12 @@ h4,
   overflow: hidden;
   padding-block: 0.64rem;
   padding-inline: var(--vp-pro-doc-content-padding, clamp(20px, 4vw, 42px));
-  border: 1px solid rgba(15, 107, 255, 0.08);
+  border: 1px solid var(--site-nav-tabs-border);
   border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(15, 107, 255, 0.04) 0%, rgba(255, 255, 255, 0.82) 100%),
-    var(--vp-c-bg-soft);
-  box-shadow: 0 12px 24px rgba(11, 41, 89, 0.06);
+  background: var(--vp-c-bg-soft);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 12px 24px rgba(11, 41, 89, 0.06);
 }
 
 .vp-pro-breadcrumbs::after {
@@ -3345,11 +3325,11 @@ h4,
 }
 
 .dark .vp-pro-breadcrumbs {
-  border-color: rgba(110, 168, 255, 0.1);
-  background:
-    linear-gradient(180deg, rgba(54, 104, 179, 0.18) 0%, rgba(13, 26, 44, 0.92) 100%),
-    var(--vp-c-bg-soft);
-  box-shadow: 0 16px 32px rgba(2, 8, 20, 0.28);
+  border-color: var(--site-nav-tabs-border);
+  background: var(--vp-c-bg-soft);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 32px rgba(2, 8, 20, 0.28);
 }
 
 .vp-pro-breadcrumbs__list {
