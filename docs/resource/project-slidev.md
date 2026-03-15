@@ -6,71 +6,33 @@ outline: deep
 
 # Slidev 教程总览
 
-这一组文档不是单讲 Slidev 官方功能，而是围绕本仓库的实际结构来写：
+<DocOverview back-href="/resource/" back-label="返回资源">
+  <Aside type="tip" title="阅读建议">
+    先看主题如何启用，再看 deck 如何独立访问，最后看如何嵌入到文档页中。这样更容易把源码、访问地址和部署产物对上。
+  </Aside>
 
-- `slides/` 放真实的 Slidev 源文件
-- `docs/slides/` 放文档站中的嵌入页
-- `.cloudflare-dist/decks/主题名/` 放每个 deck 的独立构建产物
+  <DocOverviewGroup title="分类导航" description="这组文档围绕本仓库的 Slidev 实践，而不是泛讲 Slidev 官方能力。">
+    <DocOverviewCard title="主题与样式" href="#主题与样式" description="本地主题目录、文件职责和启用方式。" icon="mdi:palette-swatch-outline" variant="category" />
+    <DocOverviewCard title="访问与嵌入" href="#访问与嵌入" description="分清文档页、独立 deck 和嵌入页的关系。" icon="mdi:link-variant" variant="category" />
+    <DocOverviewCard title="延伸阅读" href="#延伸阅读" description="进一步理解 Cloudflare Pages 联合部署方案。" icon="mdi:book-open-page-variant-outline" variant="category" />
+  </DocOverviewGroup>
 
-<Aside type="tip" title="推荐阅读顺序">
-  先看主题如何启用，再看 deck 如何独立访问，最后看如何嵌入到文档页中。这样阅读时更容易把源码、访问地址和部署产物对上。
-</Aside>
+  <DocOverviewGroup id="主题与样式" title="主题与样式" description="先建立“源码目录”和“视觉复用”的整体概念。">
+    <DocOverviewCard title="项目主题使用" href="/resource/project-slidev/theme" description="了解本仓库的本地 Slidev 主题目录、主题文件职责，以及如何在 deck 中启用。" icon="mdi:palette-swatch-outline" variant="article" badge="先读" />
+  </DocOverviewGroup>
 
-## 阅读入口
+  <DocOverviewGroup id="访问与嵌入" title="访问与嵌入" description="再区分开发地址、文档页地址和生产环境下的独立 deck 地址。">
+    <DocOverviewCard title="Slidev 独立访问链接" href="/resource/project-slidev/standalone-access" description="分清开发地址、文档页地址和生产环境下的 /decks/专题名/ 独立访问链接。" icon="mdi:open-in-new" variant="article" badge="核心" />
+    <DocOverviewCard title="嵌入到文档中" href="/resource/project-slidev/embed-in-docs" description="学习如何在 docs/slides 页面中通过 SlideEmbed 组件嵌入 deck。" icon="mdi:application-braces-outline" variant="article" />
+  </DocOverviewGroup>
 
-<LinkCard
-  title="项目主题使用"
-  href="/resource/project-slidev/theme"
-  description="了解本仓库的本地 Slidev 主题目录、主题文件职责，以及如何在 deck 中启用。"
-  icon="mdi:palette-swatch-outline"
-  badge="先读"
-/>
+  <DocOverviewGroup id="延伸阅读" title="延伸阅读" description="这篇外部文章可以帮助你理解为什么本仓库把文档站和 deck 产物合并到同一输出目录。">
+    <DocOverviewCard title="Cloudflare Pages 部署延伸阅读" href="https://hs.cnies.org/archives/vitepress-slidev-intergration-on-cloudflare" description="阅读 VitePress + Slidev 单 Pages 方案，理解 /decks/ 与文档站联合部署的整体结构。" icon="mdi:cloud-outline" variant="article" badge="外部文章" />
+  </DocOverviewGroup>
 
-<LinkCard
-  title="Slidev 独立访问链接"
-  href="/resource/project-slidev/standalone-access"
-  description="分清开发地址、文档页地址和生产环境下的 /decks/专题名/ 独立访问链接。"
-  icon="mdi:link-variant"
-  badge="核心"
-/>
-
-<LinkCard
-  title="嵌入到文档中"
-  href="/resource/project-slidev/embed-in-docs"
-  description="学习如何在 docs/slides 页面中通过 SlideEmbed 组件嵌入 deck，而不是直接写原始 iframe。"
-  icon="mdi:application-braces-outline"
-/>
-
-<LinkCard
-  title="Cloudflare Pages 部署延伸阅读"
-  href="https://hs.cnies.org/archives/vitepress-slidev-intergration-on-cloudflare"
-  description="阅读 VitePress + Slidev 单 Pages 方案，理解为什么本仓库把文档站和 deck 产物合并到同一输出目录。"
-  icon="mdi:cloud-outline"
-  badge="外部文章"
-/>
-
-## 三类地址要分清
-
-| 地址类型 | 示例 | 用途 |
-| --- | --- | --- |
-| 文档页 | `/slides/demo` | 在 VitePress 内查看说明和嵌入版 deck |
-| 独立 deck | `/decks/demo/` | 直接打开构建后的 Slidev 单页应用 |
-| 本地开发端口 | `http://localhost:3030/` | 仅开发时使用，不能写进文档源码 |
-
-## 快速定位仓库文件
-
-```text
-docs/
-  slides/                # 文档站里的嵌入页
-  resource/project-slidev/  # 这组教程文档
-slides/
-  demo.md
-  2025-guide.md
-  theme-ain/             # 本项目的本地 Slidev 主题
-```
-
-## 继续阅读
-
-- [项目主题使用](/resource/project-slidev/theme)
-- [Slidev 独立访问链接](/resource/project-slidev/standalone-access)
-- [嵌入到文档中](/resource/project-slidev/embed-in-docs)
+  <DocOverviewGroup title="仓库对应关系" description="看文档时记住这三组目录最重要。">
+    <DocOverviewCard title="slides/" href="/resource/project-slidev/theme" description="真实的 Slidev 源文件目录。" icon="mdi:file-presentation-box" variant="article" />
+    <DocOverviewCard title="docs/slides/" href="/resource/project-slidev/embed-in-docs" description="文档站里的嵌入页目录。" icon="mdi:file-document-outline" variant="article" />
+    <DocOverviewCard title=".cloudflare-dist/decks/" href="/resource/project-slidev/standalone-access" description="每个 deck 的独立构建产物目录。" icon="mdi:folder-network-outline" variant="article" />
+  </DocOverviewGroup>
+</DocOverview>

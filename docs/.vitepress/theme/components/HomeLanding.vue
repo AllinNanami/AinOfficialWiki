@@ -142,7 +142,11 @@ onUnmounted(() => {
   border-radius: 16px;
   padding: 24px;
   text-decoration: none !important;
-  transition: all 0.3s ease;
+  transition:
+    transform var(--vp-pro-surface-hover-duration) var(--vp-pro-surface-hover-easing),
+    border-color var(--vp-pro-surface-hover-duration) var(--vp-pro-surface-hover-easing),
+    box-shadow var(--vp-pro-surface-hover-duration) var(--vp-pro-surface-hover-easing),
+    background var(--vp-pro-surface-hover-duration) var(--vp-pro-surface-hover-easing);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -150,10 +154,10 @@ onUnmounted(() => {
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  border-color: var(--vp-c-brand-1);
-  background: var(--vp-c-bg);
+  transform: var(--vp-pro-surface-hover-lift);
+  box-shadow: var(--vp-pro-surface-hover-shadow);
+  border-color: var(--vp-pro-surface-hover-border);
+  background: var(--vp-pro-surface-hover-bg);
 }
 
 .feature-icon {
@@ -192,7 +196,7 @@ onUnmounted(() => {
 
 /* Dark mode adjustments for features */
 :root.dark .feature-card:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: var(--vp-pro-surface-hover-shadow-dark);
 }
 
 @media (max-width: 960px) {

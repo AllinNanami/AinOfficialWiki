@@ -28,11 +28,19 @@ import Tab from './components/ui/Tab.vue'
 import ToastProvider from './components/ui/ToastProvider.vue'
 import Checkbox from './components/ui/Checkbox.vue'
 import CheckboxGroup from './components/ui/CheckboxGroup.vue'
+import Kbd from './components/ui/Kbd.vue'
+import Progress from './components/ui/Progress.vue'
+import Popover from './components/ui/Popover.vue'
+import Breadcrumbs from './components/ui/Breadcrumbs.vue'
+import DocOverview from './components/ui/DocOverview.vue'
+import DocOverviewGroup from './components/ui/DocOverviewGroup.vue'
+import DocOverviewCard from './components/ui/DocOverviewCard.vue'
 import { setupCopyInteractions, syncInlineCodeCopyTargets } from './copy-interactions'
 import { prepareMarkdownCodeBlocks, syncMarkdownCodeLanguageLabels } from './markdown-code-labels'
 import { prepareMarkdownTables } from './markdown-tables'
 
 import HomeLanding from './components/HomeLanding.vue'
+import DocBreadcrumbs from './components/DocBreadcrumbs.vue'
 
 export default {
   extends: DefaultTheme,
@@ -109,11 +117,20 @@ export default {
     app.component('Tab', Tab)
     app.component('Checkbox', Checkbox)
     app.component('CheckboxGroup', CheckboxGroup)
+    app.component('Kbd', Kbd)
+    app.component('Progress', Progress)
+    app.component('Popover', Popover)
+    app.component('Breadcrumbs', Breadcrumbs)
+    app.component('DocOverview', DocOverview)
+    app.component('DocOverviewGroup', DocOverviewGroup)
+    app.component('DocOverviewCard', DocOverviewCard)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // 右侧 TOC 改为 Clerk 风格组件
       'aside-outline-before': () => h(ClerkToc),
+      // 正文顶部插入面包屑导航
+      'doc-top': () => h(DocBreadcrumbs),
       // 左侧侧边栏底部增加一键展开/折叠
       'sidebar-nav-after': () => h(SidebarBulkToggle),
       // 放在文档 footer 内，显示在 Next/Previous 导航上方
