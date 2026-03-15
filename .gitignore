@@ -12,7 +12,6 @@ node_modules
 
 # VitePress build outputs
 .vitepress/dist
-.vitepress/cache
 
 # Dist
 dist
@@ -48,7 +47,6 @@ coverage
 *.lcov
 .nyc_output
 
-docs/.vitepress/cache/*
+/docs/.vitepress/cache/
 .cloudflare-dist/
 slides/.cloudflare-dist/
-docs/.vitepress/cache/*
