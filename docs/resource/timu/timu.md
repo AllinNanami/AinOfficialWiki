@@ -186,7 +186,3 @@
 **祝大家在寒假考核中挑战自我，收获满满！**
 
 *环梦工坊编程竞赛组* *2026年2月*
-
-## 六、抽奖活动
-
-请见这个链接：https://ain.hmgf.hxcn.space/resource/timu/2026-winter-projects-draw.html

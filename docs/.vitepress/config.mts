@@ -707,8 +707,7 @@ export default defineConfig({
             { text : '项目 D', link: '/resource/timu/D' },
             { text : '项目 E', link: '/resource/timu/E' },
             { text : '项目 F', link: '/resource/timu/F' },
-            { text : '项目 G', link: '/resource/timu/G' },
-            { text : '纳新抽奖', link: '/resource/timu/2026-winter-projects-draw' }
+            { text : '项目 G', link: '/resource/timu/G' }
           ]
         },
         {
