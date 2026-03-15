@@ -27,9 +27,10 @@ const emit = defineEmits<{
     <button
       type="button"
       class="vp-pro-sidebar-toolbar__button"
+      :aria-label="mode === 'tree' ? '切换到浏览器视图' : '切换到目录树视图'"
       @click="emit('toggleMode')"
     >
-      {{ mode === 'tree' ? '浏览器' : '目录树' }}
+      切换视图
     </button>
   </div>
 </template>
