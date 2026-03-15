@@ -8,9 +8,11 @@ const props = withDefaults(
   defineProps<{
     items: BreadcrumbItem[]
     separator?: string
+    interactive?: boolean
   }>(),
   {
-    separator: '>'
+    separator: '>',
+    interactive: true
   }
 )
 
@@ -64,7 +66,7 @@ onBeforeUnmount(() => {
         :class="{ 'is-current': item.kind === 'item' && item.current }"
       >
         <template v-if="item.kind === 'ellipsis'">
-          <Popover trigger="both" placement="bottom" :offset="4" with-arrow>
+          <Popover v-if="interactive" trigger="both" placement="bottom" :offset="4" with-arrow>
             <template #trigger>
               <button type="button" class="vp-pro-breadcrumbs__ellipsis" aria-label="显示省略路径">
                 ...
@@ -78,11 +80,13 @@ onBeforeUnmount(() => {
               </li>
             </ul>
           </Popover>
+
+          <span v-else class="vp-pro-breadcrumbs__ellipsis is-static" aria-hidden="true">...</span>
         </template>
 
         <template v-else>
           <Popover
-            v-if="item.current && currentItem?.text === item.text && isCurrentOverflowing"
+            v-if="interactive && item.current && currentItem?.text === item.text && isCurrentOverflowing"
             trigger="hover"
             placement="bottom"
             :offset="0"
@@ -98,6 +102,15 @@ onBeforeUnmount(() => {
               </span>
             </template>
           </Popover>
+
+          <span
+            v-else-if="!interactive"
+            :ref="item.current ? setCurrentLabelRef : undefined"
+            class="vp-pro-breadcrumbs__label"
+            :class="{ 'is-truncated': item.current }"
+          >
+            {{ item.text }}
+          </span>
 
           <a
             v-else-if="item.href && !item.current"
