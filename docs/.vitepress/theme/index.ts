@@ -41,6 +41,7 @@ import { prepareMarkdownTables } from './markdown-tables'
 
 import HomeLanding from './components/HomeLanding.vue'
 import DocBreadcrumbs from './components/DocBreadcrumbs.vue'
+import DocNavBreadcrumbDock from './components/DocNavBreadcrumbDock.vue'
 
 export default {
   extends: DefaultTheme,
@@ -127,6 +128,7 @@ export default {
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
+      'nav-bar-content-before': () => h(DocNavBreadcrumbDock),
       // 右侧 TOC 改为 Clerk 风格组件
       'aside-outline-before': () => h(ClerkToc),
       // 正文顶部插入面包屑导航
