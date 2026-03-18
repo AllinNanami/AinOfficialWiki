@@ -8,7 +8,7 @@ import './style.css'
 import ClerkToc from './components/ClerkToc.vue'
 import SlideEmbed from './components/SlideEmbed.vue'
 import DocCopyright from './components/DocCopyright.vue'
-import SidebarBulkToggle from './components/SidebarBulkToggle.vue'
+import SidebarNavigator from './components/SidebarNavigator.vue'
 import LinkCard from './components/ui/LinkCard.vue'
 import Aside from './components/ui/Aside.vue'
 import Badge from './components/ui/Badge.vue'
@@ -133,8 +133,8 @@ export default {
       'aside-outline-before': () => h(ClerkToc),
       // 正文顶部插入面包屑导航
       'doc-top': () => h(DocBreadcrumbs),
-      // 左侧侧边栏底部增加一键展开/折叠
-      'sidebar-nav-after': () => h(SidebarBulkToggle),
+      // 左侧侧边栏恢复双视图导航
+      'sidebar-nav-before': () => h(SidebarNavigator),
       // 放在文档 footer 内，显示在 Next/Previous 导航上方
       'doc-footer-before': () => h(DocCopyright),
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
