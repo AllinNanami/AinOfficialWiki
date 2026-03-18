@@ -8,7 +8,7 @@ import './style.css'
 import ClerkToc from './components/ClerkToc.vue'
 import SlideEmbed from './components/SlideEmbed.vue'
 import DocCopyright from './components/DocCopyright.vue'
-import SidebarNavigator from './components/SidebarNavigator.vue'
+import SidebarBulkToggle from './components/SidebarBulkToggle.vue'
 import LinkCard from './components/ui/LinkCard.vue'
 import Aside from './components/ui/Aside.vue'
 import Badge from './components/ui/Badge.vue'
@@ -41,9 +41,6 @@ import { prepareMarkdownTables } from './markdown-tables'
 
 import HomeLanding from './components/HomeLanding.vue'
 import DocBreadcrumbs from './components/DocBreadcrumbs.vue'
-import DocNavTransition from './components/DocNavTransition.vue'
-import DocNavTitleDock from './components/DocNavTitleDock.vue'
-import DocNavBreadcrumbDock from './components/DocNavBreadcrumbDock.vue'
 
 export default {
   extends: DefaultTheme,
@@ -130,19 +127,17 @@ export default {
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      'nav-bar-title-after': () => h(DocNavTitleDock),
-      'nav-bar-content-before': () => h(DocNavBreadcrumbDock),
       // 右侧 TOC 改为 Clerk 风格组件
       'aside-outline-before': () => h(ClerkToc),
       // 正文顶部插入面包屑导航
       'doc-top': () => h(DocBreadcrumbs),
-      // 自定义左侧侧栏双视图导航
-      'sidebar-nav-before': () => h(SidebarNavigator),
+      // 左侧侧边栏底部增加一键展开/折叠
+      'sidebar-nav-after': () => h(SidebarBulkToggle),
       // 放在文档 footer 内，显示在 Next/Previous 导航上方
       'doc-footer-before': () => h(DocCopyright),
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
       // 在布局底部插入 toast 容器
-      'layout-bottom': () => h(Fragment, null, [h(DocNavTransition), h(ToastProvider)])
+      'layout-bottom': () => h(Fragment, null, [h(ToastProvider)])
     })
   }
 } satisfies Theme

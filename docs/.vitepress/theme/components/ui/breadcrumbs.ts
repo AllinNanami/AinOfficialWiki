@@ -90,24 +90,6 @@ function toOverviewAnchorHref(overviewPath: string, text: string): string | unde
   return `${overviewPath}#${anchor}`
 }
 
-export function resolveDocDisplayTitle(options: {
-  pageTitle?: string
-  routePath: string
-  sectionBase: string
-  rootLabel: string
-}): string {
-  const pageTitle = options.pageTitle?.trim() || options.rootLabel
-  const normalizedRoute = normalizeDocPath(options.routePath)
-  const normalizedSectionBase = normalizeDocPath(options.sectionBase)
-  const looksLikeOverviewTitle = pageTitle.includes('总览')
-
-  if (normalizedRoute === normalizedSectionBase && looksLikeOverviewTitle) {
-    return isOverviewLabel(options.rootLabel) ? options.rootLabel : `${options.rootLabel}总览`
-  }
-
-  return pageTitle
-}
-
 export function normalizeDocPath(path: string): string {
   const raw = path.trim()
 
@@ -246,7 +228,6 @@ export function buildBreadcrumbTrail({
   } else {
     items[items.length - 1] = {
       ...items[items.length - 1],
-      text: pageTitle,
       href: undefined,
       current: true
     }
