@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, provide, ref, watch } from 'vue'
 import BaseIcon from './BaseIcon.vue'
 import { tabsContextKey } from './tabs-context'
 import type { TabMeta } from './tabs-context'
@@ -17,6 +17,14 @@ const props = withDefaults(
 
 const tabs = ref<TabMeta[]>([])
 const activeValue = ref('')
+const tabListRef = ref<HTMLElement | null>(null)
+
+const indicatorWidth = ref('0px')
+const indicatorTransform = ref('translate3d(0, 0, 0)')
+const indicatorOpacity = ref('0')
+
+let resizeObserver: ResizeObserver | null = null
+let mutationObserver: MutationObserver | null = null
 
 function findFirstEnabled(): string {
   return tabs.value.find((tab) => !tab.disabled)?.value ?? ''
@@ -60,12 +68,79 @@ function activate(value: string) {
   activeValue.value = value
 }
 
+function syncIndicator() {
+  if (!tabListRef.value) return
+
+  const list = tabListRef.value
+  const activeButton = list.querySelector<HTMLElement>('.vp-pro-tabs__trigger.is-active')
+  if (!activeButton) {
+    indicatorOpacity.value = '0'
+    return
+  }
+
+  const listRect = list.getBoundingClientRect()
+  const buttonRect = activeButton.getBoundingClientRect()
+
+  const width = Math.max(0, Math.round(buttonRect.width))
+  const offset = Math.max(0, Math.round(buttonRect.left - listRect.left + list.scrollLeft))
+
+  indicatorWidth.value = `${width}px`
+  indicatorTransform.value = `translate3d(${offset}px, 0, 0)`
+  indicatorOpacity.value = '1'
+}
+
+function scheduleSync() {
+  requestAnimationFrame(() => {
+    nextTick(() => syncIndicator())
+  })
+}
+
 watch(
   () => props.defaultValue,
   () => {
     ensureActiveTab()
   }
 )
+
+watch(activeValue, () => {
+  scheduleSync()
+})
+
+watch(
+  () => tabs.value.length,
+  () => {
+    scheduleSync()
+  }
+)
+
+onMounted(() => {
+  scheduleSync()
+
+  if (tabListRef.value) {
+    resizeObserver = new ResizeObserver(() => {
+      scheduleSync()
+    })
+    resizeObserver.observe(tabListRef.value)
+
+    mutationObserver = new MutationObserver(() => {
+      scheduleSync()
+    })
+    mutationObserver.observe(tabListRef.value, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class', 'disabled']
+    })
+  }
+
+  window.addEventListener('resize', scheduleSync)
+})
+
+onUnmounted(() => {
+  resizeObserver?.disconnect()
+  mutationObserver?.disconnect()
+  window.removeEventListener('resize', scheduleSync)
+})
 
 provide(tabsContextKey, {
   activeValue,
@@ -77,7 +152,17 @@ provide(tabsContextKey, {
 
 <template>
   <section class="vp-pro-tabs">
-    <div class="vp-pro-tabs__list" role="tablist" :aria-label="label">
+    <div
+      ref="tabListRef"
+      class="vp-pro-tabs__list"
+      role="tablist"
+      :aria-label="label"
+      :style="{
+        '--vp-pro-tabs-indicator-width': indicatorWidth,
+        '--vp-pro-tabs-indicator-transform': indicatorTransform,
+        '--vp-pro-tabs-indicator-opacity': indicatorOpacity
+      }"
+    >
       <button
         v-for="tab in tabs"
         :key="tab.value"
