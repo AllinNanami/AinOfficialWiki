@@ -91,15 +91,10 @@ Docker 安装教程：
 
 下载镜像文件：
 
-```text
-cyberdog_race.tar
-```
-
-镜像大小约 **10GB**。
-
-<LinkCard title="cyberdog_sim 镜像下载地址 (123网盘)" href="https://www.123865.com/s/GoDdjv-E15UA?pwd=dWkW#" description="镜像包约 10.9GB，请在 Ubuntu 环境中下载并导入，提取码: dWkW" icon="mdi:download-box-outline" />
-
-<LinkCard title="cyberdog_sim 镜像下载地址 (百度网盘)" href="https://pan.baidu.com/s/1FHPks2QdmCywGyVa1Et5TQ?pwd=zxwg" description="镜像包约 10.9GB，请在 Ubuntu 环境中下载并导入，提取码: zxwg" icon="mdi:download-box-outline" />
+<FileTree>
+  <FileTreeFile name="cyberdog_raceV2.tar（百度网盘，提取码：zxwg）" href="https://pan.baidu.com/s/1FHPks2QdmCywGyVa1Et5TQ?pwd=zxwg" icon="mdi:archive-outline" />
+  <FileTreeFile name="cyberdog_raceV2.tar（123网盘，提取码：dWkW）" href="https://www.123865.com/s/GoDdjv-E15UA?pwd=dWkW#" icon="mdi:archive-outline" />
+</FileTree>
 
 下载完成后，将文件放在 Ubuntu 系统目录中。
 
@@ -108,7 +103,7 @@ cyberdog_race.tar
 打开终端，执行：
 
 ```bash
-sudo docker load -i cyberdog_race.tar
+sudo docker load -i cyberdog_raceV2.tar
 ```
 
 导入完成后，可通过以下命令查看镜像：
