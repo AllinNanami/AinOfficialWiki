@@ -91,10 +91,18 @@ Docker 安装教程：
 
 下载镜像文件：
 
-<FileTree>
-  <FileTreeFile name="cyberdog_raceV2.tar（百度网盘，提取码：zxwg）" href="https://pan.baidu.com/s/1FHPks2QdmCywGyVa1Et5TQ?pwd=zxwg" icon="mdi:archive-outline" />
-  <FileTreeFile name="cyberdog_raceV2.tar（123网盘，提取码：dWkW）" href="https://www.123865.com/s/GoDdjv-E15UA?pwd=dWkW#" icon="mdi:archive-outline" />
-</FileTree>
+<Tabs default-value="baidu" label="下载地址">
+  <Tab value="baidu" label="百度网盘" icon="mdi:cloud-download">
+    <FileTree>
+      <FileTreeFile name="cyberdog_raceV2.tar（提取码：zxwg）" href="https://pan.baidu.com/s/1FHPks2QdmCywGyVa1Et5TQ?pwd=zxwg" icon="mdi:archive-outline" />
+    </FileTree>
+  </Tab>
+  <Tab value="123" label="123网盘" icon="mdi:cloud-download">
+    <FileTree>
+      <FileTreeFile name="cyberdog_raceV2.tar（提取码：dWkW）" href="https://www.123865.com/s/GoDdjv-E15UA?pwd=dWkW#" icon="mdi:archive-outline" />
+    </FileTree>
+  </Tab>
+</Tabs>
 
 下载完成后，将文件放在 Ubuntu 系统目录中。
 
