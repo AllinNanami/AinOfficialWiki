@@ -149,6 +149,8 @@
 
 ### 提交格式要求
 
+<LinkCard title="Git 使用基础和工作流" href="/guides/git-basics" description="Git 版本控制基础与团队协作工作流教程，涵盖提交、分支、合并与常见实践" icon="mdi:git" />
+
 - Git Commit 消息需符合 [约定式提交规范](https://www.conventionalcommits.org/zh-hans/v1.0.0/)。
 - 代码注释使用中文或英文均可，要求清晰规范。
 
