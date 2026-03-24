@@ -50,7 +50,7 @@ ros2 service call /motion_result_cmd protocol/srv/MotionResultCmd "motion_id: 11
 ### 慢走
 
 ```bash
-ros2 topic pub /motion_servo_cmd protocol/msg/MotionServoCmd "motion_id: 303"
+ros2 topic pub -r 20 /motion_servo_cmd protocol/msg/MotionServoCmd "{motion_id: 303, vel_des: [0.2, 0.0, 0.0]}"
 ```
 
 ### 快走
