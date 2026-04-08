@@ -85,11 +85,18 @@ const { useMarkdown, renderedHtml } = useMarkdownSlot(slots)
       </span>
     </button>
 
-    <div v-show="isOpen" class="vp-pro-accordion-item__panel">
-      <div class="vp-pro-accordion-item__content">
-        <div v-if="useMarkdown" class="vp-pro-slot-markdown" v-html="renderedHtml" />
-        <slot v-else />
+    <Transition
+      enter-active-class="vp-pro-accordion-item-enter-active"
+      leave-active-class="vp-pro-accordion-item-leave-active"
+      enter-from-class="vp-pro-accordion-item-enter-from"
+      leave-to-class="vp-pro-accordion-item-leave-to"
+    >
+      <div v-show="isOpen" class="vp-pro-accordion-item__panel">
+        <div class="vp-pro-accordion-item__content">
+          <div v-if="useMarkdown" class="vp-pro-slot-markdown" v-html="renderedHtml" />
+          <slot v-else />
+        </div>
       </div>
-    </div>
+    </Transition>
   </section>
 </template>
