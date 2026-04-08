@@ -762,19 +762,11 @@ h4,
   overflow: clip;
   min-height: calc(100vh - var(--vp-nav-height));
   min-height: calc(100svh - var(--vp-nav-height));
-  background:
-    radial-gradient(max(52vw, 520px) max(46vh, 320px) at 8% -6%, rgba(34, 133, 255, 0.2) 0%, rgba(34, 133, 255, 0) 72%),
-    radial-gradient(max(52vw, 520px) max(46vh, 320px) at 92% 2%, rgba(0, 186, 198, 0.18) 0%, rgba(0, 186, 198, 0) 70%),
-    linear-gradient(180deg, rgba(245, 248, 255, 0.62) 0%, rgba(236, 243, 252, 0.55) 46%, rgba(233, 239, 248, 0.28) 100%);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--site-bg-canvas);
 }
 
 .dark .VPHome {
-  background:
-    radial-gradient(max(54vw, 560px) max(48vh, 340px) at 6% -8%, rgba(65, 128, 255, 0.28) 0%, rgba(65, 128, 255, 0) 72%),
-    radial-gradient(max(54vw, 560px) max(48vh, 340px) at 94% 2%, rgba(56, 200, 211, 0.22) 0%, rgba(56, 200, 211, 0) 70%),
-    linear-gradient(180deg, rgba(9, 16, 28, 0.9) 0%, rgba(11, 21, 36, 0.8) 52%, rgba(13, 27, 45, 0.62) 100%);
+  background: var(--site-bg-canvas);
 }
 
 .VPHome::before,
@@ -784,25 +776,24 @@ h4,
   pointer-events: none;
   z-index: 0;
   border-radius: 999px;
-  filter: blur(12px);
 }
 
 .VPHome::before {
-  width: min(42vw, 560px);
-  height: min(42vw, 560px);
+  width: min(40vw, 400px);
+  height: min(40vw, 400px);
   top: clamp(20px, 8vh, 70px);
-  right: max(-16vw, -280px);
-  background: radial-gradient(circle, rgba(34, 133, 255, 0.3) 0%, rgba(34, 133, 255, 0) 72%);
-  animation: driftA 13s ease-in-out infinite alternate;
+  right: max(-10vw, -180px);
+  background: radial-gradient(circle, rgba(94, 106, 210, 0.08) 0%, rgba(94, 106, 210, 0) 70%);
+  filter: blur(20px);
 }
 
 .VPHome::after {
-  width: min(48vw, 620px);
-  height: min(48vw, 620px);
-  left: max(-20vw, -260px);
-  bottom: clamp(-200px, -12vh, -110px);
-  background: radial-gradient(circle, rgba(0, 186, 198, 0.25) 0%, rgba(0, 186, 198, 0) 70%);
-  animation: driftB 16s ease-in-out infinite alternate;
+  width: min(45vw, 450px);
+  height: min(45vw, 450px);
+  left: max(-12vw, -200px);
+  bottom: clamp(-150px, -10vh, -80px);
+  background: radial-gradient(circle, rgba(113, 112, 255, 0.06) 0%, rgba(113, 112, 255, 0) 70%);
+  filter: blur(20px);
 }
 
 .VPHome .VPHero,
@@ -824,12 +815,12 @@ h4,
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 20px 35px rgba(13, 63, 144, 0.25);
+  text-shadow: 0 20px 40px rgba(94, 106, 210, 0.2);
   animation: revealUp 0.85s ease forwards;
 }
 
 .dark .VPHome .VPHero .name {
-  text-shadow: 0 22px 38px rgba(4, 16, 36, 0.62);
+  text-shadow: 0 22px 40px rgba(94, 106, 210, 0.3);
 }
 
 .VPHome .VPHero .text {
@@ -3403,24 +3394,6 @@ h4,
   outline: 2px solid var(--vp-c-brand-1);
   outline-offset: 2px;
   border-radius: 6px;
-}
-
-@keyframes driftA {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(-34px, 22px, 0) scale(1.08);
-  }
-}
-
-@keyframes driftB {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(35px, -28px, 0) scale(1.07);
-  }
 }
 
 @keyframes revealUp {
