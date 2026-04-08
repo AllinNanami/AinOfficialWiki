@@ -6,7 +6,7 @@ outline: deep
 
 # Slidev 教程总览
 
-<DocOverview back-href="/resource/" back-label="返回资源">
+<DocOverview back-href="/contribution/" back-label="返回贡献">
   <Aside type="tip" title="阅读建议">
     先看主题如何启用，再看 deck 如何独立访问，最后看如何嵌入到文档页中。这样更容易把源码、访问地址和部署产物对上。
   </Aside>
@@ -18,12 +18,12 @@ outline: deep
   </DocOverviewGroup>
 
   <DocOverviewGroup title="主题与样式" description="先建立“源码目录”和“视觉复用”的整体概念。">
-    <DocOverviewCard title="项目主题使用" href="/resource/project-slidev/theme" description="了解本仓库的本地 Slidev 主题目录、主题文件职责，以及如何在 deck 中启用。" icon="mdi:palette-swatch-outline" variant="article" badge="先读" />
+    <DocOverviewCard title="项目主题使用" href="/contribution/project-slidev/theme" description="了解本仓库的本地 Slidev 主题目录、主题文件职责，以及如何在 deck 中启用。" icon="mdi:palette-swatch-outline" variant="article" badge="先读" />
   </DocOverviewGroup>
 
   <DocOverviewGroup title="访问与嵌入" description="再区分开发地址、文档页地址和生产环境下的独立 deck 地址。">
-    <DocOverviewCard title="Slidev 独立访问链接" href="/resource/project-slidev/standalone-access" description="分清开发地址、文档页地址和生产环境下的 /decks/专题名/ 独立访问链接。" icon="mdi:open-in-new" variant="article" badge="核心" />
-    <DocOverviewCard title="嵌入到文档中" href="/resource/project-slidev/embed-in-docs" description="学习如何在 docs/slides 页面中通过 SlideEmbed 组件嵌入 deck。" icon="mdi:application-braces-outline" variant="article" />
+    <DocOverviewCard title="Slidev 独立访问链接" href="/contribution/project-slidev/standalone-access" description="分清开发地址、文档页地址和生产环境下的 /decks/专题名/ 独立访问链接。" icon="mdi:open-in-new" variant="article" badge="核心" />
+    <DocOverviewCard title="嵌入到文档中" href="/contribution/project-slidev/embed-in-docs" description="学习如何在 docs/slides 页面中通过 SlideEmbed 组件嵌入 deck。" icon="mdi:application-braces-outline" variant="article" />
   </DocOverviewGroup>
 
   <DocOverviewGroup title="延伸阅读" description="这篇外部文章可以帮助你理解为什么本仓库把文档站和 deck 产物合并到同一输出目录。">
@@ -31,8 +31,8 @@ outline: deep
   </DocOverviewGroup>
 
   <DocOverviewGroup title="仓库对应关系" description="看文档时记住这三组目录最重要。">
-    <DocOverviewCard title="slides/" href="/resource/project-slidev/theme" description="真实的 Slidev 源文件目录。" icon="mdi:file-presentation-box" variant="article" />
-    <DocOverviewCard title="docs/slides/" href="/resource/project-slidev/embed-in-docs" description="文档站里的嵌入页目录。" icon="mdi:file-document-outline" variant="article" />
-    <DocOverviewCard title=".cloudflare-dist/decks/" href="/resource/project-slidev/standalone-access" description="每个 deck 的独立构建产物目录。" icon="mdi:folder-network-outline" variant="article" />
+    <DocOverviewCard title="slides/" href="/contribution/project-slidev/theme" description="真实的 Slidev 源文件目录。" icon="mdi:file-presentation-box" variant="article" />
+    <DocOverviewCard title="docs/slides/" href="/contribution/project-slidev/embed-in-docs" description="文档站里的嵌入页目录。" icon="mdi:file-document-outline" variant="article" />
+    <DocOverviewCard title=".cloudflare-dist/decks/" href="/contribution/project-slidev/standalone-access" description="每个 deck 的独立构建产物目录。" icon="mdi:folder-network-outline" variant="article" />
   </DocOverviewGroup>
 </DocOverview>
