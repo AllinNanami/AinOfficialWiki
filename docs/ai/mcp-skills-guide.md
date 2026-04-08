@@ -242,7 +242,21 @@ Skills 不仅服务于代码，同样能赋能业务工作流。
   - **仓库链接**：https://github.com/anthropics/skills
   - **安装**：`npx skills add anthropics/skills --yes`
 
-### 5. 社区聚合知识库 (Community Collections)
+### 5. 创意与动效类 (Creative & Motion)
+
+生成高质量视觉动效，赋能内容创作与演示场景。
+
+- **`vibe-motion/skills`**
+  - **功能**：生成尺子进度动画、打字动画演示、procedural fish 游动动画、SVG 组装动效，配套交互式安装脚本。
+  - **仓库链接**：https://github.com/vibe-motion/skills
+  - **安装**：`npx skills add vibe-motion/skills`（交互式安装，建议全量安装后按需选用）
+  - **包含 Skills**：
+    - `ruler-progress-render`：生成尺子进度动画，可配置文字和进度参数
+    - `claude-typer`：将提示词文本转换为 CLI 风格的打字动画演示
+    - `procedural-fish-render`：生成循环游动的 procedural fish 动画
+    - `svg-assembly-animator`：将静态矢量图转化为"力量感 + 速度感"的组装动效
+
+### 6. 社区聚合知识库 (Community Collections)
 
 这些仓库更像“目录/超市”，适合做能力盘点和灵感搜索：
 
