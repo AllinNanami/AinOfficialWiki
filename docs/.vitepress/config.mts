@@ -664,7 +664,8 @@ export default defineConfig({
           items: [
             { text: '通过 Skills 改善前端设计', link: '/ai/improving-frontend-design-through-skills' },
             { text: '在AI编程工具中使用自定义API', link: '/ai/ai-custom-api-for-coding-tools' },
-            { text: 'MCP与Skills应用指南', link: '/ai/mcp-skills-guide' }
+            { text: 'MCP与Skills应用指南', link: '/ai/mcp-skills-guide' },
+            { text: '社区奇葩Skills大赏', link: '/ai/fun-community-skills' }
           ]
         },
         {

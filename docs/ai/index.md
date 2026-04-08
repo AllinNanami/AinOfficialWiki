@@ -15,6 +15,7 @@ description: AI 辅助编程与 VibeCoding 教程，学会用 AI 提升开发效
     <DocOverviewCard title="通过 Skills 改善前端设计" href="/ai/improving-frontend-design-through-skills" description="利用 AI Skills 框架提升前端设计一致性与开发效率。" icon="mdi:palette" variant="article" />
     <DocOverviewCard title="在 AI 编程工具中使用自定义 API" href="/ai/ai-custom-api-for-coding-tools" description="将自建 AI API 集成到主流 AI 编程助手中使用。" icon="mdi:api" variant="article" />
     <DocOverviewCard title="MCP 与 Skills 应用指南" href="/ai/mcp-skills-guide" description="探索 MCP 协议与 Skills 生态的结合应用。" icon="mdi:connection" variant="article" />
+    <DocOverviewCard title="当 AI 学会「做人」：那些让人会心一笑的社区 Skills" href="/ai/fun-community-skills" description="盘点 GitHub 上模拟各种角色和关系的魔性 Skills。" icon="mdi:emoticon-outline" variant="article" />
   </DocOverviewGroup>
 
   <DocOverviewGroup id="ai写作" title="AI 写作" description="用 AI 辅助技术文档与论文写作。">
