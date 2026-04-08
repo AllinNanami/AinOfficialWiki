@@ -32,6 +32,7 @@ import CheckboxGroup from './components/ui/CheckboxGroup.vue'
 import Kbd from './components/ui/Kbd.vue'
 import Progress from './components/ui/Progress.vue'
 import Popover from './components/ui/Popover.vue'
+import Dropdown from './components/ui/Dropdown.vue'
 import Breadcrumbs from './components/ui/Breadcrumbs.vue'
 import DocOverview from './components/ui/DocOverview.vue'
 import DocOverviewGroup from './components/ui/DocOverviewGroup.vue'
@@ -114,16 +115,19 @@ export default {
       observeNavMenu(menu)
 
       const activeLink = menu.querySelector('.VPNavBarMenuLink.active') as HTMLElement | null
+      const activeGroup = menu.querySelector('.VPNavBarMenuGroup.active') as HTMLElement | null
 
-      if (!activeLink) {
+      const targetElement = activeLink ?? activeGroup
+
+      if (!targetElement) {
         resetNavMenuIndicator(menu)
         return
       }
 
       const layout = computeNavMenuIndicatorLayout(
         menu.getBoundingClientRect().left,
-        activeLink.getBoundingClientRect().left,
-        activeLink.getBoundingClientRect().width
+        targetElement.getBoundingClientRect().left,
+        targetElement.getBoundingClientRect().width
       )
 
       menu.style.setProperty('--vp-pro-nav-indicator-width', layout.width)
@@ -231,6 +235,7 @@ export default {
     app.component('Kbd', Kbd)
     app.component('Progress', Progress)
     app.component('Popover', Popover)
+    app.component('Dropdown', Dropdown)
     app.component('Breadcrumbs', Breadcrumbs)
     app.component('DocOverview', DocOverview)
     app.component('DocOverviewGroup', DocOverviewGroup)

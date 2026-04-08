@@ -488,21 +488,42 @@ export default defineConfig({
     returnToTopLabel: '返回顶部',
     nav: [
       { text: '主页', link: '/' },
-      { text: '讲义', link: '/handouts/' },
-      { text: '幻灯片', link: '/slides/' },
-      { text: '教程', link: '/guides/' },
-      { text: '资源', link: '/resource/' },
-      { text: '竞赛', link: '/competition/' },
-      { text: '科研', link: '/research/' }
+      {
+        text: '讲义',
+        items: [
+          { text: '文字版', link: '/lectures/' },
+          { text: '幻灯片', link: '/slides/' }
+        ]
+      },
+      {
+        text: '教程',
+        items: [
+          { text: '开发', link: '/dev/' },
+          { text: 'SRE', link: '/sre/' },
+          { text: 'AI', link: '/ai/' },
+          { text: '写作', link: '/writing/' },
+          { text: '求职', link: '/career/' }
+        ]
+      },
+      {
+        text: '资源',
+        items: [
+          { text: '竞赛', link: '/competition/' },
+          { text: '科研', link: '/research/' },
+          { text: '活动', link: '/event/' },
+          { text: '软件', link: '/software/' },
+          { text: '贡献', link: '/contribution/' }
+        ]
+      }
     ],
 
     sidebar: withCollapsibleSidebar({
-      // 讲义侧边栏 - 只在访问 /handouts/ 路径时显示
-      '/handouts/': [
+      // 讲义侧边栏 - 文字版
+      '/lectures/': [
         {
           text: '总览',
           items: [
-            { text: '讲义总览', link: '/handouts/' }
+            { text: '讲义总览', link: '/lectures/' }
           ]
         },
         {
@@ -511,19 +532,19 @@ export default defineConfig({
             {
               text: 'C++ 基础',
               items: [
-                { text: 'C++ 输入与输出基础', link: '/handouts/lesson1-cpp-2025' },
-                { text: 'C++ 基础：变量、数据类型、常量与注释', link: '/handouts/lesson1-cpp-2025-2-types' },
-                { text: 'C++ 控制流基础', link: '/handouts/lesson1-cpp-2025-3-control-flow' },
-                { text: 'C++ 数组基础', link: '/handouts/lesson1-cpp-2025-4-array-basics' },
-                { text: 'C++ 数组常见操作', link: '/handouts/lesson1-cpp-2025-5-array-ops' },
-                { text: 'C++ 函数和结构体', link: '/handouts/lesson2-cpp-2025-function' },
-                { text: 'C++ STL库', link: '/handouts/lesson2-cpp-2025-STL' }
+                { text: 'C++ 输入与输出基础', link: '/lectures/lesson1-cpp-2025' },
+                { text: 'C++ 基础：变量、数据类型、常量与注释', link: '/lectures/lesson1-cpp-2025-2-types' },
+                { text: 'C++ 控制流基础', link: '/lectures/lesson1-cpp-2025-3-control-flow' },
+                { text: 'C++ 数组基础', link: '/lectures/lesson1-cpp-2025-4-array-basics' },
+                { text: 'C++ 数组常见操作', link: '/lectures/lesson1-cpp-2025-5-array-ops' },
+                { text: 'C++ 函数和结构体', link: '/lectures/lesson2-cpp-2025-function' },
+                { text: 'C++ STL库', link: '/lectures/lesson2-cpp-2025-STL' }
               ]
             },
             {
               text: 'Python 基础',
               items: [
-                { text: 'Python 基础教学', link: '/handouts/lesson4-Python' }
+                { text: 'Python 基础教学', link: '/lectures/lesson4-Python' }
               ]
             }
           ]
@@ -531,7 +552,7 @@ export default defineConfig({
         {
           text: '算法入门',
           items: [
-            { text: '算法入门：复杂度、排序与二分查找', link: '/handouts/lesson3-sort-2025' }
+            { text: '算法入门：复杂度、排序与二分查找', link: '/lectures/lesson3-sort-2025' }
           ]
         },
         {
@@ -540,20 +561,20 @@ export default defineConfig({
             {
               text: 'Linux基础',
               items: [
-                { text: 'Linux 基础入门', link: '/handouts/lesson5-linux' }
+                { text: 'Linux 基础入门', link: '/lectures/lesson5-linux' }
               ]
             },
             {
               text: 'Git版本控制',
               items: [
-                { text: 'GitHub协作教程', link: '/handouts/lesson2-git-2025' }
+                { text: 'GitHub协作教程', link: '/lectures/lesson2-git-2025' }
               ]
             }
           ]
         }
       ],
       
-      // 幻灯片侧边栏 - 只在访问 /slides/ 路径时显示
+      // 幻灯片侧边栏
       '/slides/': [
         {
           text: '总览',
@@ -578,200 +599,439 @@ export default defineConfig({
         }
       ],
       
-      // 教程侧边栏 - 只在访问 /guides/ 路径时显示
-      '/guides/': [
+      // 开发教程侧边栏
+      '/dev/': [
         {
           text: '总览',
           items: [
-            { text: '教程总览', link: '/guides/' }
+            { text: '开发教程总览', link: '/dev/' }
           ]
         },
         {
           text: '编程语言',
           items: [
-            { text: 'DevC++使用教程', link: '/guides/devcpp-guide' },
-            { text: 'Virtual Judge 使用指南', link: '/guides/virtual-judge-guide' }
-          ]
-        },
-        {
-          text: '运维与软件开发',
-          items: [
-            {
-              text: 'linux',
-              items: [
-                { text: '安装年轻人的第一个Linux虚拟机', link: '/guides/first-vm-2024' },
-                { text: '解决WSL与Docker删除文件后磁盘空间不释放的问题', link: '/guides/compact-docker-wsl-vdisk'}
-              ]
-            },
-            {
-              text: 'Git',
-              items: [
-                { text: 'Git使用基础和工作流', link: '/guides/git-basics' }
-              ]
-            }
-          ]
-        },
-        {
-          text: 'AI',
-          items: [
-            {
-              text: 'VibeCoding',
-              items: [
-                { text: '通过 Skills 改善前端设计', link: '/guides/improving-frontend-design-through-skills' },
-                { text: '在AI编程工具中使用自定义API', link: '/guides/ai-custom-api-for-coding-tools' },
-                { text: 'MCP与Skills应用指南', link: '/guides/mcp-skills-guide' }
-              ]
-            },
-            {
-              text: 'AI写作',
-              items: [
-                { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/guides/ai-editing-202601' }
-              ]
-            }
+            { text: 'DevC++使用教程', link: '/dev/devcpp-guide' },
+            { text: 'Virtual Judge 使用指南', link: '/dev/virtual-judge-guide' }
           ]
         },
         {
           text: '后端开发',
           items: [
-            { text: '建设中', link: '/guides/' }
+            { text: '建设中', link: '/dev/' }
           ]
         },
         {
           text: '前端开发',
           items: [
-            { text: '建设中', link: '/guides/' }
+            { text: '建设中', link: '/dev/' }
+          ]
+        }
+      ],
+
+      // SRE教程侧边栏
+      '/sre/': [
+        {
+          text: '总览',
+          items: [
+            { text: 'SRE教程总览', link: '/sre/' }
+          ]
+        },
+        {
+          text: 'Linux',
+          items: [
+            { text: '安装年轻人的第一个Linux虚拟机', link: '/sre/first-vm-2024' },
+            { text: '解决WSL与Docker删除文件后磁盘空间不释放的问题', link: '/sre/compact-docker-wsl-vdisk' }
+          ]
+        },
+        {
+          text: 'Git',
+          items: [
+            { text: 'Git使用基础和工作流', link: '/sre/git-basics' }
+          ]
+        }
+      ],
+
+      // AI教程侧边栏
+      '/ai/': [
+        {
+          text: '总览',
+          items: [
+            { text: 'AI教程总览', link: '/ai/' }
+          ]
+        },
+        {
+          text: 'VibeCoding',
+          items: [
+            { text: '通过 Skills 改善前端设计', link: '/ai/improving-frontend-design-through-skills' },
+            { text: '在AI编程工具中使用自定义API', link: '/ai/ai-custom-api-for-coding-tools' },
+            { text: 'MCP与Skills应用指南', link: '/ai/mcp-skills-guide' }
+          ]
+        },
+        {
+          text: 'AI写作',
+          items: [
+            { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/ai/ai-editing-202601' }
+          ]
+        }
+      ],
+
+      // 写作教程侧边栏
+      '/writing/': [
+        {
+          text: '总览',
+          items: [
+            { text: '写作教程总览', link: '/writing/' }
+          ]
+        },
+        {
+          text: 'LaTeX',
+          items: [
+            { text: 'LaTeX 基本介绍', link: '/writing/01-LaTeX-Introduction' },
+            { text: 'LaTeX 安装与配置', link: '/writing/02-LaTeX-setup' },
+            { text: 'LaTeX 文本语法', link: '/writing/03-LaTex-text' },
+            { text: 'LaTeX 公式速查', link: '/writing/04-Latex-formula' },
+            { text: 'LaTeX 公式符号总表', link: '/writing/04-Latex-formula-list' },
+            { text: 'LaTeX 文档元素', link: '/writing/05-LaTeX-doc' },
+            { text: 'LaTeX 样式设定', link: '/writing/06-LaTeX-style' }
           ]
         },
         {
           text: '理论基础',
           items: [
-            { text: '线性代数的艺术（中文）', link: '/guides/the-art-of-linear-algebra-zh-cn' }
+            { text: '线性代数的艺术（中文）', link: '/writing/the-art-of-linear-algebra-zh-cn' }
+          ]
+        }
+      ],
+
+      // 求职教程侧边栏
+      '/career/': [
+        {
+          text: '总览',
+          items: [
+            { text: '求职教程总览', link: '/career/' }
           ]
         },
         {
-          text: '文档写作',
+          text: '求职成长',
           items: [
-            {
-              text: 'LaTeX',
-              items: [
-                { text: 'LaTeX 基本介绍', link: '/guides/01-LaTeX-Introduction' },
-                { text: 'LaTeX 安装与配置', link: '/guides/02-LaTeX-setup' },
-                { text: 'LaTeX 文本语法', link: '/guides/03-LaTex-text' },
-                { text: 'LaTeX 公式速查', link: '/guides/04-Latex-formula' },
-                { text: 'LaTeX 公式符号总表', link: '/guides/04-Latex-formula-list' },
-                { text: 'LaTeX 文档元素', link: '/guides/05-LaTeX-doc' },
-                { text: 'LaTeX 样式设定', link: '/guides/06-LaTeX-style' }
-              ]
-            },
-            {
-              text: '求职成长',
-              items: [
-                { text: '大学生简历避坑与正确写法指南', link: '/guides/college-student-resume-guide' }
-              ]
-            }
+            { text: '大学生简历避坑与正确写法指南', link: '/career/college-student-resume-guide' }
           ]
         }
       ],
       
-      // 资源侧边栏 - 只在访问 /resource/ 路径时显示
-      '/resource/': [
+      // 活动资源侧边栏
+      '/event/': [
         {
           text: '总览',
           items: [
-            { text: '资源总览', link: '/resource/' }
+            { text: '活动总览', link: '/event/' }
           ]
         },
         {
           text: '导学与活动',
           items: [
-            { text: '2025年第0节课', link: '/resource/lesson0-2025' },
-            { text: '2025年编程竞赛组见面会', link: '/resource/meet-and-greet-2025' }
+            { text: '2025年第0节课', link: '/event/lesson0-2025' },
+            { text: '2025年编程竞赛组见面会', link: '/event/meet-and-greet-2025' }
           ]
         },
         {
           text: '2026寒假纳新',
           items: [
-            { text: '2026 寒假纳新考核指南与提交规范', link: '/resource/timu/timu' },
-            { text: '小米杯考核', link: '/resource/xiaomi-cup-cyberdog' },
-            { text: '小米杯Docker环境搭建教程', link: '/resource/xiaomi-cup-cyberdog-docker' },
-            { text: '小米杯Motion测试流程', link: '/resource/xiaomi-cup-cyberdog-test' },
-            { text : '项目 A', link: '/resource/timu/A' },
-            { text : '项目 B', link: '/resource/timu/B' },
-            { text : '项目 C', link: '/resource/timu/C' },
-            { text : '项目 D', link: '/resource/timu/D' },
-            { text : '项目 E', link: '/resource/timu/E' },
-            { text : '项目 F', link: '/resource/timu/F' },
-            { text : '项目 G', link: '/resource/timu/G' }
+            { text: '2026 寒假纳新考核指南与提交规范', link: '/event/timu/timu' },
+            { text: '小米杯考核', link: '/event/xiaomi-cup-cyberdog' },
+            { text: '小米杯Docker环境搭建教程', link: '/event/xiaomi-cup-cyberdog-docker' },
+            { text: '小米杯Motion测试流程', link: '/event/xiaomi-cup-cyberdog-test' },
+            { text : '项目 A', link: '/event/timu/A' },
+            { text : '项目 B', link: '/event/timu/B' },
+            { text : '项目 C', link: '/event/timu/C' },
+            { text : '项目 D', link: '/event/timu/D' },
+            { text : '项目 E', link: '/event/timu/E' },
+            { text : '项目 F', link: '/event/timu/F' },
+            { text : '项目 G', link: '/event/timu/G' }
+          ]
+        }
+      ],
+
+      // 软件资源侧边栏
+      '/software/': [
+        {
+          text: '总览',
+          items: [
+            { text: '软件总览', link: '/software/' }
           ]
         },
         {
           text: '软件资源',
           items: [
-            { text: 'Photoshop 2025 安装指南', link: '/resource/photoshop-2025-installation' },
-            { text: 'Blender 安装教程', link: '/resource/blender-installation' },
-            { text: 'Blender 插件安装教程', link: '/resource/blender-addon-installation' },
-            { text: 'MATLAB 2024b 安装教程', link: '/resource/matlab-2024b-installation' },
-            { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/resource/win11-clean-flash-4399' }
+            { text: 'Photoshop 2025 安装指南', link: '/software/photoshop-2025-installation' },
+            { text: 'Blender 安装教程', link: '/software/blender-installation' },
+            { text: 'Blender 插件安装教程', link: '/software/blender-addon-installation' },
+            { text: 'MATLAB 2024b 安装教程', link: '/software/matlab-2024b-installation' },
+            { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/software/win11-clean-flash-4399' }
+          ]
+        }
+      ],
+      
+      // 幻灯片侧边栏 - 幻灯片
+      '/handouts/slides/': [
+        {
+          text: '总览',
+          items: [
+            { text: '幻灯片总览', link: '/handouts/slides/' }
           ]
         },
         {
-          text: '贡献项目',
+          text: '课程幻灯片',
           items: [
+            { text: '2025新生指南', link: '/handouts/slides/guide-2025' },
+            { text: 'C++ 基础教程', link: '/handouts/slides/cpp-basics' },
+            { text: 'C++ 函数、结构体与 STL', link: '/handouts/slides/cpp-function-stl' },
+            { text: '算法入门：复杂度、排序与二分查找', link: '/handouts/slides/algorithm-intro' }
+          ]
+        },
+        {
+          text: '示例',
+          items: [
+            { text: '编程入门演示', link: '/handouts/slides/demo' }
+          ]
+        }
+      ],
+      
+      // 开发教程侧边栏
+      '/guides/dev/': [
+        {
+          text: '总览',
+          items: [
+            { text: '开发教程总览', link: '/guides/dev/' }
+          ]
+        },
+        {
+          text: '编程语言',
+          items: [
+            { text: 'DevC++使用教程', link: '/guides/dev/devcpp-guide' },
+            { text: 'Virtual Judge 使用指南', link: '/guides/dev/virtual-judge-guide' }
+          ]
+        },
+        {
+          text: '后端开发',
+          items: [
+            { text: '建设中', link: '/guides/dev/' }
+          ]
+        },
+        {
+          text: '前端开发',
+          items: [
+            { text: '建设中', link: '/guides/dev/' }
+          ]
+        }
+      ],
+
+      // SRE教程侧边栏
+      '/guides/sre/': [
+        {
+          text: '总览',
+          items: [
+            { text: 'SRE教程总览', link: '/guides/sre/' }
+          ]
+        },
+        {
+          text: 'Linux',
+          items: [
+            { text: '安装年轻人的第一个Linux虚拟机', link: '/guides/sre/first-vm-2024' },
+            { text: '解决WSL与Docker删除文件后磁盘空间不释放的问题', link: '/guides/sre/compact-docker-wsl-vdisk' }
+          ]
+        },
+        {
+          text: 'Git',
+          items: [
+            { text: 'Git使用基础和工作流', link: '/guides/sre/git-basics' }
+          ]
+        }
+      ],
+
+      // AI教程侧边栏
+      '/guides/ai/': [
+        {
+          text: '总览',
+          items: [
+            { text: 'AI教程总览', link: '/guides/ai/' }
+          ]
+        },
+        {
+          text: 'VibeCoding',
+          items: [
+            { text: '通过 Skills 改善前端设计', link: '/guides/ai/improving-frontend-design-through-skills' },
+            { text: '在AI编程工具中使用自定义API', link: '/guides/ai/ai-custom-api-for-coding-tools' },
+            { text: 'MCP与Skills应用指南', link: '/guides/ai/mcp-skills-guide' }
+          ]
+        },
+        {
+          text: 'AI写作',
+          items: [
+            { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/guides/ai/ai-editing-202601' }
+          ]
+        }
+      ],
+
+      // 写作教程侧边栏
+      '/guides/writings/': [
+        {
+          text: '总览',
+          items: [
+            { text: '写作教程总览', link: '/guides/writings/' }
+          ]
+        },
+        {
+          text: 'LaTeX',
+          items: [
+            { text: 'LaTeX 基本介绍', link: '/guides/writings/01-LaTeX-Introduction' },
+            { text: 'LaTeX 安装与配置', link: '/guides/writings/02-LaTeX-setup' },
+            { text: 'LaTeX 文本语法', link: '/guides/writings/03-LaTex-text' },
+            { text: 'LaTeX 公式速查', link: '/guides/writings/04-Latex-formula' },
+            { text: 'LaTeX 公式符号总表', link: '/guides/writings/04-Latex-formula-list' },
+            { text: 'LaTeX 文档元素', link: '/guides/writings/05-LaTeX-doc' },
+            { text: 'LaTeX 样式设定', link: '/guides/writings/06-LaTeX-style' }
+          ]
+        },
+        {
+          text: '理论基础',
+          items: [
+            { text: '线性代数的艺术（中文）', link: '/guides/writings/the-art-of-linear-algebra-zh-cn' }
+          ]
+        }
+      ],
+
+      // 求职教程侧边栏
+      '/guides/career/': [
+        {
+          text: '总览',
+          items: [
+            { text: '求职教程总览', link: '/guides/career/' }
+          ]
+        },
+        {
+          text: '求职成长',
+          items: [
+            { text: '大学生简历避坑与正确写法指南', link: '/guides/career/college-student-resume-guide' }
+          ]
+        }
+      ],
+      
+      // 活动资源侧边栏
+      '/resource/events/': [
+        {
+          text: '总览',
+          items: [
+            { text: '活动总览', link: '/resource/events/' }
+          ]
+        },
+        {
+          text: '导学与活动',
+          items: [
+            { text: '2025年第0节课', link: '/resource/events/lesson0-2025' },
+            { text: '2025年编程竞赛组见面会', link: '/resource/events/meet-and-greet-2025' }
+          ]
+        },
+        {
+          text: '2026寒假纳新',
+          items: [
+            { text: '2026 寒假纳新考核指南与提交规范', link: '/resource/events/timu/timu' },
+            { text: '小米杯考核', link: '/resource/events/xiaomi-cup-cyberdog' },
+            { text: '小米杯Docker环境搭建教程', link: '/resource/events/xiaomi-cup-cyberdog-docker' },
+            { text: '小米杯Motion测试流程', link: '/resource/events/xiaomi-cup-cyberdog-test' },
+            { text : '项目 A', link: '/resource/events/timu/A' },
+            { text : '项目 B', link: '/resource/events/timu/B' },
+            { text : '项目 C', link: '/resource/events/timu/C' },
+            { text : '项目 D', link: '/resource/events/timu/D' },
+            { text : '项目 E', link: '/resource/events/timu/E' },
+            { text : '项目 F', link: '/resource/events/timu/F' },
+            { text : '项目 G', link: '/resource/events/timu/G' }
+          ]
+        }
+      ],
+
+      // 软件资源侧边栏
+      '/resource/softwares/': [
+        {
+          text: '总览',
+          items: [
+            { text: '软件总览', link: '/resource/softwares/' }
+          ]
+        },
+        {
+          text: '软件资源',
+          items: [
+            { text: 'Photoshop 2025 安装指南', link: '/resource/softwares/photoshop-2025-installation' },
+            { text: 'Blender 安装教程', link: '/resource/softwares/blender-installation' },
+            { text: 'Blender 插件安装教程', link: '/resource/softwares/blender-addon-installation' },
+            { text: 'MATLAB 2024b 安装教程', link: '/resource/softwares/matlab-2024b-installation' },
+            { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/resource/softwares/win11-clean-flash-4399' }
+          ]
+        }
+      ],
+
+      // 贡献资源侧边栏
+      '/contribution/': [
+        {
+          text: '总览',
+          items: [
+            { text: '贡献总览', link: '/contribution/' }
+          ]
+        },
+        {
+          text: 'Slidev',
+          items: [
+            { text: '总览', link: '/contribution/project-slidev' },
             {
-              text: 'Slidev',
+              text: '主题与样式',
               items: [
-                { text: '总览', link: '/resource/project-slidev' },
-                {
-                  text: '主题与样式',
-                  items: [
-                    { text: '项目主题使用', link: '/resource/project-slidev/theme' }
-                  ]
-                },
-                {
-                  text: '访问与嵌入',
-                  items: [
-                    { text: '独立访问链接', link: '/resource/project-slidev/standalone-access' },
-                    { text: '嵌入到文档中', link: '/resource/project-slidev/embed-in-docs' }
-                  ]
-                }
+                { text: '项目主题使用', link: '/contribution/project-slidev/theme' }
               ]
             },
             {
-              text: '项目组件',
+              text: '访问与嵌入',
               items: [
-                { text: '总览', link: '/resource/project-components' },
-                {
-                  text: '布局与导航',
-                  items: [
-                    { text: 'Accordion', link: '/resource/project-components/accordion' },
-                    { text: 'Tabs', link: '/resource/project-components/tabs' },
-                    { text: 'Breadcrumbs', link: '/resource/project-components/breadcrumbs' },
-                    { text: 'Link Buttons', link: '/resource/project-components/link-buttons' },
-                    { text: 'Link Cards', link: '/resource/project-components/link-cards' },
-                    { text: 'Steps', link: '/resource/project-components/steps' }
-                  ]
-                },
-                {
-                  text: '内容展示',
-                  items: [
-                    { text: 'Asides', link: '/resource/project-components/asides' },
-                    { text: 'Badges', link: '/resource/project-components/badges' },
-                    { text: 'Code', link: '/resource/project-components/code' },
-                    { text: 'File Tree', link: '/resource/project-components/file-tree' },
-                    { text: 'Kbd', link: '/resource/project-components/kbd' },
-                    { text: 'Progress', link: '/resource/project-components/progress' },
-                    { text: 'Table', link: '/resource/project-components/table' }
-                  ]
-                },
-                {
-                  text: '表单与反馈',
-                  items: [
-                    { text: 'Checkbox', link: '/resource/project-components/checkbox' },
-                    { text: 'Checkbox Group', link: '/resource/project-components/checkbox-group' },
-                    { text: 'Popover', link: '/resource/project-components/popover' },
-                    { text: 'Toast', link: '/resource/project-components/toast' }
-                  ]
-                }
+                { text: '独立访问链接', link: '/contribution/project-slidev/standalone-access' },
+                { text: '嵌入到文档中', link: '/contribution/project-slidev/embed-in-docs' }
+              ]
+            }
+          ]
+        },
+        {
+          text: '项目组件',
+          items: [
+            { text: '总览', link: '/contribution/project-components' },
+            {
+              text: '布局与导航',
+              items: [
+                { text: 'Accordion', link: '/contribution/project-components/accordion' },
+                { text: 'Tabs', link: '/contribution/project-components/tabs' },
+                { text: 'Breadcrumbs', link: '/contribution/project-components/breadcrumbs' },
+                { text: 'Link Buttons', link: '/contribution/project-components/link-buttons' },
+                { text: 'Link Cards', link: '/contribution/project-components/link-cards' },
+                { text: 'Steps', link: '/contribution/project-components/steps' }
+              ]
+            },
+            {
+              text: '内容展示',
+              items: [
+                { text: 'Asides', link: '/contribution/project-components/asides' },
+                { text: 'Badges', link: '/contribution/project-components/badges' },
+                { text: 'Code', link: '/contribution/project-components/code' },
+                { text: 'File Tree', link: '/contribution/project-components/file-tree' },
+                { text: 'Kbd', link: '/contribution/project-components/kbd' },
+                { text: 'Progress', link: '/contribution/project-components/progress' },
+                { text: 'Table', link: '/contribution/project-components/table' }
+              ]
+            },
+            {
+              text: '表单与反馈',
+              items: [
+                { text: 'Checkbox', link: '/contribution/project-components/checkbox' },
+                { text: 'Checkbox Group', link: '/contribution/project-components/checkbox-group' },
+                { text: 'Dropdown', link: '/contribution/project-components/dropdown' },
+                { text: 'Popover', link: '/contribution/project-components/popover' },
+                { text: 'Toast', link: '/contribution/project-components/toast' }
               ]
             }
           ]
