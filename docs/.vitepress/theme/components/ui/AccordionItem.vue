@@ -65,6 +65,54 @@ function toggle() {
 
 const slots = useSlots()
 const { useMarkdown, renderedHtml } = useMarkdownSlot(slots)
+
+function beforeEnter(element: Element) {
+  const panel = element as HTMLElement
+  panel.style.height = '0px'
+  panel.style.opacity = '0'
+  panel.style.transform = 'translate3d(0, -4px, 0)'
+}
+
+function enter(element: Element) {
+  const panel = element as HTMLElement
+  void panel.offsetHeight
+  requestAnimationFrame(() => {
+    panel.style.height = `${panel.scrollHeight}px`
+    panel.style.opacity = '1'
+    panel.style.transform = 'translate3d(0, 0, 0)'
+  })
+}
+
+function afterEnter(element: Element) {
+  const panel = element as HTMLElement
+  panel.style.height = 'auto'
+  panel.style.opacity = ''
+  panel.style.transform = ''
+}
+
+function beforeLeave(element: Element) {
+  const panel = element as HTMLElement
+  panel.style.height = `${panel.scrollHeight}px`
+  panel.style.opacity = '1'
+  panel.style.transform = 'translate3d(0, 0, 0)'
+}
+
+function leave(element: Element) {
+  const panel = element as HTMLElement
+  void panel.offsetHeight
+  requestAnimationFrame(() => {
+    panel.style.height = '0px'
+    panel.style.opacity = '0'
+    panel.style.transform = 'translate3d(0, -4px, 0)'
+  })
+}
+
+function afterLeave(element: Element) {
+  const panel = element as HTMLElement
+  panel.style.height = ''
+  panel.style.opacity = ''
+  panel.style.transform = ''
+}
 </script>
 
 <template>
@@ -86,15 +134,21 @@ const { useMarkdown, renderedHtml } = useMarkdownSlot(slots)
     </button>
 
     <Transition
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @before-leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave"
       enter-active-class="vp-pro-accordion-item-enter-active"
       leave-active-class="vp-pro-accordion-item-leave-active"
-      enter-from-class="vp-pro-accordion-item-enter-from"
-      leave-to-class="vp-pro-accordion-item-leave-to"
     >
       <div v-show="isOpen" class="vp-pro-accordion-item__panel">
-        <div class="vp-pro-accordion-item__content">
-          <div v-if="useMarkdown" class="vp-pro-slot-markdown" v-html="renderedHtml" />
-          <slot v-else />
+        <div class="vp-pro-accordion-item__panel-inner">
+          <div class="vp-pro-accordion-item__content">
+            <div v-if="useMarkdown" class="vp-pro-slot-markdown" v-html="renderedHtml" />
+            <slot v-else />
+          </div>
         </div>
       </div>
     </Transition>

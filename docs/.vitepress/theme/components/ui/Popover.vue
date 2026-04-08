@@ -126,10 +126,17 @@ function closePopover(resetPin = true) {
 }
 
 function openPopover(pin = false) {
-  if (pin) {
-    pinnedOpen.value = true
-  }
+  pinnedOpen.value = pin
   setOpen(true)
+}
+
+function scheduleClose() {
+  if (!isOpen.value || pinnedOpen.value || typeof window === 'undefined') return
+  clearHoverTimer()
+  const closeDelay = props.backdrop ? 220 : 150
+  hoverTimer.value = window.setTimeout(() => {
+    closePopover(false)
+  }, closeDelay)
 }
 
 function parsePlacement() {
@@ -209,25 +216,22 @@ function handleTriggerClick() {
 function handleTriggerMouseEnter() {
   if (!supportsHoverTrigger.value) return
   clearHoverTimer()
-  openPopover()
+  openPopover(false)
 }
 
 function handleTriggerMouseLeave() {
-  if (!supportsHoverTrigger.value || pinnedOpen.value || typeof window === 'undefined') return
-  clearHoverTimer()
-  hoverTimer.value = window.setTimeout(() => {
-    closePopover(false)
-  }, 140)
+  if (!supportsHoverTrigger.value) return
+  scheduleClose()
 }
 
 function handleContentMouseEnter() {
-  if (!supportsHoverTrigger.value) return
+  if (!isOpen.value) return
   clearHoverTimer()
 }
 
 function handleContentMouseLeave() {
-  if (!supportsHoverTrigger.value || pinnedOpen.value) return
-  handleTriggerMouseLeave()
+  if (!supportsHoverTrigger.value) return
+  scheduleClose()
 }
 
 function handleTriggerFocus() {
@@ -237,12 +241,11 @@ function handleTriggerFocus() {
 }
 
 function handleTriggerBlur(event: FocusEvent) {
-  if (!supportsHoverTrigger.value || pinnedOpen.value) return
-
+  if (!supportsHoverTrigger.value) return
   const nextTarget = event.relatedTarget as Node | null
   if (panelRef.value?.contains(nextTarget) || triggerRef.value?.contains(nextTarget)) return
 
-  handleTriggerMouseLeave()
+  scheduleClose()
 }
 
 watch(isOpen, async (nextOpen) => {

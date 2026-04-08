@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, useSlots } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useSlots, watch } from 'vue'
 
 export interface DropdownItem {
   text: string
@@ -22,6 +22,7 @@ export type DropdownPlacement =
 const props = withDefaults(
   defineProps<{
     items: DropdownItem[]
+    open?: boolean
     placement?: DropdownPlacement
     trigger?: 'click' | 'hover' | 'both'
     disabled?: boolean
@@ -30,6 +31,7 @@ const props = withDefaults(
   }>(),
   {
     items: () => [],
+    open: undefined,
     placement: 'bottom-start',
     trigger: 'click',
     disabled: false,
@@ -40,6 +42,7 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   select: [item: DropdownItem]
+  'update:open': [value: boolean]
 }>()
 
 const slots = useSlots()
@@ -51,8 +54,10 @@ const hoverTimer = ref<number | null>(null)
 const pinnedOpen = ref(false)
 const panelStyle = ref<Record<string, string>>({})
 
-const isOpen = computed(() => internalOpen.value)
+const isControlled = computed(() => props.open !== undefined)
+const isOpen = computed(() => (isControlled.value ? props.open : internalOpen.value))
 const hasItems = computed(() => props.items.length > 0)
+const hasCustomTrigger = computed(() => Boolean(slots.trigger))
 const supportsHoverTrigger = computed(() => props.trigger === 'hover' || props.trigger === 'both')
 const supportsClickTrigger = computed(() => props.trigger === 'click' || props.trigger === 'both')
 
@@ -65,7 +70,10 @@ function clearHoverTimer() {
 
 function setOpen(nextOpen: boolean) {
   if (props.disabled || !hasItems.value) return
-  internalOpen.value = nextOpen
+  if (!isControlled.value) {
+    internalOpen.value = nextOpen
+  }
+  emit('update:open', nextOpen)
   if (nextOpen) {
     void nextTick().then(updatePosition)
   }
@@ -91,9 +99,17 @@ function closeDropdown(resetPin = true) {
   setOpen(false)
 }
 
-function openDropdown() {
-  pinnedOpen.value = true
+function openDropdown(pin = false) {
+  pinnedOpen.value = pin
   setOpen(true)
+}
+
+function scheduleClose() {
+  if (!isOpen.value || pinnedOpen.value || typeof window === 'undefined') return
+  clearHoverTimer()
+  hoverTimer.value = window.setTimeout(() => {
+    closeDropdown(false)
+  }, 150)
 }
 
 function parsePlacement() {
@@ -157,25 +173,20 @@ function handleTriggerClick() {
 function handleTriggerMouseEnter() {
   if (!supportsHoverTrigger.value) return
   clearHoverTimer()
-  openDropdown()
+  openDropdown(false)
 }
 
 function handleTriggerMouseLeave() {
-  if (!supportsHoverTrigger.value || pinnedOpen.value || typeof window === 'undefined') return
-  clearHoverTimer()
-  hoverTimer.value = window.setTimeout(() => {
-    closeDropdown(false)
-  }, 150)
+  scheduleClose()
 }
 
 function handlePanelMouseEnter() {
-  if (!supportsHoverTrigger.value) return
+  if (!isOpen.value) return
   clearHoverTimer()
 }
 
 function handlePanelMouseLeave() {
-  if (!supportsHoverTrigger.value || pinnedOpen.value) return
-  handleTriggerMouseLeave()
+  scheduleClose()
 }
 
 function handleItemClick(item: DropdownItem) {
@@ -189,6 +200,11 @@ function handleItemClick(item: DropdownItem) {
     closeDropdown()
   }
 }
+
+watch(isOpen, (nextOpen) => {
+  if (!nextOpen) return
+  void nextTick().then(updatePosition)
+})
 
 onMounted(() => {
   isMounted.value = true
@@ -213,7 +229,11 @@ onBeforeUnmount(() => {
   <span
     ref="triggerRef"
     class="vp-pro-dropdown-trigger"
-    :class="{ 'is-disabled': disabled, 'is-open': isOpen }"
+    :class="{
+      'is-disabled': disabled,
+      'is-open': isOpen,
+      'has-custom-trigger': hasCustomTrigger
+    }"
     @click="handleTriggerClick"
     @mouseenter="handleTriggerMouseEnter"
     @mouseleave="handleTriggerMouseLeave"
