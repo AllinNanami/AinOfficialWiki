@@ -214,7 +214,7 @@ export default {
     app.component('SlideEmbed', SlideEmbed)
     app.component('LinkCard', LinkCard)
     app.component('Aside', Aside)
-    app.component('Badge', Badge)
+    app._context.components.Badge = Badge
     app.component('Code', Code)
     app.component('CodeBlock', Code)
     app.component('MermaidBlock', MermaidBlock)

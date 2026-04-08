@@ -50,3 +50,4 @@ coverage
 /docs/.vitepress/cache/
 .cloudflare-dist/
 slides/.cloudflare-dist/
+.codex

@@ -4,6 +4,12 @@ export interface SidebarItemLike {
   items?: SidebarItemLike[]
 }
 
+export interface NavItemLike {
+  text?: string
+  link?: string
+  items?: NavItemLike[]
+}
+
 export interface BreadcrumbItem {
   key: string
   text: string
@@ -121,6 +127,36 @@ export function normalizeDocPath(path: string): string {
   }
 
   return normalized || '/'
+}
+
+export function findNavLabelForRoute(nav: NavItemLike[], routePath: string): string | undefined {
+  const normalizedRoute = normalizeDocPath(routePath)
+  const matches: Array<{ text: string; link: string }> = []
+
+  function walk(items: NavItemLike[]) {
+    for (const item of items) {
+      const normalizedLink = item.link ? normalizeDocPath(item.link) : ''
+
+      if (
+        item.text?.trim() &&
+        normalizedLink &&
+        (normalizedRoute === normalizedLink || normalizedRoute.startsWith(`${normalizedLink}/`))
+      ) {
+        matches.push({
+          text: item.text.trim(),
+          link: normalizedLink
+        })
+      }
+
+      if (item.items?.length) {
+        walk(item.items)
+      }
+    }
+  }
+
+  walk(nav)
+
+  return matches.sort((a, b) => b.link.length - a.link.length)[0]?.text
 }
 
 function resolveSidebarSource(

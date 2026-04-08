@@ -1,11 +1,6 @@
 import { computed } from 'vue'
 import { useData, useRoute } from 'vitepress'
-import { buildBreadcrumbTrail, normalizeDocPath } from '../components/ui/breadcrumbs'
-
-interface NavItemLike {
-  text?: string
-  link?: string
-}
+import { buildBreadcrumbTrail, findNavLabelForRoute, type NavItemLike, normalizeDocPath } from '../components/ui/breadcrumbs'
 
 export function useDocBreadcrumbItems() {
   const route = useRoute()
@@ -27,12 +22,7 @@ export function useDocBreadcrumbItems() {
 
   const rootLabel = computed(() => {
     const navItems = (theme.value.nav ?? []) as NavItemLike[]
-    const matchedNav = navItems.find((item) => {
-      const link = item.link ? normalizeDocPath(item.link) : ''
-      return link && (routePath.value === link || routePath.value.startsWith(`${link}/`) || link.startsWith(sectionBase.value))
-    })
-
-    return matchedNav?.text ?? page.value.relativePath.split('/')[0] ?? '文档'
+    return findNavLabelForRoute(navItems, sectionBase.value) ?? page.value.relativePath.split('/')[0] ?? '文档'
   })
 
   return computed(() => {
