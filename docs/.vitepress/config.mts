@@ -662,6 +662,7 @@ export default defineConfig({
         {
           text: 'VibeCoding',
           items: [
+            { text: 'AI/Vibe 开发教程仓库合集', link: '/ai/awesome-vibe-coding' },
             { text: '通过 Skills 改善前端设计', link: '/ai/improving-frontend-design-through-skills' },
             { text: '在AI编程工具中使用自定义API', link: '/ai/ai-custom-api-for-coding-tools' },
             { text: 'MCP与Skills应用指南', link: '/ai/mcp-skills-guide' },

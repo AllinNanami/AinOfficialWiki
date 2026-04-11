@@ -12,6 +12,7 @@ description: AI 辅助编程与 VibeCoding 教程，学会用 AI 提升开发效
   </DocOverviewGroup>
 
   <DocOverviewGroup id="vibecoding" title="VibeCoding" description="用 AI 提升前端开发效率与设计质量。">
+    <DocOverviewCard title="AI/Vibe 开发教程仓库合集" href="/ai/awesome-vibe-coding" description="精选 11 个 GitHub 优质仓库，覆盖入门、Agent 架构、效率工具与中文资源。" icon="mdi:treasure-chest" variant="article" />
     <DocOverviewCard title="通过 Skills 改善前端设计" href="/ai/improving-frontend-design-through-skills" description="利用 AI Skills 框架提升前端设计一致性与开发效率。" icon="mdi:palette" variant="article" />
     <DocOverviewCard title="在 AI 编程工具中使用自定义 API" href="/ai/ai-custom-api-for-coding-tools" description="将自建 AI API 集成到主流 AI 编程助手中使用。" icon="mdi:api" variant="article" />
     <DocOverviewCard title="MCP 与 Skills 应用指南" href="/ai/mcp-skills-guide" description="探索 MCP 协议与 Skills 生态的结合应用。" icon="mdi:connection" variant="article" />

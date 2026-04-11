@@ -12,6 +12,11 @@ export const mdiIconSet = {
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9A3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42c-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3a3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9c-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65c2.56.34 4.45 1.51 4.45 2.9z\"/>"
     },
+    "account-hard-hat-outline": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M16 9c0 5.33-8 5.33-8 0h2c0 2.67 4 2.67 4 0m6 9v3H4v-3c0-2.67 5.33-4 8-4s8 1.33 8 4m-1.9 0c0-.64-3.13-2.1-6.1-2.1S5.9 17.36 5.9 18v1.1h12.2M12.5 2c.28 0 .5.22.5.5v3h1V3a3.89 3.89 0 0 1 2.25 3.75s.7.14.75 1.25H7c0-1.11.75-1.25.75-1.25A3.89 3.89 0 0 1 10 3v2.5h1v-3c0-.28.22-.5.5-.5\"/>"
+    },
     "adobe": {
       "width": 24,
       "height": 24,
@@ -167,6 +172,11 @@ export const mdiIconSet = {
       "width": 24,
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M9 17H7v-7h2zm4 0h-2V7h2zm4 0h-2v-4h2zm2 2H5V5h14v14.1M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2\"/>"
+    },
+    "chart-bubble": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M7.2 11.2c1.77 0 3.2 1.43 3.2 3.2s-1.43 3.2-3.2 3.2S4 16.17 4 14.4s1.43-3.2 3.2-3.2m7.6 4.8a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m.4-12A4.8 4.8 0 0 1 20 8.8c0 2.65-2.15 4.8-4.8 4.8a4.8 4.8 0 0 1-4.8-4.8c0-2.65 2.15-4.8 4.8-4.8\"/>"
     },
     "chart-line": {
       "width": 24,
@@ -447,6 +457,11 @@ export const mdiIconSet = {
       "width": 24,
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M15.5 17H14l-2-7.5l-2 7.5H8.5L6.1 7h1.7l1.54 7.5L11.3 7h1.4l1.97 7.5L16.2 7h1.7M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2\"/>"
+    },
+    "fish": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"m12 20l.76-3c-3.26-.21-6.17-1.6-7.01-3.42c-.09.48-.22.92-.42 1.25C4.67 16 3.33 16 2 16c1.1 0 1.5-1.57 1.5-3.5S3.1 9 2 9c1.33 0 2.67 0 3.33 1.17c.2.33.33.77.42 1.25c.65-1.42 2.57-2.57 4.91-3.1L9 5c2 0 4 0 5.33.67c1.13.56 1.78 1.6 2.36 2.71c2.92.7 5.31 2.28 5.31 4.12c0 1.88-2.5 3.5-5.5 4.16c-.83 1.1-1.64 2.12-2.33 2.67c-.84.67-1.5.67-2.17.67m5-9a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1\"/>"
     },
     "flask-outline": {
       "width": 24,
@@ -858,6 +873,11 @@ export const mdiIconSet = {
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M12 3L1 9l11 6l9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z\"/>"
     },
+    "school-outline": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9zm6.82 6L12 12.72L5.18 9L12 5.28zM17 16l-5 2.72L7 16v-3.73L12 15l5-2.73z\"/>"
+    },
     "script-text-outline": {
       "width": 24,
       "height": 24,
@@ -968,6 +988,16 @@ export const mdiIconSet = {
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M4 2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4l-4 4l-4-4H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m0 2v12h4.83L12 19.17L15.17 16H20V4z\"/>"
     },
+    "translate": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"m12.87 15.07l-2.54-2.51l.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5l3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z\"/>"
+    },
+    "treasure-chest": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M5 4h14a3 3 0 0 1 3 3v4h-7v-1H9v1H2V7a3 3 0 0 1 3-3m6 7h2v2h-2zm-9 1h7v1l2 2h2l2-2v-1h7v8H2z\"/>"
+    },
     "trophy": {
       "width": 24,
       "height": 24,
@@ -1007,6 +1037,11 @@ export const mdiIconSet = {
       "width": 24,
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M13 3v6h8V3m-8 18h8V11h-8M3 21h8v-6H3m0-2h8V3H3z\"/>"
+    },
+    "view-dashboard-outline": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M19 5v2h-4V5zM9 5v6H5V5zm10 8v6h-4v-6zM9 17v2H5v-2zM21 3h-8v6h8zM11 3H3v10h8zm10 8h-8v10h8zm-10 4H3v6h8z\"/>"
     },
     "view-day-outline": {
       "width": 24,
