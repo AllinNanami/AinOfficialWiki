@@ -51,3 +51,4 @@ coverage
 .cloudflare-dist/
 slides/.cloudflare-dist/
 .codex
+temp/
