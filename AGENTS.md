@@ -149,6 +149,256 @@ npm run cf:build
 - 对文章中的 Markdown 围栏代码块与 `Code` 组件，若未声明语言，应根据上下文补全语言标注。
 - 若上下文无法可靠判断语言，不要臆测；优先选择最保守写法（如 `text`）或按用户要求处理。
 
+## PDF 转 Markdown 与图片处理流程
+
+### 1. PDF 转换工具与方法
+
+#### 方法一：markitdown（推荐快速转换）
+```bash
+# 安装（如需要）
+pip install markitdown
+
+# 转换 PDF 到 Markdown
+markitdown "input.pdf" -o output.md
+```
+
+#### 方法二：marker（推荐提取图片）
+```bash
+# marker 会自动提取图片到 --output_images 目录
+marker . --output_format markdown --output_dir ./marker_output
+
+# 参数说明：
+# - --disable_image_extraction: 禁用图片提取
+# - --page_range: 指定页面范围，如 "0,5-10,20"
+# - --workers: 工作进程数
+```
+
+#### 方法三：使用 Python + PyMuPDF（完全控制）
+```python
+import fitz
+from pathlib import Path
+
+pdf_path = "input.pdf"
+output_dir = Path("output_images")
+output_dir.mkdir(exist_ok=True)
+
+doc = fitz.open(pdf_path)
+for page_num, page in enumerate(doc):
+    for img_index, img in enumerate(page.get_images(full=True)):
+        xref = img[0]
+        base_image = doc.extract_image(xref)
+        image_bytes = base_image["image"]
+        image_ext = base_image["ext"]
+        
+        image_filename = f"page{page_num+1}_img{img_index+1}.{image_ext}"
+        with open(output_dir / image_filename, "wb") as f:
+            f.write(image_bytes)
+doc.close()
+```
+
+### 2. 图片提取
+
+从 PDF 提取图片后，图片保存在 `temp/images/` 目录。文件名格式为 `page{N}_img{M}.{ext}`。
+
+### 3. PicList 启动与使用
+
+#### 启动 PicList 服务
+```bash
+# 杀掉可能存在的旧进程
+pkill -f PicList 2>/dev/null
+
+# 启动 PicList（后台运行）
+nohup /usr/bin/PicList > /tmp/piclist.log 2>&1 &
+
+# 等待服务启动（约15-20秒）
+sleep 20
+```
+
+#### 健康检查
+```bash
+curl http://127.0.0.1:36677/heartbeat
+# 返回 {"success":true,"result":"alive"} 表示服务正常
+```
+
+#### API 上传图片
+```bash
+# 单文件上传
+curl -X POST -F "file=@/path/to/image.jpg" http://127.0.0.1:36677/upload
+
+# 响应格式：
+# {"success": true, "result": ["https://gastigado.cnies.org/d/public/xxx.jpg"]}
+```
+
+#### 批量上传脚本
+```python
+#!/usr/bin/env python3
+import subprocess
+import json
+import os
+from pathlib import Path
+
+def upload_image(image_path):
+    """上传单张图片并返回 URL"""
+    cmd = ['curl', '-s', '-X', 'POST', 
+           '-F', f'file=@{image_path}',
+           'http://127.0.0.1:36677/upload']
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    try:
+        data = json.loads(result.stdout)
+        if data.get('success'):
+            return data['result'][0]
+    except:
+        pass
+    return None
+
+def upload_all_images(images_dir, output_file=None):
+    """上传目录所有图片，返回替换映射"""
+    images_dir = Path(images_dir)
+    url_map = {}
+    
+    for img_path in sorted(images_dir.glob("*")):
+        if img_path.suffix.lower() in ['.jpg', '.jpeg', '.png', '.gif', '.webp']:
+            print(f"上传: {img_path.name}...", end=" ")
+            url = upload_image(str(img_path))
+            if url:
+                print(f"OK: {url}")
+                url_map[img_path.name] = url
+            else:
+                print("失败")
+    
+    return url_map
+
+# 使用示例
+# url_map = upload_all_images("/home/excnies/AinOfficialWiki/temp/images")
+# print(url_map)
+```
+
+### 4. Markdown 排版规范
+
+#### 基本原则
+- 中文与英文/数字之间加空格
+- 标题层级清晰（# ## ###）
+- 列表项使用统一的标记（- 或 1.）
+- 代码块必须标注语言
+- 链接和图片使用标准 Markdown 语法
+
+#### 修复换行问题
+从 PDF 提取的 Markdown 常常出现错误换行（如英文句子被拆成多行）。使用以下脚本修复：
+
+```python
+import re
+
+def fix_markdown_line_breaks(input_file, output_file):
+    """修复 Markdown 中的错误换行"""
+    with open(input_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # 移除独立的页码标记（如 "2", "3" 单独在一行）
+    content = re.sub(r'\n(\d+)\n\n', r'\n\n', content)
+    
+    # 修复被拆分的英文句子（行尾是单词且下一行以小写字母开头）
+    lines = content.split('\n')
+    fixed_lines = []
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        
+        # 跳过独立的页码数字
+        if re.match(r'^(\d+)$', line):
+            i += 1
+            continue
+        
+        # 如果当前行以字母结尾，下一行以字母开头，则合并
+        if i + 1 < len(lines):
+            next_line = lines[i + 1].strip()
+            if re.search(r'[a-zA-Z]$', line) and re.search(r'^[a-zA-Z]', next_line):
+                lines[i] = line + " " + next_line
+                lines[i + 1] = ""
+        
+        fixed_lines.append(lines[i])
+        i += 1
+    
+    content = '\n'.join(fixed_lines)
+    
+    # 修复标题层级
+    content = re.sub(r'\n(\d+)、(.+?)\n', r'\n\n## \1、\2\n', content)
+    content = re.sub(r'\n(一|二|三|四|五|六|七|八|九|十)、(.+?)\n', r'\n\n### \1、\2\n', content)
+    content = re.sub(r'\n（(一|二|三|四|五|六|七|八|九|十)）\n', r'\n\n#### （\1）\n', content)
+    
+    # 清理多余空行
+    content = re.sub(r'\n{3,}', '\n\n', content)
+    
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print(f"已修复并保存到: {output_file}")
+```
+
+#### 中文标点规范
+- 使用中文标点（，。：；？！""『』）而非英文
+- 顿号（、）用于中文并列词语
+
+### 5. 图片插入 Markdown
+
+#### 插入图片语法
+```markdown
+![图片描述](图片URL)
+
+# 或带尺寸控制
+<img src="图片URL" width="600" alt="图片描述" />
+```
+
+#### 替换本地图片为图床 URL
+```python
+import re
+import json
+
+def replace_images_with_urls(markdown_file, url_map):
+    """将 Markdown 中的本地图片引用替换为图床 URL"""
+    with open(markdown_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    for local_name, remote_url in url_map.items():
+        # 匹配各种可能的本地图片引用格式
+        patterns = [
+            rf'!\[([^\]]*)\]\({re.escape(local_name)})',
+            rf'<img[^>]*src="{re.escape(local_name)}"[^>]*>',
+            rf'\({re.escape(local_name)}\)',
+        ]
+        
+        for pattern in patterns:
+            content = re.sub(pattern, f']({remote_url})', content)
+    
+    with open(markdown_file, 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print(f"已替换 {len(url_map)} 张图片")
+
+# 使用示例
+# with open('url_map.json') as f:
+#     url_map = json.load(f)
+# replace_images_with_urls('article.md', url_map)
+```
+
+#### 插入图片到合适位置
+根据图片内容类型选择插入位置：
+
+1. **流程图/架构图**：在介绍方法的部分之前插入
+2. **实验结果图**：在对应的 Results 分析部分插入
+3. **对比图**：在需要对比的段落附近插入
+4. **表格/数据图**：在相关文字说明附近插入
+
+插入位置示例：
+```markdown
+## 2. 实验方法
+
+下图展示了实验装置的示意图：
+
+![实验装置示意图](https://example.com/image.jpg)
+
+实验采用 XYZ 设备，具体参数如下...
+```
+
 ## 新增 Slidev 幻灯片流程
 
 1. 在 `slides/` 下新增源码文件。
@@ -180,6 +430,50 @@ npm run cf:build
 rg -n "https?://" .cloudflare-dist/decks/*/index.html -S
 rg -n "fonts.googleapis.com|css2\\?family" .cloudflare-dist -S
 rg -n "allowfullscreen=" .cloudflare-dist -S
+```
+
+## 图片上传规范（PicList）
+
+### 图床配置
+
+项目默认使用 PicList 配合 AList 图床，上传后的图片域名统一为 `https://gastigado.cnies.org/d/public/...`
+
+配置文件位于 `~/.config/piclist/data.json`，当前激活图床为 `alistplist`。
+
+### PicList 启动与使用
+
+1. **启动 PicList**（后台运行）：
+   ```bash
+   nohup /usr/bin/PicList > /tmp/piclist.log 2>&1 &
+   # 等待服务启动（约15-20秒）
+   sleep 20
+   ```
+
+2. **健康检查**：
+   ```bash
+   curl http://127.0.0.1:36677/heartbeat
+   # 返回 {"success":true,"result":"alive"} 表示服务正常
+   ```
+
+3. **API 上传图片**：
+   ```bash
+   curl -X POST -F "file=@/path/to/image.jpg" http://127.0.0.1:36677/upload
+   ```
+   
+   响应格式：
+   ```json
+   {
+     "success": true,
+     "result": ["https://gastigado.cnies.org/d/public/xxx.jpg"]
+   }
+   ```
+
+4. **提取图片 URL**：从响应 JSON 中提取 `result[0]` 即为图片链接
+
+### 手动上传方式
+
+```bash
+open -a PicList "/path/to/image.jpg" && sleep 3 && pbpaste
 ```
 
 ## 交付要求
