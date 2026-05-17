@@ -7,7 +7,6 @@ description: 从两篇 arXiv 论文出发，解释如何用极低成本监测 AP
 
 来源：标题里的"1 个 Token 测出模型降级调包"，来自一篇中文二手整理，不是一手论文标题。
 
-- 用户复制原文 / 本地 HTML：`temp/1个Token测出模型降级调包！成本砍到千分之一，API供应商的小伎俩全曝光了 (2026_5_16 14：21：20).html`
 - 二手整理原链接：<https://mp.weixin.qq.com/s/ZelUviYX8UctyM_z_c71Yg>
 
 核心资料是一手论文：
