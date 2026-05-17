@@ -16,7 +16,7 @@ GitHub：<https://github.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts>
 
 仓库名字很直白：`Awesome GPT Image 2 API and Prompts`。仓库首页把它定位成一个持续整理的案例库，内容包括 prompt 示例、API 使用方式、可复用工作流，以及每条案例对应的输出图。
 
-这里有个细节得说明。README 一处写"359+ high-quality prompts"，徽章又写"521 curated cases"。这两个数字口径并不一致，所以正文里没必要硬抄成一个确定总数。更准确的写法是：**这是一个持续更新的 prompt 案例仓库，案例量一直在增加，仓库不同位置的统计数字口径并不相同。**
+README 一处写"359+ high-quality prompts"，徽章又写"521 curated cases"，两个数字口径并不一致。**这是一个持续更新的 prompt 案例仓库，案例量一直在增加，仓库不同位置的统计数字口径并不相同。**
 
 ![awesome-gpt-image-2 仓库示例图 1](./assets/gpt-image-2-prompts/awesome-gpt-image-2-3.png)
 
@@ -46,7 +46,7 @@ GitHub：<https://github.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts>
 
 ### 仓库怎么用更划算
 
-README 除了案例，还放了一个 `Use GPT Image 2 API` 区块，给了配套 skill 和一个通过 Evolink 调用图像生成接口的示例。这里要分开看：**这是仓库作者提供的接入方式，不能当成 OpenAI 官方 API 文档本身。**
+README 除了案例，还放了一个 `Use GPT Image 2 API` 区块，给了配套 skill 和一个通过 Evolink 调用图像生成接口的示例。**这是仓库作者提供的接入方式，不是 OpenAI 官方 API。**
 
 它的价值主要在两点：
 
