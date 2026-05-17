@@ -11,7 +11,7 @@ description: 把 6 门免费 AI 课程按前置知识和难度排成一条可执
 
 ## 6 门课与原始说明
 
-下面这 6 条按原始参考的顺序保留，并补成可直接点开的课程页：
+下面 6 条课程按顺序整理，附可直接点开的课程页：
 
 - [MIT AI 101](https://ocw.mit.edu/courses/res-6-013-ai-101-fall-2021/)：适合完全小白打底。
 - [Foundation Models and Generative AI](https://ocw.mit.edu/courses/6-s087-foundation-models-and-generative-ai-january-iap-2024/)：解释 ChatGPT 等基础模型如何运作。
@@ -107,7 +107,7 @@ GitHub：<https://github.com/MIT-MI/how2ai-course>
 
 MIT OCW 的课程说明写到，它会介绍 modern deep learning、foundation models，以及把 AI 用到新数据模态的方法；还会讲 multimodal AI，讨论 language 和 multimedia、music 和 art、sensing 和 actuation 怎么连起来。
 
-这也是原始参考里提到"音乐、艺术、系统设计等创意方向"的依据。
+这也是"音乐、艺术、系统设计等创意方向"的依据。
 
 ### 这门课会学到什么
 
@@ -128,7 +128,7 @@ MIT OCW 的课程说明写到，它会介绍 modern deep learning、foundation m
 
 ### 前置知识
 
-原始参考里说"需要一点 Python"，这个方向和课程形态是对得上的。虽然 OCW 首页没有把 Python 明写成硬门槛，但它毕竟是 MIT Media Lab 风格的研究型课程，带阅读、讨论和项目，完全零编程基础会比较吃力。
+课程需要一点 Python 基础，这个方向和课程形态是对得上的。虽然 OCW 首页没有把 Python 明写成硬门槛，但它毕竟是 MIT Media Lab 风格的研究型课程，带阅读、讨论和项目，完全零编程基础会比较吃力。
 
 前置知识是：
 
@@ -226,7 +226,7 @@ Open Learning Library 的课程页把推荐前置写得很直接：
 - Calculus
 - Linear Algebra
 
-原始参考里还提到概率统计。虽然课程页摘录里没有把 probability 单独写成同一行门槛，但实际学这门课时，没有概率直觉会比较吃力。所以更稳妥的准备是：
+概率统计也是前置要求之一。虽然课程页摘录里没有把 probability 单独写成同一行门槛，但实际学这门课时，没有概率直觉会比较吃力。所以更稳妥的准备是：
 
 - Python 基础
 - 微积分
@@ -268,7 +268,7 @@ MIT OCW 的课程描述写的是：knowledge representation、problem solving、
 
 ### 前置知识
 
-原始参考里说它需要编程经验、离散数学等 CS 基础，这个判断是合理的。课程 syllabus 页面还能确认 problem sets 以 Python 程序提交。
+它需要编程经验、离散数学等 CS 基础。课程 syllabus 页面还能确认 problem sets 以 Python 程序提交。
 
 更稳妥的前置知识是：
 
