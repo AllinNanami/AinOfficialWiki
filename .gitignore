@@ -52,3 +52,5 @@ coverage
 slides/.cloudflare-dist/
 .codex
 temp/
+.omx
+docs/ai/references/

@@ -347,6 +347,7 @@ function withCollapsibleSidebar(sidebar: DefaultTheme.Sidebar): DefaultTheme.Sid
 export default defineConfig({
   base: '/',
   lang: 'zh-CN',
+  srcExclude: ['ai/references/**'],
   title: "3D环梦工坊编程竞赛组 - C++/Python算法课程讲义与竞赛训练知识库官网",
   description: '3D环梦工坊编程竞赛组官方知识库，提供C++/Python编程入门教程、算法与数据结构讲义、竞赛指导、Git使用教程、Linux虚拟机安装指南等学习资源。包含NOI/NOIP/CSP等竞赛信息，助你从零基础成长为编程竞赛选手。',
 
@@ -662,21 +663,98 @@ export default defineConfig({
         {
           text: 'VibeCoding',
           items: [
-            { text: 'AI/Vibe 开发教程仓库合集', link: '/ai/awesome-vibe-coding' },
-            { text: '通过 Skills 改善前端设计', link: '/ai/improving-frontend-design-through-skills' },
-            { text: '在AI编程工具中使用自定义API', link: '/ai/ai-custom-api-for-coding-tools' },
-            { text: 'MCP与Skills应用指南', link: '/ai/mcp-skills-guide' },
-            { text: '社区奇葩Skills大赏', link: '/ai/fun-community-skills' }
+            { text: '前端 Skills', link: '/ai/improving-frontend-design-through-skills' },
+            { text: '自定义 API', link: '/ai/ai-custom-api-for-coding-tools' },
+            { text: 'MCP 与 Skills', link: '/ai/mcp-skills-guide' },
+            { text: '社区 Skills', link: '/ai/fun-community-skills' },
+            { text: '网页 PPT', link: '/ai/ppt-generation-skills-202605' },
+            { text: 'MCP 清单', link: '/ai/vibe-coding-common-mcp-202605' },
+            { text: 'MCP 工具箱', link: '/ai/mcp-toolbox-202605' },
+            { text: 'Skills 清单', link: '/ai/vibe-coding-common-skills-202605' },
+            { text: 'Skills 生态', link: '/ai/skills-ecosystem-202605' },
+            { text: 'Skill 设计', link: '/ai/how-to-design-good-skills-202605' },
+            { text: '入门路线', link: '/ai/vibe-coding-learning-path-202605' },
+            { text: '协作开发', link: '/ai/ai-collaborative-development-methodology-202605' },
+            { text: '辅助工具', link: '/ai/vibe-coding-helper-tools-202605' },
+            { text: 'CLI 工作流', link: '/ai/cli-for-agents-202605' },
+            { text: '微信接入', link: '/ai/agent-read-wechat-202605' },
+            { text: '前端去 AI 味', link: '/ai/de-ai-frontend-design-202605' },
+            { text: 'PWA 细节', link: '/ai/pwa-native-ui-experience-202605' }
+          ]
+        },
+        {
+          text: 'Agent',
+          items: [
+            { text: '模式库', link: '/ai/awesome-agentic-patterns-202605' },
+            { text: '记忆系统', link: '/ai/tencentdb-agent-memory-deep-dive-202605' },
+            { text: '记忆原理', link: '/ai/agent-memory-principles-repost-note-202605' },
+            { text: 'Hermes Agent', link: '/ai/hermes-agent-masterclass-zh-202605' },
+            { text: 'PageIndex', link: '/ai/pageindex-vectorless-rag-202605' },
+            { text: '知识图谱', link: '/ai/llm-knowledge-graph-202605' }
+          ]
+        },
+        {
+          text: 'AI工具',
+          items: [
+            { text: '翻译工具', link: '/ai/ai-translation-tools-202605' },
+            { text: '免费模型', link: '/ai/free-model-access-guide-202605' },
+            { text: 'witr 进程', link: '/ai/witr-process-explainer-202605' }
+          ]
+        },
+        {
+          text: 'AI艺术',
+          items: [
+            { text: 'GPT-Image-2', link: '/ai/gpt-image-2-prompts-202605' },
+            { text: 'Pixal3D', link: '/ai/pixal3d-202605' }
           ]
         },
         {
           text: 'AI写作',
           items: [
-            { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/ai/ai-editing-202601' }
+            { text: '草稿去 AI 味', link: '/ai/ai-editing-202601' },
+            { text: '内容 SOP', link: '/ai/ai-content-creation-sop-202605' },
+            { text: '软著与专利', link: '/ai/ip-writing-skills-202605' },
+            { text: '去 AI 味工具', link: '/ai/de-ai-writing-tools-202605' }
+          ]
+        },
+        {
+          text: 'AI创业',
+          items: [
+            { text: 'AI Native 创业', link: '/ai/ai-startup-native-company-202605' },
+            { text: 'Claude Code 团队', link: '/ai/claude-code-team-podcast-notes-202605' }
+          ]
+        },
+        {
+          text: 'AI学习',
+          items: [
+            { text: '免费 AI 课程', link: '/ai/free-ai-courses-roadmap-202605' },
+            { text: '大模型路线', link: '/ai/llm-learning-roadmap-202605' },
+            { text: '深度学习路线', link: '/ai/deep-learning-learning-roadmap-202605' }
+          ]
+        },
+        {
+          text: 'AI科研',
+          items: [
+            { text: 'PaperBanana', link: '/ai/paperbanana-research-figures-202605' },
+            { text: 'Manim 视频', link: '/ai/manim-explainer-video-202605' },
+            { text: '模型变更监测', link: '/ai/model-downgrade-detection-202605' },
+            { text: '科研博客', link: '/ai/ai-researcher-blogs-202605' }
+          ]
+        },
+        {
+          text: '精选资源',
+          items: [
+            { text: '40 个仓库', link: '/ai/awesome-github-repos-for-ai-builders-202605' },
+            { text: '电子书索引', link: '/ai/ebook-treasure-chest-202605' }
+          ]
+        },
+        {
+          text: '安全与合规',
+          items: [
+            { text: '删文件防御', link: '/ai/ai-file-deletion-defense-202605' }
           ]
         }
       ],
-
       // 写作教程侧边栏
       '/writing/': [
         {
@@ -862,19 +940,98 @@ export default defineConfig({
         {
           text: 'VibeCoding',
           items: [
-            { text: '通过 Skills 改善前端设计', link: '/guides/ai/improving-frontend-design-through-skills' },
-            { text: '在AI编程工具中使用自定义API', link: '/guides/ai/ai-custom-api-for-coding-tools' },
-            { text: 'MCP与Skills应用指南', link: '/guides/ai/mcp-skills-guide' }
+            { text: '前端 Skills', link: '/guides/ai/improving-frontend-design-through-skills' },
+            { text: '自定义 API', link: '/guides/ai/ai-custom-api-for-coding-tools' },
+            { text: 'MCP 与 Skills', link: '/guides/ai/mcp-skills-guide' },
+            { text: '社区 Skills', link: '/guides/ai/fun-community-skills' },
+            { text: '网页 PPT', link: '/guides/ai/ppt-generation-skills-202605' },
+            { text: 'MCP 清单', link: '/guides/ai/vibe-coding-common-mcp-202605' },
+            { text: 'MCP 工具箱', link: '/guides/ai/mcp-toolbox-202605' },
+            { text: 'Skills 清单', link: '/guides/ai/vibe-coding-common-skills-202605' },
+            { text: 'Skills 生态', link: '/guides/ai/skills-ecosystem-202605' },
+            { text: 'Skill 设计', link: '/guides/ai/how-to-design-good-skills-202605' },
+            { text: '入门路线', link: '/guides/ai/vibe-coding-learning-path-202605' },
+            { text: '协作开发', link: '/guides/ai/ai-collaborative-development-methodology-202605' },
+            { text: '辅助工具', link: '/guides/ai/vibe-coding-helper-tools-202605' },
+            { text: 'CLI 工作流', link: '/guides/ai/cli-for-agents-202605' },
+            { text: '微信接入', link: '/guides/ai/agent-read-wechat-202605' },
+            { text: '前端去 AI 味', link: '/guides/ai/de-ai-frontend-design-202605' },
+            { text: 'PWA 细节', link: '/guides/ai/pwa-native-ui-experience-202605' }
+          ]
+        },
+        {
+          text: 'Agent',
+          items: [
+            { text: '模式库', link: '/guides/ai/awesome-agentic-patterns-202605' },
+            { text: '记忆系统', link: '/guides/ai/tencentdb-agent-memory-deep-dive-202605' },
+            { text: '记忆原理', link: '/guides/ai/agent-memory-principles-repost-note-202605' },
+            { text: 'Hermes Agent', link: '/guides/ai/hermes-agent-masterclass-zh-202605' },
+            { text: 'PageIndex', link: '/guides/ai/pageindex-vectorless-rag-202605' },
+            { text: '知识图谱', link: '/guides/ai/llm-knowledge-graph-202605' }
+          ]
+        },
+        {
+          text: 'AI工具',
+          items: [
+            { text: '翻译工具', link: '/guides/ai/ai-translation-tools-202605' },
+            { text: '免费模型', link: '/guides/ai/free-model-access-guide-202605' },
+            { text: 'witr 进程', link: '/guides/ai/witr-process-explainer-202605' }
+          ]
+        },
+        {
+          text: 'AI艺术',
+          items: [
+            { text: 'GPT-Image-2', link: '/guides/ai/gpt-image-2-prompts-202605' },
+            { text: 'Pixal3D', link: '/guides/ai/pixal3d-202605' }
           ]
         },
         {
           text: 'AI写作',
           items: [
-            { text: '如何优化 ChatGPT 生成的草稿，去除 AI 味', link: '/guides/ai/ai-editing-202601' }
+            { text: '草稿去 AI 味', link: '/guides/ai/ai-editing-202601' },
+            { text: '内容 SOP', link: '/guides/ai/ai-content-creation-sop-202605' },
+            { text: '软著与专利', link: '/guides/ai/ip-writing-skills-202605' },
+            { text: '去 AI 味工具', link: '/guides/ai/de-ai-writing-tools-202605' }
+          ]
+        },
+        {
+          text: 'AI创业',
+          items: [
+            { text: 'AI Native 创业', link: '/guides/ai/ai-startup-native-company-202605' },
+            { text: 'Claude Code 团队', link: '/guides/ai/claude-code-team-podcast-notes-202605' }
+          ]
+        },
+        {
+          text: 'AI学习',
+          items: [
+            { text: '免费 AI 课程', link: '/guides/ai/free-ai-courses-roadmap-202605' },
+            { text: '大模型路线', link: '/guides/ai/llm-learning-roadmap-202605' },
+            { text: '深度学习路线', link: '/guides/ai/deep-learning-learning-roadmap-202605' }
+          ]
+        },
+        {
+          text: 'AI科研',
+          items: [
+            { text: 'PaperBanana', link: '/guides/ai/paperbanana-research-figures-202605' },
+            { text: 'Manim 视频', link: '/guides/ai/manim-explainer-video-202605' },
+            { text: '模型变更监测', link: '/guides/ai/model-downgrade-detection-202605' },
+            { text: '科研博客', link: '/guides/ai/ai-researcher-blogs-202605' }
+          ]
+        },
+        {
+          text: '精选资源',
+          items: [
+            { text: '40 个仓库', link: '/guides/ai/awesome-github-repos-for-ai-builders-202605' },
+            { text: '电子书索引', link: '/guides/ai/ebook-treasure-chest-202605' }
+          ]
+        },
+        {
+          text: '安全与合规',
+          items: [
+            { text: '删文件防御', link: '/guides/ai/ai-file-deletion-defense-202605' }
           ]
         }
       ],
-
       // 写作教程侧边栏
       '/guides/writings/': [
         {

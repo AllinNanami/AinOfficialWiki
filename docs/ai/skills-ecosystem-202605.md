@@ -1,0 +1,403 @@
+---
+title: Codex / Claude Skills 生态观察
+description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders、codex-plusplus、keep-codex-fast、nuwa-skill、dbskill，整理一条更实用的 Skills 生态观察线。
+---
+
+# Codex / Claude Skills 生态观察
+
+Skill 和 prompt 模板不是一回事。一个仓库值不值得装，要看它有没有把结构、判断、流程、默认取舍和验证方式写进可复用的执行单元。
+
+下面按入口、方法论仓库、索引、代码库打包、信息订阅、桌面补丁、会话维护和中文项目几层往下看。
+
+> **社媒参考 / 用户复制原文**：
+>
+> - `handoff` 最近用得越来越多，是目前最高频使用的 Skill。Codex 上下文一长，返回速度明显下降，不只是界面卡顿，而是模型返回慢。GPT 模型上下文相比其他模型更小，所以长任务到 70% - 80% 时就用 handoff 把当前对话压缩成 handoff 文件，然后新开 session 继续，速度快很多，避免自动压缩。新的 `/goal` 模式可能也是类似原理。
+> - Matt Pocock Skills：82.5k stars，18 个技能，专治 AI 写代码翻车。技能包括 `/grill-me`、`/tdd`、`/caveman`、`/improve-codebase-architecture`。
+> - 5 个 Codex 必装 Skill 工具：awesome-codex-skills、repomix、follow-builders、codex-plusplus、keep-codex-fast。
+
+上面这段是社媒原文；文中涉及功能和数字的地方，下文都尽量回到仓库说明、官方文档和本地归档核对。核不动的，会明确标来源层级。
+
+## Skills 商店：入口组织
+
+GitHub：<https://github.com/davila7/claude-code-templates>
+官网：<https://aitmpl.com/skills/>
+文档：<https://docs.aitmpl.com/introduction>
+
+很多人第一次接触 Skills 生态，通常不会急着挑某一个仓库，而会先找“哪里能批量看、批量装”。
+
+`aitmpl.com/skills` 背后对应的是 Claude Code Templates 这一套目录系统。官方文档首页把它定位成一组可直接安装的 Claude Code 配置集合，组件分成 agent、command、MCP、settings、hooks 和 skills 六类。文档首页还有一组数据：交互目录里可浏览 900+ agents、225+ commands、65+ MCPs、60+ settings、45+ hooks、2700+ skills。
+
+这类站点最有用的地方，就是入口组织。
+
+它解决的是三个问题：
+
+- 你不用一个仓库一个仓库翻，能先按组件类型筛；
+- 你能把 skill 和 command、hook、MCP 放在同一视图下看；
+- 安装方式统一，官方给的是 `npx claude-code-templates@latest` 或 `npx cct@latest`。
+
+如果已经知道自己要装什么，直接进 GitHub 往往更快；如果是在搭一套工作台，商店视角会省掉不少搜索和筛选。它承担的是技能市场和索引入口的角色。
+
+## mattpocock/skills：把工程习惯写成可触发的技能
+
+GitHub：<https://github.com/mattpocock/skills>
+文档：<https://skills.sh/mattpocock/skills>
+
+这个仓库回答了一个问题：Skill 到底该压缩什么。
+
+仓库标题就很直接：**Skills For Real Engineers**。Matt Pocock 讲的是四类高频翻车点：需求没问透、语言不统一、反馈循环太弱、代码库越做越乱。这个切法很重要，因为整个仓库的技能分布会显得有来由，不会变成一堆零散命令的拼盘。
+
+### 它在修哪四个故障
+
+文档列了四类常见失败模式：
+
+1. Agent 没做出你想要的结果；
+2. Agent 说得太长、项目术语太乱；
+3. 代码写出来但没有可靠反馈；
+4. 项目很快长成一团泥球。
+
+这四类问题，对应的是一组具体 skill：
+
+- `/grill-me`、`/grill-with-docs` 负责把需求问透；
+- `CONTEXT.md` 一类共享语言文档负责压缩表达；
+- `/tdd` 和 `/diagnose` 把反馈循环拉进来；
+- `/improve-codebase-architecture`、`/zoom-out`、`/to-prd` 负责长期维护。
+
+从这些 skill 能看出作者依赖的工程语言：The Pragmatic Programmer、DDD、XP、A Philosophy of Software Design，这些都不是装饰，已经直接进了技能结构。
+
+### `/grill-me`：需求澄清
+
+GitHub：<https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me>
+
+本地归档的 `SKILL.md` 写得很干脆：持续追问计划或设计，沿着设计树一支一支往下问，每个问题都给推荐答案，而且一次只问一个问题。
+
+这个 Skill 的价值，在于把“需求澄清”从聊天气氛变成流程。
+
+很多人以为 agent 表现差，是因为提示词不够狠。`/grill-me` 走的是另一条路：不开工之前，把接口、约束、优先级和依赖关系问清楚。常见场景有：
+
+- 接手一个模糊需求时；
+- PRD 还没写清就想让 agent 开工时；
+- 你自己也知道方案里还有很多洞时。
+
+### `/tdd`：把测试前置成一个稳定循环
+
+GitHub：<https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd>
+
+`/tdd` 的 `SKILL.md` 不只是在喊 red-green-refactor。它把一个常见误区写得非常清楚：别一口气把所有测试写完再去补实现；那会变成“横向切片”，最后只剩一堆验证想象中行为的测试。
+
+它推荐的是 vertical slices，也就是一条一条 tracer bullet 往前走：
+
+```text
+RED -> 写一个行为测试
+GREEN -> 只写能让它通过的最小代码
+重复 -> 再写下一个行为
+```
+
+放在真实仓库里，它尤其有用，因为它不讲测试口号，直接约束 agent 的工作节奏。你让模型从一口气实现 12 个需求，变成一次只做一段可验证行为，返工率通常会低很多。
+
+### `/caveman`：把上下文开销降下来
+
+GitHub：<https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman>
+
+`/caveman` 的定位也很明确：压掉 filler、article、pleasantries，在保持技术准确性的前提下把沟通体积砍掉，大约能省 75% token。
+
+它更像一个很实用的会话控制手段。尤其在 Codex 长任务里，冗长回复会直接抬高上下文成本。看它的规则就知道，这个 Skill 完全是按执行场景设计的：
+
+- 尽量用短词；
+- 技术术语不改；
+- 允许碎句；
+- 风险说明和不可逆操作时短暂退出 caveman 模式，再恢复。
+
+它适合长链路开发、debug 和多轮修补，不太适合第一次解释复杂背景。
+
+### `/handoff`：把长会话压成连续性交接文件
+
+GitHub：<https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff>
+
+`handoff` 在本地归档的 `SKILL.md` 里只有几行，但正因为短，意思反而很清楚：把当前对话压成 handoff 文档，交给新的 agent 继续；PRD、ADR、issues、diff 里已有的内容直接引用路径，不再重复展开；如果用户给了后续目标，就按后续目标定制 handoff。
+
+这和用户复制原文里那段高频使用经验是能对上的。原文说，长任务跑到 70% - 80% 上下文时，用 handoff 压缩当前对话，再开新 session，速度会快很多。这个“为什么好用”，文档没有直接写性能，但从 skill 结构能推出来：它把上下文里最重、最分散的执行信息，变成了一个短文档和一组显式引用。
+
+关于 `/goal`，这里要把来源层级分开说：
+
+- **社媒参考**里提到新的 `/goal` 模式可能和 handoff 类似；
+- 我这次能直接核到的本地一手材料，主要是当前环境里的 goal 工具接口和 oh-my-codex 对 goal mode 的使用说明；
+- 按目前能核到的材料，`/goal` 也在做线程级目标管理和状态收束，和 handoff 一样都在处理长会话失速；至于两者是否基于同一原理，现有公开材料还不足以下结论。
+
+### `/improve-codebase-architecture`：把“重构”变成可讨论的架构工作
+
+GitHub：<https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture>
+
+这个 skill 很能说明作者的工程取向。
+
+它先规定一组术语：module、interface、implementation、depth、seam、adapter、locality、leverage，再让 agent 提重构建议。然后让 agent 读项目里的 `CONTEXT.md` 和 ADR，去找“浅模块”“泄漏 seam”“缺 locality”的地方，最后把候选项按文件、问题、方案、收益列出来，等用户选一个再继续追问。
+
+它的价值，在于把“感觉这里有点乱”改成“这里的 interface 太浅，删除测试不成立，复杂度没被吃进去”。一旦术语稳定，后续讨论、命名和 PR 解释都会顺很多。
+
+### 安装方式
+
+文档给的 quickstart 只有两步：
+
+```bash
+npx skills@latest add mattpocock/skills
+```
+
+然后在安装过程中勾选你要装的 skill，并且确保选上 `/setup-matt-pocock-skills`。这个 setup skill 会继续问 issue tracker、triage label、文档保存位置这些配置。
+
+如果你平时已经在用 Codex、Claude Code 这类 agent，这套安装方式几乎没有额外门槛。
+
+### 长期价值
+
+它的长期价值来自一套完整的工程语言，不是某个爆款命令。今天你可能用 `/grill-me`，明天用 `/tdd`，下周用 `/improve-codebase-architecture`。它们背后说的是同一种工程话。
+
+## awesome-codex-skills：把分散技能重新编目
+
+GitHub：<https://github.com/ComposioHQ/awesome-codex-skills>
+
+如果说 `mattpocock/skills` 像一本有作者立场的工程手册，`awesome-codex-skills` 在这里承担的就是编目索引。
+
+仓库一开头就写得很明确：这是一份 **curated list of practical Codex skills**，面向 Codex CLI 和 API 的工作流自动化。它把内容分成五大块：
+
+- Development & Code Tools
+- Productivity & Collaboration
+- Communication & Writing
+- Data & Analysis
+- Meta & Utilities
+
+这和用户复制原文里那句“开发代码、生产力、写作、数据分析、实用工具 5 大部分的 Skill 合集”能对应上，而且这部分能直接在仓库首页核对，不用只靠社媒转述。
+
+### 索引仓库好用在哪
+
+第一，它给了统一安装方式。推荐做法是克隆仓库，再运行 skill installer，把指定 skill 安到 `$CODEX_HOME/skills`。
+
+```bash
+git clone https://github.com/ComposioHQ/awesome-codex-skills.git
+cd awesome-codex-skills
+python skill-installer/scripts/install-skill-from-github.py --repo ComposioHQ/awesome-codex-skills --path meeting-notes-and-actions
+```
+
+第二，它会帮你快速认识生态分层。你可以很快看出哪些 skill 偏工程，哪些偏写作，哪些偏分析，哪些已经开始接进 Slack、Notion、Linear 这类真实外部系统。
+
+第三，它自己还内置了 `skill-creator`、`template-skill`、`skill-installer` 这些元工具。也就是说，它不只是列目录，也在教你怎么继续扩展目录。
+
+### 别拿它替代什么
+
+它不适合直接拿来替代“方法论仓库”。你可以从这里发现好东西，但别指望在一个 awesome list 里学到统一的做事方式。它的职责就是索引，想学成体系的方法，还是得回到具体仓库。
+
+## repomix：把整个仓库打包成 AI 友好的单文件
+
+GitHub：<https://github.com/yamadashy/repomix>
+官网：<https://repomix.com>
+
+`repomix` 在 Skills 生态里很特殊，因为它本身不是 Skill 仓库，却几乎成了很多 Skill 工作流的基础设施。
+
+`repomix` 的标题很直接：**Pack your codebase into AI-friendly formats**。它干的事，就是把整个仓库收束成一个 AI 更容易吞下去的单文件，同时给出 token count、include / exclude 控制、`.gitignore` / `.repomixignore` 兼容，以及 `--compress` 这类压缩手段。
+
+最小用法也很短：
+
+```bash
+npx repomix@latest
+```
+
+或者全局安装后直接运行：
+
+```bash
+npm install -g repomix
+repomix
+```
+
+默认产物是 `repomix-output.xml`。你可以把它交给模型做整体代码审查、架构阅读、重构建议，或者作为 handoff 的外部上下文文件。
+
+### 常被归为“必装”的原因
+
+因为很多长任务的瓶颈根本不在 agent 本身，而在“怎么把代码库交给 agent”。
+
+如果仓库太大，agent 会不断扫文件、反复读目录、重复调用工具。`repomix` 的作用，是在会话开始前就把仓库压成一个更稳定的输入物。它不负责解决所有理解问题，但它能减少大量机械遍历。
+
+### star、奖项和营销说法怎么处理
+
+社媒原文里把 `repomix` 归到必装工具；仓库说明还能核到一条信息：它在 **JSNation Open Source Awards 2025 的 Powered by AI 分类获得提名**。这条我保留，但来源要写清楚：这是仓库自述和仓库里链接出去的活动页信息，不能往上扩成“获奖”。
+
+至于 star，我这次查询到的快照是 **24,933 stars**，已经和很多旧帖里流传的数字不同，所以正文按 2026-05-16 的本地快照写。
+
+## follow-builders：把 AI 观察清单做成定时摘要
+
+GitHub：<https://github.com/zarazhangrui/follow-builders>
+示例：<https://github.com/zarazhangrui/follow-builders/blob/main/examples/sample-digest.md>
+
+前面几项偏工程，这一项偏信息输入。
+
+仓库标题就叫 **Follow Builders, Not Influencers**。它把自己定义成一套 AI-powered digest：追踪研究员、创始人、PM、工程师这些“真在做东西的人”，把他们的 X、播客和官方博客内容整理成日更或周更摘要，发到 Telegram、Discord、WhatsApp 甚至 email。
+
+### 它具体抓什么
+
+文档能核到三类源：
+
+- 6 档 podcast；
+- 25 个 AI builders 的 X 账号；
+- 2 个官方博客，分别是 Anthropic Engineering 和 Claude Blog。
+
+仓库还给了 `examples/sample-digest.md`。从样例可以直接看出产物格式：先播客，再 X / Twitter，每条都带 bottom line、关键 insight 和原文链接。
+
+它是一条稳定的信息输入管道。对经常做 AI 产品、经常看 agent 生态的人来说，它能把分散订阅拉回到一个固定格式。
+
+### 安装和使用方式
+
+文档给的是很轻的聊天式 setup：
+
+- 把 skill 安到 agent；
+- 直接说 “set up follow builders” 或触发 `/follow-builders`；
+- 然后回答频率、语言、投递方式。
+
+它还特别强调：内容抓取在中心侧完成，你本地不需要再配置一堆 API key。这个设计属于“订阅服务 + 本地 skill 壳层”。
+
+## codex-plusplus：给 Codex 桌面版打补丁和加扩展层
+
+GitHub：<https://github.com/b-nnett/codex-plusplus>
+Discord：<https://discord.gg/6bY6gGX36H>
+
+这是另一个很容易被误解的项目。它是 **Codex 桌面 app 的 tweak / patch 系统**。
+
+项目说明写得很清楚：给本地 Codex.app 打一个 loader，让运行时和 tweak 模块从用户目录加载，再把 Tweaks 面板注入到 Codex 设置页里。这样做的好处是，后续你写 tweak、开关 tweak、改 tweak，都不用重打整个 app。
+
+### 它能干什么
+
+项目列出来的核心能力包括：
+
+- 给 Codex 注入 tweak manager；
+- 加载外部 tweak 模块；
+- 修桌面版 UI bug；
+- 自带状态检查、修复、更新、safe mode；
+- Windows 上会复制 Microsoft Store 版 Codex 到可写目录，再打补丁。
+
+安装方式也给得很全：Homebrew、Bun、shell bootstrap、PowerShell 都有。
+
+```bash
+brew install b-nnett/codex-plusplus/codexplusplus
+codexplusplus install
+```
+
+或者：
+
+```bash
+bun install -g github:b-nnett/codex-plusplus
+codexplusplus install
+```
+
+### 它在 Skills 工作流里的位置
+
+它更偏“宿主环境增强”。
+
+如果你每天都在用桌面版 Codex，希望加自定义快捷键、实验 tweak、边改边看 app 表现，`codex-plusplus` 的位置就很靠前。它解决的是宿主体验问题，不在 agent 能力本身。
+
+## keep-codex-fast：handoff 与归档维护
+
+GitHub：<https://github.com/vibeforge1111/keep-codex-fast>
+
+`keep-codex-fast` 和前面的 `handoff` 能连得很紧。
+
+它开头就把使用场景写清楚了：当 Codex 在长时间使用后，累积了 chats、terminals、logs、worktrees、project history，本地状态开始变重，这个 skill 提供一套安全的检查和维护流程。
+
+它的规则也写得很清楚：
+
+> Make handoffs first. Archive, don't delete. Apply changes only when you are ready.
+
+### 维护流程怎么跑
+
+文档把模式分成三段：
+
+- Inspect：只报告，不写；
+- Maintain：备份、归档旧会话、搬 stale worktrees、轮转 logs、清理 dead config；
+- Optional repair：只在显式传 `--repair-thread-metadata-bloat` 时，才修复超大的 thread title / preview metadata。
+
+最重要的是，它没有把“清理”写成直接删。文档一直在强调：
+
+- handoff 要走在归档前面；
+- 动手前必须备份；
+- archive instead of deleting；
+- Codex 正在运行时不要动本地状态。
+
+从 Skill 设计角度看，成熟之处就在这里：它把高风险动作前面的确认、备份和归档，也一并做进了流程。
+
+### 它与 handoff 的关系
+
+因为 handoff 解决的是“怎么把重上下文压成连续性交接文件”，`keep-codex-fast` 解决的是“压完之后怎么安全地把旧负担归档”。两者合起来，才是一条完整维护链。
+
+仓库自带的流程图和提示文案也说明了这一点：聊天是执行面，handoff docs 是记忆面，archives 是历史面，fresh threads 才是速度面。
+
+![Keep Codex Fast 流程图](/ai/assets/skills-ecosystem/keep-codex-fast-flow.svg)
+
+## nuwa-skill：方法论、人格和产品感一起打包
+
+GitHub：<https://github.com/alchaincyf/nuwa-skill>
+
+`nuwa-skill` 放在这里，是想看清“结构、判断、流程、产品感”是怎么一起打包的。
+
+`nuwa-skill` 的核心主张：把乔布斯、芒格、费曼、马斯克、Naval 这种人的认知框架蒸馏成可调用 skill。重点不在人设，而在把他们的判断模式整理成可用的分析路径。
+
+### nuwa-skill 的识别度
+
+它不只是一个人设 prompt。示例里能看出几个固定动作：
+
+- 用户给出问题；
+- skill 先回到这个人的核心认知框架；
+- 输出里会稳定复现那套框架的判断顺序；
+- 最终产物有明显的风格一致性。
+
+能看出来，被压缩进去的是“思维模型 + 表达习惯 + 使用场景”。
+
+从 Skill 设计角度说，这类项目的难点不在文采，而在筛选。到底蒸馏什么、不蒸馏什么，哪些句子是风格，哪些句子只是口头禅，这背后都需要作者判断。
+
+## dbskill：把商业诊断做成多技能工具箱
+
+GitHub：<https://github.com/dontbesilent2025/dbskill>
+
+`dbskill` 是另一个产品感很强的中文项目。
+
+仓库一开头就说得很具体：从 12,307 条推文中提炼方法论，做成 17 个 Agent skill，可装在 Claude Code、Codex、Cursor、Trae Solo 等支持 skill / system prompt 的 agent 上。它还带状态管理三件套：`/dbs-save`、`/dbs-restore`、`/dbs-report`。
+
+### dbskill 做对了什么
+
+它不止有一个主 skill，而是把整套诊断工作拆成了工具箱：
+
+- `dbs-diagnosis` 做商业模式诊断；
+- `dbs-benchmark` 做对标分析；
+- `dbs-content` 做内容创作诊断；
+- `dbs-hook`、`dbs-xhs-title` 这种针对具体内容环节；
+- `dbs-goal` 负责把模糊愿望改写成可检查目标；
+- `dbs-save`、`dbs-restore`、`dbs-report` 负责连续状态。
+
+这一组已经是产品工具箱式的拆法，不靠“一个 prompt 干所有事”。它让你看到 Skill 的另一种成熟方向：主入口负责路由，子技能负责专门工序，状态管理技能负责跨会话连续性。
+
+### 它和上面那些工程类 skill 有什么共同点
+
+都在把"下次还要重复做的判断和流程"固化下来。`mattpocock/skills` 固化的是软件工程流程，`dbskill` 固化的是商业诊断流程。领域不一样，设计逻辑很接近。
+
+## 回到整体生态
+
+看到这里，Skills 生态大概可以分成四层：
+
+1. **商店 / 索引层**：`aitmpl.com/skills`、`awesome-codex-skills`；
+2. **方法论产品层**：`mattpocock/skills`、`nuwa-skill`、`dbskill`；
+3. **输入压缩层**：`repomix`、`handoff`；
+4. **宿主增强和维护层**：`follow-builders`、`codex-plusplus`、`keep-codex-fast`。
+
+如果按工作台来装，一种顺手的组合是：
+
+- 用 `mattpocock/skills` 这类方法论主仓库打底；
+- 配上 `repomix`、`keep-codex-fast` 这类基础设施；
+- 再按职业场景补 `follow-builders`、`nuwa-skill`、`dbskill`；
+- 长尾技能交给 `awesome-codex-skills` 或 `aitmpl.com/skills` 去扩展。
+
+## 资料来源
+
+- `aitmpl.com/skills` 官方文档：<https://docs.aitmpl.com/introduction>
+- `mattpocock/skills` README 与 `handoff`、`grill-me`、`caveman`、`tdd`、`improve-codebase-architecture` 的 `SKILL.md`
+- `ComposioHQ/awesome-codex-skills` README
+- `yamadashy/repomix` README 与官网 <https://repomix.com>
+- `zarazhangrui/follow-builders` README 与 `examples/sample-digest.md`
+- `b-nnett/codex-plusplus` README
+- `vibeforge1111/keep-codex-fast` README
+- `alchaincyf/nuwa-skill` README
+- `dontbesilent2025/dbskill` README
+- 社媒参考 / 用户复制原文：`docs/ai/references/skills-ecosystem/x-reference.md`
+- GitHub 仓库快照：`docs/ai/references/skills-ecosystem/stats-2026-05-16.md`
