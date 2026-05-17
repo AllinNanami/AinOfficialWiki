@@ -92,7 +92,7 @@ agent-reach install --env=auto --channels=all
 
 ### "绕过反爬读全文"该怎么写才稳
 
-原始参考里用了"绕过反爬读全文"这种说法，但我没有在公开资料里看到它把这件事直接写成承诺或卖点。能核到的是：
+公开资料中能确认的是：
 
 - 公众号搜索
 - 文章阅读
@@ -198,7 +198,7 @@ npm install -g @jackwener/wx-cli
 npx skills add jackwener/wx-cli
 ```
 
-这条必须原样保留，因为清单要求就是保留它。装完后，Agent 会自动读取仓库里的 `SKILL.md`。
+这条必须原样保留。装完后，Agent 会自动读取仓库里的 `SKILL.md`。
 
 Windows 还有一条官方 PowerShell 安装脚本：
 
@@ -214,13 +214,11 @@ curl -fsSL https://raw.githubusercontent.com/jackwener/wx-cli/main/install.sh | 
 
 ### Windows 安装：命令和权限都别省
 
-清单要求保留这三点：
-
 - `npx skills add jackwener/wx-cli`
 - 管理员 PowerShell
 - `wx init`
 
-按项目当前说明，更完整的 Windows 路线可以写成这样：
+更完整的 Windows 路线可以写成这样：
 
 ```bash
 npx skills add jackwener/wx-cli
@@ -260,8 +258,6 @@ wx --help
 ```
 
 ### macOS 安装：四步都要做
-
-清单要求保留下面几步，并解释每一步在做什么：
 
 - 对 `/Applications/WeChat.app` 签名
 - TCC reset
@@ -394,7 +390,7 @@ wx search "会议" --in "工作群" --since 2026-01-01
 
 ## "不联网不封号"这种说法要写得更保守
 
-原始参考里有一句"本地读所有微信消息，不联网不封号"。这句话不能直接当事实结论写出去，因为我没有在项目文档里看到"官方保证不封号"的表述。
+项目文档中没有"官方保证不封号"的表述，"不联网不封号"的说法需要谨慎看待。
 
 一手资料能确认的是：
 

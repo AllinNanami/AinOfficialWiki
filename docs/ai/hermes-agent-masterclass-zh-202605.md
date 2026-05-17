@@ -178,7 +178,7 @@ hermes
 - Claude Code 负责实际代码执行；
 - Hermes 再根据结果继续判断。
 
-原文把这视为 orchestration 与 execution 分离的一种做法。
+这是 orchestration 与 execution 分离的一种做法。
 
 #### designer
 
