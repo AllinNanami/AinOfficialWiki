@@ -9,7 +9,7 @@ description: 从小宇宙第 115 期《Claude Code 深度探秘》与 Anthropic 
 
 这篇重点放在节目里那些能落到团队方法的细节，再用 Anthropic 后续公开资料补一层背景。
 
-资料口径需要说明：**播客里的内容属于团队成员口述经验，小宇宙这一期还是翻译克隆版；拿来理解做事方式很有价值，但不能当成 Anthropic 官方制度文件。** 文中凡是明确制度、产品能力和团队公开案例，我尽量回到官方页面或正式发布内容核对。
+**播客内容属于团队成员口述经验，不等同于 Anthropic 官方制度文件。**
 
 ## 节目与公开资料
 
@@ -19,7 +19,7 @@ description: 从小宇宙第 115 期《Claude Code 深度探秘》与 Anthropic 
 
 ![《跨国串门儿计划》第 115 期页面截图](./assets/claude-code-team-podcast-notes/xiaoyuzhou-episode-115.png)
 
-原始播客与补充资料，我主要用了这几组：
+播客与补充资料：
 
 - 小宇宙页面（播客平台）：<https://www.xiaoyuzhoufm.com/episode/681f316cb7c8a9962c640438>
 - Latent Space 原始节目与转录（播客 / 社媒发布）：<https://www.latent.space/p/claude-code>
@@ -33,7 +33,7 @@ description: 从小宇宙第 115 期《Claude Code 深度探秘》与 Anthropic 
 
 ## 团队分工：需求入口不只 PM
 
-按 Latent Space 这期原始转录，Claude Code 早期核心团队至少可以明确看到几层角色：
+按 Latent Space 这期转录，Claude Code 早期核心团队至少可以明确看到几层角色：
 
 - **Boris Cherny**：创始工程负责人，最早的原型推动者
 - **Cat Wu**：产品负责人，负责路线梳理、跨部门清障、对外发布配合
@@ -262,8 +262,6 @@ Apple 播客页对 Cat Wu 访谈的摘要里有一句话很能说明问题：95%
 这句话是在提醒团队尽快做判断：如果它还只是辅助，就按辅助来设计；如果它要接管流程，就做到能被放心托付。最消耗人的，往往是长期停在中间状态。
 
 ## 引用说明：这是一组口述资料
-
-资料口径再集中说明一次。
 
 - 小宇宙第 115 期是对外文播客的翻译克隆版；
 - Latent Space 与 Lenny's Podcast 的主体内容，都属于嘉宾口述；

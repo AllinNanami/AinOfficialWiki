@@ -15,7 +15,7 @@ Anthropic 在 2026 年 5 月 14 日发布的《The founder's playbook: Building 
 
 ## 这几份资料各管什么
 
-我把这篇文章用到的资料分成两类。
+这几份资料可以分成两类。
 
 第一类是"判断资料"：它们不直接替你交付产品，但会强迫你回答创业里最不舒服的那些问题。
 
@@ -117,7 +117,7 @@ GitHub：<https://github.com/msitarzewski/agency-agents>
 
 `agency-agents` 的定位非常明确：它是一整套"AI specialists"。资料里还提到，它起源于一个 Reddit 讨论串，之后经历了几个月迭代。
 
-它把不同岗位拆成很多有明确人格、流程、交付物和成功标准的角色。这和用户复制原文里"一个全方位的人工智能服务团队，触手可及"的说法是一致的，项目文档也列出了更具体的角色名单。例如：
+它把不同岗位拆成很多有明确人格、流程、交付物和成功标准的角色，对应"一个全方位的人工智能服务团队，触手可及"的定位。项目文档也列出了更具体的角色名单。例如：
 
 - 工程侧有 `Frontend Developer`、`Backend Architect`、`Rapid Prototyper`、`Security Engineer`。
 - 设计侧有 `UI Designer`、`UX Researcher`、`Brand Guardian`。
@@ -174,7 +174,7 @@ GitHub：<https://github.com/yikart/AiToEarn>
 
 `AiToEarn` 的一句话定位非常直白：**OPC（一人公司）的 AI 内容营销智能体。**
 
-用户复制原文把它概括成"一人公司的 AI 内容营销智能体"，项目则把能力进一步拆成四个词：`Monetize · Publish · Engage · Create`。这四个词合起来，刚好构成一人公司在内容增长上的完整链路。
+它被定位为"一人公司的 AI 内容营销智能体"，项目则把能力进一步拆成四个词：`Monetize · Publish · Engage · Create`。这四个词合起来，刚好构成一人公司在内容增长上的完整链路。
 
 #### 它覆盖到哪一步
 
@@ -236,21 +236,21 @@ docker compose up -d
 
 官方 PDF：<https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3%20%281%29.pdf>
 
-我把相关材料都归档到了本地：
+相关材料已归档到本地：
 
 - 官方博客页：`docs/ai/references/ai-startup-native-company/anthropic-source.html`
 - 官方 PDF：`docs/ai/references/ai-startup-native-company/The-Founders-Playbook.pdf`
 - 本地转载 HTML：`docs/ai/references/ai-startup-native-company/source.html`
 
-下面这张图就是我从官方 PDF 抽出来的封面页：
+下面这张图是官方 PDF 的封面页：
 
 ![Anthropic 创始人手册封面](./assets/ai-startup-native-company/anthropic-founders-playbook-cover.png)
 
 Anthropic 在博客摘要里强调的重点也很集中：这份手册覆盖 `Idea`、`MVP`、`Launch`、`Scale` 四个阶段，讨论如何验证问题、控制技术债、分辨真假 PMF，以及在不同阶段使用 Chat、Claude Cowork、Claude Code。
 
-### 原文翻译 / 原文整理：这份手册在讲什么
+### 这份手册在讲什么
 
-这一节只做原文整理，不掺我的评论。
+这一节只做整理，不掺评论。
 
 #### 1. 创业生命周期在 2026 年被重画了
 
