@@ -7,7 +7,7 @@ description: 从 Trae 官方知识库的 Spec、Rules、MCP、Skills、Figma 与
 
 非程序员用 AI 写产品原型时，最常见的卡点是**报错文本能读，定位不到是哪一步出了问题**。模型已经生成了页面、命令也跑了、终端里还给了错误信息，但下一步该查环境变量、查依赖、查日志、查路由，还是回到需求本身重写，根本没方向。
 
-`temp/ai-rewrite-checklist.md` 第 6.7 节给的原始参考，核心抓得很准：字节系 AI IDE 的官方知识库覆盖了 Agentic AI、Spec、rules、MCP、skills、Figma 等模块，真正容易缺的是把**调试规则模板前置**。产品经理或设计同事第一次进入 AI IDE 时，通常不缺需求想法，缺的是把错误定位到"环境、规则、上下文，还是工具接入"的能力。这篇就围着这个问题写。
+字节系 AI IDE 的官方知识库覆盖了 Agentic AI、Spec、rules、MCP、skills、Figma 等模块，真正容易缺的是把**调试规则模板前置**。产品经理或设计同事第一次进入 AI IDE 时，通常不缺需求想法，缺的是把错误定位到"环境、规则、上下文，还是工具接入"的能力。
 
 ## 协作链路
 
@@ -222,7 +222,7 @@ Skills 更像一段已经跑顺的固定流程。Trae 学习中心同时给了 `
 
 ## Figma 接入：设计上下文如何进入开发链路
 
-第 08 篇要求必须覆盖 Figma，这里用两组官方资料一起讲最合适：
+Figma 的接入方式用两组官方资料一起讲最合适：
 
 - Trae 官方：`MCP 教程：将 Figma 设计稿转化为前端代码`
 - Figma 官方：`Get started with the Figma MCP server`、`Use skills with the Figma MCP server`
@@ -260,7 +260,7 @@ Figma 官方还专门讲了 `Use skills with the Figma MCP server` 和 `Create s
 
 ## 调试模板要前置
 
-前面这些概念都重要，但第 08 篇最该落重锤的，还是调试。
+前面这些概念都重要，但最该落重锤的，还是调试。
 
 Trae 学习中心里，开发者路径最后单独列了一个 `问题排查（12 篇）` 区块：通用问题、MCP Server、Python、Go、Java、TypeScript、Vue、Remote SSH、性能、SOLO 问题排查都有。这已经说明：代码能生成出来，不等于就能顺利落地。
 

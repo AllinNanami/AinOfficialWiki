@@ -9,13 +9,13 @@ Skill 和 prompt 模板不是一回事。一个仓库值不值得装，要看它
 
 下面按入口、方法论仓库、索引、代码库打包、信息订阅、桌面补丁、会话维护和中文项目几层往下看。
 
-> **社媒参考 / 用户复制原文**：
->
-> - `handoff` 最近用得越来越多，是目前最高频使用的 Skill。Codex 上下文一长，返回速度明显下降，不只是界面卡顿，而是模型返回慢。GPT 模型上下文相比其他模型更小，所以长任务到 70% - 80% 时就用 handoff 把当前对话压缩成 handoff 文件，然后新开 session 继续，速度快很多，避免自动压缩。新的 `/goal` 模式可能也是类似原理。
-> - Matt Pocock Skills：82.5k stars，18 个技能，专治 AI 写代码翻车。技能包括 `/grill-me`、`/tdd`、`/caveman`、`/improve-codebase-architecture`。
-> - 5 个 Codex 必装 Skill 工具：awesome-codex-skills、repomix、follow-builders、codex-plusplus、keep-codex-fast。
+一些社区讨论里高频提到的经验：
 
-上面这段是社媒原文；文中涉及功能和数字的地方，下文都尽量回到仓库说明、官方文档和本地归档核对。核不动的，会明确标来源层级。
+- `handoff` 最近用得越来越多，是目前最高频使用的 Skill。Codex 上下文一长，返回速度明显下降，不只是界面卡顿，而是模型返回慢。GPT 模型上下文相比其他模型更小，所以长任务到 70% - 80% 时就用 handoff 把当前对话压缩成 handoff 文件，然后新开 session 继续，速度快很多，避免自动压缩。新的 `/goal` 模式可能也是类似原理。
+- Matt Pocock Skills：82.5k stars，18 个技能，专治 AI 写代码翻车。技能包括 `/grill-me`、`/tdd`、`/caveman`、`/improve-codebase-architecture`。
+- 5 个 Codex 必装 Skill 工具：awesome-codex-skills、repomix、follow-builders、codex-plusplus、keep-codex-fast。
+
+文中涉及功能和数字的地方，下文都尽量回到仓库说明、官方文档和本地归档核对。
 
 ## Skills 商店：入口组织
 
@@ -115,12 +115,12 @@ GitHub：<https://github.com/mattpocock/skills/tree/main/skills/productivity/han
 
 `handoff` 在本地归档的 `SKILL.md` 里只有几行，但正因为短，意思反而很清楚：把当前对话压成 handoff 文档，交给新的 agent 继续；PRD、ADR、issues、diff 里已有的内容直接引用路径，不再重复展开；如果用户给了后续目标，就按后续目标定制 handoff。
 
-这和用户复制原文里那段高频使用经验是能对上的。原文说，长任务跑到 70% - 80% 上下文时，用 handoff 压缩当前对话，再开新 session，速度会快很多。这个“为什么好用”，文档没有直接写性能，但从 skill 结构能推出来：它把上下文里最重、最分散的执行信息，变成了一个短文档和一组显式引用。
+这和社区里高频使用经验是对得上的：长任务跑到 70% - 80% 上下文时，用 handoff 压缩当前对话，再开新 session，速度会快很多。这个“为什么好用”，文档没有直接写性能，但从 skill 结构能推出来：它把上下文里最重、最分散的执行信息，变成了一个短文档和一组显式引用。
 
 关于 `/goal`，这里要把来源层级分开说：
 
-- **社媒参考**里提到新的 `/goal` 模式可能和 handoff 类似；
-- 我这次能直接核到的本地一手材料，主要是当前环境里的 goal 工具接口和 oh-my-codex 对 goal mode 的使用说明；
+- 社区讨论里提到新的 `/goal` 模式可能和 handoff 类似；
+- 当前环境里的 goal 工具接口和 oh-my-codex 对 goal mode 的使用说明是可核对的一手材料；
 - 按目前能核到的材料，`/goal` 也在做线程级目标管理和状态收束，和 handoff 一样都在处理长会话失速；至于两者是否基于同一原理，现有公开材料还不足以下结论。
 
 ### `/improve-codebase-architecture`：把“重构”变成可讨论的架构工作
@@ -163,7 +163,7 @@ GitHub：<https://github.com/ComposioHQ/awesome-codex-skills>
 - Data & Analysis
 - Meta & Utilities
 
-这和用户复制原文里那句“开发代码、生产力、写作、数据分析、实用工具 5 大部分的 Skill 合集”能对应上，而且这部分能直接在仓库首页核对，不用只靠社媒转述。
+对应“开发代码、生产力、写作、数据分析、实用工具 5 大部分的 Skill 合集”，这部分能直接在仓库首页核对。
 
 ### 索引仓库好用在哪
 
@@ -215,9 +215,9 @@ repomix
 
 ### star、奖项和营销说法怎么处理
 
-社媒原文里把 `repomix` 归到必装工具；仓库说明还能核到一条信息：它在 **JSNation Open Source Awards 2025 的 Powered by AI 分类获得提名**。这条我保留，但来源要写清楚：这是仓库自述和仓库里链接出去的活动页信息，不能往上扩成“获奖”。
+仓库说明还能核到一条信息：它在 **JSNation Open Source Awards 2025 的 Powered by AI 分类获得提名**。来源是仓库自述和仓库里链接出去的活动页信息，不能往上扩成“获奖”。
 
-至于 star，我这次查询到的快照是 **24,933 stars**，已经和很多旧帖里流传的数字不同，所以正文按 2026-05-16 的本地快照写。
+当前 star 约 **24,933**，正文按 2026-05-16 的本地快照写。
 
 ## follow-builders：把 AI 观察清单做成定时摘要
 
@@ -399,5 +399,4 @@ GitHub：<https://github.com/dontbesilent2025/dbskill>
 - `vibeforge1111/keep-codex-fast` README
 - `alchaincyf/nuwa-skill` README
 - `dontbesilent2025/dbskill` README
-- 社媒参考 / 用户复制原文：`docs/ai/references/skills-ecosystem/x-reference.md`
 - GitHub 仓库快照：`docs/ai/references/skills-ecosystem/stats-2026-05-16.md`

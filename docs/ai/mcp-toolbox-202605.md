@@ -377,7 +377,7 @@ CloakBrowser 更常见的用法是：
 GitHub：<https://github.com/wd041216-bit/zero-api-key-web-search>
 官网：<https://pypi.org/project/zero-api-key-web-search/>
 
-原始参考里记的是 `free-web-search-ultimate`，但当前 GitHub 仓库名已经对应到 `zero-api-key-web-search`。这个项目主要解决的是 **给 Agent 补一条可验证的联网搜索链路**。
+free-web-search-ultimate 现已对应到 zero-api-key-web-search。这个项目主要解决的是 **给 Agent 补一条可验证的联网搜索链路**。
 
 它不只提供搜索，还有：
 

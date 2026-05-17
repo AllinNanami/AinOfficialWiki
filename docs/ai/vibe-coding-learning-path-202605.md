@@ -257,8 +257,6 @@ context-engineering-intro/
 
 ### Harness 工程书的进阶门槛
 
-这里保留清单里的用户复制原文，因为它很能代表这类资料为什么会被反复提到：
-
 > 零基础开始 Vibe Coding 必看的书——Harness 工程书。不管是 Claude 还是 Codex 已经取代了大量基础码农的工作，也让没有任何代码基础的人可以开始 Vibe Coding。但是由于没有系统学过 Harness 工程，在使用大模型时效率很低。现在这两本书一次把 Claude 和 Codex 的 Harness 工程一次给你解释清楚，而且还有中文版，大家不容错过。
 
 这段话的意思很明确：能开始做，不等于能稳定做；会问问题，不等于会搭环境。
@@ -293,79 +291,79 @@ GitHub：<https://github.com/walkinglabs/learn-harness-engineering>
 
 ## 文末 10 条 X 教程的放置位置
 
-这 10 条 X 教程适合放在文末，作为**社媒参考**补充阅读，不要拿来代替项目文档或官方文档。
+这 10 条 X 教程适合放在文末，作为补充阅读，不要拿来代替项目文档或官方文档。
 
 如果只看标题，它们很散；按路线整理后会清楚很多。
 
 ### 1）入门和界面上手
 
 - `@gengdaJ`：Codex App 从 0 到 1 完整入门教程，包含界面设置、基础用法讲解、常见踩坑排查。  
-  社媒参考：<https://x.com/gengdaJ/status/2053724702993190917>
+  来源：<https://x.com/gengdaJ/status/2053724702993190917>
 
 这类内容适合放在真正开始用 Codex 的第一周，解决的是"怎么打开、怎么开始、哪里容易踩坑"。
 
 ### 2）从想法到上线
 
 - `@ai_muzi`：0 基础 AI 应用构建 + 上线系统教程，从想法做到项目，再到域名上线全流程。  
-  社媒参考：<https://x.com/ai_muzi/status/2054471711718879291>
+  来源：<https://x.com/ai_muzi/status/2054471711718879291>
 
 它刚好对应这条路线中段的过渡：从做 demo 到上线。
 
 ### 3）浏览器和插件实战
 
 - `@Pluvio9yte`：Chrome 插件 + 浏览器控制实战，从安装配置到 Codex 操作浏览器。  
-  社媒参考作者主页：<https://x.com/Pluvio9yte>
+  作者：<https://x.com/Pluvio9yte>
 
 这类内容更适用于已经做过普通网页、准备往浏览器自动化和插件场景扩展的人。
 
 ### 4）双模型与本地工作台配置
 
 - `@alin_zone`：Claudian 配置教程，Claude Code + Codex 双模型实战，Obsidian 双开配置方案。  
-  社媒参考作者主页：<https://x.com/alin_zone>
+  作者：<https://x.com/alin_zone>
 
 这类资料更偏"我的工作台怎么搭"，适合同时使用 Claude Code 和 Codex 的时候看。
 
 ### 5）现成 Skills 收集
 
 - `@eastweb3eth`：5 个 Codex 必装 Skill 工具，GitHub 上实用合集。  
-  社媒参考作者主页：<https://x.com/eastweb3eth>
+  作者：<https://x.com/eastweb3eth>
 
 把它放在你已经明白 Skill 有什么用之后再回头装，会比一开始看见 Skill 就全部装一遍更合适。
 
 ### 6）上下文调优
 
 - `@lxfater`：Codex 深度调优 + 上下文优化四大绝招，省上下文的方法。  
-  社媒参考作者主页：<https://x.com/lxfater>
+  作者：<https://x.com/lxfater>
 
 这一条正好和 `context-engineering-intro` 呼应。读系统教程，再看这类经验贴，会更容易分辨哪些是技巧，哪些是长期结构。
 
 ### 7）设计工作流
 
 - `@xin_pai88825`：Codex + Image2 + Figma 设计工作流，IP 出图到 Figma 落地。  
-  社媒参考作者主页：<https://x.com/xin_pai88825>
+  作者：<https://x.com/xin_pai88825>
 
 这类内容对设计师或产品同学也有用，说明 Vibe Coding 不只有写代码，也包括图像和设计交付。
 
 ### 8）剪辑与视频流程
 
 - `@Saccc_c`：Codex + HyperFrames 剪辑工作流，做视频流程。  
-  社媒参考作者主页：<https://x.com/Saccc_c>
+  作者：<https://x.com/Saccc_c>
 
 如果你要把 AI 工作流延伸到视频，这条适合作为补充阅读，不属于最前面的入门主线。
 
 ### 9）VPS 与部署
 
 - `@WEB3_furture`：用 Codex 一键部署 VPS，零基础自动搭私人 VPN。  
-  社媒参考作者主页：<https://x.com/WEB3_furture>
+  作者：<https://x.com/WEB3_furture>
 
 这一条放在"项目上线"之后看更合适，因为它偏部署和环境，不适合最前面看。
 
 ### 10）订阅与省钱避坑
 
 - `@Lonely__MH`：5 折订阅 ChatGPT Plus 全流程实测，土区省钱方法。  
-  社媒参考作者主页：<https://x.com/Lonely__MH>
+  作者：<https://x.com/Lonely__MH>
 
-这类内容和学习路线本身关系不大，但现实里大家确实会关心订阅成本，所以保留为社媒参考即可，不必把它抬成主线内容。
+订阅成本相关内容作为补充参考，不作为主线内容。
 
 ## 可以按这个顺序读
 
@@ -391,4 +389,4 @@ GitHub：<https://github.com/walkinglabs/learn-harness-engineering>
 - `context-engineering-intro`：<https://github.com/coleam00/context-engineering-intro>
 - Harness 工程课程：<https://github.com/walkinglabs/learn-harness-engineering>
 - Claude 官方 Claude Code 教程播放列表：<https://www.youtube.com/playlist?list=PLmWCw1CzcFilebjK89WLb5cAvM8K0cLB3>
-- 社媒参考 / 用户复制原文：`docs/ai/references/vibe-coding-learning-path/x-reference.md`
+

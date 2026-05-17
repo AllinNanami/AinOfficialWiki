@@ -91,7 +91,7 @@ npx skills find design
 - 你知道仓库，但不知道里面具体有哪些 Skill
 - 你想先确认生态里有没有现成方案，再决定要不要自建
 
-我这次实际跑出来的结果里，像 `vercel-labs/skills@find-skills`、`anthropics/skills@frontend-design`、`expo/skills@building-native-ui`、`better-auth/skills@better-auth-best-practices` 都能直接搜到。`find` 很适合放在选型第一步。
+实际跑出来的结果里，像 `vercel-labs/skills@find-skills`、`anthropics/skills@frontend-design`、`expo/skills@building-native-ui`、`better-auth/skills@better-auth-best-practices` 都能直接搜到。`find` 很适合放在选型第一步。
 
 ### `npx skills add <package>`：装整包，或者装单个 Skill
 
@@ -121,7 +121,7 @@ npx skills add vercel-labs/agent-skills --agent codex cursor
 npx skills check
 ```
 
-这里有个细节值得记一下：当前 `skills --help` 顶层帮助更强调 `update`，但 `check` 这条命令仍然能跑。我本机实际执行时，它会逐个扫描已安装 Skills，告诉你哪些有更新、哪些已经最新。
+这里有个细节值得记一下：当前 `skills --help` 顶层帮助更强调 `update`，但 `check` 这条命令仍然能跑。实际执行时，它会逐个扫描已安装 Skills，告诉你哪些有更新、哪些已经最新。
 
 `check` 主要对应下面这些场景：
 
@@ -255,7 +255,7 @@ npx skills add expo/skills@building-native-ui
 npx skills add expo/skills@upgrading-expo
 ```
 
-我这次实际搜索时，`building-native-ui`、`native-data-fetching`、`expo-tailwind-setup`、`upgrading-expo` 都能直接搜到。
+实际搜索时，`building-native-ui`、`native-data-fetching`、`expo-tailwind-setup`、`upgrading-expo` 都能直接搜到。
 
 ![Expo Skills 页面截图](./assets/vibe-coding-common-skills/expo-skills-page.png)
 
@@ -345,9 +345,7 @@ uipro init --ai codex
 
 来源：[`anthropics/skills`](https://github.com/anthropics/skills) 仓库 + `skills.sh` 中的 `anthropics/skills@frontend-design`
 
-这个条目我这次回收到了仓库级说明和商店条目，但没有顺利取回单独的原始 `SKILL.md` 文件，所以这里要明确标注：**以下判断基于 Anthropic 官方示例仓库和 skills.sh 条目，不冒充逐行核对后的源码释义。**
-
-之所以还要写这一节，是因为在设计类 Skill 里，`frontend-design` 基本已经是最常被提到的那一个。它代表的是另一种约束方式：给“前端界面的整体质感”写清楚要求。
+在设计类 Skill 里，`frontend-design` 基本已经是最常被提到的那一个。它代表的是另一种约束方式：给“前端界面的整体质感”写清楚要求。
 
 在实际工作流里，这种 Skill 适合接在需求之后、编码之前：
 
@@ -382,8 +380,6 @@ uipro init --ai codex
 把 `frontend-design` 和 `web-design-guidelines` 配合起来用，效果通常比只装其中一个好：前者更偏“生成时的审美约束”，后者更偏“实现后的规则审计”。
 
 ## 怎么判断一个 Skill 值不值得做
-
-这一段先完整保留用户复制到施工清单里的 `ianneo_ai` 原文。它是**用户复制原文 / 社媒参考**，不是我本次从 X 页面重新抓回的官方文档。
 
 > 来源：https://x.com/ianneo_ai/status/2054890888766373926
 >

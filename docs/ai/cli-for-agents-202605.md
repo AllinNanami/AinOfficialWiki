@@ -138,13 +138,13 @@ OpenCLI 解决的是另一类痛点：软件未必缺 CLI，但网站和桌面 A
 
 它的内置命令范围已经很大。仓库首页列出的站点和工具已经覆盖：Bilibili、知乎、小红书、Reddit、Hacker News、Twitter/X，以及 `gh`、`docker`、`ntn`、`longbridge` 这类本地 CLI，还有 Cursor、Codex、ChatGPT 这类 Electron 应用。
 
-用户原始参考里点名的那组命令，在适配器表里能对上相当一部分。比如：
+这组命令在适配器表里能对上相当一部分。比如：
 
 - `claude`：`ask`、`send`、`new`、`status`、`read`、`history`、`detail`
 - `gemini`：`new`、`ask`、`image`、`deep-research`
 - `twitter`：`search`、`trending`、`post`、`reply`、`bookmarks` 等
 
-原始参考里提到的 **ask / send / read / new / history**，在项目文档里都能对上。
+文档里的 **ask / send / read / new / history** 都能找到对应。
 
 ### 安装和浏览器桥接
 
@@ -203,7 +203,7 @@ npx skills add jackwener/opencli --skill opencli-browser
 
 OpenCLI 最有用的地方，在于它把原来分散在网页、桌面应用、浏览器标签页里的动作压成了统一命令面。这样一来，多模型串联就不再非得自己写一堆 SDK wrapper。
 
-用户原始参考里给了一个很典型的链路，我保留下来：
+一条典型的链路如下：
 
 1. 用 Grok 或 X/Twitter 相关适配器找实时讨论
 2. 把结果交给 Claude 结构化整理
@@ -242,7 +242,7 @@ GitHub：<https://github.com/larksuite/cli>
 
 飞书 CLI 和前两个项目解决的问题不一样。CLI-Anything、OpenCLI 更偏"怎么接工具"，飞书 CLI 更偏"怎么把成果写回业务系统"。
 
-原始参考里有一句话很贴切：很多人的工作流起点是 Codex 或 Claude Code，但跑完 agent task 之后，结果常常还停在终端里，仍然得手动复制进文档、会议纪要或者日程系统。飞书 CLI 补的就是这一段。
+很多人的工作流起点是 Codex 或 Claude Code，但跑完 agent task 之后，结果常常还停在终端里，仍然得手动复制进文档、会议纪要或者日程系统。飞书 CLI 补的就是这一段。
 
 ### 项目能力
 
@@ -261,7 +261,7 @@ GitHub：<https://github.com/larksuite/cli>
 - Meetings / Minutes：查询会议记录、会议纪要、AI 总结、Todo、录音录像
 - Messenger：发消息、回消息、搜索消息
 
-这意味着原始参考里提到的这些场景，基本都能在能力表里对上：
+这些场景基本都能在能力表里对上：
 
 - 调研后写入飞书文档
 - 安排出差日程
@@ -313,7 +313,7 @@ lark-cli docs +create --api-version v2 --doc-format markdown --content $'<title>
 lark-cli calendar +agenda
 ```
 
-文档还列出了更多日历相关能力，比如空闲时间查询、会议室查找、实例视图和权限域配置。这正好对应原始参考里"跟 AI 对话，让飞书 CLI 安排出差日程"的说法。
+文档还列出了更多日历相关能力，比如空闲时间查询、会议室查找、实例视图和权限域配置。这正好对应"跟 AI 对话，让飞书 CLI 安排出差日程"的用法。
 
 会议纪要和妙记这一块，文档里没有直接写"妙记"两个字，但有两组能力非常接近：
 
@@ -451,7 +451,7 @@ Agent 调 CLI 当然会出错，而且一旦出错，速度更快、影响面也
 
 这条链最有价值的地方，是"从信息抓取到组织内落地"终于能连起来。
 
-## 相关视频、文档与社媒参考
+## 相关视频与文档
 
 ### 视频参考
 
@@ -470,14 +470,6 @@ Agent 调 CLI 当然会出错，而且一旦出错，速度更快、影响面也
 - 飞书服务端 API 列表：<https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/server-api-list>
 - 飞书应用权限列表：<https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/scope-list>
 - 飞书自建应用开发流程：<https://open.feishu.cn/document/home/introduction-to-custom-app-development/self-built-application-development-process>
-
-### 社媒参考
-
-- SoPilot 聚合页：<https://sopilot.net/hot-tweets?tweetId=2055074904647811171>
-- Rattibha 转存：<https://en.rattibha.com/thread/2033426419523756147>
-- TwStalker 转存：<https://mobile.twstalker.com/YouZhi_Mu>
-
-上面这些社媒页的价值主要是保留用户原始介绍语境，比如"飞书 CLI 是把 Agent 输出落到文档和日程里的桥""OpenCLI 适合多模型串联""复用浏览器登录态比临时拉起无登录浏览器更顺手"。它们都应当视为**社媒参考**或**用户复制原文**，不能替代官方仓库和文档本身。
 
 ## 为什么 CLI 又回来了
 

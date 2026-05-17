@@ -123,7 +123,7 @@ guizang-ppt-skill/
 
 官方仓库列的是能力清单，归藏那篇 X 长文补了这次更新的动因。
 
-这份本地保存的社媒参考把更新动因写得很具体。文里提到，发布之后后台最常见的问题集中在三类：
+更新动因写得很具体。文里提到，发布之后后台最常见的问题集中在三类：
 
 - 能不能多几种风格；
 - 配图能不能一起搞定；
@@ -135,7 +135,7 @@ guizang-ppt-skill/
 2. 在 Codex 里接入 GPT-Image 2.0，直接生成配图；
 3. 把同一份内容继续延伸到多平台封面。
 
-这里的材料来自本地保存的 X 页面，属于**社媒参考**；可执行的约束还是要看仓库里的 `references/` 和脚本。
+可执行的约束要看仓库里的 `references/` 和脚本。
 
 ### 两张配图放在什么位置
 
@@ -405,4 +405,4 @@ Clone https://github.com/zarazhangrui/beautiful-html-templates and follow the in
 - `guizang-ppt-skill` README：<https://github.com/op7418/guizang-ppt-skill>
 - `html-anything` README：<https://github.com/nexu-io/html-anything>
 - `beautiful-html-templates` README：<https://github.com/zarazhangrui/beautiful-html-templates>
-- 社媒参考 / 用户复制原文：已归档的本地参考 `docs/ai/references/ppt-generation-skills/guizang-x-source.html`
+- 归藏 X 长文来源：`docs/ai/references/ppt-generation-skills/guizang-x-source.html`
