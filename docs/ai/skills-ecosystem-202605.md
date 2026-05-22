@@ -1,13 +1,13 @@
 ---
 title: Codex / Claude Skills 生态观察
-description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders、codex-plusplus、keep-codex-fast、nuwa-skill、dbskill，整理一条更实用的 Skills 生态观察线。
+description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders、codex-plusplus、keep-codex-fast、nuwa-skill、dbskill、academic-research-skills，整理一条更实用的 Skills 生态观察线。
 ---
 
 # Codex / Claude Skills 生态观察
 
 Skill 和 prompt 模板不是一回事。一个仓库值不值得装，要看它有没有把结构、判断、流程、默认取舍和验证方式写进可复用的执行单元。
 
-下面按入口、方法论仓库、索引、代码库打包、信息订阅、桌面补丁、会话维护和中文项目几层往下看。
+下面按入口、方法论仓库、索引、代码库打包、信息订阅、桌面补丁、会话维护、中文项目和领域专用技能几层往下看。
 
 一些社区讨论里高频提到的经验：
 
@@ -372,20 +372,78 @@ GitHub：<https://github.com/dontbesilent2025/dbskill>
 
 都在把"下次还要重复做的判断和流程"固化下来。`mattpocock/skills` 固化的是软件工程流程，`dbskill` 固化的是商业诊断流程。领域不一样，设计逻辑很接近。
 
+## academic-research-skills：把学术研究全流程做成 AI 协作管道
+
+GitHub：<https://github.com/Imbad0202/academic-research-skills>
+
+`academic-research-skills` 回答了另一个问题：学术研究这种高度结构化、多阶段、需要严格质量控制的工作，怎么和 AI 协作。
+
+仓库标题很直接：**Academic Research Skills for Claude Code**。它不是单个 skill，而是一整套覆盖从研究到出版全流程的技能套件，包含 4 个核心技能、25+ 种模式、10 阶段管道编排器。
+
+### 它在解决什么问题
+
+学术研究有几个结构性难点：
+
+1. **引用幻觉**：Zhao et al. (2026) 审计了 250 万篇论文中的 1.11 亿条引用，保守估计 2025 年有 146,932 条幻觉引用；
+2. **框架锁定**：验证 AI 和生成 AI 共享同一个认知框架，导致 devil's advocate 只攻击论点不攻击前提；
+3. **讨好式退让**：用户一 pushback，AI 就收回攻击，训练奖励的是对话和谐而非真理追求；
+4. **意图误判**：探索性对话和目标导向对话需要完全不同的 AI 行为，但模型经常分不清。
+
+ARS 的设计前提是：**人类研究者 + AI 增强，比任何一方单独工作都能更好地避免这些失败模式**。
+
+### 四个核心技能
+
+**Deep Research（13 个 agent）** — 7 种研究模式：完整研究、快速摘要、系统综述（PRISMA）、苏格拉底引导式、事实核查、文献综述、研究质量审查。特别值得注意的是苏格拉底模式的意图检测层：每 3 轮对话自动分类用户意图是探索性还是目标导向，探索性模式下禁用自动收敛、最大轮次提升到 60、禁止"要我总结吗"这类提前关闭。
+
+**Academic Paper（12 个 agent）** — 10 种写作模式：完整写作、引导式规划、仅大纲、修订、修订教练、仅摘要、文献综述、格式转换、引用检查、AI 披露声明。内置 Style Calibration（从你过去的作品学习你的写作风格）和 Writing Quality Check（捕捉让文字感觉是机器生成的模式）。
+
+**Academic Paper Reviewer（7 个 agent）** — 6 种审查模式：完整审查（EIC + 3 个审稿人 + devil's advocate）、快速评估、引导式改进、方法论聚焦、修订验证、校准模式。使用 0-100 质量评分标准，决策映射：≥80 接受，65-79 小修，50-64 大修，<50 拒稿。
+
+**Academic Pipeline（10 阶段编排器）** — 从研究到出版的完整管道：Stage 1 研究 → Stage 2 写作 → Stage 2.5 完整性验证 → Stage 3 同行评审 → Stage 3' 修订后复审 → Stage 4 作者回应 → Stage 4.5 最终完整性验证 → Stage 5 格式化 → Stage 6 过程总结。每个阶段都需要用户确认检查点，完整性验证（Stage 2.5 和 4.5）不可跳过。
+
+### v3.0 的关键优化：对抗 AI 的结构性缺陷
+
+**Devil's Advocate 让步阈值协议**：DA 必须对每个反驳评分 1-5 分，只有评分 ≥4（反驳直接针对核心攻击并有证据）才允许让步。反讨好规则：不允许连续让步、跟踪让步率、每个检查点后检测框架锁定。
+
+**苏格拉底导师意图检测层**：在对话开始时和每 3 轮后分类用户意图。探索模式：禁用自动收敛、最大轮次提升到 60、禁止"要我总结吗"提示。目标导向模式：标准收敛行为。
+
+**苏格拉底导师对话健康指标**：每 5 轮静默自评三个维度：持续同意、冲突回避、过早收敛。检测到同意模式时自动注入挑战性问题。对用户不可见（防止博弈），但日志可用于会话后审查。
+
+### 安装和使用
+
+```bash
+# Claude Code 插件安装（推荐，30 秒）
+/plugin marketplace add Imbad0202/academic-research-skills
+/plugin install academic-research-skills
+
+# 验证：运行 /ars-plan 描述你要写的论文
+# 或单次测试：/ars-lit-review "your topic"
+```
+
+成本方面，完整管道写一篇 15k 字论文约 $4-6。支持 APA 7.0、Chicago、MLA、IEEE、Vancouver 引用格式，支持 IMRaD、主题文献综述、理论分析、案例研究、政策简报、会议论文等结构。
+
+### 它在 Skills 生态里的位置
+
+`academic-research-skills` 是目前看到的**最完整的领域专用方法论产品**。和 `mattpocock/skills` 比，它不是通用工程技能，而是专攻学术研究这一个垂直领域；和 `dbskill` 比，它的管道编排更复杂（10 阶段 vs 工具箱式），质量控制更严格（完整性验证不可跳过、引用三层锚定、声明审计）。
+
+它还展示了 Skills 的另一个成熟方向：不只是把判断和流程固化，而是把**质量门控和反幻觉机制**也固化进去。Stage 2.5 和 4.5 的完整性验证会检查 7 种 AI 研究失败模式，引用系统要求每条引用都带三层锚定（引用、页码、章节），声明审计会获取被引来源并判断是否真正支持论点。
+
 ## 回到整体生态
 
-看到这里，Skills 生态大概可以分成四层：
+看到这里，Skills 生态大概可以分成五层：
 
 1. **商店 / 索引层**：`aitmpl.com/skills`、`awesome-codex-skills`；
 2. **方法论产品层**：`mattpocock/skills`、`nuwa-skill`、`dbskill`；
-3. **输入压缩层**：`repomix`、`handoff`；
-4. **宿主增强和维护层**：`follow-builders`、`codex-plusplus`、`keep-codex-fast`。
+3. **领域专用方法论层**：`academic-research-skills`（学术研究全流程）；
+4. **输入压缩层**：`repomix`、`handoff`；
+5. **宿主增强和维护层**：`follow-builders`、`codex-plusplus`、`keep-codex-fast`。
 
 如果按工作台来装，一种顺手的组合是：
 
 - 用 `mattpocock/skills` 这类方法论主仓库打底；
 - 配上 `repomix`、`keep-codex-fast` 这类基础设施；
 - 再按职业场景补 `follow-builders`、`nuwa-skill`、`dbskill`；
+- 如果做学术研究，`academic-research-skills` 是目前最完整的垂直领域方案；
 - 长尾技能交给 `awesome-codex-skills` 或 `aitmpl.com/skills` 去扩展。
 
 ## 资料来源
@@ -399,4 +457,5 @@ GitHub：<https://github.com/dontbesilent2025/dbskill>
 - `vibeforge1111/keep-codex-fast` README
 - `alchaincyf/nuwa-skill` README
 - `dontbesilent2025/dbskill` README
+- `Imbad0202/academic-research-skills` README 与 `docs/ARCHITECTURE.md`、`docs/SETUP.md`、`docs/PERFORMANCE.md`
 - GitHub 仓库快照：`docs/ai/references/skills-ecosystem/stats-2026-05-16.md`

@@ -714,7 +714,8 @@ export default defineConfig({
             { text: '草稿去 AI 味', link: '/ai/ai-editing-202601' },
             { text: '内容 SOP', link: '/ai/ai-content-creation-sop-202605' },
             { text: '软著与专利', link: '/ai/ip-writing-skills-202605' },
-            { text: '去 AI 味工具', link: '/ai/de-ai-writing-tools-202605' }
+            { text: '去 AI 味工具', link: '/ai/de-ai-writing-tools-202605' },
+            { text: '学术研究技能', link: '/ai/skills-ecosystem-202605' }
           ]
         },
         {
@@ -1007,7 +1008,8 @@ export default defineConfig({
             { text: '草稿去 AI 味', link: '/guides/ai/ai-editing-202601' },
             { text: '内容 SOP', link: '/guides/ai/ai-content-creation-sop-202605' },
             { text: '软著与专利', link: '/guides/ai/ip-writing-skills-202605' },
-            { text: '去 AI 味工具', link: '/guides/ai/de-ai-writing-tools-202605' }
+            { text: '去 AI 味工具', link: '/guides/ai/de-ai-writing-tools-202605' },
+            { text: '学术研究技能', link: '/guides/ai/skills-ecosystem-202605' }
           ]
         },
         {
