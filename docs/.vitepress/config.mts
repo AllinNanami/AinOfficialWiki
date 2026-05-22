@@ -841,12 +841,28 @@ export default defineConfig({
           ]
         },
         {
-          text: '软件资源',
+          text: '办公与效率',
+          items: [
+            { text: 'PDF 批量去水印完全指南', link: '/software/pdf-watermark-removal-guide' }
+          ]
+        },
+        {
+          text: '设计与创意',
           items: [
             { text: 'Photoshop 2025 安装指南', link: '/software/photoshop-2025-installation' },
             { text: 'Blender 安装教程', link: '/software/blender-installation' },
-            { text: 'Blender 插件安装教程', link: '/software/blender-addon-installation' },
-            { text: 'MATLAB 2024b 安装教程', link: '/software/matlab-2024b-installation' },
+            { text: 'Blender 插件安装教程', link: '/software/blender-addon-installation' }
+          ]
+        },
+        {
+          text: '科学与工程',
+          items: [
+            { text: 'MATLAB 2024b 安装教程', link: '/software/matlab-2024b-installation' }
+          ]
+        },
+        {
+          text: '系统与工具',
+          items: [
             { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/software/win11-clean-flash-4399' }
           ]
         }
@@ -1118,12 +1134,28 @@ export default defineConfig({
           ]
         },
         {
-          text: '软件资源',
+          text: '办公与效率',
+          items: [
+            { text: 'PDF 批量去水印完全指南', link: '/resource/softwares/pdf-watermark-removal-guide' }
+          ]
+        },
+        {
+          text: '设计与创意',
           items: [
             { text: 'Photoshop 2025 安装指南', link: '/resource/softwares/photoshop-2025-installation' },
             { text: 'Blender 安装教程', link: '/resource/softwares/blender-installation' },
-            { text: 'Blender 插件安装教程', link: '/resource/softwares/blender-addon-installation' },
-            { text: 'MATLAB 2024b 安装教程', link: '/resource/softwares/matlab-2024b-installation' },
+            { text: 'Blender 插件安装教程', link: '/resource/softwares/blender-addon-installation' }
+          ]
+        },
+        {
+          text: '科学与工程',
+          items: [
+            { text: 'MATLAB 2024b 安装教程', link: '/resource/softwares/matlab-2024b-installation' }
+          ]
+        },
+        {
+          text: '系统与工具',
+          items: [
             { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/resource/softwares/win11-clean-flash-4399' }
           ]
         }
