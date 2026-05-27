@@ -513,6 +513,8 @@ export default defineConfig({
           { text: '科研', link: '/research/' },
           { text: '活动', link: '/event/' },
           { text: '软件', link: '/software/' },
+          { text: '电脑维护/DIY', link: '/pc-diy/' },
+          { text: '学业发展', link: '/resource/academic-development/' },
           { text: '贡献', link: '/contribution/' }
         ]
       }
@@ -649,6 +651,12 @@ export default defineConfig({
           items: [
             { text: 'Git使用基础和工作流', link: '/sre/git-basics' }
           ]
+        },
+        {
+          text: '配置管理',
+          items: [
+            { text: '配置文件格式详解', link: '/sre/config-file-formats' }
+          ]
         }
       ],
 
@@ -730,7 +738,8 @@ export default defineConfig({
           items: [
             { text: '免费 AI 课程', link: '/ai/free-ai-courses-roadmap-202605' },
             { text: '大模型路线', link: '/ai/llm-learning-roadmap-202605' },
-            { text: '深度学习路线', link: '/ai/deep-learning-learning-roadmap-202605' }
+            { text: '深度学习路线', link: '/ai/deep-learning-learning-roadmap-202605' },
+            { text: '深度学习课程推荐', link: '/ai/deep-learning-courses' }
           ]
         },
         {
@@ -844,7 +853,8 @@ export default defineConfig({
         {
           text: '办公与效率',
           items: [
-            { text: 'PDF 批量去水印完全指南', link: '/software/pdf-watermark-removal-guide' }
+            { text: 'PDF 批量去水印完全指南', link: '/software/pdf-watermark-removal-guide' },
+            { text: 'PPT 制作技巧', link: '/software/ppt-making-skills' }
           ]
         },
         {
@@ -864,7 +874,58 @@ export default defineConfig({
         {
           text: '系统与工具',
           items: [
-            { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/software/win11-clean-flash-4399' }
+            { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/software/win11-clean-flash-4399' },
+            { text: '必装软件推荐', link: '/software/windows-essential-apps' },
+            { text: 'CLI 工具', link: '/software/cli-tools' },
+            { text: '终端管理器', link: '/software/terminal-emulators' },
+            { text: '磁盘与文件系统', link: '/software/disk-file-system' }
+          ]
+        },
+        {
+          text: '学习与成长',
+          items: [
+            { text: '网络基础', link: '/software/network-basics' },
+            { text: '计算机专业学习指南', link: '/software/cs-learning-guide' }
+          ]
+        }
+      ],
+
+      // 电脑维护/DIY侧边栏
+      '/pc-diy/': [
+        {
+          text: '总览',
+          items: [
+            { text: '电脑维护/DIY', link: '/pc-diy/' }
+          ]
+        },
+        {
+          text: '装机指南',
+          items: [
+            { text: '装机指南', link: '/pc-diy/build-pc-guide' }
+          ]
+        },
+        {
+          text: '硬件选购',
+          items: [
+            { text: '硬件选购', link: '/pc-diy/hardware-buying-guide' }
+          ]
+        },
+        {
+          text: '硬件科普',
+          items: [
+            { text: '硬件科普', link: '/pc-diy/hardware-knowledge' }
+          ]
+        },
+        {
+          text: 'Windows优化',
+          items: [
+            { text: 'Windows优化', link: '/pc-diy/windows-optimization' }
+          ]
+        },
+        {
+          text: '故障排查',
+          items: [
+            { text: '故障排查', link: '/pc-diy/troubleshooting' }
           ]
         }
       ],
@@ -1138,7 +1199,8 @@ export default defineConfig({
         {
           text: '办公与效率',
           items: [
-            { text: 'PDF 批量去水印完全指南', link: '/resource/softwares/pdf-watermark-removal-guide' }
+            { text: 'PDF 批量去水印完全指南', link: '/resource/softwares/pdf-watermark-removal-guide' },
+            { text: 'PPT 制作技巧', link: '/resource/softwares/ppt-making-skills' }
           ]
         },
         {
@@ -1158,7 +1220,57 @@ export default defineConfig({
         {
           text: '系统与工具',
           items: [
-            { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/resource/softwares/win11-clean-flash-4399' }
+            { text: 'Windows 11 怎么玩 4399 Flash 小游戏？两种干净办法', link: '/resource/softwares/win11-clean-flash-4399' },
+            { text: '必装软件推荐', link: '/resource/softwares/windows-essential-apps' },
+            { text: 'CLI 工具', link: '/resource/softwares/cli-tools' },
+            { text: '磁盘与文件系统', link: '/resource/softwares/disk-file-system' }
+          ]
+        },
+        {
+          text: '学习与成长',
+          items: [
+            { text: '网络基础', link: '/resource/softwares/network-basics' },
+            { text: '计算机专业学习指南', link: '/resource/softwares/cs-learning-guide' }
+          ]
+        }
+      ],
+
+      // 电脑维护/DIY侧边栏
+      '/resource/pc-diy/': [
+        {
+          text: '总览',
+          items: [
+            { text: '电脑维护/DIY', link: '/resource/pc-diy/' }
+          ]
+        },
+        {
+          text: '装机指南',
+          items: [
+            { text: '装机指南', link: '/resource/pc-diy/build-pc-guide' }
+          ]
+        },
+        {
+          text: '硬件选购',
+          items: [
+            { text: '硬件选购', link: '/resource/pc-diy/hardware-buying-guide' }
+          ]
+        },
+        {
+          text: '硬件科普',
+          items: [
+            { text: '硬件科普', link: '/resource/pc-diy/hardware-knowledge' }
+          ]
+        },
+        {
+          text: 'Windows优化',
+          items: [
+            { text: 'Windows优化', link: '/resource/pc-diy/windows-optimization' }
+          ]
+        },
+        {
+          text: '故障排查',
+          items: [
+            { text: '故障排查', link: '/resource/pc-diy/troubleshooting' }
           ]
         }
       ],
@@ -1242,6 +1354,13 @@ export default defineConfig({
           ]
         },
         {
+          text: '竞赛技巧',
+          items: [
+            { text: 'PPT 制作技巧', link: '/competition/ppt-making-skills' },
+            { text: '就业实习指南', link: '/competition/internship-guide' }
+          ]
+        },
+        {
           text: '其他',
           items: [
             { text: '竞赛报销说明', link: '/competition/reimbursement-guide' }
@@ -1261,6 +1380,37 @@ export default defineConfig({
           text: '文献综述',
           items: [
             { text: '从零开始使用 CiteSpace 完成文献综述', link: '/research/citespace-from-scratch' }
+          ]
+        },
+        {
+          text: '科研工具',
+          items: [
+            { text: '论文写作指南', link: '/research/paper-writing-guide' },
+            { text: '文献管理', link: '/research/literature-management' }
+          ]
+        }
+      ],
+
+      // 学业发展侧边栏
+      '/resource/academic-development/': [
+        {
+          text: '总览',
+          items: [
+            { text: '学业发展', link: '/resource/academic-development/' }
+          ]
+        },
+        {
+          text: '学习规划',
+          items: [
+            { text: '大学四年规划', link: '/resource/academic-development/college-planning' },
+            { text: '课程选择建议', link: '/resource/academic-development/course-selection' }
+          ]
+        },
+        {
+          text: '升学深造',
+          items: [
+            { text: '保研准备', link: '/resource/academic-development/graduate-recommendation' },
+            { text: '考研准备', link: '/resource/academic-development/graduate-exam' }
           ]
         }
       ]
