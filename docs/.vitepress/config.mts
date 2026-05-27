@@ -1361,6 +1361,12 @@ export default defineConfig({
           ]
         },
         {
+          text: '学习资源',
+          items: [
+            { text: '网络安全学习指南', link: '/competition/cybersecurity-learning' }
+          ]
+        },
+        {
           text: '其他',
           items: [
             { text: '竞赛报销说明', link: '/competition/reimbursement-guide' }
