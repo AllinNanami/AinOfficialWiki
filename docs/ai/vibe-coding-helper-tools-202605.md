@@ -5,14 +5,14 @@ description: 从 token、代码图谱、仓库理解到后端平台，整理 Tok
 
 # Vibe Coding 辅助工具
 
-长期使用 Claude Code、Codex 这类工具之后，瓶颈往往不在"模型会不会写代码"，而在四个更琐碎、也更消耗成本的地方：
+长期使用 Claude Code、Codex 后，常见瓶颈包括 token 消耗追踪、仓库理解、文件关联分析和后端基础设施搭建：
 
 - token 花到哪里去了；
 - 仓库越来越大后，模型到底看懂了多少；
 - 哪些文件改动会互相牵连；
 - 当前端已经写出来，后端和部署还要补多少基础设施。
 
-这一篇不谈大而全的 Vibe Coding 方法论，只看四个很具体的辅助工具：`TokenTracker`、`repowise`、`CodeGraph`、`InsForge`。它们分别卡在不同位置：一个管消耗，一个管仓库理解，一个管图谱检索，一个补后端底座。
+下面介绍四个辅助工具：`TokenTracker`、`repowise`、`CodeGraph`、`InsForge`。它们分别卡在不同位置：一个管消耗，一个管仓库理解，一个管图谱检索，一个补后端底座。
 
 ## `TokenTracker`：token 花费追踪
 
@@ -92,7 +92,7 @@ brew install mm7894215/tokentracker/tokentracker
 
 很多"仓库理解"工具，只做其中一层：要么画依赖图，要么做向量检索，要么整理文档。
 
-`repowise` 的切入点更完整一些。仓库把它拆成四层 intelligence：
+`repowise` 覆盖面较广。仓库把它拆成四层 intelligence：
 
 - dependency graph
 - git history
@@ -178,7 +178,7 @@ repowise serve
 3. 改核心模块前，查 `get_risk()` 和 `get_why()`。
 4. 项目多仓库拆分后，再切到 workspace 模式。
 
-它不负责实时记账，也不替你补后端，但在"仓库理解"这一层，覆盖面比只做代码搜索的工具更宽。
+它不负责实时记账，也不替你补后端，但在"仓库理解"这一层，覆盖代码搜索、文件关联、依赖分析等功能。
 
 ## `CodeGraph`：给 Claude Code 一张本地图谱
 
@@ -352,7 +352,7 @@ docker compose -f docker-compose.prod.yml up
 
 ## 四个工具组成的工作流
 
-如果把这四个项目放在同一个项目里用，我会更倾向于这个顺序：
+这四个工具在同一条工作流中的推荐顺序是：
 
 1. **装 `TokenTracker`**：看自己到底把 token 烧在了哪里。
 2. **补 `CodeGraph` 或 `repowise`**：前者更偏快速图谱探索，后者更偏把历史、文档、决策一起交给 Agent。
@@ -370,14 +370,6 @@ docker compose -f docker-compose.prod.yml up
 
 - `CodeGraph` 的数字要分清 README 头图口号和 benchmark 平均值。
 - `InsForge` 的后端能力可以确认，但涉及 Y Combinator 批次、性能对比、社媒用户评价时，最好单独标明来源层级。
-
-Vibe Coding 的辅助工具看到这里，判断标准其实很朴素：
-
-- 你有没有更快看懂仓库；
-- 你有没有少烧一些 token；
-- 你有没有把后端卡点往后挪。
-
-这三件事能做到，这些工具就已经有了安装和接入的理由。
 
 ## 参考链接
 
