@@ -5,7 +5,7 @@ description: 从 skills.sh、Vercel、Vue、Svelte、Anthony Fu、Expo、Better 
 
 # Vibe Coding 常用 Skills
 
-本文由 `docs/ai/mcp-skills-guide.md` 拆出，只讲 Skills；MCP 见第 02 篇《Vibe Coding 常用 MCP》。如果你现在最头疼的是“AI 明明会写代码，但每次做法都不一样”，把高频工作流沉淀成 Skill，往往比换模型更管用。
+本文只讲 Skills；MCP 相关内容见第 02 篇《Vibe Coding 常用 MCP》。如果你现在最头疼的是“AI 明明会写代码，但每次做法都不一样”，把高频工作流沉淀成 Skill，往往比换模型更管用。
 
 MCP 负责把模型接到外部数据和工具上，Skills 负责固定高频工作流。对 VibeCoding 来说，后者通常更快见效：你不用重新训练模型，也不用维护一长串全局系统提示词，只要把稳定流程、判断标准、脚本和参考资料装进 Skill 目录，AI 的出手就会稳很多。
 
@@ -52,7 +52,7 @@ my-skill/
 
 ## Skills 与上下文控制
 
-母文里提过 Skills 的“渐进式披露”，这个机制值得单独讲清楚。
+Skills 的"渐进式披露"机制值得单独讲清楚。
 
 它大致分三层：
 
@@ -74,7 +74,7 @@ Skill 连上下文怎么装配，都提前规定好了。
 
 ![skills.sh 首页截图](./assets/vibe-coding-common-skills/skills-sh-home.png)
 
-在本机实际运行 `npx skills --help` 时，当前 CLI 版本会显示 `add`、`remove`、`list`、`find`、`update` 等命令。母文里提到的四条高频命令，仍然是最值得先记住的一组。
+在本机实际运行 `npx skills --help` 时，当前 CLI 版本会显示 `add`、`remove`、`list`、`find`、`update` 等命令。四条高频命令仍然是最值得先记住的一组。
 
 ### `npx skills find <query>`：发现入口
 
@@ -210,7 +210,7 @@ Vue 这一组技能把场景拆得很细：`vue-best-practices`、`vue-router-be
 ln -s /path/to/svelte-claude-skills/.claude/skills/svelte5-runes ~/.claude/skills/
 ```
 
-Svelte 这一组技能最打动人的地方，是它没有装成“万能 Svelte 专家”，而是围绕几个最容易犯错的主题拆开：
+Svelte 这一组技能的特点是，它没有装成“万能 Svelte 专家”，而是围绕几个最容易犯错的主题拆开：
 
 - `svelte5-runes`
 - `sveltekit-data-flow`
@@ -381,9 +381,7 @@ uipro init --ai codex
 
 ## 怎么判断一个 Skill 值不值得做
 
-> 来源：https://x.com/ianneo_ai/status/2054890888766373926
->
-> 定制 Skill，一上来就在写 prompt？大错特错！其实真正该问的是这 6 件事：它解决哪个场景？处理流程怎么跑？输入输出是什么？要调用哪些工具？怎样算合格？它凭什么跑得比通用 AI 好？Skill 不是一句你是专家，而是一套可复用的小工作流。范围定清，流程写顺，数据喂准，工具接上，验收摆出来，再加一点你的判断和品味，这才像给自己雇了一个稳定同事。定 Skill 先问场景流程，别急着写 prompt。这 6 件事问完，Skill 才算有灵魂。最后那句“加一点你的判断和品味”太真实了，通用 AI 缺的往往就是这点主观判断。重复性高的工作都适合做成 Skill。
+定制 Skill 时，最该先问的不是怎么写 prompt，而是这 6 件事：它解决哪个场景？处理流程怎么跑？输入输出是什么？要调用哪些工具？怎样算合格？它凭什么跑得比通用 AI 好？Skill 本质上是一套可复用的小工作流，不是一句"你是专家"。范围定清，流程写顺，数据喂准，工具接上，验收摆出来，再加上团队自己的判断和品味，才能让 Skill 真正稳定下来。
 
 这六问可以直接拿来当筛选器：
 
@@ -425,7 +423,7 @@ uipro init --ai codex
 
 ### 6. 它凭什么比通用 AI 好？
 
-这是最狠的一问。
+这是最关键的判断标准。
 
 如果一个任务只靠一句话就能让通用 AI 做得不错，那它未必值得专门做成 Skill。真正值得做的 Skill，通常至少满足下面一条：
 
