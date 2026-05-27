@@ -1,6 +1,6 @@
 ---
 title: 文档知识图谱
-description: 从 ai-knowledge-graph 的项目说明、配置和公开示例出发，说明它怎样把非结构化文档拆成三元组，做成交互式知识图谱，并和向量 RAG 区分开。
+description: 从 ai-knowledge-graph 的项目说明、配置和公开示例出发，说明它怎样把非结构化文档拆成三元组，做成交互式知识图谱，并和向量 RAG 区分开。同时介绍 Understand Anything 如何把代码库变成可交互的架构知识图谱。
 ---
 
 # 文档知识图谱
@@ -354,3 +354,112 @@ generate-graph --input data/industrial-revolution.txt --output industrial-revolu
 - 推断边是否把"可能相关"写成了"确定相关"。
 
 如果你的目标是问答优先、上线快、文档关系不复杂，向量 RAG 往往更省事；如果更看重关系网络本身能不能被看清，这类图谱才值得上。
+
+## 代码库知识图谱：Understand Anything
+
+GitHub：<https://github.com/Lum1104/Understand-Anything>
+官网：<https://understand-anything.com>
+
+前面讲的 `ai-knowledge-graph` 面向的是非结构化文档——把报告、历史材料、技术说明书里的实体和关系抽出来。`Understand-Anything` 做的是另一件事：**把整个代码库变成可交互的知识图谱**。
+
+你刚加入一个新团队，代码库有 20 万行代码，从哪里开始？`Understand-Anything` 用多 Agent 流水线扫描项目，提取每个文件、函数、类和依赖关系，生成一张知识图谱，再给你一个可交互的 Dashboard 来探索。
+
+### 它和文档知识图谱的区别
+
+文档知识图谱关注的是"文本里提到了哪些实体、它们之间是什么关系"。代码库知识图谱关注的是另一层结构：
+
+- 每个文件、函数、类都是节点；
+- 导入、调用、继承、依赖都是边；
+- 架构层（API、Service、Data、UI、Utility）自动分组；
+- 业务域、流程、步骤映射到代码结构。
+
+它不只是"找相似内容"，而是"看清每一块代码怎么拼在一起"。
+
+### Tree-sitter + LLM 混合架构
+
+`Understand-Anything` 把静态分析和 LLM 各自擅长的事拆开了：
+
+**Tree-sitter（确定性）**——把源码解析成具体语法树，提取结构性事实：导入、导出、函数/类定义、调用点、继承关系。同样的输入永远产生同样的输出。还支持基于指纹的变更检测，用于增量更新。
+
+**LLM（语义）**——读解析后的结构和原始源码，产出解析器做不到的东西：英文摘要、标签、架构层分配、业务域映射、引导式学习路线、编程模式标注。
+
+这个拆法让图谱在结构面可复现（同样的代码总是产生同样的边），在语义面捕捉意图（一个文件是"干什么用的"，不只是它导入了什么）。
+
+### 多 Agent 流水线
+
+`/understand` 命令编排 5 个专门 Agent，`/understand-domain` 再加 1 个：
+
+| Agent | 角色 |
+|-------|------|
+| `project-scanner` | 发现文件、检测语言和框架 |
+| `file-analyzer` | 提取函数、类、导入；生成图节点和边 |
+| `architecture-analyzer` | 识别架构层 |
+| `tour-builder` | 生成引导式学习路线 |
+| `graph-reviewer` | 验证图的完整性和引用完整性 |
+| `domain-analyzer` | 提取业务域、流程和步骤（`/understand-domain`） |
+
+文件分析器并行运行（最多 5 个并发，每批 20-30 个文件）。支持增量更新——只重新分析自上次运行以来变更的文件。
+
+### 交互式 Dashboard
+
+生成的图谱是一个可交互的 Web Dashboard：
+
+- **探索**：每个节点可点击、可搜索、可展开，选中节点可以看到英文摘要、关系和引导式讲解
+- **业务逻辑**：切换到域视图，看代码怎么映射到真实业务流程——域、流程和步骤以水平图布局
+- **引导式学习**：自动生成的架构讲解，按依赖顺序排列，帮你在正确顺序里学代码库
+- **模糊搜索和语义搜索**：按名称或按含义搜索，"哪些部分处理认证？"这种问题也能得到结果
+- **影响分析**：提交前看你的变更会影响系统的哪些部分
+- **角色自适应**：Dashboard 根据你是初级开发者、PM 还是高级用户调整详细程度
+
+### 安装方式
+
+Claude Code 原生安装（推荐）：
+
+```bash
+/plugin marketplace add Lum1104/Understand-Anything
+/plugin install understand-anything
+```
+
+一行安装（支持 Codex、OpenCode、Gemini CLI、VS Code Copilot 等 15+ 平台）：
+
+```bash
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/Lum1104/Understand-Anything/main/install.sh | bash
+
+# Windows (PowerShell)
+iwr -useb https://raw.githubusercontent.com/Lum1104/Understand-Anything/main/install.ps1 | iex
+```
+
+### 使用方式
+
+```bash
+/understand                          # 分析整个代码库
+/understand --language zh            # 生成中文内容
+/understand src/frontend             # 只分析子目录
+/understand-dashboard                # 打开交互式 Dashboard
+/understand-chat How does the payment flow work?  # 提问
+/understand-diff                     # 分析当前变更的影响
+/understand-explain src/auth/login.ts  # 深入某个文件
+/understand-onboard                  # 生成新人入职指南
+/understand-domain                   # 提取业务域知识
+```
+
+### 图谱可以提交到仓库
+
+图谱就是 JSON——提交一次，队友就能跳过流水线。适合入职、PR 审查和文档即代码的工作流。
+
+```bash
+# 推荐提交的内容：.understand-anything/ 下除 intermediate/ 和 diff-overlay.json 外的所有文件
+# 大图谱（10 MB+）用 git-lfs 追踪
+git lfs install
+git lfs track ".understand-anything/*.json"
+```
+
+### 它在知识图谱工具里的位置
+
+和 `ai-knowledge-graph` 比，`Understand-Anything` 不是做文档实体抽取，而是做代码库结构分析；前者输出的是文本三元组图谱，后者输出的是文件/函数/类级别的架构图谱。两者解决的是不同层面的"理解"问题：
+
+- `ai-knowledge-graph`：给一份报告，抽出"谁影响了谁""哪个事件导致了什么结果"
+- `Understand-Anything`：给一个代码库，抽出"哪些模块依赖哪些""认证流程经过了哪些函数""新人应该按什么顺序学这个项目"
+
+当前 star 约 37.7k，支持 Claude Code、Codex、Cursor、Copilot、Gemini CLI、OpenCode 等 15+ 平台。

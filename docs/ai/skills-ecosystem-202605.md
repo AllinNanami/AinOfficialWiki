@@ -1,6 +1,6 @@
 ---
 title: Codex / Claude Skills 生态观察
-description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders、codex-plusplus、keep-codex-fast、nuwa-skill、dbskill、academic-research-skills、matlab-agentic-toolkit，整理一条更实用的 Skills 生态观察线。
+description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders、codex-plusplus、keep-codex-fast、nuwa-skill、dbskill、taste-skill、academic-research-skills、matlab-agentic-toolkit，整理一条更实用的 Skills 生态观察线。
 ---
 
 # Codex / Claude Skills 生态观察
@@ -366,6 +366,59 @@ GitHub：<https://github.com/dontbesilent2025/dbskill>
 
 都在把"下次还要重复做的判断和流程"固化下来。`mattpocock/skills` 固化的是软件工程流程，`dbskill` 固化的是商业诊断流程。领域不一样，设计逻辑很接近。
 
+## taste-skill：给 AI 生成的前端注入设计品味
+
+GitHub：<https://github.com/Leonxlnx/taste-skill>
+官网：<https://tasteskill.dev>
+
+`taste-skill` 的定位很直接：**Anti-Slop Frontend Framework for AI Agents**。它解决的是 AI 生成前端界面时最常被吐槽的问题——Inter 字体、紫色渐变、白色背景、最少动画，看起来像从同一个模板里出来的。
+
+### 它在修什么故障
+
+AI 生成的前端界面有一个结构性问题：模型倾向于采样训练数据中出现频率最高的设计选择，这些"安全"选择放之四海而皆准，但也毫无个性。`taste-skill` 把这个问题叫 **distributional convergence**（分布收敛），并提供了一套可调参数来打破它。
+
+### 三个可调旋钮
+
+`taste-skill` 的核心设计是三个 1-10 的旋钮：
+
+- **DESIGN_VARIANCE**：布局实验性（低：居中/干净 · 高：不对称/现代）
+- **MOTION_INTENSITY**：动画深度（低：hover · 高：scroll/magnetic）
+- **VISUAL_DENSITY**：每视口信息密度（低：宽敞 · 高：密集仪表盘）
+
+这三个旋钮让开发者可以精确控制 AI 生成界面的风格方向，而不是每次都在提示词里写"不要用 Inter 字体"。
+
+### 多个变体覆盖不同场景
+
+仓库不只提供一个 skill，而是按场景拆成了多个变体：
+
+- **taste-skill**（`design-taste-frontend`）：默认 v2 实验版，读取简报、推断设计语言、调整三个旋钮
+- **gpt-taste**：面向 GPT/Codex 的更严格变体，更高的布局方差、更强的 GSAP 方向
+- **image-to-code-skill**（`image-to-code`）：图像优先管道——生成站点参考图、分析、再实现前端
+- **redesign-skill**（`redesign-existing-projects`）：面向已有项目——先审计 UI，再修复布局、间距、层级、样式
+- **soft-skill**（`high-end-visual-design`）：精致、冷静、昂贵的 UI，柔和对比、留白、高级字体、弹性动效
+- **minimalist-skill**（`minimalist-ui`）：编辑式产品 UI（Notion/Linear 风格），克制配色、清晰结构
+- **brutalist-skill**（`industrial-brutalist-ui`）：硬机械语言：瑞士排版、尖锐对比、实验布局
+
+还有图像生成类 skill（`imagegen-frontend-web`、`imagegen-frontend-mobile`、`brandkit`），只产出设计参考图，不写代码。
+
+### 安装方式
+
+```bash
+npx skills add https://github.com/Leonxlnx/taste-skill
+```
+
+装单个 skill：
+
+```bash
+npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"
+```
+
+### 它在 Skills 生态里的位置
+
+`taste-skill` 属于**方法论产品层**，但它专攻的是前端设计审美这个垂直方向。和 `mattpocock/skills` 比，它不是通用工程方法论，而是专门解决"AI 生成的界面太像模板"这个问题；和 `frontend-design`（Anthropic 官方 Skill）比，它提供了更细粒度的风格控制和更多变体选择。
+
+它展示了 Skills 的又一个成熟方向：**把设计品味参数化**。不只是告诉 AI"做得好看一点"，而是把布局实验性、动效深度、信息密度这些维度拆开，让开发者按需调节。当前 star 约 23k。
+
 ## academic-research-skills：把学术研究全流程做成 AI 协作管道
 
 GitHub：<https://github.com/Imbad0202/academic-research-skills>
@@ -556,7 +609,7 @@ curl -o ~/.claude/skills/book-to-skill/scripts/extract.py \
 Skills 生态可以分为六层：
 
 1. **商店 / 索引层**：`aitmpl.com/skills`、`awesome-codex-skills`；
-2. **方法论产品层**：`mattpocock/skills`、`nuwa-skill`、`dbskill`；
+2. **方法论产品层**：`mattpocock/skills`、`nuwa-skill`、`dbskill`、`taste-skill`（前端设计品味参数化）；
 3. **领域专用方法论层**：`academic-research-skills`（学术研究全流程）、`matlab-agentic-toolkit`（MATLAB 工程计算全流程）；
 4. **知识转换层**：`book-to-skill`（书籍→skill）；
 5. **输入压缩层**：`repomix`、`handoff`；
@@ -565,6 +618,7 @@ Skills 生态可以分为六层：
 各仓库的定位如下：
 
 - `mattpocock/skills` 是通用工程方法论仓库；
+- `taste-skill` 专攻前端设计审美，把布局、动效、密度参数化；
 - `repomix` 和 `keep-codex-fast` 属于基础设施层；
 - `follow-builders`、`nuwa-skill`、`dbskill` 面向不同职业场景；
 - `academic-research-skills` 覆盖学术研究全流程；
@@ -586,4 +640,5 @@ Skills 生态可以分为六层：
 - `Imbad0202/academic-research-skills` README 与 `docs/ARCHITECTURE.md`、`docs/SETUP.md`、`docs/PERFORMANCE.md`
 - `matlab/matlab-agentic-toolkit` README 与 `skills-catalog/README.md`
 - `virgiliojr94/book-to-skill` README 与 `SKILL.md`
+- `Leonxlnx/taste-skill` README 与 `tasteskill.dev`
 - GitHub 仓库快照：`docs/ai/references/skills-ecosystem/stats-2026-05-16.md`
