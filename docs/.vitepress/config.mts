@@ -710,7 +710,8 @@ export default defineConfig({
             { text: '翻译工具', link: '/ai/ai-translation-tools-202605' },
             { text: '免费模型', link: '/ai/free-model-access-guide-202605' },
             { text: 'witr 进程', link: '/ai/witr-process-explainer-202605' },
-            { text: 'GEO AI 可见性', link: '/ai/geo-ai-visibility-202606' }
+            { text: 'GEO AI 可见性', link: '/ai/geo-ai-visibility-202606' },
+            { text: '反谄媚提示词', link: '/ai/ai-anti-sycophancy-prompt-202606' }
           ]
         },
         {
