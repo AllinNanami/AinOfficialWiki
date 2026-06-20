@@ -687,7 +687,9 @@ export default defineConfig({
             { text: 'CLI 工作流', link: '/ai/cli-for-agents-202605' },
             { text: '微信接入', link: '/ai/agent-read-wechat-202605' },
             { text: '前端去 AI 味', link: '/ai/de-ai-frontend-design-202605' },
-            { text: 'PWA 细节', link: '/ai/pwa-native-ui-experience-202605' }
+            { text: 'PWA 细节', link: '/ai/pwa-native-ui-experience-202605' },
+            { text: 'Claude Code 架构与治理', link: '/ai/claude-code-architecture-governance-202606' },
+            { text: 'AI Coding 非技术人指南', link: '/ai/ai-coding-non-technical-guide-202606' }
           ]
         },
         {
@@ -698,7 +700,8 @@ export default defineConfig({
             { text: '记忆原理', link: '/ai/agent-memory-principles-repost-note-202605' },
             { text: 'Hermes Agent', link: '/ai/hermes-agent-masterclass-zh-202605' },
             { text: 'PageIndex', link: '/ai/pageindex-vectorless-rag-202605' },
-            { text: '知识图谱', link: '/ai/llm-knowledge-graph-202605' }
+            { text: '知识图谱', link: '/ai/llm-knowledge-graph-202605' },
+            { text: 'Agent 原理与架构', link: '/ai/agent-principles-architecture-202606' }
           ]
         },
         {
@@ -706,7 +709,8 @@ export default defineConfig({
           items: [
             { text: '翻译工具', link: '/ai/ai-translation-tools-202605' },
             { text: '免费模型', link: '/ai/free-model-access-guide-202605' },
-            { text: 'witr 进程', link: '/ai/witr-process-explainer-202605' }
+            { text: 'witr 进程', link: '/ai/witr-process-explainer-202605' },
+            { text: 'GEO AI 可见性', link: '/ai/geo-ai-visibility-202606' }
           ]
         },
         {
@@ -739,7 +743,9 @@ export default defineConfig({
             { text: '免费 AI 课程', link: '/ai/free-ai-courses-roadmap-202605' },
             { text: '大模型路线', link: '/ai/llm-learning-roadmap-202605' },
             { text: '深度学习路线', link: '/ai/deep-learning-learning-roadmap-202605' },
-            { text: '深度学习课程推荐', link: '/ai/deep-learning-courses' }
+            { text: '深度学习课程推荐', link: '/ai/deep-learning-courses' },
+            { text: '大模型训练原理', link: '/ai/llm-training-principles-202606' },
+            { text: '具身智能入门', link: '/ai/embodied-ai-robot-dog-to-optimus-202606' }
           ]
         },
         {
