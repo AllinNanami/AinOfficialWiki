@@ -762,7 +762,8 @@ export default defineConfig({
           text: '精选资源',
           items: [
             { text: '40 个仓库', link: '/ai/awesome-github-repos-for-ai-builders-202605' },
-            { text: '电子书索引', link: '/ai/ebook-treasure-chest-202605' }
+            { text: '电子书索引', link: '/ai/ebook-treasure-chest-202605' },
+            { text: 'X 平台 AI 博主', link: '/ai/ai-x-platform-bloggers-202606' }
           ]
         },
         {
