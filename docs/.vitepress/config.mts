@@ -657,6 +657,12 @@ export default defineConfig({
           items: [
             { text: '配置文件格式详解', link: '/sre/config-file-formats' }
           ]
+        },
+        {
+          text: '网络基础',
+          items: [
+            { text: '网络基础', link: '/sre/network-basics' }
+          ]
         }
       ],
 
@@ -889,13 +895,7 @@ export default defineConfig({
             { text: '磁盘与文件系统', link: '/software/disk-file-system' }
           ]
         },
-        {
-          text: '学习与成长',
-          items: [
-            { text: '网络基础', link: '/software/network-basics' },
-            { text: '计算机专业学习指南', link: '/software/cs-learning-guide' }
-          ]
-        }
+
       ],
 
       // 电脑维护/DIY侧边栏
@@ -1234,13 +1234,7 @@ export default defineConfig({
             { text: '磁盘与文件系统', link: '/resource/softwares/disk-file-system' }
           ]
         },
-        {
-          text: '学习与成长',
-          items: [
-            { text: '网络基础', link: '/resource/softwares/network-basics' },
-            { text: '计算机专业学习指南', link: '/resource/softwares/cs-learning-guide' }
-          ]
-        }
+
       ],
 
       // 电脑维护/DIY侧边栏
@@ -1425,6 +1419,12 @@ export default defineConfig({
           items: [
             { text: '保研准备', link: '/resource/academic-development/graduate-recommendation' },
             { text: '考研准备', link: '/resource/academic-development/graduate-exam' }
+          ]
+        },
+        {
+          text: '学习资源',
+          items: [
+            { text: '计算机专业学习指南', link: '/resource/academic-development/cs-learning-guide' }
           ]
         }
       ]
