@@ -303,8 +303,11 @@ Skills 不仅服务于代码，同样能赋能业务工作流。
   - 功能：LaTeX 模板与脚本集合，适合排版与格式统一。
   - 仓库链接：https://github.com/ndpvt-web/latex-document-skill
 - **`obra/superpowers`（`writing-plans`）**
-  - 功能：写作规划与大纲推进（适合把“先写什么、后写什么”固定成流程）。
+  - 功能：写作规划与大纲推进（适合把"先写什么、后写什么"固定成流程）。
   - 仓库链接：https://github.com/obra/superpowers/tree/main/skills
+- **`cclank/lanshu-animated-architecture-diagram`**
+  - 功能：手绘风格动画架构图 Codex skill，适合论文配图和答辩汇报中的高质量架构图生成。
+  - 仓库链接：https://github.com/cclank/lanshu-animated-architecture-diagram
 
 按阶段选型时，可以先从这几条开始：
 
