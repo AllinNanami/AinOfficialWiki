@@ -293,6 +293,9 @@ Skills 不仅服务于代码，同样能赋能业务工作流。
 - **`Orchestra-Research/AI-Research-SKILLs`**
   - 功能：面向 AI/ML 研究与工程的技能库，包含论文起草、LaTeX 与引文校验等流程。
   - 仓库链接：https://github.com/Orchestra-Research/AI-Research-SKILLs
+- **`brycewang-stanford/Auto-Empirical-Research-Skills`**
+  - 功能：斯坦福 REAP 联合 CoPaper.AI 开源的社科实证研究技能库，23000+ skills 覆盖经济、政治、社会、心理等 8 大学科，从选题到投稿全流程自动化。
+  - 仓库链接：https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills
 - **`fuhaoda/stats-paper-writing-agent-skills`**
   - 功能：统计类论文写作与 LaTeX 模板（偏计量/统计场景）。
   - 仓库链接：https://github.com/fuhaoda/stats-paper-writing-agent-skills
