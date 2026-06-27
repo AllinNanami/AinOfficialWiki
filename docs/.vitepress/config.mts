@@ -683,6 +683,7 @@ export default defineConfig({
             { text: '社区 Skills', link: '/ai/fun-community-skills' },
             { text: '网页 PPT', link: '/ai/ppt-generation-skills-202605' },
             { text: 'PPT Skills 锐评', link: '/ai/ppt-skills-review-202606' },
+            { text: 'PPT Skills 锐评', link: '/ai/ppt-skills-review-202606' },
             { text: 'MCP 清单', link: '/ai/vibe-coding-common-mcp-202605' },
             { text: 'MCP 工具箱', link: '/ai/mcp-toolbox-202605' },
             { text: 'Skills 清单', link: '/ai/vibe-coding-common-skills-202605' },
