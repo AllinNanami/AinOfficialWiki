@@ -37,19 +37,31 @@
 
 这个视频把装机每个步骤都拆得很细，从开箱到走线，从安装 CPU 到接跳线，每一步都有特写镜头。适合完全零基础的人，跟着一步步操作就行。
 
-<BiliBili bvid="BV1jE411e7hw" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1jE411e7hw/"
+  icon="mdi:play-circle"
+/>
 
 ### 全网最好的装机教程，没有之一
 
 另一个高质量装机教程，讲解风格更简洁明快。两个教程选一个看就行，内容大同小异，主要看你喜欢哪种讲解风格。
 
-<BiliBili bvid="BV1BG4y137mG" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1BG4y137mG/"
+  icon="mdi:play-circle"
+/>
 
 ### 史上最详细传说级装机教程
 
 零基础新手一站式装机攻略，包含 AMD 和 Intel 双平台 DIY 组装教程。如果你用的是 AMD 平台，这个教程会更贴合你的实际情况。
 
-<BiliBili bvid="BV1UU4y1c74o" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1UU4y1c74o/"
+  icon="mdi:play-circle"
+/>
 
 ### 装机步骤详细拆解
 
@@ -187,13 +199,21 @@
 
 零基础新手一站式 WIN10 系统安装攻略。包含系统激活、驱动安装、BIOS 基础调试及基础烤机稳定性压力测试。装完硬件后的第一步，就是跟着这个教程装系统。
 
-<BiliBili bvid="BV1UP4y1L7io" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1UP4y1L7io/"
+  icon="mdi:play-circle"
+/>
 
 ### 超详细 WIN10 系统安装教程
 
 官方 ISO 直装与 PE 两种方法教程，UEFI+GUID 分区与 Legacy+MBR 分区。如果你需要双系统或者特殊分区方案，这个教程讲得更细。
 
-<BiliBili bvid="BV1DJ411D79y" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1DJ411D79y/"
+  icon="mdi:play-circle"
+/>
 
 ### 系统安装前的 BIOS 设置
 
@@ -264,7 +284,11 @@ Windows 11 比 10 多了几个硬件要求：
 
 **千万不要用驱动精灵、360 驱动大师这类第三方工具！** 它们会捆绑垃圾软件，装一堆用不上的东西。驱动去官网下，虽然麻烦点但干净。
 
-<BiliBili bvid="BV1v7411e7AE" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1v7411e7AE/"
+  icon="mdi:play-circle"
+/>
 
 ### NVIDIA 显卡驱动安装建议
 
@@ -286,7 +310,11 @@ Display Driver Uninstaller，专门用来彻底卸载显卡驱动。遇到驱动
 
 新手装机必学必用的 10 款基础检测烤机跑分软件。装完系统、装好驱动后，要跑一遍烤机测试确保稳定性。
 
-<BiliBili bvid="BV1sD421A74F" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1sD421A74F/"
+  icon="mdi:play-circle"
+/>
 
 ### 烤机测试详细方案
 

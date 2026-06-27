@@ -606,12 +606,32 @@ XXX大学XXX专业
 
 **参考视频：**
 
-<BiliBili bvid="BV1sgeuzTECT" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1sgeuzTECT/"
+  icon="mdi:play-circle"
+/>
 
-<BiliBili bvid="BV1SGz6YeEwn" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1SGz6YeEwn/"
+  icon="mdi:play-circle"
+/>
 
-<BiliBili bvid="BV1wz9NYcEDW" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1wz9NYcEDW/"
+  icon="mdi:play-circle"
+/>
 
-<BiliBili bvid="BV1mEndzgE9y" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1mEndzgE9y/"
+  icon="mdi:play-circle"
+/>
 
-<BiliBili bvid="BV1qwzdY4EqG" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1qwzdY4EqG/"
+  icon="mdi:play-circle"
+/>

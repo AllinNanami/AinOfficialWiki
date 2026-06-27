@@ -15,7 +15,11 @@ NTFS、FAT32、exFAT、ReFS，Windows 支持好几种文件系统，每种都有
 
 这个视频把各种文件系统的特点和适用场景讲得很清楚。
 
-<BiliBili bvid="BV1qkDeBJErG" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1qkDeBJErG/"
+  icon="mdi:play-circle"
+/>
 
 ## 磁盘分区
 
@@ -23,7 +27,11 @@ NTFS、FAT32、exFAT、ReFS，Windows 支持好几种文件系统，每种都有
 
 新硬盘装上去看不到？想给已有分区扩容或合并？Windows 自带的磁盘管理工具就能搞定，不需要装第三方分区软件。这个视频演示了磁盘分区的各种操作：新建分区、扩容、拆分、合并，还有新装硬盘如何显示在我的电脑内。
 
-<BiliBili bvid="BV1Uj411f7wj" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1Uj411f7wj/"
+  icon="mdi:play-circle"
+/>
 
 ## 文件类型
 
@@ -31,4 +39,8 @@ NTFS、FAT32、exFAT、ReFS，Windows 支持好几种文件系统，每种都有
 
 Windows 的文件类型多得离谱，.exe、.dll、.sys、.lnk、.reg，每种都有不同用途。这个视频把常见文件类型都介绍了一遍，帮你了解它们的作用。遇到问题时，知道文件类型能更快定位原因。
 
-<BiliBili bvid="BV1XTDFBLERJ" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1XTDFBLERJ/"
+  icon="mdi:play-circle"
+/>

@@ -53,7 +53,11 @@ winget source list
 winget source add --name "msstore" --arg "https://storeedgefd.dsx.mp.microsoft.com/v9.0"
 ```
 
-<BiliBili bvid="BV1hDDRBeEib" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1hDDRBeEib/"
+  icon="mdi:play-circle"
+/>
 
 ### scoop：开发者最爱的 Windows 包管理器
 
@@ -140,7 +144,11 @@ Archiving utility.
   tar xzf source.tar.gz
 ```
 
-<BiliBili bvid="BV1xoSdBxEPY" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1xoSdBxEPY/"
+  icon="mdi:play-circle"
+/>
 
 ### cheat：交互式速查表
 
@@ -417,19 +425,31 @@ yq -o json docker-compose.yml
 
 把命令行和 AI 结合起来，能实现很多自动化操作。这个视频演示了如何用 CLI 工具和 AI Skill 搭建浏览器自动化框架，处理重复性工作。
 
-<BiliBili bvid="BV1ooDyBmE6v" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1ooDyBmE6v/"
+  icon="mdi:play-circle"
+/>
 
 ### 为什么巨头都在做 CLI？比 MCP 有哪些优势？
 
 命令行界面（CLI）正在成为 AI 工具的主流交互方式。和 MCP 相比，CLI 更轻量、更灵活、更容易集成。这个视频分析了 CLI 的优势和适用场景。
 
-<BiliBili bvid="BV1G29EBGE8b" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1G29EBGE8b/"
+  icon="mdi:play-circle"
+/>
 
 ## 配置文件
 
 配置文件格式的选择对项目可维护性影响很大。JSON、YAML、TOML 各有适用场景，详见 [配置文件格式详解](/sre/config-file-formats)。
 
-<BiliBili bvid="BV16jDZBsE6T" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV16jDZBsE6T/"
+  icon="mdi:play-circle"
+/>
 
 ## 补充资源
 

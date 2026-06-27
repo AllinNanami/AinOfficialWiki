@@ -57,7 +57,11 @@
 
 **参考视频：**
 
-<BiliBili bvid="BV1yM41157yT" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1yM41157yT/"
+  icon="mdi:play-circle"
+/>
 
 ## 论文写作基础
 
@@ -299,7 +303,11 @@
 
 **参考视频：**
 
-<BiliBili bvid="BV1i1dWBNEKZ" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1i1dWBNEKZ/"
+  icon="mdi:play-circle"
+/>
 
 ## 相关资源
 

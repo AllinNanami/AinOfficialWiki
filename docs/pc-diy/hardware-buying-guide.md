@@ -8,7 +8,11 @@
 
 CPU 是电脑的核心，选错了后面都白搭。这个视频讲了 Intel 和 AMD 两家的命名规则、代数区别、核心数和频率的关系。
 
-<BiliBili bvid="BV1Z3drBHEBS" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1Z3drBHEBS/"
+  icon="mdi:play-circle"
+/>
 
 ### 2025 年 CPU 选购建议
 
@@ -61,7 +65,11 @@ CPU 是电脑的核心，选错了后面都白搭。这个视频讲了 Intel 和
 
 CPU 和显卡要搭配均衡，不能一个太强一个太弱。这个视频包含 17 款 CPU、9 款显卡、6 种游戏的测试数据，用实际数据告诉你怎么搭配最合理。
 
-<BiliBili bvid="BV15j411N7Mc" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV15j411N7Mc/"
+  icon="mdi:play-circle"
+/>
 
 ### 显卡选购建议
 
@@ -296,7 +304,11 @@ ATX 3.0 是新的电源标准，原生支持 12VHPWR 显卡供电接口，不需
 
 显示器是最容易踩坑的配件。这个视频七大步骤一站式避坑：检查坏点、漏光、色差、刷新率是否虚标。
 
-<BiliBili bvid="BV1Q4421Z7CA" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1Q4421Z7CA/"
+  icon="mdi:play-circle"
+/>
 
 ### 显示器选购要点
 

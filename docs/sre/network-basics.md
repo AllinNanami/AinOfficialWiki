@@ -8,7 +8,11 @@
 
 局域网、广域网、城域网、个人域网，不同网络类型覆盖范围和用途不一样。家里用的 Wi-Fi 是局域网，手机热点算个人域网。这个视频把各种网络类型的特点和适用场景讲得很清楚。
 
-<BiliBili bvid="BV1gcDzBXEt4" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1gcDzBXEt4/"
+  icon="mdi:play-circle"
+/>
 
 ### 网络类型详细分类
 
@@ -92,7 +96,11 @@
 
 网络原理听起来复杂，但核心概念其实不多。这个视频用大白话把网络的基础知识讲了一遍，从物理层到应用层，半小时就能建立基本概念。如果你是网络小白，从这个视频开始不会错。
 
-<BiliBili bvid="BV1tseyzCEoF" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1tseyzCEoF/"
+  icon="mdi:play-circle"
+/>
 
 ### OSI 七层模型
 

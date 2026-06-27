@@ -514,6 +514,14 @@ HR 面会问：
 
 **参考视频：**
 
-<BiliBili bvid="BV1Z1XQYmE1h" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1Z1XQYmE1h/"
+  icon="mdi:play-circle"
+/>
 
-<BiliBili bvid="BV13GKpedEyo" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV13GKpedEyo/"
+  icon="mdi:play-circle"
+/>

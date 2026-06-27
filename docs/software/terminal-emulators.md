@@ -454,9 +454,17 @@ module.exports = {
 
 下面几个视频对终端的使用和配置讲得比较详细，推荐看看。
 
-<BiliBili bvid="BV1hDDRBeEib" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1hDDRBeEib/"
+  icon="mdi:play-circle"
+/>
 
-<BiliBili bvid="BV1xoSdBxEPY" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1xoSdBxEPY/"
+  icon="mdi:play-circle"
+/>
 
 ## 补充资源
 

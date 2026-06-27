@@ -115,7 +115,11 @@
 
 **参考视频：**
 
-<BiliBili bvid="BV1R78yzCEQV" />
+<LinkCard
+  title="Bilibili 视频"
+  href="https://www.bilibili.com/video/BV1R78yzCEQV/"
+  icon="mdi:play-circle"
+/>
 
 ### Mendeley
 
