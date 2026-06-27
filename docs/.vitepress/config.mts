@@ -682,6 +682,7 @@ export default defineConfig({
             { text: 'MCP 与 Skills', link: '/ai/mcp-skills-guide' },
             { text: '社区 Skills', link: '/ai/fun-community-skills' },
             { text: '网页 PPT', link: '/ai/ppt-generation-skills-202605' },
+            { text: 'PPT Skills 锐评', link: '/ai/ppt-skills-review-202606' },
             { text: 'MCP 清单', link: '/ai/vibe-coding-common-mcp-202605' },
             { text: 'MCP 工具箱', link: '/ai/mcp-toolbox-202605' },
             { text: 'Skills 清单', link: '/ai/vibe-coding-common-skills-202605' },
@@ -1425,6 +1426,12 @@ export default defineConfig({
           text: '学习资源',
           items: [
             { text: '计算机专业学习指南', link: '/resource/academic-development/cs-learning-guide' }
+          ]
+        },
+        {
+          text: 'AI 职业发展',
+          items: [
+            { text: '如何进入头部 AI 团队', link: '/resource/academic-development/ai-career-frontier-lab' }
           ]
         }
       ]
