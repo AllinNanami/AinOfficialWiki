@@ -759,6 +759,7 @@ export default defineConfig({
         {
           text: 'AI科研',
           items: [
+            { text: 'AI for Science 范式与版图', link: '/ai/ai-for-science-paradigm-landscape-202607' },
             { text: 'PaperBanana', link: '/ai/paperbanana-research-figures-202605' },
             { text: 'Manim 视频', link: '/ai/manim-explainer-video-202605' },
             { text: '模型变更监测', link: '/ai/model-downgrade-detection-202605' },
@@ -819,7 +820,8 @@ export default defineConfig({
         {
           text: '求职成长',
           items: [
-            { text: '大学生简历避坑与正确写法指南', link: '/career/college-student-resume-guide' }
+            { text: '大学生简历避坑与正确写法指南', link: '/career/college-student-resume-guide' },
+            { text: '加入 OpenAI 的求职经验分享', link: '/career/openai-job-search-experience' }
           ]
         }
       ],
@@ -1100,6 +1102,7 @@ export default defineConfig({
         {
           text: 'AI科研',
           items: [
+            { text: 'AI for Science 范式与版图', link: '/guides/ai/ai-for-science-paradigm-landscape-202607' },
             { text: 'PaperBanana', link: '/guides/ai/paperbanana-research-figures-202605' },
             { text: 'Manim 视频', link: '/guides/ai/manim-explainer-video-202605' },
             { text: '模型变更监测', link: '/guides/ai/model-downgrade-detection-202605' },
@@ -1159,7 +1162,8 @@ export default defineConfig({
         {
           text: '求职成长',
           items: [
-            { text: '大学生简历避坑与正确写法指南', link: '/guides/career/college-student-resume-guide' }
+            { text: '大学生简历避坑与正确写法指南', link: '/guides/career/college-student-resume-guide' },
+            { text: '加入 OpenAI 的求职经验分享', link: '/guides/career/openai-job-search-experience' }
           ]
         }
       ],
