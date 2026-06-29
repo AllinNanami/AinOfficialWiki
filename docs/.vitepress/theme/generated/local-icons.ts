@@ -818,6 +818,11 @@ export const mdiIconSet = {
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"m20.5 3l-.16.03L15 5.1L9 3L3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5l.16-.03L9 18.9l6 2.1l5.64-1.9c.21-.07.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5M10 5.47l4 1.4v11.66l-4-1.4zm-5 .99l3-1.01v11.7l-3 1.16zm14 11.08l-3 1.01V6.86l3-1.16z\"/>"
     },
+    "math-compass": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M20 19.88V22l-1.8-1.17l-4.79-9c.66-.21 1.26-.55 1.78-1zM15 7a3 3 0 0 1-3 3h-.44L5.8 20.83L4 22v-2.12L9.79 9c-1.1-1.23-1-3.13.24-4.24C10.57 4.28 11.27 4 12 4V2a1 1 0 0 1 1 1v1.18c1.2.42 2 1.55 2 2.82m-2 0a1 1 0 0 0-1-1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1\"/>"
+    },
     "memory": {
       "width": 24,
       "height": 24,
@@ -867,6 +872,11 @@ export const mdiIconSet = {
       "width": 24,
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M12 2L4.5 20.29l.71.71L12 18l6.79 3l.71-.71z\"/>"
+    },
+    "network": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M17 3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4v2h1a1 1 0 0 1 1 1h7v2h-7a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1H2v-2h7a1 1 0 0 1 1-1h1v-2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z\"/>"
     },
     "network-outline": {
       "width": 24,
@@ -952,6 +962,11 @@ export const mdiIconSet = {
       "width": 24,
       "height": 24,
       "body": "<path fill=\"currentColor\" d=\"M2 3h8a2 2 0 0 1 2-2a2 2 0 0 1 2 2h8v2h-1v11h-5.75L17 22h-2l-1.75-6h-2.5L9 22H7l1.75-6H3V5H2zm3 2v9h14V5z\"/>"
+    },
+    "presentation-play": {
+      "width": 24,
+      "height": 24,
+      "body": "<path fill=\"currentColor\" d=\"M2 3h8a2 2 0 0 1 2-2a2 2 0 0 1 2 2h8v2h-1v11h-5.75L17 22h-2l-1.75-6h-2.5L9 22H7l1.75-6H3V5H2zm3 2v9h14V5zm6.85 6.85a.5.5 0 0 1-.35.15a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5c.14 0 .26.06.35.15l1.4 1.39c.32.32.64.64.64.96s-.32.64-.64.96z\"/>"
     },
     "puzzle": {
       "width": 24,
