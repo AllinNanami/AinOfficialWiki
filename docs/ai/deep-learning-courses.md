@@ -196,6 +196,56 @@ D2L 由李沐、Alex Smola、Aston Zhang、Rachel Hu 合著，在 GitHub 上有 
 
 ## 其他课程
 
+### Sebastian Raschka 的 LLM/ML 学习资源
+
+Sebastian Raschka（[@rasbt](https://x.com/rasbt)）是 GitHub 上最顶级的 ML/LLM 教育者之一，38k+ 关注者，149 个仓库，大多是超级详细的 from scratch 教程和书籍代码。他的 GitHub 就是一个「AI 教科书工厂」，产量和质量都让人窒息。
+
+**代表作品：**
+
+- **《Build a Large Language Model (From Scratch)》**（97k+ Star）— 被称为「LLM 学习圣经」，从零开始构建 LLM，覆盖 tokenizer、预训练、微调、RLHF 全流程
+- **《Python Machine Learning》** 三版 — 经典机器学习教材，覆盖从基础算法到深度学习
+- **Reasoning from Scratch** — 推理相关的从零实现
+- **mlxtend** — 机器学习扩展库
+
+**特点：**
+
+- 用 Jupyter Notebook 当画布，从线性回归到 ChatGPT 的所有知识点都手写成了可执行笔记
+- 代码质量极高，真正的 production-ready 教学代码
+- 数学推导和代码实现并重
+
+**适合人群：** 想深入理解 LLM 内部原理、喜欢从零实现的学习者
+
+<LinkCard
+  title="GitHub: Sebastian Raschka"
+  href="https://github.com/rasbt"
+  icon="mdi:github"
+/>
+
+### Alisa Liu 的 LLM 与数学笔记
+
+Alisa Liu（[@alisawuffles](https://x.com/alisawuffles)）即将加入 OpenAI，她在求职过程中整理了大量笔记，分享出来帮助准备 AI/ML 面试的人。
+
+**资源列表：**
+
+- **LLM Book of LLMs** — LLM 相关笔记，覆盖面试常见知识点
+- **Math Notes** — 数学基础笔记，适合检查自己的基础知识是否扎实
+
+**适合人群：** 准备 AI/ML 面试的人，或者想检查自己基础知识是否扎实的学习者
+
+**评价：** 值得通读一遍，无论是准备面试还是检验基础都很有价值
+
+<LinkCard
+  title="LLM Book of LLMs"
+  href="https://alisawuffles.notion.site/alisa-s-book-of-llms"
+  icon="mdi:book-open-variant"
+/>
+
+<LinkCard
+  title="Math Notes"
+  href="https://alisawuffles.notion.site/math-notes"
+  icon="mdi:math-compass"
+/>
+
 ### 40 分钟的 Docker 实战攻略
 
 Docker 在深度学习项目中几乎是必备技能——配置环境、部署模型、复现实验都离不开它。
