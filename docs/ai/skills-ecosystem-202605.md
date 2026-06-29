@@ -563,6 +563,38 @@ cd matlab-agentic-toolkit
 
 对工程和科学计算领域的用户来说，这个工具包的价值在于：你不用再花时间纠正 Agent 的 MATLAB 语法错误，也不用担心它推荐的函数在你的工具箱版本里不存在。
 
+## reverse-skill：逆向工程/渗透测试/安全研究技能路由包
+
+GitHub：<https://github.com/zhaoxuya520/reverse-skill>
+
+`reverse-skill` 是一个 AI 驱动的逆向工程、渗透测试和安全研究技能路由包。它通过一个 routing.md 文件，告诉 AI 遇到不同的安全任务该走哪条路，实现自动路由、按需自举工具链和自动进化经验库。
+
+### 它在修什么故障
+
+安全攻防场景有几个结构性难点：
+
+1. **工具选择困难**：面对 APK、ELF、JS、PCAP 等不同目标，AI 不知道该用 jadx、Frida 还是 IDA；
+2. **工具链分散**：工具路径、MCP 服务、脚本入口分散在不同机器，迁移困难；
+3. **经验无法复用**：同样的问题每次重新踩坑，经验无法沉淀。
+
+### 覆盖场景
+
+覆盖 20 多个子技能方向：APK 逆向分析、IDA 静态分析、JS 前端逆向、固件安全、EDR 绕过、漏洞利用、CTF 竞赛等，基本上安全攻防常见场景都能覆盖。
+
+### 安装与使用
+
+```bash
+git clone https://github.com/zhaoxuya520/reverse-skill.git
+```
+
+初次使用只需让 AI 阅读 `README_AI.md` 即可。该项目支持 Claude Code、Kiro、Cursor、Cline 等 AI 编码客户端。
+
+### 它在 Skills 生态里的位置
+
+`reverse-skill` 属于**领域专用方法论层**，专攻逆向工程和安全研究这一个垂直领域。和 `mattpocock/skills` 比，它不是通用工程方法论，而是专门解决安全攻防场景中的工具选择和流程标准化问题；和 `academic-research-skills` 比，它覆盖的是安全研究而非学术研究。
+
+它展示了 Skills 的又一个方向：**安全攻防方法论的 AI 路由化**。通过将安全专家的经验编码成路由矩阵，让 AI 在面对不同安全任务时能自动选择正确的工具和方法，降低安全攻防的门槛。
+
 ## book-to-skill：把技术书籍变成可调用的 Skill
 
 GitHub：<https://github.com/virgiliojr94/book-to-skill>
@@ -693,7 +725,7 @@ Skills 生态可以分为七层：
 
 1. **商店 / 索引层**：`aitmpl.com/skills`、`awesome-codex-skills`；
 2. **方法论产品层**：`mattpocock/skills`、`nuwa-skill`、`dbskill`、`taste-skill`（前端设计品味参数化）；
-3. **领域专用方法论层**：`academic-research-skills`（学术研究全流程）、`Auto-Empirical-Research-Skills`（社科实证研究）、`matlab-agentic-toolkit`（MATLAB 工程计算全流程）；
+3. **领域专用方法论层**：`academic-research-skills`（学术研究全流程）、`Auto-Empirical-Research-Skills`（社科实证研究）、`matlab-agentic-toolkit`（MATLAB 工程计算全流程）、`reverse-skill`（逆向工程/渗透测试/安全研究技能路由包）；
 4. **领域专用工具层**：`next-ai-draw-io`（AI 绘图）；
 5. **知识转换层**：`book-to-skill`（书籍→skill）；
 6. **输入压缩层**：`repomix`、`handoff`；
@@ -709,6 +741,7 @@ Skills 生态可以分为七层：
 - `academic-research-skills` 覆盖学术研究全流程；
 - `Auto-Empirical-Research-Skills` 是斯坦福 REAP 的社科实证研究方案，23000+ skills；
 - `matlab-agentic-toolkit` 是 MathWorks 官方的 MATLAB 领域方案；
+- `reverse-skill` 是逆向工程和安全研究的 AI 路由技能包；
 - `book-to-skill` 将技术书籍转换为结构化 skill；
 - `awesome-codex-skills` 和 `aitmpl.com/skills` 提供长尾技能索引。
 
@@ -719,6 +752,7 @@ Skills 生态可以分为七层：
 - `ComposioHQ/awesome-codex-skills` README
 - `yamadashy/repomix` README 与官网 <https://repomix.com>
 - `zarazhangrui/follow-builders` README 与 `examples/sample-digest.md`
+- `zhaoxuya520/reverse-skill` README 与 `README_AI.md`
 - `b-nnett/codex-plusplus` README
 - `vibeforge1111/keep-codex-fast` README
 - `alchaincyf/nuwa-skill` README

@@ -201,6 +201,10 @@ npx skills add vercel-labs/agent-skills@find-skills
 - **移动端与后端实践**
   - `building-native-ui` / `upgrading-expo`：针对 Expo 框架的 React Native 开发指南。获取链接：[https://skills.sh](https://skills.sh/)
   - `better-auth-best-practices`：认证鉴权系统的架构标准。获取链接：[https://skills.sh](https://skills.sh/)
+- **`zhaoxuya520/reverse-skill`**
+  - **功能**：AI 驱动的逆向工程、渗透测试和安全研究技能路由包。通过 routing.md 实现自动路由、按需自举工具链和自动进化经验库，覆盖 APK 逆向、IDA 静态分析、JS 前端逆向、固件安全、EDR 绕过等 20+ 子技能方向。
+  - **仓库链接**：https://github.com/zhaoxuya520/reverse-skill
+  - **安装**：`git clone https://github.com/zhaoxuya520/reverse-skill.git`（初次使用让 AI 阅读 `README_AI.md`）
 
 ### 2. 设计与用户体验类 (Design & UI/UX)
 

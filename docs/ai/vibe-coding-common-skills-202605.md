@@ -319,6 +319,31 @@ npx skills add better-auth/skills@better-auth-best-practices
 
 这种 Skill 的价值，在于把认证集成里最容易漏的步骤前置成一份固定流程。
 
+### 7. reverse-skill：逆向工程/渗透测试/安全研究技能路由包
+
+仓库：[`zhaoxuya520/reverse-skill`](https://github.com/zhaoxuya520/reverse-skill)
+
+安装：
+
+```bash
+git clone https://github.com/zhaoxuya520/reverse-skill.git
+```
+
+初次使用只需让 AI 阅读 `README_AI.md` 即可。
+
+reverse-skill 是一个 AI 驱动的逆向工程、渗透测试和安全研究技能路由包。它通过一个 routing.md 文件，告诉 AI 遇到不同的安全任务该走哪条路，实现自动路由、按需自举工具链和自动进化经验库。
+
+覆盖 20 多个子技能方向：APK 逆向分析、IDA 静态分析、JS 前端逆向、固件安全、EDR 绕过、漏洞利用等，基本上安全攻防常见场景都能覆盖。
+
+这类 Skill 适合以下场景：
+
+- 你需要对 APK、二进制文件、JS 加密等进行逆向分析
+- 你正在进行授权的渗透测试或安全研究
+- 你想让 AI 自动选择正确的逆向工程工具和方法
+- 你需要一套可复用的安全分析工作流
+
+该项目支持 Claude Code、Kiro、Cursor、Cline 等 AI 编码客户端。
+
 ## 设计与产品表达类 Skills
 
 很多人第一次接触 Skill，会先想到技术栈。在 VibeCoding 里，设计类 Skill 同样重要。很多“AI 味”不出在代码能不能跑，而是出在页面像模板、排版像拼接、交互动效没有克制。
