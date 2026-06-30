@@ -1430,7 +1430,8 @@ export default defineConfig({
         {
           text: '学习资源',
           items: [
-            { text: '计算机专业学习指南', link: '/resource/academic-development/cs-learning-guide' }
+            { text: '计算机专业学习指南', link: '/resource/academic-development/cs-learning-guide' },
+            { text: '海外优秀计算机课程推荐', link: '/resource/academic-development/overseas-cs-courses' }
           ]
         },
         {
