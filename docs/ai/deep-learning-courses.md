@@ -229,6 +229,7 @@ Alisa Liu（[@alisawuffles](https://x.com/alisawuffles)）即将加入 OpenAI，
 
 - **LLM Book of LLMs** — LLM 相关笔记，覆盖面试常见知识点
 - **Math Notes** — 数学基础笔记，适合检查自己的基础知识是否扎实
+- **求职博客** — 记录了她求职过程中的经验教训，对准备 AI/ML 面试很有参考价值
 
 **适合人群：** 准备 AI/ML 面试的人，或者想检查自己基础知识是否扎实的学习者
 
@@ -244,6 +245,12 @@ Alisa Liu（[@alisawuffles](https://x.com/alisawuffles)）即将加入 OpenAI，
   title="Math Notes"
   href="https://alisawuffles.notion.site/math-notes"
   icon="mdi:math-compass"
+/>
+
+<LinkCard
+  title="求职博客"
+  href="https://t.co/6FigSBdenD"
+  icon="mdi:briefcase"
 />
 
 ### 40 分钟的 Docker 实战攻略
