@@ -772,7 +772,8 @@ export default defineConfig({
             { text: '40 个仓库', link: '/ai/awesome-github-repos-for-ai-builders-202605' },
             { text: '电子书索引', link: '/ai/ebook-treasure-chest-202605' },
             { text: 'X 平台 AI 博主', link: '/ai/ai-x-platform-bloggers-202606' },
-            { text: '中文 X 博主清单（129 位）', link: '/ai/ai-x-platform-bloggers-list-202607' }
+            { text: '中文 X 博主清单（129 位）', link: '/ai/ai-x-platform-bloggers-list-202607' },
+            { text: 'AI 领域信源汇总', link: '/ai/ai-information-sources-guide-202607' }
           ]
         },
         {
