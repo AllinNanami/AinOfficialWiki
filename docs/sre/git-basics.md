@@ -706,7 +706,7 @@ git merge [--squash | --no-ff] <branch>
 
 
 
-# Github
+## Github
 
 ## 注册
 

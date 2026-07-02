@@ -77,7 +77,7 @@ head:
 
 [P5740 【深基7.例9】最厉害的学生 - 洛谷](https://www.luogu.com.cn/problem/P5740)
 
-# P5740 【深基7.例9】最厉害的学生
+## P5740 【深基7.例9】最厉害的学生
 
 ## 题目描述
 
@@ -218,7 +218,7 @@ for (auto i : v) { // auto 自动推导类型
 
 [P1567 统计天数 - 洛谷](https://www.luogu.com.cn/problem/P1567)
 
-# P1567 统计天数
+## P1567 统计天数
 
 ## 题目描述
 
@@ -375,7 +375,7 @@ map<int, char> mp; // int -> char
 
 [P1125[NOIP2008 提高组] 笨小猴 - 洛谷](https://www.luogu.com.cn/problem/P1125)
 
-# P1125 [NOIP 2008 提高组] 笨小猴
+## P1125 [NOIP 2008 提高组] 笨小猴
 
 ## 题目描述
 
@@ -510,7 +510,7 @@ queue<typename> name;
 
 [B3616 【模板】队列 - 洛谷](https://www.luogu.com.cn/problem/B3616)
 
-# B3616 【模板】队列
+## B3616 【模板】队列
 
 ## 题目描述
 
@@ -650,7 +650,7 @@ stack<typename> name;
 
 [B3614 【模板】栈 - 洛谷](https://www.luogu.com.cn/problem/B3614)
 
-# B3614 【模板】栈
+## B3614 【模板】栈
 
 ## 题目描述
 
@@ -816,7 +816,7 @@ for(auto i : st) {
 
 [P1138 第 k 小整数 - 洛谷](https://www.luogu.com.cn/problem/P1138)
 
-# P1138 第 k 小整数
+## P1138 第 k 小整数
 
 ## 题目描述
 

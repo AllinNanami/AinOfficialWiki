@@ -485,7 +485,7 @@ while (l < r) {
 | **`std::sort`**        | 混合排序     | $O(n \log n)$! | $O(n \log n)$ | $O(\log n)$ | 不稳定     | **（推荐）** C++标准库 |
 | **`std::stable_sort`** | 归并排序     | $O(n \log n)$  | $O(n \log n)$ | $O(n)$      | **稳定**   | C++标准库              |
 
-# 7. 例题
+## 7. 例题
 
 ## 1. 排序
 
