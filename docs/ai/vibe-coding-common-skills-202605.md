@@ -72,7 +72,7 @@ Skill 连上下文怎么装配，都提前规定好了。
 
 现在最常见的入口是 [skills.sh](https://skills.sh/)。它本身是一个开放目录，首页列出 Claude Code、Cursor、Codex、Windsurf、Cline、Gemini 等常见 Agent / IDE，说明 Skill 正在变成跨 Agent 的通用分发格式。
 
-![skills.sh 首页截图](./assets/vibe-coding-common-skills/skills-sh-home.png)
+![skills.sh 首页截图](https://gastigado.cnies.org/d/public/skills-sh-home.png)
 
 在本机实际运行 `npx skills --help` 时，当前 CLI 版本会显示 `add`、`remove`、`list`、`find`、`update` 等命令。四条高频命令仍然是最值得先记住的一组。
 
@@ -257,7 +257,7 @@ npx skills add expo/skills@upgrading-expo
 
 实际搜索时，`building-native-ui`、`native-data-fetching`、`expo-tailwind-setup`、`upgrading-expo` 都能直接搜到。
 
-![Expo Skills 页面截图](./assets/vibe-coding-common-skills/expo-skills-page.png)
+![Expo Skills 页面截图](https://gastigado.cnies.org/d/public/expo-skills-page.png)
 
 这两个条目最常被拿来直接上手：
 
@@ -299,7 +299,7 @@ npx skills add better-auth/skills@better-auth-best-practices
 
 实际搜索结果里，除了 `better-auth-best-practices`，还会看到 `create-auth-skill`、`email-and-password-best-practices`、`organization-best-practices`、`two-factor-authentication-best-practices` 等条目。
 
-![Better Auth Skills 页面截图](./assets/vibe-coding-common-skills/better-auth-skills-page.png)
+![Better Auth Skills 页面截图](https://gastigado.cnies.org/d/public/better-auth-skills-page.png)
 
 `better-auth-best-practices` 这条 Skill 的写法很像一份认证接入清单：
 

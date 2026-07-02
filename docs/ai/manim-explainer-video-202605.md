@@ -26,7 +26,7 @@ GitHub：<https://github.com/ManimCommunity/manim>
 
 如果你的目标是尽快跑通一段数学动画，直接看社区版会省很多时间；如果你的目标是研究 3Blue1Brown 当年怎么做视频，再回头看 `3b1b/manim` 和 `3b1b/videos`。
 
-![Manim README 截图](./assets/manim-explainer-video/manim-readme-1.png)
+![Manim README 截图](https://gastigado.cnies.org/d/public/manim-readme-1.png)
 
 ## 3b1b/manim：理解风格源头，别和社区版混装
 

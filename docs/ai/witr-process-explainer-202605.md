@@ -264,7 +264,7 @@ witr -i
 
 如果你平时更习惯在终端里巡检，而不是每次都手搓参数，这个入口会比较顺手。尤其是接手陌生服务器时，你常常想大概扫一眼：有什么长跑进程、哪些端口对外开放、哪些进程吃内存高。TUI 比单条命令更适合做总览。
 
-![witr 官方 README 展示图](./assets/witr-process-explainer/witr-banner.png)
+![witr 官方 README 展示图](https://gastigado.cnies.org/d/public/witr-banner.png)
 
 ## 实际排查流程：按端口追最直观
 

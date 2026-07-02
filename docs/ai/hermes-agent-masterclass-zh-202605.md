@@ -33,7 +33,7 @@ description: 根据两份本地 X HTML 资料，整理 Hermes Agent 的三层记
 
 下图是长文里给出的结构图：
 
-![Hermes 核心结构图](./assets/hermes-agent-masterclass-zh/masterclass-architecture.jpg)
+![Hermes 核心结构图](https://gastigado.cnies.org/d/public/masterclass-architecture.jpg)
 
 按原文整理，这个核心循环有几个关键点：
 
@@ -68,7 +68,7 @@ Hermes 把这层身份定义放进一个单独文件里：
 
 下图是长文配图里的三层记忆示意：
 
-![Hermes 三层记忆示意图](./assets/hermes-agent-masterclass-zh/masterclass-memory-tiers.jpg)
+![Hermes 三层记忆示意图](https://gastigado.cnies.org/d/public/masterclass-memory-tiers.jpg)
 
 这里先记住长文给出的总原则：
 
@@ -164,7 +164,7 @@ hermes
 
 下图是长文里的 Telegram 多代理示意图：
 
-![三个 Telegram 代理示意图](./assets/hermes-agent-masterclass-zh/masterclass-three-agents-telegram.jpg)
+![三个 Telegram 代理示意图](https://gastigado.cnies.org/d/public/masterclass-three-agents-telegram.jpg)
 
 ### 9. 三种代理的工作方式也不同
 

@@ -244,7 +244,7 @@ docker compose up -d
 
 下面这张图是官方 PDF 的封面页：
 
-![Anthropic 创始人手册封面](./assets/ai-startup-native-company/anthropic-founders-playbook-cover.png)
+![Anthropic 创始人手册封面](https://gastigado.cnies.org/d/public/anthropic-founders-playbook-cover.png)
 
 Anthropic 在博客摘要里强调的重点也很集中：这份手册覆盖 `Idea`、`MVP`、`Launch`、`Scale` 四个阶段，讨论如何验证问题、控制技术债、分辨真假 PMF，以及在不同阶段使用 Chat、Claude Cowork、Claude Code。
 

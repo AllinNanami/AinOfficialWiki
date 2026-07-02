@@ -21,7 +21,7 @@ Trae 官方中文社区里有一篇学习中心整理帖，把文档站、知识
 - 用 Figma 和预览能力把设计上下文接进来
 - 用问题排查文档和模板兜住调试阶段
 
-![TRAE 学习中心截图](./assets/ai-collaborative-development-methodology/trae-learning-center.png)
+![TRAE 学习中心截图](https://gastigado.cnies.org/d/public/trae-learning-center.png)
 
 这条链里，非程序员最容易掉下去的地方通常有两个：
 
@@ -232,7 +232,7 @@ Figma 官方文档有一句话很关键：Figma MCP server 会把结构化设计
 - **Tools** 让 MCP 客户端对 Figma 文件执行动作
 - **Skills** 告诉 MCP 客户端如何更有效地使用这些工具
 
-![Figma MCP 官方页截图](./assets/ai-collaborative-development-methodology/figma-mcp-help.png)
+![Figma MCP 官方页截图](https://gastigado.cnies.org/d/public/figma-mcp-help.png)
 
 这对协作开发有两个直接影响：
 

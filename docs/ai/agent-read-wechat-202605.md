@@ -147,8 +147,6 @@ Agent Reach 主要对应下面几类场景：
 
 它的重点在"公众号文章内容流"，不在"我的本地微信聊天记录"。
 
-![Agent Reach GitHub 预览图](./assets/agent-read-wechat/github-og-agent-reach.png)
-
 ## wx-cli：直接读本地微信数据
 
 ### wx-cli
@@ -385,8 +383,6 @@ wx search "会议" --in "工作群" --since 2026-01-01
 - wx-cli 负责你本机微信里的聊天和素材整理
 
 一个读外层内容流，一个读本地数据库，分工很直观。
-
-![wx-cli 仓库配图](./assets/agent-read-wechat/wx-cli-fallback-avatar.png)
 
 ## "不联网不封号"这种说法要写得更保守
 

@@ -172,7 +172,7 @@ xAI 官方 `x_search` 文档能核到几件事：
 
 它的任务是替你做前置监控，不是替你写稿。每天跑一次就够用，整理出一份"昨天出现了哪些值得继续追的模型和词"。
 
-![Astronaut_1216 原始短帖配图](./assets/ai-content-creation-sop/astronaut-deepseek-post.jpg)
+![Astronaut_1216 原始短帖配图](https://gastigado.cnies.org/d/public/astronaut-deepseek-post.jpg)
 
 ## 最小实践路径
 

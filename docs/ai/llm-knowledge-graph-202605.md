@@ -222,7 +222,7 @@ GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
 
 仓库自带的示例图很直观：
 
-![ai-knowledge-graph 示例图](./assets/llm-knowledge-graph/ai-knowledge-graph-example.png)
+![ai-knowledge-graph 示例图](https://gastigado.cnies.org/d/public/ai-knowledge-graph-example.png)
 
 项目输出的是 HTML 交互图。demo 页和导出的 HTML 里能看到几类交互功能。
 

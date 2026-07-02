@@ -54,7 +54,7 @@ description: 把 6 门免费 AI 课程按前置知识和难度排成一条可执
 
 如果你身边有人想知道 AI 到底在讲什么，从这门开始最稳。
 
-![MIT AI 101 封面图](./assets/free-ai-courses-roadmap/mit-ai-101-cover.png)
+![MIT AI 101 封面图](https://gastigado.cnies.org/d/public/mit-ai-101-cover.png)
 
 ## 2. Foundation Models and Generative AI：生成式 AI 基础
 
@@ -95,7 +95,7 @@ MIT OCW 的课程说明把定位写得很直白：这是一个 **non-technical s
 
 也就是说，学完 AI 101 再上这门，衔接最自然。
 
-![Foundation Models and Generative AI 封面图](./assets/free-ai-courses-roadmap/foundation-models-generative-ai-cover.png)
+![Foundation Models and Generative AI 封面图](https://gastigado.cnies.org/d/public/foundation-models-generative-ai-cover.png)
 
 ## 3. How to AI (Almost) Anything：适合想把 AI 带进创意和多模态场景的人
 
@@ -138,7 +138,7 @@ MIT OCW 的课程说明写到，它会介绍 modern deep learning、foundation m
 
 如果你的目标偏创意方向，这门课可以比深度学习核心课更早看；如果你想走技术实现路线，可以把它放在旁支阅读。
 
-![How to AI (Almost) Anything 封面图](./assets/free-ai-courses-roadmap/how-to-ai-almost-anything-cover.jpg)
+![How to AI (Almost) Anything 封面图](https://gastigado.cnies.org/d/public/how-to-ai-almost-anything-cover.jpg)
 
 ## 4. MIT Intro to Deep Learning：开始动手跑神经网络和实验
 
@@ -185,7 +185,7 @@ GitHub：<https://github.com/MITDeepLearning/introtodeeplearning>
 
 如果你还没碰过矩阵乘法和导数，这门课不建议硬上。
 
-![MIT Intro to Deep Learning 课程图](./assets/free-ai-courses-roadmap/mit-intro-deep-learning-video-frame.jpg)
+![MIT Intro to Deep Learning 课程图](https://gastigado.cnies.org/d/public/mit-intro-deep-learning-video-frame.jpg)
 
 ## 5. Introduction to Machine Learning：把机器学习核心概念系统过一遍
 
@@ -235,7 +235,7 @@ Open Learning Library 的课程页把推荐前置写得很直接：
 
 这门课适合放在深度学习 bootcamp 前后搭配着学：如果你更看重理论顺序，可以 6.036 再 6.S191；如果你更需要动手反馈，也可以 6.S191 建直觉，再回 6.036 补系统框架。
 
-![Introduction to Machine Learning 封面图](./assets/free-ai-courses-roadmap/introduction-to-machine-learning-cover.jpg)
+![Introduction to Machine Learning 封面图](https://gastigado.cnies.org/d/public/introduction-to-machine-learning-cover.jpg)
 
 ## 6. Artificial Intelligence：回到经典 AI 方法论
 
@@ -279,7 +279,7 @@ MIT OCW 的课程描述写的是：knowledge representation、problem solving、
 
 如果你完全是冲着大模型来学，这门课一开始可能会觉得"离当前热点有点远"；但真想把 AI 方法论补完整，6.034 很有价值。
 
-![Artificial Intelligence 封面图](./assets/free-ai-courses-roadmap/artificial-intelligence-cover.jpg)
+![Artificial Intelligence 封面图](https://gastigado.cnies.org/d/public/artificial-intelligence-cover.jpg)
 
 ## 两条路线怎么读
 

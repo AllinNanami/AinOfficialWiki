@@ -27,7 +27,7 @@ GitHub：<https://github.com/Fokkyp/SoftwareCopyright-Skill>
 
 它是一个用于生成中文软件著作权申请资料的 Codex Skill。安装时要用的是 `software-copyright-materials/` 这个目录，不是整个仓库根目录。
 
-![SoftwareCopyright-Skill 生成流程截图](./assets/ip-writing-skills/SoftwareCopyright-Skill-demo-1.png)
+![SoftwareCopyright-Skill 生成流程截图](https://gastigado.cnies.org/d/public/SoftwareCopyright-Skill-demo-1.png)
 
 ### 它要解决的麻烦很具体
 
@@ -177,7 +177,7 @@ GitHub：<https://github.com/handsomestWei/patent-disclosure-skill>
 
 软著 Skill 偏资料整理，这个专利 Skill 则偏交底书工作流。它的目标很直接：从项目文档走到可交付的技术交底书，覆盖专利点挖掘、查新、脱敏成文和自检闭环。
 
-![patent-disclosure-skill 初版生成效果](./assets/ip-writing-skills/patent-disclosure-skill-效果例-初版生成.jpg)
+![patent-disclosure-skill 初版生成效果](https://gastigado.cnies.org/d/public/patent-disclosure-skill-效果例-初版生成.jpg)
 
 ### 它解决的是哪类工作
 

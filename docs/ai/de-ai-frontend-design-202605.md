@@ -32,15 +32,15 @@ Anthropic 在 [《通过 Skills 改善前端设计》](/ai/improving-frontend-de
 
 ### SaaS 落地页对比
 
-![默认提示下的 SaaS 落地页](./assets/de-ai-frontend-design/baseline-saas.png)
+![默认提示下的 SaaS 落地页](https://gastigado.cnies.org/d/public/baseline-saas.png)
 
-![加入前端美学约束后的 SaaS 落地页](./assets/de-ai-frontend-design/distilled-saas.png)
+![加入前端美学约束后的 SaaS 落地页](https://gastigado.cnies.org/d/public/distilled-saas.png)
 
 ### 后台界面对比
 
-![默认提示下的后台界面](./assets/de-ai-frontend-design/baseline-dashboard.png)
+![默认提示下的后台界面](https://gastigado.cnies.org/d/public/baseline-dashboard.png)
 
-![加入前端美学约束后的后台界面](./assets/de-ai-frontend-design/distilled-dashboard.png)
+![加入前端美学约束后的后台界面](https://gastigado.cnies.org/d/public/distilled-dashboard.png)
 
 默认结果的问题，不只是"像 AI"，它会把所有元素推到同一音量上：标题太硬，辅助信息太轻，容器太多，留白没有形成秩序，视线一路都在撞框。
 

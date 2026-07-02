@@ -218,7 +218,7 @@ Playwright MCP 官方文档写明了三种 profile 模式，其中默认是 **pe
 
 如果你的任务是"真实浏览器操作"，这一类比抓取类 MCP 更对路。
 
-![Playwright MCP GitHub 预览图](./assets/mcp-toolbox/github-og-playwright-mcp.png)
+![Playwright MCP GitHub 预览图](https://gastigado.cnies.org/d/public/github-og-playwright-mcp.png)
 
 ### fetch-mcp
 
@@ -368,7 +368,7 @@ CloakBrowser 更常见的用法是：
 
 它不是"装上就万无一失"。项目自述里的通过率、检测站测试、reCAPTCHA 分数等说法，都可能随着目标站点、时间和代理质量变化。写得稳一点，可以把它理解成**偏隐身和指纹伪装的浏览器运行层**。
 
-![CloakBrowser GitHub 预览图](./assets/mcp-toolbox/github-og-CloakBrowser.png)
+![CloakBrowser GitHub 预览图](https://gastigado.cnies.org/d/public/github-og-CloakBrowser.png)
 
 ## 联网搜索
 
@@ -523,7 +523,7 @@ MeiGen 这一类项目最好把数据处理方式写清楚。
 
 别把它默认理解成本地工具。你用哪条后端，数据路径就跟着变。
 
-![MeiGen GitHub 预览图](./assets/mcp-toolbox/github-og-MeiGen-AI-Design-MCP.png)
+![MeiGen GitHub 预览图](https://gastigado.cnies.org/d/public/github-og-MeiGen-AI-Design-MCP.png)
 
 ## 这一批项目怎么配合用
 

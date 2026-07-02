@@ -46,7 +46,7 @@ GitHub Pages 这边更偏使用入口。首页会直接显示：
 - 能先搜关键词，再回看分类
 - 能快速判断某本书是不是已经被收进索引
 
-![ebook-treasure-chest GitHub 预览图](./assets/ebook-treasure-chest/github-repo-page-og.png)
+![ebook-treasure-chest GitHub 预览图](https://gastigado.cnies.org/d/public/github-repo-page-og.png)
 
 ## 把它当电子书索引来用更合适
 

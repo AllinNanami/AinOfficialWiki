@@ -328,7 +328,7 @@ code {
 - web.dev 的 maskable icon 文档强调了 Android adaptive icons 的裁切问题，这一条实际影响很大。
 - iOS 对 Web App Manifest 的支持一直不算完整，所以 `apple-touch-icon` 这类补充项仍然值得保留。
 
-![maskable icon 示例图](./assets/pwa-native-ui-experience/webdev-maskable-icon-3.png)
+![maskable icon 示例图](https://gastigado.cnies.org/d/public/webdev-maskable-icon-3.png)
 
 ## 7. 平级导航里，`router.replace` 往往比 `push` 更顺
 
@@ -453,7 +453,7 @@ if ('windowControlsOverlay' in navigator) {
   - 支持 WCO：标题栏吃进去
   - 不支持 WCO：退回普通 standalone
 
-![window controls overlay 示例图](./assets/pwa-native-ui-experience/webdev-window-controls-overlay-3.png)
+![window controls overlay 示例图](https://gastigado.cnies.org/d/public/webdev-window-controls-overlay-3.png)
 
 ## 怎么把这几条落到项目里
 

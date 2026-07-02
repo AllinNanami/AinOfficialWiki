@@ -17,7 +17,7 @@ description: 从小宇宙第 115 期《Claude Code 深度探秘》与 Anthropic 
 
 小宇宙页显示，这一期是《跨国串门儿计划》第 115 期，发布时间是 **2025 年 5 月 10 日**，标题是《Claude Code 深度探秘：对话 Anthropic 核心团队成员》。节目说明也写明了它是对 Latent Space 那期 *Claude Code: Anthropic's CLI Agent* 的翻译克隆版本。
 
-![《跨国串门儿计划》第 115 期页面截图](./assets/claude-code-team-podcast-notes/xiaoyuzhou-episode-115.png)
+![《跨国串门儿计划》第 115 期页面截图](https://gastigado.cnies.org/d/public/xiaoyuzhou-episode-115.png)
 
 播客与补充资料：
 

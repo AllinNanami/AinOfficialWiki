@@ -88,7 +88,7 @@ Read Frog 常见的使用场景有：
 
 它的代价也要说清楚：上下文理解、批量请求省 token，这些优势都建立在你愿意自己配置模型和 API key 的前提上。如果你只想装完立刻用，不想碰 provider 配置，Read Frog 的门槛还是比纯离线或纯内置翻译高一点。
 
-![Read Frog 页面翻译演示](./assets/ai-translation-tools/read-frog-page-translation-demo.gif)
+![Read Frog 页面翻译演示](https://gastigado.cnies.org/d/public/read-frog-page-translation-demo.gif)
 
 ## KISS Translator：尽量保持简单，把控制权交还给用户
 
@@ -202,7 +202,7 @@ KISS Translator 常见的使用场景有：
 
 如果你的目标是"装一个开源网页翻译器，并把控制权尽量握在自己手里"，KISS Translator 是这三者里最贴近这个方向的。
 
-![KISS Translator 截图](./assets/ai-translation-tools/kiss-translator-screenshot-01.jpg)
+![KISS Translator 截图](https://gastigado.cnies.org/d/public/kiss-translator-screenshot-01.jpg)
 
 ## SentiaRead：把翻译、查词和英语学习放进一个阅读器里
 
@@ -297,7 +297,7 @@ SentiaRead 这一类产品，隐私问题要单独说，不然读者容易自动
 
 如果你特别在意"完全自己管数据"，SentiaRead 就不太适合当第一选择。它更看重跨端和学习闭环；如果你的前提是所有内容都尽量留在自己的 API 或自己的存储里，那 KISS Translator 会稳妥得多。
 
-![SentiaRead 官网首页归档截图](./assets/ai-translation-tools/sentiaread-homepage.png)
+![SentiaRead 官网首页归档截图](https://gastigado.cnies.org/d/public/sentiaread-homepage.png)
 
 ## 选型建议
 

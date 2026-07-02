@@ -61,7 +61,7 @@ GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
 
 仓库给出的长期记忆结构是一个四层金字塔：
 
-![TencentDB Agent Memory 四层语义金字塔](./assets/tencentdb-agent-memory/memory-pyramid-en.jpg)
+![TencentDB Agent Memory 四层语义金字塔](https://gastigado.cnies.org/d/public/memory-pyramid-en.jpg)
 
 - **L0 Raw Log / Conversation**：原始对话和事件流，保留完整证据；
 - **L1 Atomic Memory / Atom**：从对话里提取出的事实、偏好、约束、阶段结论；
@@ -80,7 +80,7 @@ GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
 
 这里的做法很直接：Agent 当前回合先读 Mermaid 里的任务结构，需要细节时，再通过 `node_id` 或 `result_ref` 去找原文。
 
-![可回查的下钻链路](./assets/tencentdb-agent-memory/flowchart1.png)
+![可回查的下钻链路](https://gastigado.cnies.org/d/public/flowchart1.png)
 
 这和很多“压成一段摘要就结束”的做法区别很大。这里的压缩带着索引关系，后面还能展开。
 
@@ -293,7 +293,7 @@ L3 更新也不会每次都重写全部内容。`persona-generator.ts` 里能看
 
 短期压缩链路本身也是这样工作的：
 
-![短期上下文卸载与注入链路](./assets/tencentdb-agent-memory/flowchart2.png)
+![短期上下文卸载与注入链路](https://gastigado.cnies.org/d/public/flowchart2.png)
 
 所以回答阶段真正进入上下文的，优先是画像、场景导航、相关记忆片段和任务结构；原始大文本留在外部，按需再取。
 

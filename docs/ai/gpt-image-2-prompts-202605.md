@@ -18,7 +18,7 @@ GitHub：<https://github.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts>
 
 README 一处写"359+ high-quality prompts"，徽章又写"521 curated cases"，两个数字口径并不一致。**这是一个持续更新的 prompt 案例仓库，案例量一直在增加，仓库不同位置的统计数字口径并不相同。**
 
-![awesome-gpt-image-2 仓库示例图 1](./assets/gpt-image-2-prompts/awesome-gpt-image-2-3.png)
+![awesome-gpt-image-2 仓库示例图 1](https://gastigado.cnies.org/d/public/awesome-gpt-image-2-3.png)
 
 ### 它的分类怎么组织
 
