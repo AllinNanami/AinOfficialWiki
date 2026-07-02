@@ -663,6 +663,63 @@ curl -o ~/.claude/skills/book-to-skill/scripts/extract.py \
 
 它也和 RAG 形成互补：RAG 适合跨大量文档搜索，`book-to-skill` 适合深度使用一本书。如果你有 10 本核心技术书想嵌入日常工作流，这个工具能把"书架"变成"工具箱"。
 
+## text-to-cad：CAD / 机器人 / 硬件设计的 Agent Skills 库
+
+GitHub：<https://github.com/earthtojake/text-to-cad>
+官网：<https://www.cadskills.xyz>
+
+`text-to-cad`（项目名 CAD Skills）是一套面向 CAD 建模、机器人描述文件和硬件设计的 Agent Skills 库。当前 star 约 7,463，支持从自然语言或图片生成 STEP、STL、3MF、GLB 等格式的 CAD 模型，并覆盖 URDF、SDF、SRDF 等机器人描述文件和 G-code 切片等下游工作流。
+
+### 它在修什么故障
+
+硬件设计和机器人开发场景有几个结构性难点：
+
+1. **建模门槛高**：传统 CAD 建模需要掌握 SolidWorks、Fusion 360 等专业工具的操作逻辑，非机械背景的开发者很难快速产出零件；
+2. **格式碎片化**：STEP、STL、3MF、DXF、URDF、SDF 等格式各有用途，格式转换和验证流程分散；
+3. **上下游断裂**：建模、切片、打印、仿真验证通常是割裂的工具链，中间需要大量人工衔接。
+
+### 11 个 Skills 覆盖完整硬件工作流
+
+| Skill | 功能 |
+|-------|------|
+| **CAD** | 从自然语言或图片创建和编辑 CAD 模型，STEP 为主输出，支持导出 STL、3MF、GLB |
+| **CAD Viewer** | 本地浏览器预览 CAD、G-code 和机器人文件 |
+| **step.parts** | 查找现成的 STEP 零件（螺丝、轴承、电机、连接件等） |
+| **DXF** | 从 Python 源或 CAD 几何体生成 2D DXF 图纸（轮廓、模板、垫片、切割排料） |
+| **URDF** | 编写机器人结构文件（links、joints、limits、inertials、meshes） |
+| **SRDF** | 为 URDF 添加 MoveIt 规划组、末端执行器、位姿和碰撞规则 |
+| **SDF** | 创建仿真模型和世界文件（坐标系、物理参数、传感器、光源） |
+| **SendCutSend** | 上传前检查 DXF 和 STEP 文件的可制造性 |
+| **G-code** | 将网格文件切片为带打印机配置验证的 FDM `.gcode` |
+| **Bambu Labs** | 拓竹打印机工作流：试跑、上传、启动打印 |
+| **Implicit CAD** | 使用 GLSL 有符号距离场在浏览器中渲染隐式 CAD 模型（实验性） |
+
+### 安装方式
+
+推荐使用 Skills CLI 安装：
+
+```bash
+npx skills install earthtojake/text-to-cad
+```
+
+也支持 Codex 和 Claude Code 原生插件安装：
+
+```bash
+# Codex
+codex plugin marketplace add earthtojake/text-to-cad
+codex plugin add cad@text-to-cad
+
+# Claude Code
+claude plugin marketplace add earthtojake/text-to-cad
+claude plugin install cad@text-to-cad
+```
+
+### 它在 Skills 生态里的位置
+
+`text-to-cad` 属于**领域专用工具层**，专攻 CAD 建模和机器人硬件设计。和 `next-ai-draw-io`（图表生成）比，它处理的是工程级三维几何体而非流程图；和 `matlab-agentic-toolkit`（MATLAB 工程计算）比，它聚焦的是从建模到打印的物理制造链路而非数值计算。
+
+它展示了 Skills 的又一个成熟方向：**把专业工程工具链封装成 Agent 可调用的工作流**。从"画一个带四个孔的校准块"到生成 STEP 文件、切片 G-code、上传打印机，整个流程可以在一个 Agent 会话内完成。
+
 ## next-ai-draw-io：AI 驱动的专业绘图工具
 
 GitHub：<https://github.com/DayuanJiang/next-ai-draw-io>
