@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Downgrade headings in markdown files that have multiple H1.
-- Keep the first # heading as-is
-- Downgrade all other headings by one level (# -> ##, ## -> ###, etc.)
+Fix files with multiple H1 headings.
+- Keep the first # as-is
+- Change all other # to ##
+- Do NOT touch ##, ###, ####, etc.
 - Skip code blocks
 """
 
@@ -10,9 +11,10 @@ import re
 from pathlib import Path
 
 FILES = [
-    "docs/ai/agent-principles-architecture-202606.md",
-    "docs/ai/ai-coding-non-technical-guide-202606.md",
-    "docs/ai/claude-code-architecture-governance-202606.md",
+    "docs/lectures/lesson2-cpp-2025-STL.md",
+    "docs/lectures/lesson3-sort-2025.md",
+    "docs/research/citespace-from-scratch.md",
+    "docs/sre/git-basics.md",
 ]
 
 
@@ -23,7 +25,6 @@ def downgrade_headings(content):
     first_h1_seen = False
 
     for line in lines:
-        # Track code blocks
         stripped = line.strip()
         if stripped.startswith('```') or stripped.startswith('~~~'):
             in_code_block = not in_code_block
@@ -34,20 +35,12 @@ def downgrade_headings(content):
             result.append(line)
             continue
 
-        # Match heading lines: one or more # followed by space
-        m = re.match(r'^(#{1,6})\s', line)
-        if m:
-            level = len(m.group(1))
-            if level == 1:
-                if first_h1_seen:
-                    # Downgrade # -> ##
-                    line = '#' + line
-                else:
-                    first_h1_seen = True
+        # Only touch H1 lines, leave ##/###/#### etc. untouched
+        if re.match(r'^# ', line):
+            if first_h1_seen:
+                line = '#' + line  # # -> ##
             else:
-                # Downgrade ## -> ###, ### -> ####, etc. (max level 6)
-                if level < 6:
-                    line = '#' + line
+                first_h1_seen = True
 
         result.append(line)
 
