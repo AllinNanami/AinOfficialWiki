@@ -43,7 +43,7 @@ Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Docker\wsl\dis
 Optimize-VHD -Path "C:\Users\<用户名>\AppData\Local\Docker\wsl\disk\docker_data.vhdx" -Mode Full
 
 # 卸载虚拟磁盘
-Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Docker\wsl\disk\docker_data.vhdx" -ErrorAction SilentlyContinue
+Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Docker\wsl\disk\docker_data.vhdx"
 ```
 
 </Tab>
@@ -77,13 +77,13 @@ exit
 
 ```powershell
 # （可选）尝试强制卸载虚拟磁盘
-Dismount-DiskImage -ImagePath "C:\Users\excnies\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx" -ErrorAction SilentlyContinue
+Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Packages\...\LocalState\ext4.vhdx" -ErrorAction SilentlyContinue
 
 # 执行压缩
-Optimize-VHD -Path "C:\Users\excnies\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx" -Mode Full
+Optimize-VHD -Path "C:\Users\<用户名>\AppData\Local\Packages\...\LocalState\ext4.vhdx" -Mode Full
 
 # 卸载虚拟磁盘
-Dismount-DiskImage -ImagePath "C:\Users\excnies\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\ext4.vhdx" -ErrorAction SilentlyContinue
+Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Packages\...\LocalState\ext4.vhdx"
 ```
 
 </Tab>
