@@ -564,6 +564,7 @@ CSIG 会刊，国内图像图形领域最权威的中文学术期刊（核心/EI
 | **阶跃星辰** (Stepfun) | [stepfun.com](https://www.stepfun.com/) | [platform.stepfun.com](https://platform.stepfun.com/) | 阶跃星辰 |
 | **百川智能** (Baichuan) | [baichuan-ai.com](https://www.baichuan-ai.com/) | [baichuan-ai.com/blog](https://www.baichuan-ai.com/blog/) | 百川智能 |
 | **上海人工智能实验室** (InternLM) | [shlab.org.cn](https://www.shlab.org.cn/) | [internlm.org/blog](https://internlm.org/blog) | 上海人工智能实验室 |
+| **商汤科技** (SenseNova / 日日新) | [sensetime.com/cn](https://www.sensetime.com/cn) | [sensetime.com/cn/blog](https://www.sensetime.com/cn/blog) \| [sensenova.cn](https://www.sensenova.cn) | 商汤科技SenseTime |
 | **零一万物** (01.AI / Yi 系列) | [01.ai](https://www.01.ai/) | [01.ai/blog](https://www.01.ai/blog) | 零一万物 |
 
 ### 7.5 补充：AI 生态观察
