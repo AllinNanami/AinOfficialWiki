@@ -36,11 +36,11 @@ exit
 适用于支持 Hyper-V 的 Windows 版本（Pro / Enterprise），在**管理员 PowerShell** 中依次执行：
 
 ```powershell
-# 可选：尝试强制卸载虚拟磁盘
-Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Docker\wsl\disk\docker_data.vhdx" -ErrorAction SilentlyContinue
-
 # 执行压缩
 Optimize-VHD -Path "C:\Users\<用户名>\AppData\Local\Docker\wsl\disk\docker_data.vhdx" -Mode Full
+
+# （可选）尝试强制卸载虚拟磁盘
+Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Docker\wsl\disk\docker_data.vhdx" -ErrorAction SilentlyContinue
 ```
 
 </Tab>
@@ -73,11 +73,11 @@ exit
 适用于支持 Hyper-V 的 Windows 版本（Pro / Enterprise），在**管理员 PowerShell** 中依次执行：
 
 ```powershell
-# 可选：尝试强制卸载虚拟磁盘
-Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Packages\...\LocalState\ext4.vhdx" -ErrorAction SilentlyContinue
-
 # 执行压缩
 Optimize-VHD -Path "C:\Users\<用户名>\AppData\Local\Packages\...\LocalState\ext4.vhdx" -Mode Full
+
+# （可选）尝试强制卸载虚拟磁盘
+Dismount-DiskImage -ImagePath "C:\Users\<用户名>\AppData\Local\Packages\...\LocalState\ext4.vhdx" -ErrorAction SilentlyContinue
 ```
 
 </Tab>
