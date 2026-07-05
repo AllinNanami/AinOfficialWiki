@@ -4698,3 +4698,33 @@ h4,
   border-color: var(--vp-pro-surface-hover-border);
   background: var(--vp-c-default-soft);
 }
+
+/* KaTeX 数学公式样式 */
+.math-block {
+  display: flex;
+  justify-content: center;
+  margin: 1.4em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5em 0;
+}
+
+.math-block .katex-display {
+  margin: 0;
+  text-align: center;
+}
+
+.math-block .katex-display > .katex {
+  white-space: nowrap;
+}
+
+.math-block .katex-display > .katex-html {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5em 0;
+}
+
+/* 内联公式样式 */
+.katex {
+  font-size: 1.1em;
+}
