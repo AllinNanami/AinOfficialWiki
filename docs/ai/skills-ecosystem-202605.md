@@ -1,6 +1,6 @@
 ---
 title: Codex / Claude Skills 生态观察
-description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders、codex-plusplus、keep-codex-fast、nuwa-skill、dbskill、taste-skill、academic-research-skills、matlab-agentic-toolkit，整理一条更实用的 Skills 生态观察线。
+description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders、codex-plusplus、keep-codex-fast、nuwa-skill、dbskill、taste-skill、academic-research-skills、matlab-agentic-toolkit、paper-plot-skills，整理一条更实用的 Skills 生态观察线。
 ---
 
 # Codex / Claude Skills 生态观察
@@ -502,6 +502,64 @@ GitHub：<https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills>
 
 它展示了 Skills 的又一个方向：**领域专家方法论的规模化蒸馏**。不是把一个研究者的判断打包，而是把整个学科的方法论体系编码成可调用的 skill 库。
 
+## paper-plot-skills：顶会论文图表复现绘制技能库
+
+GitHub：<https://github.com/Trae1ounG/paper-plot-skills>
+
+`paper-plot-skills` 解决的是学术论文写作中另一个高频问题：论文图表的复现和绘制。仓库标题很直接：**Top-Conference Paper Figure Reproduction & Plotting Skills | 顶会论文图表复现绘制Skills**。它提供了一套完整的顶会论文图表复现脚本和参数文档，帮助研究者快速绘制高质量的论文图表。
+
+### 它在解决什么问题
+
+学术论文图表绘制有几个结构性难点：
+
+1. **复现困难**：顶会论文中的图表往往使用特定的样式、配色和布局，手动复现耗时且容易出错；
+2. **样式不统一**：不同论文的图表风格差异大，缺乏标准化的绘制流程；
+3. **参数复杂**：matplotlib 等绘图库的参数众多，调整一个图表可能需要反复试验；
+4. **效率低下**：每次绘制新图表都从零开始，无法复用已有的样式和配置。
+
+`paper-plot-skills` 的设计前提是：**把顶会论文的图表样式标准化、参数化，让研究者可以快速复现和定制**。
+
+### 两大核心模块
+
+**plot-from-data** — 从数据生成图表。提供多种图表类型的复现脚本和参数文档：
+
+| 图表类型 | 样式 | 来源论文 | 特点 |
+|----------|------|----------|------|
+| `bar_paired_delta` | 柱状图 | MemEvolve | 配对柱 + 增益箭头，serif 字体 |
+| `bar_grouped_hatch` | 柱状图 | SPICE | 分组柱 + 填充纹理 |
+| `line_confidence_band` | 折线图 | Self-Distillation | EMA 平滑 + 置信区间阴影，LaTeX 字体 |
+| `line_training_curve` | 折线图 | DAPO | 垂直断点线 + 水平参考线，sans-serif |
+| `line_loss_with_inset` | 折线图 | SiameseNorm | L 形 spine + 轴端箭头 + 右侧 zoom inset |
+| `scatter_tsne_cluster` | 散点图 | - | t-SNE 聚类可视化 |
+| `scatter_broken_axis` | 散点图 | - | 断轴散点图 |
+| `radar_dual_series` | 雷达图 | DoRA | 双系列雷达/蜘蛛图对比 |
+
+**plot-from-image** — 从图片复现图表。提供从论文图片提取数据并复现的脚本。
+
+### 安装和使用
+
+```bash
+# 克隆仓库
+git clone https://github.com/Trae1ounG/paper-plot-skills.git
+cd paper-plot-skills
+
+# 使用示例：绘制 MemEvolve 风格的配对柱状图
+python plot-from-data/scripts/bar_memevolve.py
+
+# 使用示例：绘制 Self-Distillation 风格的置信区间折线图
+python plot-from-data/scripts/line_selfdistill.py
+```
+
+每个图表样式都有对应的参数文档，位于 `plot-from-data/references/` 目录下，详细说明了可调参数和使用方法。
+
+### 它在 Skills 生态里的位置
+
+`paper-plot-skills` 属于**领域专用工具层**，专攻学术论文图表绘制。和 `academic-research-skills` 比，它不覆盖研究全流程，而是聚焦在论文写作中的图表绘制这一个垂直环节；和 `Auto-Empirical-Research-Skills` 比，它不涉及社科实证研究方法论，而是提供通用的论文图表绘制工具。
+
+它展示了 Skills 的又一个方向：**把专业领域的视觉表达标准化**。不只是告诉 AI"画一个柱状图"，而是把顶会论文的图表样式、配色、字体、布局等细节参数化，让研究者可以快速复现高质量的论文图表。
+
+对学术研究者来说，这个工具的价值在于：你不用再花时间调整 matplotlib 的各种参数，也不用担心图表风格不符合顶会标准。直接使用复现脚本，修改数据即可生成符合顶会风格的图表。
+
 ## matlab-agentic-toolkit：把 MATLAB 工程能力接入 AI Agent
 
 GitHub：<https://github.com/matlab/matlab-agentic-toolkit>
@@ -783,7 +841,7 @@ Skills 生态可以分为七层：
 1. **商店 / 索引层**：`aitmpl.com/skills`、`awesome-codex-skills`；
 2. **方法论产品层**：`mattpocock/skills`、`nuwa-skill`、`dbskill`、`taste-skill`（前端设计品味参数化）；
 3. **领域专用方法论层**：`academic-research-skills`（学术研究全流程）、`Auto-Empirical-Research-Skills`（社科实证研究）、`matlab-agentic-toolkit`（MATLAB 工程计算全流程）、`reverse-skill`（逆向工程/渗透测试/安全研究技能路由包）；
-4. **领域专用工具层**：`next-ai-draw-io`（AI 绘图）；
+4. **领域专用工具层**：`next-ai-draw-io`（AI 绘图）、`paper-plot-skills`（学术论文图表复现绘制）；
 5. **知识转换层**：`book-to-skill`（书籍→skill）；
 6. **输入压缩层**：`repomix`、`handoff`；
 7. **宿主增强和维护层**：`follow-builders`、`codex-plusplus`、`keep-codex-fast`。
@@ -793,6 +851,7 @@ Skills 生态可以分为七层：
 - `mattpocock/skills` 是通用工程方法论仓库；
 - `taste-skill` 专攻前端设计审美，把布局、动效、密度参数化；
 - `next-ai-draw-io` 专攻 AI 绘图，通过 MCP Server 接入 agent 生态；
+- `paper-plot-skills` 专攻学术论文图表复现绘制，提供顶会论文图表的复现脚本和参数文档；
 - `repomix` 和 `keep-codex-fast` 属于基础设施层；
 - `follow-builders`、`nuwa-skill`、`dbskill` 面向不同职业场景；
 - `academic-research-skills` 覆盖学术研究全流程；
@@ -820,4 +879,5 @@ Skills 生态可以分为七层：
 - `virgiliojr94/book-to-skill` README 与 `SKILL.md`
 - `Leonxlnx/taste-skill` README 与 `tasteskill.dev`
 - `DayuanJiang/next-ai-draw-io` README
+- `Trae1ounG/paper-plot-skills` README
 - GitHub 仓库快照：`docs/ai/references/skills-ecosystem/stats-2026-05-16.md`
