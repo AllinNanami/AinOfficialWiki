@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /sre/proxy
 
 Sitemap: https://ain.hmgf.hxcn.space/sitemap.xml

@@ -58,6 +58,15 @@ function isSlidesUrl(url: string): boolean {
   }
 }
 
+function isSensitiveUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url, SITE_URL)
+    return parsed.pathname === '/sre/proxy' || parsed.pathname === '/sre/proxy/'
+  } catch {
+    return false
+  }
+}
+
 function toOgLocale(lang: string): string {
   return lang.replace('-', '_')
 }
@@ -381,6 +390,7 @@ export default defineConfig({
     transformItems: (items) => {
       return items
         .filter((item) => !isSlidesUrl(item.url))
+        .filter((item) => !isSensitiveUrl(item.url))
         .map((item) => ({
           ...item,
           url: toCanonicalUrl(item.url)
