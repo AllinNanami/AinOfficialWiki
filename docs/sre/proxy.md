@@ -244,12 +244,12 @@ GFW（Great Firewall）是全球最复杂的动态流量审查系统。其技术
 ```mermaid
 graph LR
     A[早期] --> B[中期] --> C[近期]
-    A --- A1[明文过滤 & IP/DNS封锁]
-    A --- A2[DNS污染、IP黑名单、HTTP RST]
-    B --- B1[DPI识别 & 主动探测]
-    B --- B2[静态特征匹配、高熵流量识别]
-    C --- C1[行为/指纹/TLS-in-TLS分析]
-    C --- C2[JA3指纹、双层TLS流阻断、QUIC SNI解密]
+    A -.-> A1[明文过滤 &amp; IP/DNS封锁]
+    A -.-> A2[DNS污染、IP黑名单、HTTP RST]
+    B -.-> B1[DPI识别 &amp; 主动探测]
+    B -.-> B2[静态特征匹配、高熵流量识别]
+    C -.-> C1[行为/指纹/TLS-in-TLS分析]
+    C -.-> C2[JA3指纹、双层TLS流阻断、QUIC SNI解密]
 ```
 
 #### 阶段 1：静态及明文阻断（早期）
