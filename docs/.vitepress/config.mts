@@ -791,6 +791,13 @@ export default defineConfig({
           items: [
             { text: '删文件防御', link: '/ai/ai-file-deletion-defense-202605' }
           ]
+        },
+        {
+          text: 'AI零基础入门',
+          items: [
+            { text: '大模型入门', link: '/ai/ai-llm-model-specs-202607' },
+            { text: 'Agent 入门', link: '/ai/ai-agent-tool-use-guide-202607' }
+          ]
         }
       ],
       // 写作教程侧边栏
