@@ -29,6 +29,7 @@
   <text x="535" y="415" text-anchor="middle" font-size="15px" font-weight="600" fill="#7e22ce">IPLC 国际私有租用线路</text>
 </svg>
 
+
 ### 1.1 虚拟专用网络 (VPN, Virtual Private Network)
 
 - **技术本质**：工作在 **OSI 模型的网络层（Layer 3）**，通过在公共网络上建立临时的、安全的隧道（Tunnel），将远程主机虚拟接入企业或学校的内网。
@@ -206,6 +207,12 @@ graph LR
     - **传播与盈利**：搭建代理节点并向他人提供服务（无论是否收费），极易被司法机关以"提供侵入、非法控制计算机信息系统程序、工具罪"提起公诉。
     - **涉政涉暴**：访问、浏览、传播境外非法政治、宗教、暴力等违禁内容。
     - **黑客攻击**：利用代理隐匿身份，对国内外计算机系统发起网络攻击。
+
+<img src="https://gastigado.cnies.org/d/public/image-20260707151223028.webp" alt="image-20260707151223028" style="zoom:50%;" />
+
+<img src="https://gastigado.cnies.org/d/public/image-20260707151310959.webp" alt="image-20260707151310959" style="zoom:50%;" />
+
+<img src="https://gastigado.cnies.org/d/public/image-20260707151420488.webp" alt="image-20260707151420488" style="zoom:50%;" />
 
 ### 2.3 科研学术访问的底线要求与"三不原则"
 
@@ -427,8 +434,8 @@ graph TD
     A[图形化客户端 GUI] -->|解析订阅，提供策略组 UI，控制系统路由| B[底层代理内核 Core]
     B -->|执行网络层加解密、协议栈伪装、实际握手| C[网络数据传输]
 
-    A --- A1[Clash Verge / Shadowrocket]
-    B --- B1[Mihomo / Sing-box / Xray-core]
+    A -.-> A1[Clash Verge / Shadowrocket]
+    B -.-> B1[Mihomo / Sing-box / Xray-core]
 ```
 
 ### 4.1 主流底层代理内核 (Cores)

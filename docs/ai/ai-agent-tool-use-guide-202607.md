@@ -1,5 +1,5 @@
 ---
-title: Agent 零基础入门
+title: Agent 入门
 description: 从 Function Calling 原理、工具类型、MCP Server 到工作流编排，系统讲解 AI Agent 的核心概念与实践，适合零基础读者入门。
 ---
 
@@ -1882,3 +1882,183 @@ graph TD
 ```
 
 > 💡 **趋势**：2026 年的方向是"Agentic Workflow"——不再是固定的 if-else 流程，而是 Agent 根据目标、上下文和可用工具自主规划执行路径。Google Opal 的 Agent 步骤、Coze 的工作流节点、Dify 的 Agent 节点、LangGraph 的状态图都在朝这个方向演进。
+
+
+---
+
+## 7. Codex 常见问题与解决方案
+
+### 7.1 HTTP 状态码错误
+
+#### 7.1.1 413 Request Entity Too Large（请求实体过大）
+
+**错误信息**：
+```
+unexpected status 413 Payload Too Large: <html>
+<head><title>413 Request Entity Too Large</title></head>
+<body>
+<center><h1>413 Request Entity Too Large</h1></center>
+<hr><center>openresty</center>
+</body>
+</html>, url: https://api.xxxx.xyz/responses, cf-ray: axxxxxxxxxx-NRT
+```
+
+**原因**：单次请求的 Token 数量过多（上下文 + 文件 + 图片），或一次性上传大量文件/图片。中转站通常有更严格的请求大小限制。
+
+**解决方案**：
+1. **压缩上下文**：使用 `/compress` 命令压缩当前会话
+2. **减少历史消息**：使用 `/new` 或 `/clear` 开启新对话
+3. **分批处理**：避免一次性发送多张图片或大文件
+4. **检查中转站限制**：如果使用中转站，确认其单请求大小限制
+
+#### 7.1.2 403 Forbidden（禁止访问）
+
+**错误信息**：
+```json
+{"code":"INSUFFICIENT_BALANCE","message":"Insufficient account balance"}
+```
+
+**原因**：
+- 余额不足（最常见）
+- 地区/IP 不支持（中国大陆常见）
+- 权限问题（模型未授权、组织限制）
+- 中转/代理认证失败
+
+**解决方案**：
+1. **余额不足**：立即充值
+2. **检查 API Key**：确认 Key 正确、未过期、匹配当前组织
+3. **地区限制**：使用支持地区的代理/VPN（注意合规）
+4. **重新登录**：运行 `codex auth login` 重新认证
+5. **确认模型权限**：部分高级模型需单独申请
+
+#### 7.1.3 503 Service Unavailable（服务不可用）
+
+**错误信息**：
+```
+The engine is currently overloaded, please try again later.
+```
+
+**原因**：OpenAI 服务器高负载、维护中、模型容量不足，或中转站后端问题。
+
+**解决方案**：
+1. **等待重试**：等待 10-60 秒后重试（使用 exponential backoff）
+2. **切换模型**：从高负载模型换成更稳定的模型
+3. **检查状态页**：访问 status.openai.com 查看服务状态
+4. **更换中转站**：如果使用中转站，换一个节点或降低请求频率
+
+#### 7.1.4 429 Too Many Requests（请求过多）
+
+**错误信息**：
+```
+Rate limit reached
+You exceeded your current quota
+tokens_exceeded_error
+```
+
+**原因**：超过 RPM（每分钟请求）、TPM（每分钟 Token）、每日/每周配额，或会话限制。
+
+**解决方案**：
+1. **实现指数退避**：使用 exponential backoff 重试机制
+2. **减少请求频率**：缩短上下文，减少调用次数
+3. **检查使用量**：访问 platform.openai.com/usage 查看配额
+4. **注意会话上限**：Codex 有每 3 小时消息数限制
+
+#### 7.1.5 401 Unauthorized / Invalid Authentication（认证失败）
+
+**错误信息**：
+```
+Incorrect API key provided
+Invalid Authentication
+```
+
+**原因**：API Key 错误、过期、复制不完整、组织不匹配、缓存问题。
+
+**解决方案**：
+1. **重新生成 Key**：访问 platform.openai.com/settings/organization/api-keys
+2. **清除缓存**：清除浏览器/客户端缓存
+3. **检查配置**：确认环境变量或配置文件中的 Key 正确
+4. **检查组织 ID**：确认是否需要组织 ID
+
+#### 7.1.6 400 Bad Request（请求无效）
+
+**错误信息**：
+```
+context_length_exceeded
+invalid_request_error
+OperationNotSupported
+```
+
+**原因**：
+- 上下文长度超过模型限制
+- 参数错误（model 名拼错、temperature 范围错）
+- JSON 格式无效
+
+**解决方案**：
+1. **缩短 prompt**：使用更长上下文模型（如支持 128k+ 的模型）
+2. **检查参数**：参考官方 API 文档验证请求体
+3. **验证 JSON**：检查格式和必填字段
+
+#### 7.1.7 其他常见错误
+
+| 错误代码 | 原因 | 解决方案 |
+|---|---|---|
+| **500** | 服务器内部错误 | 等待后重试，或切换模型 |
+| **402** | 账号欠费或需要升级计划 | 充值或升级账号 |
+| **404** | 模型不存在或 endpoint 错误 | 检查 model 名称和 API 地址 |
+| **Timeout / 408** | 请求超时 | 增加超时设置、简化 prompt |
+| **Moderation** | 内容被安全过滤 | 修改 prompt 避免敏感词 |
+
+### 7.2 内容安全与使用限制
+
+#### 7.2.1 Cyber Abuse 警告
+
+**什么是 Cyber Abuse？**
+
+OpenAI（ChatGPT、Codex 等）的使用政策中明确禁止 Cyber Abuse。定义如下：
+
+> "Cyber Abuse" means unauthorized access, exploitation, credential theft, data exfiltration, malware or destructive capabilities, social engineering, evasion, lateral movement, denial-of-service activity, or assistance to any sanctioned entities or identified malicious cyber actors.
+
+**简单翻译**：禁止使用 GPT 协助进行网络攻击或恶意网络行为，包括：
+- 黑客攻击（未经授权访问系统）
+- 凭证窃取 / 撞库
+- 制作恶意软件（malware）
+- 社会工程学（钓鱼、社会操纵）
+- DDoS、数据窃取、横向移动等
+- 帮助恶意黑客
+
+**例外**：允许防御性、研究、教育、红队测试（red teaming）、漏洞分析等合法安全研究，只要不造成实际伤害、不针对真实系统未经授权使用。
+
+**为什么会触发警告？**
+
+1. 你询问了编写 exploit、payload、钓鱼邮件、破解方法、恶意脚本等内容
+2. 即使是"学习目的"，GPT 的安全过滤器（moderation）也会检测到高风险关键词并发出警告或拒绝
+3. 多次触发可能导致账号被限流、警告邮件，甚至临时/永久封禁
+
+**如何避免**：
+1. 明确说明是学习/研究目的
+2. 避免请求具体的攻击代码
+3. 使用防御性安全研究的表述方式
+4. 遵守 OpenAI 使用政策
+
+### 7.3 最佳实践
+
+#### 7.3.1 上下文管理
+
+1. **定期压缩**：长会话使用 `/compress` 命令
+2. **分批处理**：大任务拆分成多个小会话
+3. **清理历史**：定期使用 `/new` 开启新对话
+4. **避免重复**：不要重复发送相同内容
+
+#### 7.3.2 错误处理
+
+1. **实现重试机制**：对临时性错误（503、429）使用指数退避
+2. **监控配额**：定期检查使用量，避免意外超限
+3. **备份 API Key**：准备多个 Key 以备不时之需
+4. **记录错误**：记录错误信息便于排查
+
+#### 7.3.3 安全建议
+
+1. **保护 Key**：不要在代码中硬编码 API Key
+2. **使用环境变量**：通过环境变量或配置文件管理 Key
+3. **定期轮换**：定期更换 API Key
+4. **监控使用**：设置使用量告警，防止异常消耗
