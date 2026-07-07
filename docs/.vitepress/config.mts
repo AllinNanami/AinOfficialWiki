@@ -61,7 +61,7 @@ function isSlidesUrl(url: string): boolean {
 function isSensitiveUrl(url: string): boolean {
   try {
     const parsed = new URL(url, SITE_URL)
-    return parsed.pathname === '/sre/proxy' || parsed.pathname === '/sre/proxy/'
+    return parsed.pathname === '/sre/proxy-network-principles-202607' || parsed.pathname === '/sre/proxy-network-principles-202607/'
   } catch {
     return false
   }
