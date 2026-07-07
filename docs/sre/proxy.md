@@ -6,31 +6,28 @@
 
 在日常语境中，"VPN" 常被泛指为所有的网络翻墙工具。然而，从计算机网络体系结构（OSI 七层模型 / TCP/IP 四层模型）的角度来看，传统的 VPN、安全代理、跨境专线以及商业 VPN 在运行层级、封装机制和安全设计上存在本质区别。
 
-```mermaid
-block-beta
-    columns 3
-    A["L7 应用层"]:1
-    B["SOCKS5 · VMess · VLESS · Trojan · Shadowsocks"]:2
-    C["L4 传输层"]:1
-    D["OpenVPN · WireGuard · Hysteria 2 · TUIC"]:2
-    E["L3 网络层"]:1
-    F["IPsec VPN · TUN/TAP 虚拟网卡"]:2
-    G["L2 数据链路层"]:1
-    H["IEPL 国际以太网专线"]:2
-    I["L1 物理层"]:1
-    J["IPLC 国际私有租用线路"]:2
-
-    style A fill:#6366f1,color:#fff
-    style C fill:#8b5cf6,color:#fff
-    style E fill:#a78bfa,color:#fff
-    style G fill:#c4b5fd,color:#4c1d95
-    style I fill:#ddd6fe,color:#4c1d95
-    style B fill:#eef2ff,color:#3730a3,stroke:#c7d2fe
-    style D fill:#f5f3ff,color:#5b21b6,stroke:#ddd6fe
-    style F fill:#faf5ff,color:#7c3aed,stroke:#e9d5ff
-    style H fill:#faf5ff,color:#7c3aed,stroke:#e9d5ff
-    style J fill:#faf5ff,color:#7c3aed,stroke:#e9d5ff
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans SC','Microsoft YaHei',sans-serif">
+  <rect x="10" y="10" width="200" height="75" rx="8" fill="#4f46e5" stroke="#312e81" stroke-width="2"/>
+  <text x="110" y="55" text-anchor="middle" font-size="18px" font-weight="700" fill="#ffffff">L7 应用层</text>
+  <rect x="220" y="10" width="630" height="75" rx="8" fill="#e0e7ff" stroke="#818cf8" stroke-width="2"/>
+  <text x="535" y="55" text-anchor="middle" font-size="15px" font-weight="600" fill="#312e81">SOCKS5 · VMess · VLESS · Trojan · Shadowsocks</text>
+  <rect x="10" y="100" width="200" height="75" rx="8" fill="#7c3aed" stroke="#4c1d95" stroke-width="2"/>
+  <text x="110" y="145" text-anchor="middle" font-size="18px" font-weight="700" fill="#ffffff">L4 传输层</text>
+  <rect x="220" y="100" width="630" height="75" rx="8" fill="#ede9fe" stroke="#a78bfa" stroke-width="2"/>
+  <text x="535" y="145" text-anchor="middle" font-size="15px" font-weight="600" fill="#4c1d95">OpenVPN · WireGuard · Hysteria 2 · TUIC</text>
+  <rect x="10" y="190" width="200" height="75" rx="8" fill="#9333ea" stroke="#581c87" stroke-width="2"/>
+  <text x="110" y="235" text-anchor="middle" font-size="18px" font-weight="700" fill="#ffffff">L3 网络层</text>
+  <rect x="220" y="190" width="630" height="75" rx="8" fill="#f3e8ff" stroke="#c084fc" stroke-width="2"/>
+  <text x="535" y="235" text-anchor="middle" font-size="15px" font-weight="600" fill="#581c87">IPsec VPN · TUN/TAP 虚拟网卡</text>
+  <rect x="10" y="280" width="200" height="75" rx="8" fill="#a855f7" stroke="#6b21a8" stroke-width="2"/>
+  <text x="110" y="325" text-anchor="middle" font-size="18px" font-weight="700" fill="#ffffff">L2 数据链路层</text>
+  <rect x="220" y="280" width="630" height="75" rx="8" fill="#faf5ff" stroke="#d8b4fe" stroke-width="2"/>
+  <text x="535" y="325" text-anchor="middle" font-size="15px" font-weight="600" fill="#6b21a8">IEPL 国际以太网专线</text>
+  <rect x="10" y="370" width="200" height="75" rx="8" fill="#c084fc" stroke="#7e22ce" stroke-width="2"/>
+  <text x="110" y="415" text-anchor="middle" font-size="18px" font-weight="700" fill="#ffffff">L1 物理层</text>
+  <rect x="220" y="370" width="630" height="75" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="2"/>
+  <text x="535" y="415" text-anchor="middle" font-size="15px" font-weight="600" fill="#7e22ce">IPLC 国际私有租用线路</text>
+</svg>
 
 ### 1.1 虚拟专用网络 (VPN, Virtual Private Network)
 
