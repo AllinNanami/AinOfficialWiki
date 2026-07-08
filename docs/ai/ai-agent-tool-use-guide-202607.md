@@ -1,8 +1,3 @@
----
-title: Agent 入门
-description: 从 Function Calling 原理、工具类型、MCP Server 到工作流编排，系统讲解 AI Agent 的核心概念与实践，适合零基础读者入门。
----
-
 # Agent
 
 ## 1. Function Calling
@@ -1209,7 +1204,7 @@ default_plan_model = "gpt-5.5"
 #### MCP 与 Skills
 
 - MCP：Codex 默认自动启用所有可用 MCP，无需手动调用。
-- Skills：使用 $ 触发，例如 $deep-interview、$ralplan、$team、$ralph、$ultraqa。
+- Skills：使用 \$ 触发，例如 $deep-interview、$ralplan、$team、$ralph、$ultraqa。
 
 #### 常用 / 命令
 
@@ -1262,6 +1257,7 @@ opencode login
   "temperature": 0.1,
   "max_tokens": 128000,
   "reasoning_effort": "high"
+```
 ### 6.4 Hermes Agent
 
 Hermes Agent 是 Nous Research 开发的开源 AI 智能体（MIT 许可），本质是「编程 Agent + IM」的组合体。它在 OpenClaw 的基础上进行了彻底重构，专注于自进化能力、稳定性和安全。
