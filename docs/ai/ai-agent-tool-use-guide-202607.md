@@ -1204,7 +1204,7 @@ default_plan_model = "gpt-5.5"
 #### MCP 与 Skills
 
 - MCP：Codex 默认自动启用所有可用 MCP，无需手动调用。
-- Skills：使用 \$ 触发，例如 $deep-interview、$ralplan、$team、$ralph、$ultraqa。
+- Skills：使用 \$ 触发，例如 \$deep-interview、\$ralplan、\$team、\$ralph、\$ultraqa。
 
 #### 常用 / 命令
 
@@ -1229,7 +1229,7 @@ default_plan_model = "gpt-5.5"
 - /vim：Vim 模式。
 - /ps：查看进程。
 
-oh-my-codex（OMX）额外提供了 $ralplan（共识规划）、$team（多 Agent 协同）、$ralph（可视化验证循环）等高级工作流。
+oh-my-codex（OMX）额外提供了 \$ralplan（共识规划）、\$team（多 Agent 协同）、\$ralph（可视化验证循环）等高级工作流。
 
 ---
 
@@ -1777,7 +1777,7 @@ docker compose up -d
 # 访问 http://localhost/install 开始配置
 ```
 
-**定价**：自托管免费；云版 $59/月起（有免费层）。
+**定价**：自托管免费；云版 \$59/月起（有免费层）。
 
 **适用场景**：快速构建生产级 RAG 应用、内部知识助手、智能客服、报告生成器。
 
@@ -1812,7 +1812,7 @@ docker compose up -d
 > 国内最成熟的零代码 AI 智能体开发平台，强调"快速搭建 + 多平台发布"。
 
 - **官网**: https://www.coze.com（国际版）/ https://www.coze.cn（国内版）
-- **母公司**: 字节跳动 | **定价**: 免费层可用，Pro 约 $9/月
+- **母公司**: 字节跳动 | **定价**: 免费层可用，Pro 约 \$9/月
 
 **具体功能：**
 
