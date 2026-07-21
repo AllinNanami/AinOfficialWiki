@@ -81,6 +81,30 @@ function applyCodePromptState(block: HTMLElement, promptSymbol: string | null): 
   delete block.dataset.codePrompt
 }
 
+function countCodeLines(pre: HTMLElement): number {
+  const lineNodes = pre.querySelectorAll('.line')
+  if (lineNodes.length > 0) return lineNodes.length
+
+  const text = pre.textContent ?? ''
+  if (!text) return 0
+  return text.replace(/\n$/, '').split('\n').length
+}
+
+/** ≤4 位保持收紧 gutter；>4 位加宽行号列与左侧内边距 */
+function applyLineNumberGutter(block: HTMLElement, lineCount: number): void {
+  const digits = Math.max(String(Math.max(lineCount, 1)).length, 1)
+  block.dataset.lineDigits = String(digits)
+
+  if (digits <= 4) {
+    block.style.removeProperty('--vp-pro-code-line-number-width')
+    block.style.removeProperty('--vp-pro-code-gutter-left')
+    return
+  }
+
+  block.style.setProperty('--vp-pro-code-line-number-width', `${digits}ch`)
+  block.style.setProperty('--vp-pro-code-gutter-left', `${10 + (digits - 4) * 2}px`)
+}
+
 function syncLanguageIcon(iconNode: HTMLElement, language: string): void {
   const icon = resolveLanguageIcon(language)
   iconNode.dataset.icon = icon
@@ -155,6 +179,7 @@ function ensureMarkdownCodeHeader(block: HTMLElement): void {
 
   block.classList.add('vp-pro-md-code')
   block.insertBefore(header, pre)
+  applyLineNumberGutter(block, countCodeLines(pre))
 
   block.classList.add('vp-pro-md-code-ready')
 }
@@ -205,6 +230,13 @@ export function syncMarkdownCodeLanguageLabels(root: ParentNode = document): voi
     block.classList.toggle('is-lang-short', useShort)
     block.classList.toggle('is-root-code', languageMeta.isRootUser)
     applyCodePromptState(block, languageMeta.promptSymbol)
+
+    const pre = Array.from(block.children).find((node) => node instanceof HTMLElement && node.tagName === 'PRE') as
+      | HTMLElement
+      | undefined
+    if (pre) {
+      applyLineNumberGutter(block, countCodeLines(pre))
+    }
 
     const iconNode = block.querySelector<HTMLElement>(':scope > .vp-pro-md-code__header .vp-pro-md-code__lang-icon')
     if (iconNode) {

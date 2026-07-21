@@ -213,6 +213,14 @@ const customStyle = computed<CSSProperties>(() => {
     style['--vp-pro-code-prompt'] = `'${languageMeta.value.promptSymbol}'`
   }
 
+  // ≤4 位保持 CSS 默认收紧 gutter；>4 位加宽行号列
+  const lineCount = renderedCode.value ? renderedCode.value.replace(/\n$/, '').split('\n').length : 0
+  const digits = Math.max(String(Math.max(lineCount, 1)).length, 1)
+  if (digits > 4) {
+    style['--vp-pro-code-line-number-width'] = `${digits}ch`
+    style['--vp-pro-code-gutter-left'] = `${10 + (digits - 4) * 2}px`
+  }
+
   return style
 })
 
