@@ -422,8 +422,50 @@ export default defineConfig({
     ]
   },
 
-  // 添加全局 head 标签用于分析追踪
+  // 全局 head：字体 CDN + 分析
   head: [
+    ['link', { rel: 'preconnect', href: 'https://cdn.jsdelivr.net', crossorigin: '' }],
+    ['link', { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' }],
+    [
+      'link',
+      {
+        rel: 'preload',
+        href: 'https://cdn.jsdelivr.net/npm/@lobehub/webfont-harmony-sans-sc@1.0.0/fonts/HarmonyOS_Sans_SC_Regular.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: ''
+      }
+    ],
+    [
+      'link',
+      {
+        rel: 'preload',
+        href: 'https://cdn.jsdelivr.net/npm/@lobehub/webfont-harmony-sans-sc@1.0.0/fonts/HarmonyOS_Sans_SC_Medium.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: ''
+      }
+    ],
+    [
+      'link',
+      {
+        rel: 'preload',
+        href: 'https://cdn.jsdelivr.net/npm/@fontsource/outfit@5.2.5/files/outfit-latin-600-normal.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: ''
+      }
+    ],
+    [
+      'link',
+      {
+        rel: 'preload',
+        href: 'https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.2.5/files/jetbrains-mono-latin-400-normal.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: ''
+      }
+    ],
     [
       'script',
       {

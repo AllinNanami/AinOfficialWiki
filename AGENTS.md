@@ -101,6 +101,29 @@ localStorage.removeItem('umami.disabled')
 
 该设置按站点生效;每个域名都要单独设置一次。智能体做任何浏览器验证前都必须先执行排除命令。
 
+### 字体体系（强制）
+
+全站三层字体，必须经 jsDelivr（或同类中国友好全球 CDN）真实加载，**禁止 Google Fonts**：
+
+- `sans`（`--site-font-sans`）：正文 + 全部 UI（导航/侧栏/面包屑/搜索等）→ HarmonyOS Sans SC + 系统中文回退
+- `display`（`--site-font-display`）：文内标题与 Hero 等特殊区域 → Outfit（拉丁）+ 同字重 HarmonyOS（中文）
+- `mono`（`--site-font-mono`）：代码 / kbd / 路径 → JetBrains Mono, Maple Mono, Cascadia Code, Consolas
+
+实现入口：
+
+- 加载层：`docs/.vitepress/theme/fonts.css`
+- Token：`docs/.vitepress/theme/brand-tokens.css`
+- 主题使用 `vitepress/theme-without-fonts`，避免默认 Inter
+- Slidev：`provider: none`，栈与上述 token 对齐；主题 `slides/theme-ain` 复用同一 `fonts.css` / `brand-tokens.css`
+
+约束：
+
+- 非代码、非特殊 UI、非标题区域一律 `sans`
+- Mermaid / 表格导出 / Pagefind UI / Slidev 禁止私建字体栈，必须跟站点变量或同名栈
+- 字重只用 400 / 500 / 600 / 700（`--site-weight-*`）
+- 构建校验仍扫描产物中的 `fonts.googleapis.com`
+
+
 ### 仅幻灯片（示例）
 
 ```bash

@@ -14,6 +14,12 @@ export type MermaidThemePresetId =
 
 type MermaidThemeVariables = Record<string, string | boolean>
 
+/** 与 brand-tokens / fonts.css 保持同栈，禁止私建字体 */
+const SITE_MERMAID_FONT_SANS =
+  'HarmonyOS Sans SC, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, sans-serif'
+const SITE_MERMAID_FONT_MONO =
+  'JetBrains Mono, Maple Mono, Cascadia Code, Consolas, HarmonyOS Sans SC, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, monospace'
+
 export type MermaidThemePreset = {
   id: MermaidThemePresetId
   label: string
@@ -71,7 +77,7 @@ const CUSTOM_THEME_PRESETS: Record<
       tertiaryColor: '#c4b5fd',
       nodeBorder: '#fda4af',
       nodeTextColor: '#1f2937',
-      fontFamily: 'Fira Code, JetBrains Mono, sans-serif',
+      fontFamily: SITE_MERMAID_FONT_SANS,
       fontSize: '15px',
       noteBkgColor: '#fef9c3',
       noteTextColor: '#78350f',
@@ -102,7 +108,7 @@ const CUSTOM_THEME_PRESETS: Record<
       tertiaryColor: '#ffd6a5',
       nodeBorder: '#a0c4ff',
       nodeTextColor: '#333333',
-      fontFamily: 'Comic Sans MS, cursive',
+      fontFamily: SITE_MERMAID_FONT_SANS,
       fontSize: '14px',
       noteBkgColor: '#fdffb6',
       noteTextColor: '#6c584c',
@@ -133,7 +139,7 @@ const CUSTOM_THEME_PRESETS: Record<
       tertiaryColor: '#7dd3fc',
       nodeBorder: '#60a5fa',
       nodeTextColor: '#f0f9ff',
-      fontFamily: 'JetBrains Mono, monospace',
+      fontFamily: SITE_MERMAID_FONT_MONO,
       fontSize: '14px',
       noteBkgColor: '#1e40af',
       noteTextColor: '#93c5fd',
@@ -163,7 +169,7 @@ const CUSTOM_THEME_PRESETS: Record<
       tertiaryColor: '#c4b5fd',
       nodeBorder: '#c084fc',
       nodeTextColor: '#3f3f46',
-      fontFamily: 'Georgia, serif',
+      fontFamily: SITE_MERMAID_FONT_SANS,
       fontSize: '15px',
       noteBkgColor: '#f3e8ff',
       noteTextColor: '#6b21a8',
@@ -203,7 +209,10 @@ export function resolveMermaidThemePreset(
       id: 'default',
       label: '默认主题',
       theme: preferDarkDefault ? 'dark' : 'default',
-      look: 'classic'
+      look: 'classic',
+      themeVariables: {
+        fontFamily: SITE_MERMAID_FONT_SANS
+      }
     }
   }
 
@@ -213,7 +222,10 @@ export function resolveMermaidThemePreset(
       label:
         id === 'neutral' ? 'Neutral' : id === 'dark' ? 'Dark' : 'Forest',
       theme: id,
-      look: 'classic'
+      look: 'classic',
+      themeVariables: {
+        fontFamily: SITE_MERMAID_FONT_SANS
+      }
     }
   }
 
@@ -225,6 +237,10 @@ export function resolveMermaidThemePreset(
 
   return {
     id,
-    ...customPreset
+    ...customPreset,
+    themeVariables: {
+      fontFamily: SITE_MERMAID_FONT_SANS,
+      ...customPreset.themeVariables
+    }
   }
 }

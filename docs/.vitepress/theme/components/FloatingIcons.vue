@@ -344,14 +344,14 @@ onUnmounted(() => {
 .lang-label {
   margin-left: auto;
   font-size: 11px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--site-font-mono);
   color: var(--vp-c-text-3);
   letter-spacing: 0.05em;
 }
 
 .code-block {
   margin-top: 10px;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--site-font-mono);
   font-size: 13px;
   color: var(--vp-c-text-1);
   line-height: 1.6;
@@ -438,11 +438,13 @@ onUnmounted(() => {
 }
 
 .stat-num {
-  font-weight: 800;
+  font-family: var(--site-font-sans);
+  font-weight: var(--site-weight-bold);
   color: var(--vp-c-brand-1);
   font-size: 18px;
 }
 .stat-label {
+  font-family: var(--site-font-sans);
   font-size: 12px;
   color: var(--vp-c-text-2);
 }

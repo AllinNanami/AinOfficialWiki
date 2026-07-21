@@ -124,8 +124,10 @@ onUnmounted(() => {
 
 .section-title {
   text-align: center;
+  font-family: var(--site-font-display);
   font-size: 32px;
-  font-weight: 700;
+  font-weight: var(--site-weight-semibold);
+  line-height: 1.2;
   margin-bottom: 40px;
   color: var(--vp-c-text-1);
 }
@@ -181,8 +183,9 @@ onUnmounted(() => {
 .icon-orange { background: rgba(249, 115, 22, 0.1); color: #f97316; }
 
 .feature-title {
+  font-family: var(--site-font-display);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: var(--site-weight-semibold);
   color: var(--vp-c-text-1);
   margin: 0;
 }
@@ -266,9 +269,10 @@ onUnmounted(() => {
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 100px;
   width: fit-content;
+  font-family: var(--site-font-sans);
   font-size: 14px;
   color: #2563eb;
-  font-weight: 500;
+  font-weight: var(--site-weight-medium);
 }
 
 .badge-dot {
@@ -288,7 +292,7 @@ onUnmounted(() => {
 .hero-title {
   font-size: 56px;
   line-height: 1.1;
-  font-weight: 800;
+  font-weight: var(--site-weight-bold);
   color: var(--vp-c-text-1);
   font-family: var(--site-font-display);
 }
@@ -301,6 +305,7 @@ onUnmounted(() => {
 }
 
 .hero-desc {
+  font-family: var(--site-font-sans);
   font-size: 18px;
   line-height: 1.6;
   color: var(--vp-c-text-2);
@@ -319,7 +324,8 @@ onUnmounted(() => {
   gap: 8px;
   padding: 12px 24px;
   border-radius: 12px;
-  font-weight: 600;
+  font-family: var(--site-font-sans);
+  font-weight: var(--site-weight-semibold);
   font-size: 16px;
   transition: all 0.2s;
   text-decoration: none !important;
@@ -376,13 +382,14 @@ onUnmounted(() => {
 .c3 { background-image: linear-gradient(135deg, #93c5fd 0%, #60a5fa 100%); }
 
 .trust-text {
+  font-family: var(--site-font-sans);
   font-size: 14px;
   color: var(--vp-c-text-2);
 }
 
 .highlight-text {
   color: #2563eb;
-  font-weight: 700;
+  font-weight: var(--site-weight-semibold);
 }
 
 .hero-visual {

@@ -2,7 +2,7 @@
 import { Fragment, h, nextTick, onBeforeUnmount, onMounted, watch } from 'vue'
 import type { Theme } from 'vitepress'
 import { useRoute } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
+import DefaultTheme from 'vitepress/theme-without-fonts'
 import 'katex/dist/katex.min.css'
 import './style.css'
 import ClerkToc from './components/ClerkToc.vue'

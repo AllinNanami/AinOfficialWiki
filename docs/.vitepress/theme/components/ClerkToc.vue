@@ -306,9 +306,9 @@ onBeforeUnmount(() => {
 .clerk-toc-title {
   padding: 12px 14px;
   border-bottom: 1px solid var(--vp-c-divider-light);
-  font-family: var(--vp-font-family-base);
+  font-family: var(--site-font-sans);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: var(--site-weight-semibold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--vp-c-text-2);
@@ -371,7 +371,7 @@ onBeforeUnmount(() => {
 
 .clerk-toc-link.active {
   color: var(--vp-c-brand-1);
-  font-weight: 600;
+  font-weight: var(--site-weight-semibold);
 }
 
 @media (orientation: landscape) and (max-width: 1280px) {

@@ -372,7 +372,7 @@ export function tableToStyledHtml(table: HTMLTableElement): string {
   clone.style.width = '100%'
   clone.style.border = '1px solid #d0d7de'
   clone.style.fontFamily =
-    '"Alegreya Sans","Noto Sans SC","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif'
+    '"HarmonyOS Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif'
   clone.style.fontSize = '14px'
   clone.style.lineHeight = '1.6'
   clone.style.background = '#ffffff'

@@ -1,3 +1,4 @@
+@import '../../../docs/.vitepress/theme/fonts.css';
 @import '../../../docs/.vitepress/theme/brand-tokens.css';
 
 :root {
@@ -18,12 +19,13 @@ html.dark {
 html,
 body,
 #app {
-  font-family: var(--site-font-body);
+  font-family: var(--site-font-sans);
   background: var(--site-bg-canvas);
 }
 
 body {
   letter-spacing: 0.01em;
+  font-weight: var(--site-weight-regular);
 }
 
 #app {
@@ -68,20 +70,31 @@ html.dark .slidev-layout.ain-section::before {
 .slidev-layout h1,
 .slidev-layout h2,
 .slidev-layout h3,
-.slidev-layout h4 {
-  margin: 0 0 0.75rem;
+.slidev-layout h4,
+.slidev-layout h5,
+.slidev-layout h6 {
+  margin: 0 0 0.55rem;
   font-family: var(--site-font-display);
-  letter-spacing: 0.015em;
+  letter-spacing: 0;
   color: var(--vp-c-text-1);
 }
 
 .slidev-layout h1 {
   font-size: 2.35rem;
-  line-height: 1.1;
+  font-weight: var(--site-weight-semibold);
+  line-height: 1.12;
 }
 
 .slidev-layout h2 {
   font-size: 1.75rem;
+  font-weight: var(--site-weight-semibold);
+  line-height: 1.2;
+}
+
+.slidev-layout h3 {
+  font-size: 1.35rem;
+  font-weight: var(--site-weight-medium);
+  line-height: 1.28;
 }
 
 .slidev-layout p,

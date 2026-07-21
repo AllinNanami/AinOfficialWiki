@@ -11,9 +11,8 @@ lineNumbers: true
 highlighter: shiki
 fonts:
   provider: none
-  sans: Noto Sans SC, PingFang SC, Microsoft YaHei, system-ui, sans-serif
-  serif: Noto Serif SC, Source Han Serif SC, serif
-  mono: JetBrains Mono, Fira Code, SFMono-Regular, Menlo, Consolas, monospace
+  sans: HarmonyOS Sans SC, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, sans-serif
+  mono: JetBrains Mono, Maple Mono, Cascadia Code, Consolas, monospace
 # 图标
 favicon: /favicon.ico
 ---

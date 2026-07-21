@@ -1,9 +1,37 @@
 :root {
   color-scheme: light;
 
-  --site-font-display: 'Outfit', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --site-font-body: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  --site-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+  /* 三层字体：sans(UI/正文) / display(标题+Hero) / mono(代码)
+     实际加载见 fonts.css（jsDelivr，禁止 Google Fonts） */
+  --site-font-sans:
+    'HarmonyOS Sans SC',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'Noto Sans SC',
+    sans-serif;
+  /* 英文 Outfit（latin unicode-range），中文同字重鸿蒙 */
+  --site-font-display:
+    'Outfit',
+    'HarmonyOS Sans SC',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'Noto Sans SC',
+    sans-serif;
+  --site-font-mono:
+    'JetBrains Mono',
+    'Maple Mono',
+    'Cascadia Code',
+    Consolas,
+    'HarmonyOS Sans SC',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'Noto Sans SC',
+    monospace;
+  /* 兼容旧变量名 */
+  --site-font-body: var(--site-font-sans);
 
   /* ── unified radius tokens ── */
   --site-radius-xs: 6px;
@@ -13,13 +41,18 @@
   --site-radius-xl: 14px;
   --site-radius-pill: 999px;
 
-  /* ── unified font-weight tokens ── */
-  --site-weight-body: 400;
-  --site-weight-label: 500;
-  --site-weight-heading-sm: 560;
-  --site-weight-heading: 600;
-  --site-weight-heading-lg: 650;
-  --site-weight-display: 700;
+  /* ── unified font-weight tokens（实档 400/500/600/700） ── */
+  --site-weight-regular: 400;
+  --site-weight-medium: 500;
+  --site-weight-semibold: 600;
+  --site-weight-bold: 700;
+  /* 兼容旧名 */
+  --site-weight-body: var(--site-weight-regular);
+  --site-weight-label: var(--site-weight-medium);
+  --site-weight-heading-sm: var(--site-weight-medium);
+  --site-weight-heading: var(--site-weight-semibold);
+  --site-weight-heading-lg: var(--site-weight-semibold);
+  --site-weight-display: var(--site-weight-bold);
 
   /* ── unified shadow tokens ── */
   --site-shadow-none: none;
@@ -31,7 +64,7 @@
   --site-grid-line: rgba(28, 28, 30, 0.04);
   --site-glow: none;
 
-  --vp-font-family-base: var(--site-font-body);
+  --vp-font-family-base: var(--site-font-sans);
   --vp-font-family-mono: var(--site-font-mono);
   --vp-layout-max-width: 1520px;
 
