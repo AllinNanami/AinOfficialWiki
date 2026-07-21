@@ -66,6 +66,41 @@ npm run docs:build
 npm run docs:preview
 ```
 
+### 搜索索引（Pagefind）
+
+全站搜索基于 Pagefind,索引在构建后生成。`docs:build` 不含索引步骤,需单独执行:
+
+```bash
+# 构建后生成索引
+bun run docs:index
+# 或一次完成构建 + 索引
+bun run docs:build:search
+```
+
+注意事项:
+- 开发模式(`docs:dev`)可直接测试搜索:先 `bun run docs:build:search` 生成 `docs/.vitepress/dist/pagefind/`,再启动 `bun run docs:dev`。开发服务器会挂载该目录到 `/pagefind/*`。
+- 若尚未生成索引,搜索弹窗会提示"搜索索引不可用"。生产预览也可用 `bun run docs:preview`(需先索引)。
+- `vitepress preview` 在启动时读取产物目录;若索引在 preview 启动后才生成,需重启 preview。
+- `cf:build` 已内置 `docs:index` 步骤,部署产物自动包含索引。
+
+### 本地浏览器测试前排除访问统计
+
+本地用真实浏览器访问线上/预览站时,必须先排除 umami 统计,避免把测试流量计入正式数据。
+
+在目标站点打开开发者工具 Console,执行:
+
+```js
+localStorage.setItem('umami.disabled', 1)
+```
+
+取消排除:
+
+```js
+localStorage.removeItem('umami.disabled')
+```
+
+该设置按站点生效;每个域名都要单独设置一次。智能体做任何浏览器验证前都必须先执行排除命令。
+
 ### 仅幻灯片（示例）
 
 ```bash
@@ -419,6 +454,17 @@ def replace_images_with_urls(markdown_file, url_map):
 bun run docs:build
 # 或
 npm run docs:build
+```
+
+如果改动涉及内容索引、搜索功能或部署产物，执行：
+
+```bash
+# 生成 Pagefind 搜索索引（docs:build 之后执行）
+bun run docs:index
+# 或一次完成构建 + 索引
+bun run docs:build:search
+# 验证索引产物存在
+ls docs/.vitepress/dist/pagefind/pagefind.js
 ```
 
 如果改动涉及部署路由、嵌入行为或 slide 产物，再执行：

@@ -45,6 +45,7 @@ import { prepareMarkdownTables } from './markdown-tables'
 import HomeLanding from './components/HomeLanding.vue'
 import DocBreadcrumbs from './components/DocBreadcrumbs.vue'
 import DocNavBreadcrumbDock from './components/DocNavBreadcrumbDock.vue'
+import NavBarSearch from './components/NavBarSearch.vue'
 
 export default {
   extends: DefaultTheme,
@@ -252,6 +253,8 @@ export default {
       'sidebar-nav-before': () => h(SidebarNavigator),
       // 放在文档 footer 内，显示在 Next/Previous 导航上方
       'doc-footer-before': () => h(DocCopyright),
+      // QQ 社交图标左侧的全站搜索入口（Pagefind）
+      'nav-bar-content-after': () => h(NavBarSearch),
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
       // 在布局底部插入 toast 容器
       'layout-bottom': () => h(Fragment, null, [h(ToastProvider)])

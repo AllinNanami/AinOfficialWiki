@@ -4,6 +4,22 @@ import markdownItKatexModern from './markdown-it-katex-modern'
 import { resolveCodeLanguageMeta } from './shared/code-language-meta'
 import { resolveLanguageLabel, resolveLanguageShortLabel } from './shared/language-labels'
 import { useMarkdownTableDirective } from './theme/markdown-table-directive'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const configDir = path.dirname(fileURLToPath(import.meta.url))
+const pagefindDevDir = path.resolve(configDir, 'dist/pagefind')
+
+function pagefindContentType(filePath: string): string {
+  if (filePath.endsWith('.js')) return 'application/javascript; charset=utf-8'
+  if (filePath.endsWith('.css')) return 'text/css; charset=utf-8'
+  if (filePath.endsWith('.json')) return 'application/json; charset=utf-8'
+  if (filePath.endsWith('.wasm') || filePath.endsWith('.pagefind') || filePath.endsWith('.pf_meta')) {
+    return 'application/octet-stream'
+  }
+  return 'application/octet-stream'
+}
 
 const SITE_URL = 'https://ain.hmgf.hxcn.space'
 const SOCIAL_IMAGE_URL = new URL('/favicon.ico', SITE_URL).toString()
@@ -365,7 +381,45 @@ export default defineConfig({
       // The custom theme bundles KaTeX, Mermaid and multiple interactive widgets.
       // Raise the warning threshold so production builds stay signal-rich.
       chunkSizeWarningLimit: 1024
-    }
+    },
+    plugins: [
+      {
+        name: 'serve-pagefind-in-dev',
+        configureServer(server) {
+          // 开发态直接挂载 docs/.vitepress/dist/pagefind，便于 docs:build:search 后本地验证搜索。
+          server.middlewares.use((req, res, next) => {
+            const rawUrl = req.url || ''
+            if (!rawUrl.startsWith('/pagefind/')) {
+              next()
+              return
+            }
+
+            const pathname = decodeURIComponent(rawUrl.split('?')[0] || '')
+            const relativePath = pathname.replace(/^\/pagefind\//, '')
+            if (!relativePath || relativePath.includes('..')) {
+              next()
+              return
+            }
+
+            const filePath = path.resolve(pagefindDevDir, relativePath)
+            if (!filePath.startsWith(pagefindDevDir + path.sep) && filePath !== pagefindDevDir) {
+              next()
+              return
+            }
+
+            if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+              next()
+              return
+            }
+
+            res.statusCode = 200
+            res.setHeader('Content-Type', pagefindContentType(filePath))
+            res.setHeader('Cache-Control', 'no-store')
+            fs.createReadStream(filePath).pipe(res)
+          })
+        }
+      }
+    ]
   },
 
   // 添加全局 head 标签用于分析追踪

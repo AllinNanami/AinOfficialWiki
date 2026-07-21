@@ -275,10 +275,22 @@ h4,
   .VPNavBar .appearance,
   .VPNavBar .social-links,
   .VPNavBar .extra,
-  .VPNavBar .hamburger {
+  .VPNavBar .hamburger,
+  .VPNavBar .vp-pro-search-entry {
     position: relative;
     z-index: 2;
   }
+
+  /* 搜索入口排在社交链接(QQ)左侧、外观切换右侧 */
+  .VPNavBar .content-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .VPNavBar .vp-pro-search-entry { order: 10; }
+  .VPNavBar .social-links { order: 11; }
+  .VPNavBar .extra { order: 12; }
+  .VPNavBar .hamburger { order: 13; }
 
   .VPNavBarMenu.menu {
     transition:
