@@ -781,10 +781,10 @@ h6,
 }
 
 .VPDocAside .content {
-  border: 1px solid var(--vp-c-divider-light);
-  border-radius: var(--site-radius-xl);
-  background: var(--vp-c-bg-soft);
-  padding: 16px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 16px 8px;
 }
 
 .VPHome {
