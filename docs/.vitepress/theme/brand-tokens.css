@@ -61,7 +61,7 @@
   --site-shadow-overlay: 0 12px 32px rgba(28, 28, 30, 0.14);
 
   --site-bg-canvas: #f8f9fb;
-  --site-grid-line: rgba(28, 28, 30, 0.04);
+  --site-grid-line: rgba(28, 28, 30, 0.02);
   --site-glow: none;
 
   --vp-font-family-base: var(--site-font-sans);
@@ -78,7 +78,7 @@
   --vp-c-default-3: #75788e;
   --vp-c-default-soft: rgba(61, 63, 77, 0.08);
 
-  --vp-c-bg: #ffffff;
+  --vp-c-bg: #fafafa;
   --vp-c-bg-soft: #f6f7f9;
   --vp-c-bg-mute: #eceef2;
   --vp-c-bg-alt: #e4e7ed;
@@ -134,7 +134,7 @@
   color-scheme: dark;
 
   --site-bg-canvas: #09090b;
-  --site-grid-line: rgba(255, 255, 255, 0.03);
+  --site-grid-line: rgba(255, 255, 255, 0.015);
   --site-glow: none;
 
   --vp-c-brand-1: #828fff;
