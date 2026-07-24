@@ -30,10 +30,10 @@ const emit = defineEmits<{
         class="vp-pro-sidebar-tree-node__row is-folder"
         @click="emit('toggle', node.key)"
       >
-        <span class="vp-pro-sidebar-tree-node__chevron" :class="{ 'is-open': expandedKeys.includes(node.key) }">
-          <BaseIcon icon="mdi:chevron-right" :width="14" :height="14" />
-        </span>
         <SidebarOverflowLabel :text="node.text" />
+        <span class="vp-pro-sidebar-tree-node__chevron" :class="{ 'is-open': expandedKeys.includes(node.key) }">
+          <BaseIcon icon="mdi:chevron-down" :width="16" :height="16" />
+        </span>
       </button>
 
       <Transition name="vp-pro-sidebar-tree-branch">
@@ -56,7 +56,6 @@ const emit = defineEmits<{
       :class="{ 'is-current': node.isActive }"
       :href="node.href"
     >
-      <span class="vp-pro-sidebar-tree-node__bullet" />
       <SidebarOverflowLabel :text="node.text" />
     </a>
   </li>
