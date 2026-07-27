@@ -10,6 +10,7 @@ import SlideEmbed from './components/SlideEmbed.vue'
 import DocCopyright from './components/DocCopyright.vue'
 import SidebarNavigator from './components/SidebarNavigator.vue'
 import LinkCard from './components/ui/LinkCard.vue'
+import GithubInfo from './components/ui/GithubInfo.vue'
 import Aside from './components/ui/Aside.vue'
 import Badge from './components/ui/Badge.vue'
 import Code from './components/ui/Code.vue'
@@ -214,6 +215,7 @@ export default {
     app.component('HomeLanding', HomeLanding)
     app.component('SlideEmbed', SlideEmbed)
     app.component('LinkCard', LinkCard)
+    app.component('GithubInfo', GithubInfo)
     app.component('Aside', Aside)
     app._context.components.Badge = Badge
     app.component('Code', Code)

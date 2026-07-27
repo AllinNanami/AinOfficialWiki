@@ -24,8 +24,10 @@ body {
   --vp-pro-surface-hover-border: var(--vp-c-brand-1);
   --vp-pro-surface-leave-duration: 0.28s;
   --vp-pro-surface-leave-easing: cubic-bezier(0.4, 0, 0.2, 1);
-  --vp-sidebar-width: 296px;
-  --vp-pro-sidebar-panel-width: clamp(268px, 18vw, 300px);
+  --vp-sidebar-width: 280px;
+  --vp-pro-sidebar-panel-width: clamp(260px, 16vw, 288px);
+  --vp-code-line-height: 1.45;
+  --vp-code-font-size: 13px;
   --site-sidebar-bulk-toggle-height: 72px;
 }
 
@@ -499,7 +501,33 @@ h6,
   background: var(--vp-c-default-soft);
 }
 
-/* Chevron: right-aligned, rotate -90deg when collapsed (fumadocs pattern) */
+.vp-pro-sidebar-tree-node__row.is-folder {
+  cursor: default;
+}
+
+.vp-pro-sidebar-tree-node__folder-link,
+.vp-pro-sidebar-tree-node__folder-label {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1 1 auto;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  font-size: inherit;
+  text-align: left;
+  color: inherit;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vp-pro-sidebar-tree-node__folder-link.is-current {
+  color: var(--vp-c-brand-1);
+  font-weight: var(--site-weight-medium);
+}
+
 .vp-pro-sidebar-tree-node__chevron {
   display: inline-flex;
   align-items: center;
@@ -508,12 +536,27 @@ h6,
   width: 16px;
   height: 16px;
   margin-left: auto;
+  border: 0;
+  padding: 0;
   color: var(--vp-c-text-3);
-  transition: transform 0.2s ease;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    transform 0.2s ease;
+}
+
+.vp-pro-sidebar-tree-node__chevron:hover {
+  color: var(--vp-c-text-1);
 }
 
 .vp-pro-sidebar-tree-node__chevron:not(.is-open) {
   transform: rotate(-90deg);
+}
+
+.vp-pro-sidebar-tree-node.is-active > .vp-pro-sidebar-tree-node__row.is-folder {
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
 }
 
 /* Active highlight: before pseudo-element, 2px bar at left padding start */
@@ -664,7 +707,7 @@ h6,
 .VPDoc .container,
 .VPHome .VPHero .container,
 .VPHome .VPFeatures .container {
-  max-width: min(1440px, 94vw) !important;
+  max-width: min(1600px, 96vw) !important;
 }
 
 .VPDoc .content-container,
@@ -680,7 +723,7 @@ h6,
 }
 
 .VPDoc.has-aside .content-container {
-  max-width: 880px !important;
+  max-width: 900px !important;
 }
 
 .VPDoc:not(.has-sidebar) .content-container {
@@ -696,6 +739,16 @@ h6,
   border-radius: 0;
   background: transparent;
   padding: 16px 8px;
+}
+
+/* 2K：右侧 TOC 更接近 fumadocs 268px，避免主栏+侧栏比例过紧 */
+.VPDoc .aside {
+  max-width: 280px !important;
+}
+
+.VPDoc .aside .aside-container,
+.VPDoc .aside .aside-curtain {
+  width: 248px !important;
 }
 
 .VPHome {
@@ -1010,7 +1063,7 @@ h6,
 
 .vp-doc :is(h1, h2, h3, h4, h5, h6) .header-anchor:hover,
 .vp-doc :is(h1, h2, h3, h4, h5, h6) .header-anchor:focus-visible {
-  background: color-mix(in srgb, #3375f6 78%, #1c1c1e 22%);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 78%, var(--vp-c-text-1) 22%);
   opacity: 1;
 }
 
@@ -1060,7 +1113,7 @@ h6,
 .vp-doc a {
   color: var(--vp-c-brand-1);
   text-decoration-thickness: 0.08em;
-  text-decoration-color: rgba(15, 107, 255, 0.35);
+  text-decoration-color: color-mix(in oklab, var(--vp-c-brand-1) 35%, transparent);
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
@@ -1094,15 +1147,15 @@ h6,
 
 .vp-doc :not(pre) > code.vp-pro-inline-copy:hover {
   color: var(--vp-c-brand-1);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 6%, transparent);
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 28%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 6%, transparent);
   box-shadow: none;
 }
 
 .vp-doc :not(pre) > code.vp-pro-inline-copy:focus-visible {
   outline: none;
   color: var(--vp-c-brand-1);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 36%, transparent);
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 36%, transparent);
   box-shadow: none;
 }
 
@@ -1122,15 +1175,16 @@ h6,
 .vp-doc div[class*='language-'] > pre.shiki {
   margin: 0;
   overflow: auto;
-  padding: 12px 14px 14px var(--vp-pro-code-gutter-left);
+  padding: 10px 14px 12px var(--vp-pro-code-gutter-left);
   background: transparent !important;
+  line-height: var(--vp-code-line-height, 1.45);
 }
 
 .vp-doc div[class*='language-'] > pre code {
   display: block;
   font-family: var(--site-font-mono);
-  font-size: 13px;
-  line-height: 1.36; /* 1.7 * 0.8 */
+  font-size: var(--vp-code-font-size, 13px);
+  line-height: inherit;
 }
 
 .vp-doc div[class*='language-'] > pre .line {
@@ -1174,8 +1228,8 @@ h6,
 
 .vp-pro-table-copy:hover {
   color: var(--vp-c-brand-1);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 42%, transparent);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 8%, transparent);
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 42%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 8%, transparent);
 }
 
 .vp-pro-table-copy:active {
@@ -1277,7 +1331,7 @@ h6,
 
 .vp-pro-mermaid__tab.is-active {
   color: var(--vp-c-text-1);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 14%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 14%, transparent);
 }
 
 .vp-pro-mermaid__body {
@@ -1512,7 +1566,7 @@ h6,
 }
 
 .vp-pro-link-card__anchor:hover {
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
   background: var(--vp-c-brand-soft);
   box-shadow: var(--site-shadow-subtle);
 }
@@ -1849,6 +1903,62 @@ h6,
   background: var(--vp-c-bg-soft);
 }
 
+.vp-pro-github-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--vp-c-divider-light);
+  border-radius: var(--site-radius-sm);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  text-decoration: none;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.vp-pro-github-info:hover {
+  color: var(--vp-c-text-1);
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 28%, var(--vp-c-divider-light));
+  background: color-mix(in oklab, var(--vp-c-brand-1) 6%, var(--vp-c-bg-soft));
+}
+
+.vp-pro-github-info__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: var(--site-weight-medium);
+  color: inherit;
+}
+
+.vp-pro-github-info__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+.vp-pro-github-info__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vp-pro-github-info__error {
+  color: var(--vp-c-danger);
+}
+
+.vp-pro-github-info__fallback {
+  font-size: 12px;
+}
+
 .vp-doc div[class*='language-'].vp-pro-md-code {
   --vp-pro-code-line-number-width: 2em;
   --vp-pro-code-line-number-gap: 6px;
@@ -1897,7 +2007,7 @@ h6,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: color-mix(in srgb, var(--vp-pro-code-accent) 70%, var(--vp-c-text-2));
+  color: color-mix(in oklab, var(--vp-pro-code-accent) 70%, var(--vp-c-text-2));
 }
 
 .vp-pro-code__lang-icon :is(svg, .vp-pro-icon) {
@@ -1949,14 +2059,14 @@ h6,
   display: inline-flex;
   align-items: center;
   border-radius: var(--site-radius-sm);
-  border: 1px solid color-mix(in srgb, var(--vp-c-danger-1) 20%, transparent);
+  border: 1px solid color-mix(in oklab, var(--vp-c-danger) 20%, transparent);
   padding: 0 6px;
   font-size: 10px;
   line-height: 1.35;
   font-weight: var(--site-weight-label);
   letter-spacing: 0.01em;
-  color: color-mix(in srgb, var(--vp-c-danger-1) 68%, var(--vp-c-text-1));
-  background: color-mix(in srgb, var(--vp-c-danger-1) 7%, transparent);
+  color: color-mix(in oklab, var(--vp-c-danger) 68%, var(--vp-c-text-1));
+  background: color-mix(in oklab, var(--vp-c-danger) 7%, transparent);
   white-space: nowrap;
 }
 
@@ -2024,28 +2134,30 @@ h6,
   margin: 0;
   overflow: auto;
   background: transparent;
+  line-height: var(--vp-code-line-height, 1.45);
 }
 
 .vp-pro-code__pre :is(pre, pre.shiki) {
   margin: 0;
-  padding: 12px 14px 14px var(--vp-pro-code-gutter-left);
+  padding: 10px 14px 12px var(--vp-pro-code-gutter-left);
   min-width: 100%;
   background: transparent !important;
+  line-height: inherit;
 }
 
 .vp-pro-code__pre :is(code, .shiki code) {
   display: block;
   font-family: var(--site-font-mono);
-  font-size: 13px;
-  line-height: 1.36;
+  font-size: var(--vp-code-font-size, 13px);
+  line-height: inherit;
   white-space: normal;
 }
 
 .vp-doc div[class*='language-'] > pre :is(code, .shiki code) {
   display: block;
   font-family: var(--site-font-mono);
-  font-size: 13px;
-  line-height: 1.36;
+  font-size: var(--vp-code-font-size, 13px);
+  line-height: inherit;
   background: transparent;
 }
 
@@ -2098,7 +2210,7 @@ h6,
   text-align: center;
   font-size: 13px;
   font-weight: var(--site-weight-bold);
-  color: color-mix(in srgb, var(--vp-pro-code-accent) 78%, var(--vp-c-text-2));
+  color: color-mix(in oklab, var(--vp-pro-code-accent) 78%, var(--vp-c-text-2));
 }
 
 .vp-pro-code__pre :is(code, .shiki code) .line:empty,
@@ -2445,8 +2557,8 @@ h6,
 .vp-pro-file-tree-folder__link:hover,
 .vp-pro-file-tree-file__link:hover {
   color: var(--vp-c-brand-1);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 45%, transparent);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent);
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 45%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 10%, transparent);
 }
 
 .vp-pro-file-tree-file__size {
@@ -2485,8 +2597,8 @@ h6,
   white-space: nowrap;
   text-decoration: none;
   color: var(--vp-c-brand-1);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 25%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 10%, transparent);
+  border: 1px solid color-mix(in oklab, var(--vp-c-brand-1) 25%, transparent);
   cursor: pointer;
   flex: none;
   transition:
@@ -2497,8 +2609,8 @@ h6,
 
 .vp-pro-file-tree-file__download-badge:hover {
   color: var(--vp-c-brand-2);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 45%, transparent);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 15%, transparent);
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 45%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 15%, transparent);
 }
 
 .vp-pro-file-tree-file__copy-code {
@@ -2522,8 +2634,8 @@ h6,
   border-radius: 6px;
   white-space: nowrap;
   color: var(--vp-c-brand-1);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 25%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 10%, transparent);
+  border: 1px solid color-mix(in oklab, var(--vp-c-brand-1) 25%, transparent);
   transition:
     color 0.2s ease,
     background-color 0.2s ease,
@@ -2532,8 +2644,8 @@ h6,
 
 .vp-pro-file-tree-file__copy-code:hover .vp-pro-file-tree-file__copy-badge {
   color: var(--vp-c-brand-2);
-  border-color: color-mix(in srgb, var(--vp-c-brand-1) 45%, transparent);
-  background: color-mix(in srgb, var(--vp-c-brand-1) 15%, transparent);
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 45%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 15%, transparent);
 }
 
 .vp-doc .vp-pro-file-tree li + li {
@@ -2710,13 +2822,13 @@ h6,
 }
 
 .vp-pro-link-button.has-custom.is-solid:hover {
-  background: color-mix(in srgb, var(--vp-pro-link-button-custom) 86%, white);
+  background: color-mix(in oklab, var(--vp-pro-link-button-custom) 86%, white);
 }
 
 .vp-pro-link-button.has-custom:is(.is-outline, .is-soft, .is-ghost) {
   color: var(--vp-pro-link-button-custom);
-  border-color: color-mix(in srgb, var(--vp-pro-link-button-custom) 45%, transparent);
-  background: color-mix(in srgb, var(--vp-pro-link-button-custom) 10%, transparent);
+  border-color: color-mix(in oklab, var(--vp-pro-link-button-custom) 45%, transparent);
+  background: color-mix(in oklab, var(--vp-pro-link-button-custom) 10%, transparent);
 }
 
 .vp-pro-checkbox-group {
@@ -2957,14 +3069,14 @@ h6,
   grid-row: 1;
   width: 100%;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--vp-pro-toast-accent) 24%, var(--vp-c-divider-light));
+  border: 1px solid color-mix(in oklab, var(--vp-pro-toast-accent) 24%, var(--vp-c-divider-light));
   border-radius: 18px;
   padding: 12px 10px 12px 12px;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: start;
   gap: 10px 8px;
-  background: color-mix(in srgb, var(--vp-pro-toast-accent) 5%, var(--vp-c-bg-soft));
+  background: color-mix(in oklab, var(--vp-pro-toast-accent) 5%, var(--vp-c-bg-soft));
   box-shadow: var(--vp-shadow-2);
   pointer-events: auto;
   transform-origin: right bottom;
@@ -3072,15 +3184,15 @@ h6,
 
 .vp-pro-toast__close:hover {
   color: var(--vp-c-text-1);
-  border-color: color-mix(in srgb, var(--vp-pro-toast-accent) 40%, transparent);
-  background: color-mix(in srgb, var(--vp-pro-toast-accent) 10%, transparent);
+  border-color: color-mix(in oklab, var(--vp-pro-toast-accent) 40%, transparent);
+  background: color-mix(in oklab, var(--vp-pro-toast-accent) 10%, transparent);
 }
 
 .vp-pro-toast__progress {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: color-mix(in srgb, var(--vp-pro-toast-accent) 4%, transparent);
+  background: color-mix(in oklab, var(--vp-pro-toast-accent) 4%, transparent);
   overflow: hidden;
   pointer-events: none;
   z-index: 1;
@@ -3092,8 +3204,8 @@ h6,
   inset: 0;
   background: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--vp-pro-toast-accent) 12%, transparent),
-    color-mix(in srgb, var(--vp-pro-toast-accent) 26%, transparent)
+    color-mix(in oklab, var(--vp-pro-toast-accent) 12%, transparent),
+    color-mix(in oklab, var(--vp-pro-toast-accent) 26%, transparent)
   );
   transform-origin: left center;
   transform: scaleX(var(--vp-pro-toast-progress));
@@ -3496,7 +3608,7 @@ h6,
   .VPNavScreen .container {
     padding: 22px 18px 88px;
     max-width: min(320px, calc(100vw - 32px));
-    border: 1px solid rgba(15, 107, 255, 0.08);
+    border: 1px solid color-mix(in oklab, var(--vp-c-brand-1) 8%, transparent);
     border-radius: 22px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(247, 251, 255, 0.96) 100%),
@@ -3515,7 +3627,7 @@ h6,
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 251, 255, 0.97) 100%) !important,
       var(--vp-c-bg) !important;
-    border-right: 1px solid rgba(15, 107, 255, 0.08);
+    border-right: 1px solid color-mix(in oklab, var(--vp-c-brand-1) 8%, transparent);
     box-shadow: var(--site-shadow-float);
   }
 
@@ -3615,7 +3727,7 @@ h6,
   }
 
   .vp-pro-step {
-    padding-left: 42px;
+    padding-left: 32px;
   }
 
   .vp-doc iframe {
@@ -3931,7 +4043,7 @@ h6,
   min-width: min(320px, calc(100vw - 24px));
   max-width: min(360px, calc(100vw - 24px));
   padding: 14px 16px;
-  border-radius: var(--site-radius-xl);
+  border-radius: var(--site-radius-sm);
   border: 1px solid var(--vp-pro-popover-border);
   background: var(--vp-pro-popover-bg);
   box-shadow: var(--site-shadow-overlay);
@@ -3949,7 +4061,7 @@ h6,
 
 .vp-pro-popover.is-primary {
   --vp-pro-popover-border: rgba(15, 107, 255, 0.18);
-  --vp-pro-popover-bg: color-mix(in srgb, var(--vp-c-brand-1) 8%, rgba(255, 255, 255, 0.98));
+  --vp-pro-popover-bg: color-mix(in oklab, var(--vp-c-brand-1) 8%, rgba(255, 255, 255, 0.98));
 }
 
 .vp-pro-popover.is-success {
@@ -3968,7 +4080,7 @@ h6,
 }
 
 .dark .vp-pro-popover.is-primary {
-  --vp-pro-popover-bg: color-mix(in srgb, var(--vp-c-brand-1) 12%, rgba(14, 28, 47, 0.98));
+  --vp-pro-popover-bg: color-mix(in oklab, var(--vp-c-brand-1) 12%, rgba(14, 28, 47, 0.98));
 }
 
 .dark .vp-pro-popover.is-success {
@@ -4159,7 +4271,7 @@ h6,
   position: fixed;
   z-index: 121;
   pointer-events: auto;
-  border-radius: var(--site-radius-xl);
+  border-radius: var(--site-radius-sm);
   border: 1px solid var(--vp-c-divider-light);
   background: var(--vp-c-bg-soft);
   box-shadow: var(--site-shadow-overlay);
@@ -4566,7 +4678,7 @@ h6,
 
 .vp-pro-doc-overview-card__anchor:hover .vp-pro-doc-overview-card__icon,
 .vp-pro-doc-overview-card__anchor:focus-visible .vp-pro-doc-overview-card__icon {
-  background: color-mix(in srgb, var(--vp-c-brand-1) 18%, transparent);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 18%, transparent);
 }
 
 .vp-pro-doc-overview-card__anchor:hover .vp-pro-doc-overview-card__trail,
