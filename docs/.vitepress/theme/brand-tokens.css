@@ -90,6 +90,12 @@
   --vp-c-divider: rgba(28, 28, 30, 0.12);
   --vp-c-divider-light: rgba(28, 28, 30, 0.07);
 
+  /* ── semantic status colors (oklch, 感知均匀) ── */
+  --vp-c-info: oklch(62% 0.21 260);
+  --vp-c-success: oklch(72% 0.22 150);
+  --vp-c-caution: oklch(77% 0.19 70);
+  --vp-c-danger: oklch(64% 0.24 25);
+
   --site-nav-tabs-bg: rgba(230, 232, 238, 0.7);
   --site-nav-tabs-border: rgba(28, 28, 30, 0.1);
   --site-nav-tabs-active-bg: #ffffff;
@@ -152,12 +158,16 @@
   --vp-c-bg-mute: #18181c;
   --vp-c-bg-alt: #1e1e23;
 
-  --vp-c-text-1: #f0f1f4;
-  --vp-c-text-2: #b0b2bc;
-  --vp-c-text-3: #8588a0;
-
   --vp-c-divider: rgba(255, 255, 255, 0.08);
   --vp-c-divider-light: rgba(255, 255, 255, 0.05);
+
+  /* ── semantic status colors (oklch, 感知均匀) ── */
+  --vp-c-info: oklch(70% 0.19 260);
+  --vp-c-success: oklch(78% 0.20 150);
+  --vp-c-caution: oklch(82% 0.17 70);
+  --vp-c-danger: oklch(72% 0.22 25);
+  --vp-c-text-2: #b0b2bc;
+  --vp-c-text-3: #8588a0;
 
   --site-nav-tabs-bg: rgba(30, 30, 35, 0.8);
   --site-nav-tabs-border: rgba(255, 255, 255, 0.08);

@@ -8,10 +8,12 @@ const props = withDefaults(
   defineProps<{
     label?: string
     defaultValue?: string
+    items?: string[]
   }>(),
   {
     label: 'Tabs',
-    defaultValue: ''
+    defaultValue: '',
+    items: () => [] as string[]
   }
 )
 
@@ -66,6 +68,60 @@ function activate(value: string) {
   const tab = tabs.value.find((item) => item.value === value)
   if (!tab || tab.disabled) return
   activeValue.value = value
+}
+
+/* P1-6: items prop pre-populates tabs for simple label-only mode */
+watch(
+  () => props.items,
+  (items) => {
+    if (!items.length) return
+    for (const label of items) {
+      const value = label
+      if (!tabs.value.some((t) => t.value === value)) {
+        tabs.value = [...tabs.value, { value, label, disabled: false }]
+      }
+    }
+    ensureActiveTab()
+  },
+  { immediate: true }
+)
+
+function focusTab(value: string) {
+  activeValue.value = value
+  nextTick(() => {
+    const btn = tabListRef.value?.querySelector<HTMLElement>(`[data-tab-value="${value}"]`)
+    btn?.focus()
+  })
+}
+
+function handleKeydown(e: KeyboardEvent) {
+  const enabled = tabs.value.filter((t) => !t.disabled)
+  if (!enabled.length) return
+
+  const currentIndex = enabled.findIndex((t) => t.value === activeValue.value)
+  let nextIndex = currentIndex
+
+  switch (e.key) {
+    case 'ArrowRight':
+    case 'ArrowDown':
+      nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % enabled.length
+      break
+    case 'ArrowLeft':
+    case 'ArrowUp':
+      nextIndex = currentIndex <= 0 ? enabled.length - 1 : currentIndex - 1
+      break
+    case 'Home':
+      nextIndex = 0
+      break
+    case 'End':
+      nextIndex = enabled.length - 1
+      break
+    default:
+      return
+  }
+
+  e.preventDefault()
+  focusTab(enabled[nextIndex].value)
 }
 
 function syncIndicator() {
@@ -157,6 +213,7 @@ provide(tabsContextKey, {
       class="vp-pro-tabs__list"
       role="tablist"
       :aria-label="label"
+      @keydown="handleKeydown"
       :style="{
         '--vp-pro-tabs-indicator-width': indicatorWidth,
         '--vp-pro-tabs-indicator-transform': indicatorTransform,
@@ -168,9 +225,12 @@ provide(tabsContextKey, {
         :key="tab.value"
         type="button"
         class="vp-pro-tabs__trigger"
+        role="tab"
         :class="{ 'is-active': activeValue === tab.value }"
         :aria-selected="activeValue === tab.value ? 'true' : 'false'"
         :disabled="tab.disabled"
+        :data-tab-value="tab.value"
+        :tabindex="activeValue === tab.value ? 0 : -1"
         @click="activate(tab.value)"
       >
         <BaseIcon v-if="tab.icon" :icon="tab.icon" :width="14" :height="14" />
