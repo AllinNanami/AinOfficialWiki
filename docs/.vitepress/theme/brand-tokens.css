@@ -68,11 +68,11 @@
   --vp-font-family-mono: var(--site-font-mono);
   --vp-layout-max-width: 1680px;
 
-  /* azure brand (fumadocs UI hsl(217,100%,58%) 系，降低靛紫扎眼感) */
-  --vp-c-brand-1: #287aff;
+  /* fumadocs.dev/docs/ui 实测主色：light #297bff / dark #a9ceff（--ui-color） */
+  --vp-c-brand-1: #297bff;
   --vp-c-brand-2: #4d94ff;
-  --vp-c-brand-3: #1a66e0;
-  --vp-c-brand-soft: rgba(40, 122, 255, 0.10);
+  --vp-c-brand-3: #1a66e6;
+  --vp-c-brand-soft: rgba(41, 123, 255, 0.10);
 
   --vp-c-default-1: #3d3f4d;
   --vp-c-default-2: #5c5f6a;
@@ -100,8 +100,8 @@
   --site-nav-tabs-bg: rgba(230, 232, 238, 0.7);
   --site-nav-tabs-border: rgba(28, 28, 30, 0.1);
   --site-nav-tabs-active-bg: #ffffff;
-  --site-nav-tabs-active-shadow: 0 2px 6px rgba(40, 122, 255, 0.12);
-  --site-nav-tabs-focus-ring: rgba(40, 122, 255, 0.32);
+  --site-nav-tabs-active-shadow: 0 2px 6px rgba(41, 123, 255, 0.12);
+  --site-nav-tabs-focus-ring: rgba(41, 123, 255, 0.32);
   --site-nav-surface: rgba(255, 255, 255, 0.85);
   --site-nav-shadow: 0 1px 4px rgba(28, 28, 30, 0.06);
   --site-sidebar-bulk-toggle-height: 56px;
@@ -112,23 +112,23 @@
 
   --vp-button-brand-border: transparent;
   --vp-button-brand-text: #ffffff;
-  --vp-button-brand-bg: #287aff;
+  --vp-button-brand-bg: #297bff;
   --vp-button-brand-hover-border: transparent;
   --vp-button-brand-hover-text: #ffffff;
   --vp-button-brand-hover-bg: #4d94ff;
   --vp-button-brand-active-border: transparent;
   --vp-button-brand-active-text: #ffffff;
-  --vp-button-brand-active-bg: #1a66e0;
+  --vp-button-brand-active-bg: #1a66e6;
 
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #1a66e0 0%, #4d94ff 100%);
+  --vp-home-hero-name-background: linear-gradient(135deg, #1a66e6 0%, #4d94ff 100%);
   --vp-home-hero-image-filter: blur(48px);
-  --vp-home-hero-image-background-image: linear-gradient(135deg, #287aff 0%, #7eb6ff 100%);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, #297bff 0%, #7eb6ff 100%);
 
-  --vp-custom-block-tip-border: rgba(40, 122, 255, 0.22);
-  --vp-custom-block-tip-bg: rgba(40, 122, 255, 0.07);
+  --vp-custom-block-tip-border: rgba(41, 123, 255, 0.22);
+  --vp-custom-block-tip-bg: rgba(41, 123, 255, 0.07);
   --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-code-bg: rgba(40, 122, 255, 0.12);
+  --vp-custom-block-tip-code-bg: rgba(41, 123, 255, 0.12);
 
   --vp-custom-block-warning-border: rgba(180, 130, 30, 0.28);
   --vp-custom-block-warning-bg: rgba(180, 130, 30, 0.07);
@@ -144,10 +144,10 @@
   --site-grid-line: rgba(255, 255, 255, 0.015);
   --site-glow: none;
 
-  --vp-c-brand-1: #99c0ff;
-  --vp-c-brand-2: #b3d1ff;
-  --vp-c-brand-3: #6aa8ff;
-  --vp-c-brand-soft: rgba(153, 192, 255, 0.14);
+  --vp-c-brand-1: #a9ceff;
+  --vp-c-brand-2: #c5deff;
+  --vp-c-brand-3: #7eb6ff;
+  --vp-c-brand-soft: rgba(169, 206, 255, 0.14);
 
   --vp-c-default-1: #a8aab4;
   --vp-c-default-2: #9294a3;
@@ -173,8 +173,8 @@
   --site-nav-tabs-bg: rgba(30, 30, 35, 0.8);
   --site-nav-tabs-border: rgba(255, 255, 255, 0.08);
   --site-nav-tabs-active-bg: #111215;
-  --site-nav-tabs-active-shadow: 0 2px 8px rgba(153, 192, 255, 0.14);
-  --site-nav-tabs-focus-ring: rgba(153, 192, 255, 0.38);
+  --site-nav-tabs-active-shadow: 0 2px 8px rgba(169, 206, 255, 0.14);
+  --site-nav-tabs-focus-ring: rgba(169, 206, 255, 0.38);
   --site-nav-surface: rgba(17, 18, 21, 0.9);
   --site-nav-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 
@@ -184,23 +184,23 @@
 
   --vp-button-brand-border: transparent;
   --vp-button-brand-text: #09090b;
-  --vp-button-brand-bg: #99c0ff;
+  --vp-button-brand-bg: #a9ceff;
   --vp-button-brand-hover-border: transparent;
   --vp-button-brand-hover-text: #09090b;
-  --vp-button-brand-hover-bg: #b3d1ff;
+  --vp-button-brand-hover-bg: #c5deff;
   --vp-button-brand-active-border: transparent;
   --vp-button-brand-active-text: #ffffff;
-  --vp-button-brand-active-bg: #6aa8ff;
+  --vp-button-brand-active-bg: #7eb6ff;
 
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #99c0ff 0%, #d0e4ff 100%);
+  --vp-home-hero-name-background: linear-gradient(135deg, #a9ceff 0%, #e8f2ff 100%);
   --vp-home-hero-image-filter: blur(48px);
-  --vp-home-hero-image-background-image: linear-gradient(135deg, #6aa8ff 0%, #99c0ff 100%);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, #7eb6ff 0%, #a9ceff 100%);
 
-  --vp-custom-block-tip-border: rgba(153, 192, 255, 0.28);
-  --vp-custom-block-tip-bg: rgba(153, 192, 255, 0.10);
+  --vp-custom-block-tip-border: rgba(169, 206, 255, 0.28);
+  --vp-custom-block-tip-bg: rgba(169, 206, 255, 0.10);
   --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-code-bg: rgba(153, 192, 255, 0.18);
+  --vp-custom-block-tip-code-bg: rgba(169, 206, 255, 0.18);
 
   --vp-custom-block-warning-border: rgba(220, 180, 70, 0.28);
   --vp-custom-block-warning-bg: rgba(220, 180, 70, 0.08);
