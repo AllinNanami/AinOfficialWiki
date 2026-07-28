@@ -61,16 +61,50 @@ async function handleClick(event: MouseEvent): Promise<void> {
   const target = event.target
   if (!(target instanceof HTMLElement)) return
 
-  const tableCopyButton = target.closest<HTMLButtonElement>('.vp-pro-table-copy')
-  if (tableCopyButton) {
+  // Table copy dropdown trigger — toggle panel open/close
+  const tableCopyTrigger = target.closest<HTMLButtonElement>('.vp-pro-table-copy-trigger')
+  if (tableCopyTrigger) {
     event.preventDefault()
     event.stopPropagation()
 
-    const shell = tableCopyButton.closest('.vp-pro-table-shell')
+    const menu = tableCopyTrigger.closest<HTMLElement>('.vp-pro-table-copy-menu')
+    if (!menu) return
+    const panel = menu.querySelector<HTMLElement>('.vp-pro-table-copy-panel')
+    if (!panel) return
+
+    const isOpen = !panel.hidden
+    if (isOpen) {
+      panel.hidden = true
+      tableCopyTrigger.setAttribute('aria-expanded', 'false')
+      menu.classList.remove('is-open')
+    } else {
+      panel.hidden = false
+      tableCopyTrigger.setAttribute('aria-expanded', 'true')
+      menu.classList.add('is-open')
+    }
+    return
+  }
+
+  // Table copy dropdown item — perform copy
+  const tableCopyItem = target.closest<HTMLButtonElement>('.vp-pro-table-copy-item')
+  if (tableCopyItem) {
+    event.preventDefault()
+    event.stopPropagation()
+
+    const shell = tableCopyItem.closest('.vp-pro-table-shell')
     const table = shell?.querySelector<HTMLTableElement>('table')
     if (!table) return
 
-    const format = tableCopyButton.dataset.format as TableCopyFormat | undefined
+    const format = tableCopyItem.dataset.format as TableCopyFormat | undefined
+
+    // Close menu after picking
+    const menu = tableCopyItem.closest<HTMLElement>('.vp-pro-table-copy-menu')
+    const panel = menu?.querySelector<HTMLElement>('.vp-pro-table-copy-panel')
+    if (panel) {
+      panel.hidden = true
+      menu?.querySelector<HTMLButtonElement>('.vp-pro-table-copy-trigger')?.setAttribute('aria-expanded', 'false')
+      menu?.classList.remove('is-open')
+    }
 
     if (format === 'html') {
       const html = tableToHtml(table)
@@ -89,6 +123,16 @@ async function handleClick(event: MouseEvent): Promise<void> {
     const markdown = tableToMarkdown(table)
     await copyTextWithToast(markdown, '表格 Markdown 已复制到剪贴板。')
     return
+  }
+
+  // Close any open table copy menus on outside click
+  const openMenus = document.querySelectorAll<HTMLElement>('.vp-pro-table-copy-menu.is-open')
+  for (const openMenu of openMenus) {
+    if (!openMenu.contains(target)) {
+      openMenu.querySelector<HTMLElement>('.vp-pro-table-copy-panel')!.hidden = true
+      openMenu.querySelector<HTMLButtonElement>('.vp-pro-table-copy-trigger')?.setAttribute('aria-expanded', 'false')
+      openMenu.classList.remove('is-open')
+    }
   }
 
   const markdownCodeCopyButton = target.closest<HTMLButtonElement>('.vp-doc div[class*="language-"] button.copy')

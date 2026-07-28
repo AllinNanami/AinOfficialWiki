@@ -218,17 +218,6 @@ function applyMergeRules(table: HTMLTableElement): void {
   table.dataset.vpProTableMerged = 'true'
 }
 
-function createCopyButton(label: string, format: TableCopyFormat): HTMLButtonElement {
-  const button = document.createElement('button')
-  button.type = 'button'
-  button.className = 'vp-pro-table-copy'
-  button.dataset.format = format
-  const formatLabel = format === 'markdown' ? ' Markdown' : format === 'html' ? ' HTML' : ' 样式 HTML'
-  button.setAttribute('aria-label', `复制表格${formatLabel}`)
-  button.textContent = label
-  return button
-}
-
 function getTableDirectiveRoot(table: HTMLTableElement): HTMLElement | null {
   return table.closest<HTMLElement>('.vp-pro-table-directive')
 }
@@ -245,15 +234,42 @@ function resolveAllowedCopyFormats(table: HTMLTableElement): TableCopyFormat[] {
   return resolveTableCopyFormats(rawCopy)
 }
 
-function removeActionButton(shell: HTMLElement, format: TableCopyFormat): void {
-  shell.querySelector<HTMLElement>(`:scope > .vp-pro-table-actions .vp-pro-table-copy[data-format="${format}"]`)?.remove()
-}
+function createTableCopyMenu(allowedFormats: TableCopyFormat[]): HTMLDivElement {
+  const menu = document.createElement('div')
+  menu.className = 'vp-pro-table-copy-menu'
 
-function ensureActionButton(actions: HTMLElement, label: string, format: TableCopyFormat): void {
-  const selector = `.vp-pro-table-copy[data-format="${format}"]`
-  if (actions.querySelector(selector)) return
+  const trigger = document.createElement('button')
+  trigger.type = 'button'
+  trigger.className = 'vp-pro-table-copy-trigger'
+  trigger.setAttribute('aria-haspopup', 'menu')
+  trigger.setAttribute('aria-expanded', 'false')
+  trigger.setAttribute('aria-label', '复制表格')
+  trigger.innerHTML = `复制<svg class="vp-pro-table-copy-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 
-  actions.appendChild(createCopyButton(label, format))
+  const panel = document.createElement('div')
+  panel.className = 'vp-pro-table-copy-panel'
+  panel.setAttribute('role', 'menu')
+  panel.hidden = true
+
+  const labelMap: Record<TableCopyFormat, string> = {
+    markdown: 'Markdown',
+    html: 'HTML',
+    'styled-html': '样式 HTML'
+  }
+
+  for (const format of allowedFormats) {
+    const item = document.createElement('button')
+    item.type = 'button'
+    item.className = 'vp-pro-table-copy-item'
+    item.dataset.format = format
+    item.setAttribute('role', 'menuitem')
+    item.textContent = labelMap[format]
+    panel.appendChild(item)
+  }
+
+  menu.appendChild(trigger)
+  menu.appendChild(panel)
+  return menu
 }
 
 function syncTableActions(shell: HTMLElement, allowedFormats: TableCopyFormat[]): void {
@@ -270,20 +286,11 @@ function syncTableActions(shell: HTMLElement, allowedFormats: TableCopyFormat[])
     shell.appendChild(actions)
   }
 
-  const buttonMap: Record<TableCopyFormat, string> = {
-    markdown: '复制 Markdown',
-    html: '复制 HTML',
-    'styled-html': '复制样式 HTML'
-  }
+  // Replace the whole menu whenever formats change
+  const existingMenu = actions.querySelector('.vp-pro-table-copy-menu')
+  if (existingMenu) existingMenu.remove()
 
-  for (const format of DEFAULT_TABLE_DIRECTIVE_OPTIONS.copyFormats) {
-    if (!allowedFormats.includes(format)) {
-      removeActionButton(shell, format)
-      continue
-    }
-
-    ensureActionButton(actions, buttonMap[format], format)
-  }
+  actions.appendChild(createTableCopyMenu(allowedFormats))
 }
 
 function ensureTableShell(table: HTMLTableElement): void {
