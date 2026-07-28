@@ -1238,34 +1238,88 @@ h6,
   flex-wrap: wrap;
 }
 
-.vp-pro-table-copy {
+/* Dropdown trigger button */
+.vp-pro-table-copy-trigger {
   min-height: 24px;
   border: 1px solid var(--vp-c-divider-light);
   border-radius: var(--site-radius-pill);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
+  gap: 4px;
+  padding: 0 8px 0 10px;
   font-size: 11px;
   font-weight: var(--site-weight-label);
   color: var(--vp-c-text-2);
   background: var(--vp-c-bg);
   cursor: pointer;
   transition:
-    color 0.2s ease,
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease;
 }
 
-.vp-pro-table-copy:hover {
+.vp-pro-table-copy-trigger:hover,
+.vp-pro-table-copy-menu.is-open .vp-pro-table-copy-trigger {
   color: var(--vp-c-brand-1);
   border-color: color-mix(in oklab, var(--vp-c-brand-1) 42%, transparent);
   background: color-mix(in oklab, var(--vp-c-brand-1) 8%, transparent);
 }
 
-.vp-pro-table-copy:active {
-  transform: translateY(1px);
+.vp-pro-table-copy-chevron {
+  transition: transform 0.18s ease;
+}
+
+.vp-pro-table-copy-menu.is-open .vp-pro-table-copy-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu container */
+.vp-pro-table-copy-menu {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown panel */
+.vp-pro-table-copy-panel {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  z-index: 100;
+  min-width: 128px;
+  padding: 4px;
+  border: 1px solid var(--vp-c-divider-light);
+  border-radius: var(--site-radius-lg);
+  background: var(--vp-c-bg);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.vp-pro-table-copy-panel[hidden] {
+  display: none;
+}
+
+/* Dropdown items */
+.vp-pro-table-copy-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: var(--site-radius-sm);
+  font-size: 12px;
+  font-weight: var(--site-weight-regular);
+  color: var(--vp-c-text-1);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.14s ease, color 0.14s ease;
+}
+
+.vp-pro-table-copy-item:hover {
+  background: var(--vp-c-default-soft);
+  color: var(--vp-c-brand-1);
 }
 
 .vp-pro-table-scroll {
@@ -1840,12 +1894,12 @@ h6,
 .vp-pro-aside::before {
   content: '';
   position: absolute;
-  inset-inline-start: 4px;
-  top: 10%;
-  bottom: 10%;
+  inset-inline-start: 5px;
+  top: 14%;
+  bottom: 14%;
   width: 2px;
   background: var(--vp-pro-aside-color);
-  opacity: 0.55;
+  opacity: 0.45;
   border-radius: 2px;
 }
 
@@ -1932,44 +1986,95 @@ h6,
 }
 
 .vp-pro-github-info {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: block;
   margin: 12px 0;
-  padding: 10px 12px;
+  padding: 0;
   border: 1px solid var(--vp-c-divider-light);
-  border-radius: var(--site-radius-sm);
+  border-radius: var(--site-radius-lg);
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-2);
-  text-decoration: none;
+  text-decoration: none !important;
   transition:
     color 0.15s ease,
     background-color 0.15s ease,
-    border-color 0.15s ease;
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .vp-pro-github-info:hover {
   color: var(--vp-c-text-1);
-  border-color: color-mix(in oklab, var(--vp-c-brand-1) 28%, var(--vp-c-divider-light));
-  background: color-mix(in oklab, var(--vp-c-brand-1) 6%, var(--vp-c-bg-soft));
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 36%, var(--vp-c-divider-light));
+  background: color-mix(in oklab, var(--vp-c-brand-1) 5%, var(--vp-c-bg-soft));
+  box-shadow: 0 1px 6px color-mix(in oklab, var(--vp-c-brand-1) 10%, transparent);
+}
+
+.vp-pro-github-info__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+}
+
+.vp-pro-github-info__avatar {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--site-radius-sm);
+  background: color-mix(in oklab, var(--vp-c-brand-1) 10%, transparent);
+  color: var(--vp-c-brand-1);
+}
+
+.vp-pro-github-info__content {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .vp-doc .vp-pro-github-info__title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 3px;
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: var(--site-weight-medium);
   line-height: 1.4;
-  color: inherit;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc .vp-pro-github-info__desc {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--vp-c-text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vp-pro-github-info__owner {
+  color: var(--vp-c-text-2);
+}
+
+.vp-pro-github-info__slash {
+  color: var(--vp-c-text-3);
+  margin: 0 1px;
+}
+
+.vp-pro-github-info__repo {
+  color: var(--vp-c-text-1);
+  font-weight: var(--site-weight-heading);
 }
 
 .vp-doc .vp-pro-github-info__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   margin: 0;
   font-size: 12px;
   line-height: 1.4;
@@ -1980,6 +2085,21 @@ h6,
   display: inline-flex;
   align-items: center;
   gap: 4px;
+}
+
+.vp-pro-github-info__stat-sep {
+  color: var(--vp-c-divider);
+}
+
+.vp-pro-github-info__arrow {
+  flex: none;
+  color: var(--vp-c-text-3);
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.vp-pro-github-info:hover .vp-pro-github-info__arrow {
+  color: var(--vp-c-brand-1);
+  transform: translateX(2px);
 }
 
 .vp-pro-github-info__error {
@@ -1997,7 +2117,7 @@ h6,
 .vp-pro-bilibili-card__anchor {
   display: block;
   border: 1px solid var(--vp-c-divider-light);
-  border-radius: var(--site-radius-sm);
+  border-radius: var(--site-radius-lg);
   background: var(--vp-c-bg-soft);
   color: inherit;
   text-decoration: none !important;
@@ -2009,9 +2129,9 @@ h6,
 }
 
 .vp-pro-bilibili-card__anchor:hover {
-  border-color: color-mix(in oklab, #00a1d6 35%, var(--vp-c-divider-light));
-  background: color-mix(in oklab, #00a1d6 6%, var(--vp-c-bg-soft));
-  box-shadow: var(--site-shadow-subtle);
+  border-color: color-mix(in oklab, #00a1d6 40%, var(--vp-c-divider-light));
+  background: color-mix(in oklab, #00a1d6 5%, var(--vp-c-bg-soft));
+  box-shadow: 0 1px 6px color-mix(in oklab, #00a1d6 12%, transparent);
 }
 
 .vp-pro-bilibili-card.is-disabled .vp-pro-bilibili-card__anchor {
@@ -2034,18 +2154,18 @@ h6,
 
 .vp-pro-bilibili-card__body {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 12px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
 }
 
-.vp-pro-bilibili-card__icon {
+.vp-pro-bilibili-card__icon-wrap {
+  flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: none;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--site-radius-sm);
   color: #00a1d6;
   background: color-mix(in oklab, #00a1d6 12%, transparent);
@@ -2054,13 +2174,9 @@ h6,
 .vp-pro-bilibili-card__content {
   min-width: 0;
   flex: 1 1 auto;
-}
-
-.vp-doc .vp-pro-bilibili-card__meta {
-  margin: 0 0 4px;
-  font-size: 12px;
-  line-height: 1.4;
-  color: var(--vp-c-text-3);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .vp-doc .vp-pro-bilibili-card__title {
@@ -2070,14 +2186,51 @@ h6,
   font-weight: var(--site-weight-medium);
   line-height: 1.35;
   color: var(--vp-c-text-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .vp-doc .vp-pro-bilibili-card__desc {
-  margin: 6px 0 0;
+  margin: 0;
   font-size: 13px;
   line-height: 1.5;
   color: var(--vp-c-text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
+.vp-pro-bilibili-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.vp-pro-bilibili-card__meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #00a1d6;
+  font-weight: var(--site-weight-medium);
+}
+
+.vp-pro-bilibili-card__meta-author,
+.vp-pro-bilibili-card__meta-bvid {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--vp-c-text-3);
+}
+
+.vp-pro-bilibili-card__meta-author + .vp-pro-bilibili-card__meta-bvid::before {
+  content: '·';
+  margin-right: 6px;
+  color: var(--vp-c-divider);
+}
+
 
 .vp-pro-bilibili-card__trail {
   flex: none;
@@ -2093,6 +2246,7 @@ h6,
 .vp-pro-bilibili-card__fallback {
   font-size: 12px;
 }
+
 
 
 .vp-doc div[class*='language-'].vp-pro-md-code {
@@ -4616,17 +4770,20 @@ h6,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0;
-  padding: 0.1rem 0.38rem;
+  gap: 3px;
+  border: 1px solid var(--vp-c-divider-light);
+  padding: 0.1rem 0.5rem 0.1rem 0.6rem;
   border-radius: 999px;
-  background: transparent;
+  background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-2);
   cursor: pointer;
   font-weight: var(--site-weight-regular);
   line-height: 1;
+  font-size: 12px;
   transition:
-    background-color 0.24s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .vp-pro-breadcrumbs__ellipsis::after {
@@ -4636,33 +4793,31 @@ h6,
 .vp-pro-breadcrumbs__ellipsis:hover {
   background: var(--vp-c-default-soft);
   color: var(--vp-c-text-1);
+  border-color: color-mix(in oklab, var(--vp-c-text-2) 30%, transparent);
 }
 
-.vp-pro-breadcrumbs__ellipsis:hover::after,
-.vp-pro-breadcrumbs__ellipsis:focus-visible::after {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) scaleX(1);
+.vp-pro-breadcrumbs__ellipsis-dots {
+  letter-spacing: 0.08em;
+  line-height: 1;
 }
 
-.vp-pro-breadcrumbs__hidden-list {
-  margin: 0;
-  padding-left: 18px;
+.vp-pro-breadcrumbs__ellipsis-arrow {
+  flex: none;
+  color: currentColor;
+  opacity: 0.7;
+  transition: transform 0.18s ease;
 }
 
-.vp-pro-breadcrumbs__hidden-list a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.vp-pro-breadcrumbs__hidden-list a:hover {
+/* When dropdown is open (is-open added to trigger's parent by Dropdown component) */
+.vp-pro-dropdown-trigger.is-open .vp-pro-breadcrumbs__ellipsis {
+  background: var(--vp-c-default-soft);
   color: var(--vp-c-text-1);
-  text-decoration: none;
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 36%, transparent);
 }
 
-.vp-pro-breadcrumbs__hidden-list li + li {
-  margin-top: 6px;
+.vp-pro-dropdown-trigger.is-open .vp-pro-breadcrumbs__ellipsis-arrow {
+  transform: rotate(180deg);
 }
-
 .vp-pro-doc-overview {
   display: grid;
   gap: 12px;
