@@ -1407,6 +1407,7 @@ export default defineConfig({
         },
         {
           text: 'Slidev',
+          link: '/contribution/project-slidev',
           items: [
             { text: '总览', link: '/contribution/project-slidev' },
             {
@@ -1426,6 +1427,7 @@ export default defineConfig({
         },
         {
           text: '项目组件',
+          link: '/contribution/project-components',
           items: [
             { text: '总览', link: '/contribution/project-components' },
             {
