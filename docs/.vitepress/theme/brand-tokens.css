@@ -100,7 +100,7 @@
   --site-nav-tabs-bg: rgba(230, 232, 238, 0.7);
   --site-nav-tabs-border: rgba(28, 28, 30, 0.1);
   --site-nav-tabs-active-bg: #ffffff;
-  --site-nav-tabs-active-shadow: 0 2px 6px rgba(41, 123, 255, 0.12);
+  --site-nav-tabs-active-shadow: none;
   --site-nav-tabs-focus-ring: rgba(41, 123, 255, 0.32);
   --site-nav-surface: rgba(255, 255, 255, 0.85);
   --site-nav-shadow: 0 1px 4px rgba(28, 28, 30, 0.06);
@@ -167,13 +167,14 @@
   --vp-c-success: oklch(78% 0.20 150);
   --vp-c-caution: oklch(82% 0.17 70);
   --vp-c-danger: oklch(72% 0.22 25);
+  --vp-c-text-1: #e6e7eb;
   --vp-c-text-2: #b0b2bc;
   --vp-c-text-3: #8588a0;
 
   --site-nav-tabs-bg: rgba(30, 30, 35, 0.8);
   --site-nav-tabs-border: rgba(255, 255, 255, 0.08);
   --site-nav-tabs-active-bg: #111215;
-  --site-nav-tabs-active-shadow: 0 2px 8px rgba(169, 206, 255, 0.14);
+  --site-nav-tabs-active-shadow: none;
   --site-nav-tabs-focus-ring: rgba(169, 206, 255, 0.38);
   --site-nav-surface: rgba(17, 18, 21, 0.9);
   --site-nav-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
