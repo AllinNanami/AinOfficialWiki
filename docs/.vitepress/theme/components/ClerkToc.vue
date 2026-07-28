@@ -8,41 +8,68 @@
 
     <div ref="scrollRef" class="clerk-toc-scroll">
       <div ref="containerRef" class="clerk-toc-container">
-        <!-- SVG wire: inactive path (dim) + active path (bright, clipped) -->
-        <svg
+        <!-- ThumbTrack: brand-colored path, clip-path controlled via direct DOM -->
+        <div
           v-if="svgData"
-          class="clerk-toc-wire"
-          :width="svgData.width"
-          :height="svgData.height"
-          :viewBox="`0 0 ${svgData.width} ${svgData.height}`"
-          aria-hidden="true"
+          ref="thumbTrackRef"
+          class="clerk-toc-thumb-track"
+          :style="{
+            width: svgData.width + 'px',
+            height: svgData.height + 'px',
+          }"
         >
-          <path
-            :d="svgData.path"
-            class="clerk-toc-wire__inactive"
-            fill="none"
-            stroke-width="1"
-          />
-          <path
-            :d="svgData.path"
-            class="clerk-toc-wire__active"
-            fill="none"
-            stroke-width="1"
-            :style="{ clipPath: thumbClipPath }"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            :viewBox="`0 0 ${svgData.width} ${svgData.height}`"
+            :width="svgData.width"
+            :height="svgData.height"
+            class="clerk-toc-thumb-track__svg"
+          >
+            <path
+              :d="svgData.path"
+              class="clerk-toc-thumb-track__path"
+              stroke-width="1.5"
+              fill="none"
+            />
+          </svg>
+        </div>
 
         <!-- TOC links -->
         <a
-          v-for="heading in headings"
+          v-for="(heading, i) in headings"
           :key="heading.id"
           class="clerk-toc-link"
-          :class="{ active: activeIds.has(heading.id) }"
-          :href="`#${heading.id}`"
+          :class="{
+            active: activeIds.has(heading.id),
+            'is-first': i === 0,
+            'is-last': i === headings.length - 1,
+            'has-next-depth-change': i < headings.length - 1 && getLineOffset(headings[i + 1].level) !== getLineOffset(heading.level)
+          }"
           :data-id="heading.id"
           :style="{ paddingLeft: getItemOffset(heading.level) + 'px' }"
         >
-          {{ heading.title }}
+          <svg
+            class="clerk-toc-link__wire"
+            :style="{ width: linkWireWidth(heading, i) + 'px' }"
+            aria-hidden="true"
+          >
+            <path
+              v-if="i > 0 && getLineOffset(headings[i - 1].level) !== getLineOffset(heading.level)"
+              :d="`M ${getLineOffset(headings[i - 1].level) + 0.5} 0 L ${getLineOffset(headings[i - 1].level) + 0.5} 0 ${getLineOffset(heading.level) + 0.5} 12`"
+              class="clerk-toc-link__wire-curve"
+              stroke-width="1"
+              fill="none"
+            />
+            <line
+              :x1="getLineOffset(heading.level) + 0.5"
+              :y1="i > 0 && getLineOffset(headings[i - 1].level) !== getLineOffset(heading.level) ? 12 : 6"
+              :x2="getLineOffset(heading.level) + 0.5"
+              y2="100%"
+              stroke-width="1"
+              class="clerk-toc-link__wire-line"
+            />
+          </svg>
+          <span class="clerk-toc-link__text">{{ heading.title }}</span>
         </a>
       </div>
     </div>
@@ -54,7 +81,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 
 type TocHeading = { id: string; title: string; level: 2 | 3 | 4 }
-type SvgInfo = { path: string; width: number; height: number }
+type SvgInfo = { path: string; width: number; height: number; positions: [top: number, bottom: number, x: number][] }
 
 const ignoredNodeRE = /\b(?:VPBadge|header-anchor|footnote-ref|ignore-header)\b/
 
@@ -66,10 +93,9 @@ const activeIds = ref<Set<string>>(new Set())
 
 const scrollRef = ref<HTMLElement | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
+const thumbTrackRef = ref<HTMLElement | null>(null)
 
 const svgData = ref<SvgInfo | null>(null)
-const thumbTop = ref(0)
-const thumbBottom = ref(0)
 
 const isInitial = ref(true)
 
@@ -84,23 +110,23 @@ const outlineLabel = computed(() => {
 
 const BASE = 8
 
-/** X offset of the SVG wire line based on heading depth */
 function getLineOffset(depth: number): number {
   if (depth <= 2) return BASE
-  if (depth === 3) return 12 + BASE
-  return 24 + BASE
+  if (depth === 3) return 8 + BASE
+  return 16 + BASE
 }
 
-/** Left padding of the link text based on heading depth */
 function getItemOffset(depth: number): number {
   if (depth <= 2) return 12 + BASE
   if (depth === 3) return 24 + BASE
   return 36 + BASE
 }
 
-const thumbClipPath = computed(() => {
-  return `polygon(0 ${thumbTop.value}px, 100% ${thumbTop.value}px, 100% ${thumbBottom.value}px, 0 ${thumbBottom.value}px)`
-})
+function linkWireWidth(heading: TocHeading, i: number): number {
+  const cur = getLineOffset(heading.level)
+  const prev = i > 0 ? getLineOffset(headings.value[i - 1].level) : cur
+  return Math.max(cur, prev) + 9
+}
 
 const cssEscape = (value: string) => {
   if (typeof window !== 'undefined' && window.CSS?.escape) return window.CSS.escape(value)
@@ -133,11 +159,7 @@ interface ItemInfo {
 let itemInfos: ItemInfo[] = []
 let observer: IntersectionObserver | null = null
 
-/**
- * Build the SVG path with bezier curves for transitions between different x-offsets.
- * For each item, draw a vertical line segment at its x-offset.
- * Transitions between different x-offsets use cubic bezier C command.
- */
+// Build SVG using straight polylines (fumadocs-style: L only, no cubic bezier)
 function rebuildSvg() {
   const container = containerRef.value
   if (!container || !headings.value.length) {
@@ -147,8 +169,8 @@ function rebuildSvg() {
 
   let w = 0
   let h = 0
-  const positions: { top: number; bottom: number; x: number }[] = []
-  const d: string[] = []
+  const positions: [top: number, bottom: number, x: number][] = []
+  let d = ''
 
   for (let i = 0; i < headings.value.length; i++) {
     const heading = headings.value[i]
@@ -165,37 +187,34 @@ function rebuildSvg() {
     w = Math.max(x + 8, w)
     h = Math.max(h, bottom)
 
-    positions.push({ top, bottom, x })
-
     if (i === 0) {
-      d.push(`M${x} ${top}`)
-      d.push(`L${x} ${bottom}`)
+      d += ` M${x} ${top} L${x} ${bottom}`
     } else {
-      const prev = positions[i - 1]
-      // Bezier curve from previous bottom to current top
-      const midY = (prev.bottom + top) / 2
-      d.push(`C${prev.x} ${midY} ${x} ${midY} ${x} ${top}`)
-      d.push(`L${x} ${bottom}`)
+      const [, upperBottom, upperX] = positions[i - 1]
+      // straight polyline: go to prev bottom, then step to new x, then down to bottom
+      d += ` L ${upperX} ${upperBottom} ${x} ${top} L${x} ${bottom}`
     }
+
+    positions.push([top, bottom, x])
   }
 
-  if (d.length === 0) {
+  if (!d) {
     svgData.value = null
     return
   }
 
-  svgData.value = { path: d.join(' '), width: w, height: h }
+  svgData.value = { path: d.trim(), width: w, height: h, positions }
 }
 
-function updateThumb() {
-  const container = containerRef.value
-  if (!container || activeIds.value.size === 0 || !headings.value.length) {
-    thumbTop.value = 0
-    thumbBottom.value = 0
+// Update clip-path directly on DOM element (no reactive re-render)
+function updateThumbDirect() {
+  const el = thumbTrackRef.value
+  const svg = svgData.value
+  if (!el || !svg || activeIds.value.size === 0 || !headings.value.length) {
+    if (el) el.querySelector('svg')?.style.setProperty('clip-path', 'polygon(0 0, 100% 0, 100% 0, 0 0)')
     return
   }
 
-  // Find first and last active heading indices
   let startIdx = -1
   let endIdx = -1
   for (let i = 0; i < headings.value.length; i++) {
@@ -205,30 +224,17 @@ function updateThumb() {
     }
   }
 
-  if (startIdx === -1) {
-    thumbTop.value = 0
-    thumbBottom.value = 0
+  if (startIdx === -1 || !svg.positions[startIdx] || !svg.positions[endIdx]) {
+    el.querySelector('svg')?.style.setProperty('clip-path', 'polygon(0 0, 100% 0, 100% 0, 0 0)')
     return
   }
 
-  const startLink = container.querySelector<HTMLElement>(
-    `a[data-id='${cssEscape(headings.value[startIdx].id)}']`
-  )
-  const endLink = container.querySelector<HTMLElement>(
-    `a[data-id='${cssEscape(headings.value[endIdx].id)}']`
-  )
-
-  if (!startLink || !endLink) {
-    thumbTop.value = 0
-    thumbBottom.value = 0
-    return
+  const top = svg.positions[startIdx][0]
+  const bottom = svg.positions[endIdx][1]
+  const svgEl = el.querySelector('svg') as SVGSVGElement | null
+  if (svgEl) {
+    svgEl.style.clipPath = `polygon(0 ${top}px, 100% ${top}px, 100% ${bottom}px, 0 ${bottom}px)`
   }
-
-  const startStyles = getComputedStyle(startLink)
-  thumbTop.value = startLink.offsetTop + parseFloat(startStyles.paddingTop)
-
-  const endStyles = getComputedStyle(endLink)
-  thumbBottom.value = endLink.offsetTop + endLink.clientHeight - parseFloat(endStyles.paddingBottom)
 }
 
 function scrollToActiveItem() {
@@ -236,7 +242,6 @@ function scrollToActiveItem() {
   const container = containerRef.value
   if (!scroll || !container || activeIds.value.size === 0) return
 
-  // Find the most recently activated item for scroll target
   let lastActive: ItemInfo | undefined
   for (const item of itemInfos) {
     if (!item.active) continue
@@ -259,7 +264,6 @@ function scrollToActiveItem() {
   })
 }
 
-/** IntersectionObserver callback: update active states with multi-active + fallback */
 function handleIntersect(entries: IntersectionObserverEntry[]) {
   if (entries.length === 0) return
 
@@ -276,7 +280,6 @@ function handleIntersect(entries: IntersectionObserverEntry[]) {
     return item
   })
 
-  // Fallback: no heading meets threshold, pick nearest to viewport top
   if (!hasActive && entries[0].rootBounds) {
     const viewTop = entries[0].rootBounds.top
     let min = Number.MAX_VALUE
@@ -312,7 +315,7 @@ function handleIntersect(entries: IntersectionObserverEntry[]) {
 
   const changed = !setsEqual(activeIds.value, newActiveIds)
   activeIds.value = newActiveIds
-  updateThumb()
+  updateThumbDirect()
   if (changed) scrollToActiveItem()
 }
 
@@ -350,7 +353,6 @@ function collectHeadings() {
     })
     .filter((h): h is TocHeading => Boolean(h))
 
-  // Initialize item infos
   itemInfos = headings.value.map((h) => ({
     id: h.id,
     active: false,
@@ -361,14 +363,11 @@ function collectHeadings() {
   nextTick(() => {
     rebuildSvg()
     setupObserver()
-    // Trigger initial active state
     isInitial.value = true
-    // Manually check initial positions
     checkInitialActive()
   })
 }
 
-/** Check initial active state without waiting for observer */
 function checkInitialActive() {
   if (!headings.value.length) return
 
@@ -394,8 +393,8 @@ function checkInitialActive() {
   }))
 
   activeIds.value = newActiveIds
-  updateThumb()
   nextTick(() => {
+    updateThumbDirect()
     scrollToActiveItem()
     isInitial.value = false
   })
@@ -409,15 +408,17 @@ let resizeObserver: ResizeObserver | null = null
 
 watch(() => route.path, () => refreshToc())
 
+// After svgData updates, immediately sync clip-path
+watch(svgData, () => nextTick(updateThumbDirect))
+
 onMounted(() => {
   collectHeadings()
   window.addEventListener('hashchange', refreshToc)
 
-  // Observe container resize to rebuild SVG when layout changes
   if (containerRef.value) {
     resizeObserver = new ResizeObserver(() => {
       rebuildSvg()
-      updateThumb()
+      nextTick(updateThumbDirect)
     })
     resizeObserver.observe(containerRef.value)
   }
@@ -429,7 +430,6 @@ onBeforeUnmount(() => {
   resizeObserver?.disconnect()
 })
 </script>
-
 <style scoped>
 .ClerkToc {
   display: flex;
@@ -457,8 +457,6 @@ onBeforeUnmount(() => {
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
   scrollbar-width: thin;
-  mask-image: linear-gradient(to bottom, transparent 0, black 16px, black calc(100% - 16px), transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 16px, black calc(100% - 16px), transparent 100%);
 }
 
 .clerk-toc-container {
@@ -468,21 +466,23 @@ onBeforeUnmount(() => {
   padding: 8px 8px 10px 10px;
 }
 
-.clerk-toc-wire {
+/* ThumbTrack: absolutely positioned, clip-path set via JS */
+.clerk-toc-thumb-track {
   position: absolute;
   top: 0;
   left: 10px;
   pointer-events: none;
-  overflow: visible;
+  z-index: 2;
 }
 
-.clerk-toc-wire__inactive {
-  stroke: var(--vp-c-divider);
+.clerk-toc-thumb-track__svg {
+  display: block;
+  /* transition managed by JS; clip-path: polygon(...) set inline */
+  transition: clip-path 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.clerk-toc-wire__active {
+.clerk-toc-thumb-track__path {
   stroke: var(--vp-c-brand-1);
-  transition: clip-path 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .clerk-toc-link {
@@ -498,6 +498,14 @@ onBeforeUnmount(() => {
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
+.clerk-toc-link.is-first {
+  padding-top: 0;
+}
+
+.clerk-toc-link.is-last {
+  padding-bottom: 0;
+}
+
 .clerk-toc-link:hover {
   color: var(--vp-c-text-1);
   background: var(--vp-c-default-soft);
@@ -506,6 +514,40 @@ onBeforeUnmount(() => {
 .clerk-toc-link.active {
   color: var(--vp-c-brand-1);
   font-weight: var(--site-weight-semibold);
+}
+
+/* Per-link grey guide wire (in padding area) */
+.clerk-toc-link__wire {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: calc(100% + 6px);
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.clerk-toc-link.is-first .clerk-toc-link__wire {
+  top: 0;
+  height: 100%;
+}
+
+.clerk-toc-link.is-last .clerk-toc-link__wire {
+  height: 100%;
+}
+
+.clerk-toc-link.has-next-depth-change .clerk-toc-link__wire {
+  height: 100%;
+}
+
+.clerk-toc-link__wire-line,
+.clerk-toc-link__wire-curve {
+  stroke: var(--vp-c-divider);
+}
+
+.clerk-toc-link__text {
+  position: relative;
+  z-index: 3;
 }
 
 @media (orientation: landscape) and (max-width: 1280px) {
