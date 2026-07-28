@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import Popover from './Popover.vue'
+import Dropdown from './Dropdown.vue'
+import type { DropdownItem } from './Dropdown.vue'
 import type { BreadcrumbCollapseMode, BreadcrumbItem } from './breadcrumbs'
 import { collapseBreadcrumbItems } from './breadcrumbs'
 
@@ -44,6 +46,14 @@ const currentItem = computed(() => [...props.items].reverse().find((item) => ite
 
 function setCurrentLabelRef(element: Element | null) {
   currentLabelRef.value = element as HTMLElement | null
+}
+
+function toDropdownItems(hiddenItems: BreadcrumbItem[]): DropdownItem[] {
+  return hiddenItems.map((hiddenItem) => ({
+    text: hiddenItem.text,
+    link: hiddenItem.href,
+    disabled: !hiddenItem.href
+  }))
 }
 
 function updateCurrentOverflow() {
@@ -125,20 +135,39 @@ onBeforeUnmount(() => {
         :class="{ 'is-current': item.kind === 'item' && item.current }"
       >
         <template v-if="item.kind === 'ellipsis'">
-          <Popover trigger="both" placement="bottom" :offset="4" with-arrow>
+          <Dropdown
+            trigger="click"
+            placement="bottom-start"
+            :min-width="180"
+            :items="toDropdownItems(item.hiddenItems)"
+          >
             <template #trigger>
-              <button type="button" class="vp-pro-breadcrumbs__ellipsis" aria-label="显示省略路径">
-                ...
+              <button
+                type="button"
+                class="vp-pro-breadcrumbs__ellipsis"
+                aria-label="显示省略路径"
+                aria-haspopup="menu"
+              >
+                <span class="vp-pro-breadcrumbs__ellipsis-dots">···</span>
+                <svg
+                  class="vp-pro-breadcrumbs__ellipsis-arrow"
+                  width="10"
+                  height="10"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 4.5L6 7.5L9 4.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </button>
             </template>
-
-            <ul class="vp-pro-breadcrumbs__hidden-list">
-              <li v-for="hiddenItem in item.hiddenItems" :key="hiddenItem.key">
-                <a v-if="hiddenItem.href" :href="hiddenItem.href">{{ hiddenItem.text }}</a>
-                <span v-else>{{ hiddenItem.text }}</span>
-              </li>
-            </ul>
-          </Popover>
+          </Dropdown>
         </template>
 
         <template v-else>
