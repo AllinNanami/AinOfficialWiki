@@ -8,7 +8,7 @@
 
     <div ref="scrollRef" class="clerk-toc-scroll">
       <div ref="containerRef" class="clerk-toc-container">
-        <!-- ThumbTrack: brand-colored path, clip-path controlled via direct DOM -->
+        <!-- ThumbTrack: grey guide path (full) + brand path clipped via userSpaceOnUse clipPath -->
         <div
           v-if="svgData"
           ref="thumbTrackRef"
@@ -25,11 +25,28 @@
             :height="svgData.height"
             class="clerk-toc-thumb-track__svg"
           >
+            <defs>
+              <clipPath id="clerk-toc-thumb-clip" clipPathUnits="userSpaceOnUse">
+                <rect
+                  class="clerk-toc-thumb-track__clip-rect"
+                  x="0"
+                  width="100%"
+                  height="0"
+                />
+              </clipPath>
+            </defs>
+            <path
+              :d="svgData.path"
+              class="clerk-toc-thumb-track__guide"
+              stroke-width="1"
+              fill="none"
+            />
             <path
               :d="svgData.path"
               class="clerk-toc-thumb-track__path"
               stroke-width="1.5"
               fill="none"
+              clip-path="url(#clerk-toc-thumb-clip)"
             />
           </svg>
         </div>
@@ -39,37 +56,16 @@
           v-for="(heading, i) in headings"
           :key="heading.id"
           class="clerk-toc-link"
+          :href="`#${heading.id}`"
           :class="{
             active: activeIds.has(heading.id),
             'is-first': i === 0,
-            'is-last': i === headings.length - 1,
-            'has-next-depth-change': i < headings.length - 1 && getLineOffset(headings[i + 1].level) !== getLineOffset(heading.level)
+            'is-last': i === headings.length - 1
           }"
           :data-id="heading.id"
           :style="{ paddingLeft: getItemOffset(heading.level) + 'px' }"
         >
-          <svg
-            class="clerk-toc-link__wire"
-            :style="{ width: linkWireWidth(heading, i) + 'px' }"
-            aria-hidden="true"
-          >
-            <path
-              v-if="i > 0 && getLineOffset(headings[i - 1].level) !== getLineOffset(heading.level)"
-              :d="`M ${getLineOffset(headings[i - 1].level) + 0.5} 0 L ${getLineOffset(headings[i - 1].level) + 0.5} 0 ${getLineOffset(heading.level) + 0.5} 12`"
-              class="clerk-toc-link__wire-curve"
-              stroke-width="1"
-              fill="none"
-            />
-            <line
-              :x1="getLineOffset(heading.level) + 0.5"
-              :y1="i > 0 && getLineOffset(headings[i - 1].level) !== getLineOffset(heading.level) ? 12 : 6"
-              :x2="getLineOffset(heading.level) + 0.5"
-              y2="100%"
-              stroke-width="1"
-              class="clerk-toc-link__wire-line"
-            />
-          </svg>
-          <span class="clerk-toc-link__text">{{ heading.title }}</span>
+          {{ heading.title }}
         </a>
       </div>
     </div>
@@ -120,12 +116,6 @@ function getItemOffset(depth: number): number {
   if (depth <= 2) return 12 + BASE
   if (depth === 3) return 24 + BASE
   return 36 + BASE
-}
-
-function linkWireWidth(heading: TocHeading, i: number): number {
-  const cur = getLineOffset(heading.level)
-  const prev = i > 0 ? getLineOffset(headings.value[i - 1].level) : cur
-  return Math.max(cur, prev) + 9
 }
 
 const cssEscape = (value: string) => {
@@ -206,12 +196,13 @@ function rebuildSvg() {
   svgData.value = { path: d.trim(), width: w, height: h, positions }
 }
 
-// Update clip-path directly on DOM element (no reactive re-render)
+// Update the thumb clip rect directly on DOM (no reactive re-render)
 function updateThumbDirect() {
-  const el = thumbTrackRef.value
+  const rect = thumbTrackRef.value?.querySelector<SVGRectElement>('.clerk-toc-thumb-track__clip-rect')
   const svg = svgData.value
-  if (!el || !svg || activeIds.value.size === 0 || !headings.value.length) {
-    if (el) el.querySelector('svg')?.style.setProperty('clip-path', 'polygon(0 0, 100% 0, 100% 0, 0 0)')
+  if (!rect || !svg || activeIds.value.size === 0 || !headings.value.length) {
+    rect?.style.setProperty('y', '0')
+    rect?.style.setProperty('height', '0')
     return
   }
 
@@ -225,16 +216,15 @@ function updateThumbDirect() {
   }
 
   if (startIdx === -1 || !svg.positions[startIdx] || !svg.positions[endIdx]) {
-    el.querySelector('svg')?.style.setProperty('clip-path', 'polygon(0 0, 100% 0, 100% 0, 0 0)')
+    rect.style.setProperty('y', '0')
+    rect.style.setProperty('height', '0')
     return
   }
 
   const top = svg.positions[startIdx][0]
   const bottom = svg.positions[endIdx][1]
-  const svgEl = el.querySelector('svg') as SVGSVGElement | null
-  if (svgEl) {
-    svgEl.style.clipPath = `polygon(0 ${top}px, 100% ${top}px, 100% ${bottom}px, 0 ${bottom}px)`
-  }
+  rect.style.setProperty('y', `${top}px`)
+  rect.style.setProperty('height', `${bottom - top}px`)
 }
 
 function scrollToActiveItem() {
@@ -477,10 +467,21 @@ onBeforeUnmount(() => {
 
 .clerk-toc-thumb-track__svg {
   display: block;
-  /* transition managed by JS; clip-path: polygon(...) set inline */
-  transition: clip-path 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Guide track: same path data as the brand thumb, so they always coincide */
+.clerk-toc-thumb-track__guide {
+  stroke: var(--vp-c-divider);
+}
+
+/* Clip rect: y/height driven by JS, transitions for smooth thumb movement */
+.clerk-toc-thumb-track__clip-rect {
+  transition:
+    y 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Brand thumb: clipped to the active range by the clip rect */
 .clerk-toc-thumb-track__path {
   stroke: var(--vp-c-brand-1);
 }
@@ -514,40 +515,6 @@ onBeforeUnmount(() => {
 .clerk-toc-link.active {
   color: var(--vp-c-brand-1);
   font-weight: var(--site-weight-semibold);
-}
-
-/* Per-link grey guide wire (in padding area) */
-.clerk-toc-link__wire {
-  position: absolute;
-  top: -6px;
-  left: 0;
-  height: calc(100% + 6px);
-  overflow: visible;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.clerk-toc-link.is-first .clerk-toc-link__wire {
-  top: 0;
-  height: 100%;
-}
-
-.clerk-toc-link.is-last .clerk-toc-link__wire {
-  height: 100%;
-}
-
-.clerk-toc-link.has-next-depth-change .clerk-toc-link__wire {
-  height: 100%;
-}
-
-.clerk-toc-link__wire-line,
-.clerk-toc-link__wire-curve {
-  stroke: var(--vp-c-divider);
-}
-
-.clerk-toc-link__text {
-  position: relative;
-  z-index: 3;
 }
 
 @media (orientation: landscape) and (max-width: 1280px) {
