@@ -15,6 +15,8 @@ description: 盘点GitHub上那些模拟各种角色和关系的魔性Skills，�
 
 ## 从蒸馏同事开始
 
+<GithubInfo owner="titanwings" repo="colleague-skill" />
+
 一切的起点，是一个叫 **[同事.skill](https://github.com/titanwings/colleague-skill)**（10.6k stars）的项目。
 
 作者 titanwings 在项目中写道：
@@ -30,6 +32,8 @@ description: 盘点GitHub上那些模拟各种角色和关系的魔性Skills，�
 既然能蒸馏同事，为什么不去蒸馏各领域最顶尖的人？
 
 ## 女娲造人：蒸馏马斯克、乔布斯、芒格
+
+<GithubInfo owner="alchaincyf" repo="nuwa-skill" />
 
 2026年初，**[女娲.skill](https://github.com/alchaincyf/nuwa-skill)**（3.5k stars）横空出世，它的口号是：
 
@@ -63,6 +67,8 @@ description: 盘点GitHub上那些模拟各种角色和关系的魔性Skills，�
 :::
 
 ## 职场复仇：老板.skill
+
+<GithubInfo owner="nicepkg" repo="boss-skill" />
 
 如果说女娲是"蒸馏强者"，那么 **[老板.skill](https://github.com/nicepkg/boss-skill)**（60 stars）就是"蒸馏天敌"。
 
@@ -130,6 +136,8 @@ AI老板：两周？你格局打开一点，最多三天。
 
 ### 暗恋对象.skill — [xiaoheizi8/crush-skills](https://github.com/xiaoheizi8/crush-skills)（94 stars）
 
+<GithubInfo owner="xiaoheizi8" repo="crush-skills" />
+
 > *「晚风吹起你鬓间的白发，抚平回忆留下的疤，一万次回到那个夏天，悸动依旧如初。」*
 
 暗恋对象.skill可以基于聊天记录、照片、社交媒体，生成一个**真正像"她"的AI Skill**——用她的口头禅说话，用她的方式回复你，记得你们之间的每一个心动的瞬间。
@@ -145,6 +153,8 @@ AI老板：两周？你格局打开一点，最多三天。
 > *「一万次回到那个夏天的悸动，抵不过一次真实的、没有说出口的'再见'。」*
 
 ### 前任.skill — [perkfly/ex-skill](https://github.com/perkfly/ex-skill)（668 stars）
+
+<GithubInfo owner="perkfly" repo="ex-skill" />
 
 > *「她走了，但聊天记录还在？三年的日常，变成了手机里一个不敢点开的对话框？」*
 
@@ -162,6 +172,8 @@ AI老板：两周？你格局打开一点，最多三天。
 ```
 
 ### 父母.skill — [xiaoheizi8/parents-skills](https://github.com/xiaoheizi8/parents-skills)（29 stars）
+
+<GithubInfo owner="xiaoheizi8" repo="parents-skills" />
 
 > *「你养我长大，我陪你变老。每一次对话，都是穿越时空的陪伴。」*
 
@@ -183,6 +195,8 @@ AI老板：两周？你格局打开一点，最多三天。
 
 ### 团圆.skill — [yangdongchen66-boop/reunion-skill](https://github.com/yangdongchen66-boop/reunion-skill)
 
+<GithubInfo owner="yangdongchen66-boop" repo="reunion-skill" />
+
 每逢佳节倍思亲。这个Skill模拟的是一种**家的氛围**——也许是春节的团圆饭桌，也许是中秋的赏月闲聊，也许是端午的一起包粽子。
 
 对于那些因为各种原因无法回家的人来说，这或许能带来一点点温暖。
@@ -190,6 +204,8 @@ AI老板：两周？你格局打开一点，最多三天。
 ## 学术延续：导师.skill和师兄.skill
 
 ### 导师.skill — [ybq22/supervisor](https://github.com/ybq22/supervisor)（105 stars）
+
+<GithubInfo owner="ybq22" repo="supervisor" />
 
 导师.skill解决了一个真实的痛点：
 
@@ -206,6 +222,8 @@ AI老板：两周？你格局打开一点，最多三天。
 - **智能上传**：PDF/文本/图片自动深度分析，无需额外操作
 
 ### 师兄.skill — [zhanghaichao520/senpai-skill](https://github.com/zhanghaichao520/senpai-skill)（59 stars）
+
+<GithubInfo owner="zhanghaichao520" repo="senpai-skill" />
 
 如果说导师.skill是"正经学术"，师兄.skill则是"课题组情怀拉满"：
 
@@ -235,6 +253,8 @@ AI老板：两周？你格局打开一点，最多三天。
 ```
 
 ## 哲学探索：数字人生.skills
+
+<GithubInfo owner="wildbyteai" repo="digital-life" />
 
 **[数字人生.skills](https://github.com/wildbyteai/digital-life)**（17 stars）则走向了更深的哲学层面：
 
@@ -291,6 +311,8 @@ AI老板：两周？你格局打开一点，最多三天。
 这种架构让Skill不仅能"说话"，还能根据不同的场景展现不同的一面。
 
 ## 媒体整活：新智元标题生成器
+
+<GithubInfo owner="joeseesun" repo="qiaomu-xinzhiyuan-title" />
 
 如果说前面的 Skills 都在模拟"人"，那么 **[qiaomu-xinzhiyuan-title](https://github.com/joeseesun/qiaomu-xinzhiyuan-title)**（11 stars）模拟的是一种**文体**——新智元的标题风格。
 

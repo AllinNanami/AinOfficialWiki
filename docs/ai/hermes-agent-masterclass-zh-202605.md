@@ -363,7 +363,7 @@ researcher profile 用来跑 Telegram digest，说明 Hermes 并不把 agent 限
 - three-tier memory 是**社媒线程 / X post**；
 - 文中关于仓库、文档、论文、Telegram 入口的链接，都是从原文保留下来的非 `t.co` 目标或与原文对应的直接入口；
 - 正文以整理、翻译、说明为主，没有整段转抄长文；
-- 如果要核对实现细节，应继续看官方文档与仓库：<https://hermes-agent.nousresearch.com/docs/>、<https://github.com/NousResearch/hermes-agent>。
+- 如果要核对实现细节，应继续看官方文档与仓库：<https://hermes-agent.nousresearch.com/docs/>、[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)。
 
 ## 六、延伸阅读
 

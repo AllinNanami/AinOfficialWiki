@@ -51,6 +51,8 @@ PDF 文档中的水印种类繁多——文字水印、图片水印、半透明�
 
 ## 方案二：PDFPatcher（PDF 补丁丁）—— 国产免费神器
 
+<GithubInfo owner="wmjordan" repo="PDFPatcher" />
+
 [PDFPatcher（PDF 补丁丁）](https://github.com/wmjordan/PDFPatcher) 是一款国产免费开源工具，对图片水印支持极好，能精确删除指定 XObject 对象。这是处理顽固图片水印的**首选方案**。
 
 ### 操作步骤

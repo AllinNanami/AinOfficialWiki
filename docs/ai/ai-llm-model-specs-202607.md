@@ -2182,7 +2182,9 @@ $$
 
 ### 5.4 编码订阅计划 (Coding Plan / Token Plan / Agent Plan)
 
-自 2025 年起，随着 Agent 自动化开发工具的爆发性用量，各大厂商推出了"包月订阅额度"计划。详情可参考开源项目 [awesome-coding-plan](https://github.com/mahonzhan/awesome-coding-plan)。
+自 2025 年起，随着 Agent 自动化开发工具的爆发性用量，各大厂商推出了"包月订阅额度"计划。<GithubInfo owner="mahonzhan" repo="awesome-coding-plan" />
+
+详情可参考开源项目 [awesome-coding-plan](https://github.com/mahonzhan/awesome-coding-plan)。
 
 **模式**：类似电信流量包，支付固定费用（如 ¥99/月），获得千万级 Token 额度。Anthropic（Claude）最先发起，OpenAI 通过 Codex CLI 跟进，智谱 GLM、MiniMax、月之暗面（Kimi）纷纷效仿。
 
