@@ -37,10 +37,9 @@
    - 如果你正在参与相关科研工作，提交相关**材料/成果/代码片段**用于面试展示，依然可以通过考核。
    - 如果你有比较好的其他选题想法，或者做过的以及正在做的 Agent 相关项目，可以私聊chw进行讨论。
 6. **不了解 Agent 概念的同学：推荐先看以下视频**
-   - 【闪客】名词诈骗！一口气拆穿 Skill/MCP/RAG/Agent/OpenClaw 底层逻辑：
-     https://www.bilibili.com/video/BV1ojfDBSEPv/
-   - OpenClaw（clawdbot）是什么？跟 Skills/MCP/RAG/Memory/AI Agent 有什么关系？：
-     https://www.bilibili.com/video/BV1Bm6bB5EJ3/
+
+   <BilibiliCard title="【闪客】名词诈骗！一口气拆穿 Skill/MCP/RAG/Agent/OpenClaw 底层逻辑" bvid="BV1ojfDBSEPv" />
+   <BilibiliCard title="OpenClaw（clawdbot）是什么？跟 Skills/MCP/RAG/Memory/AI Agent 有什么关系？" bvid="BV1Bm6bB5EJ3" />
    - 什么是Vibe Coding？ - 一枚卓子的文章 - 知乎
      https://zhuanlan.zhihu.com/p/1923403088338855693
    - 一文讲透Vibe Coding的机理和能力边界 - 木牛流码的文章 - 知乎
@@ -86,43 +85,43 @@ README.md 或独立部署文档需包含以下内容：
 
 ### 1. LLM 驱动的搜索引擎
 
-[Perplexica](https://github.com/ItzCrazyKns/Perplexica)
+<GithubInfo owner="ItzCrazyKns" repo="Perplexica" />
 
-[Scira](https://github.com/zaidmukaddam/scira)
+<GithubInfo owner="zaidmukaddam" repo="scira" />
 
-[Morphic](https://github.com/miurla/morphic)
+<GithubInfo owner="miurla" repo="morphic" />
 
-[MindSearch](https://github.com/InternLM/MindSearch/)
+<GithubInfo owner="InternLM" repo="MindSearch" />
 
-[Crawl4AI](https://github.com/unclecode/crawl4ai)
+<GithubInfo owner="unclecode" repo="crawl4ai" />
 
-[ScrapeGraphAI](https://github.com/ScrapeGraphAI/Scrapegraph-ai)
+<GithubInfo owner="ScrapeGraphAI" repo="Scrapegraph-ai" />
 
-[Firecrawl](https://github.com/firecrawl/firecrawl)
+<GithubInfo owner="firecrawl" repo="firecrawl" />
 
-[CrewAI](https://github.com/crewAIInc/crewAI)
+<GithubInfo owner="crewAIInc" repo="crewAI" />
 
-[SearXNG](https://github.com/searxng/searxng)
+<GithubInfo owner="searxng" repo="searxng" />
 
-[OpenSearch](https://github.com/opensearch-project/OpenSearch)
+<GithubInfo owner="opensearch-project" repo="OpenSearch" />
 
-[STORM](https://github.com/stanford-oval/storm)
+<GithubInfo owner="stanford-oval" repo="storm" />
 
 ### 2. LLM 驱动的 RAG 知识库
 
-[Dify](https://github.com/langgenius/dify)
+<GithubInfo owner="langgenius" repo="dify" />
 
-[MaxKB](https://github.com/1panel-dev/MaxKB)
+<GithubInfo owner="1panel-dev" repo="MaxKB" />
 
-[FastGPT](https://github.com/labring/FastGPT)
+<GithubInfo owner="labring" repo="FastGPT" />
 
-[RAGFlow](https://github.com/infiniflow/ragflow)
+<GithubInfo owner="infiniflow" repo="ragflow" />
 
-[Haystack](https://github.com/deepset-ai/haystack)
+<GithubInfo owner="deepset-ai" repo="haystack" />
 
-[PandaWiki](https://github.com/chaitin/PandaWiki)
+<GithubInfo owner="chaitin" repo="PandaWiki" />
 
-[DocsGPT](https://github.com/arc53/DocsGPT)
+<GithubInfo owner="arc53" repo="DocsGPT" />
 
 [txtai](https://github.com/neuml/txtai)
 

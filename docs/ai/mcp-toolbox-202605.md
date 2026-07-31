@@ -40,7 +40,7 @@ description: 接着第 02 篇往下看，按第三方应用接入、抓取与浏
 
 ### 12306-mcp
 
-GitHub：<https://github.com/Joooook/12306-mcp>
+<GithubInfo owner="Joooook" repo="12306-mcp" />
 
 `12306-mcp` 代表的是另一条思路：别让 Agent 上网搜，再从一堆页面里扒车次；直接把 12306 查询能力做成 MCP 工具。
 
@@ -96,7 +96,7 @@ npx -y 12306-mcp --port 8080
 
 ### firecrawl-mcp-server
 
-GitHub：<https://github.com/firecrawl/firecrawl-mcp-server>
+<GithubInfo owner="firecrawl" repo="firecrawl-mcp-server" />
 官网：<https://docs.firecrawl.dev/mcp>
 
 Firecrawl 的定位一直很清楚：把网页变成 Agent 更容易消费的内容。它把搜索、抓取、结构化提取、批量处理和云端浏览器会话打包到了一套接口里。
@@ -152,7 +152,7 @@ Firecrawl 在下面这些任务里更顺手：
 
 ### playwright-mcp
 
-GitHub：<https://github.com/microsoft/playwright-mcp>
+<GithubInfo owner="microsoft" repo="playwright-mcp" />
 官网：<https://playwright.dev/docs/getting-started-mcp>
 
 `playwright-mcp` 是 Microsoft 官方出的浏览器自动化 MCP。它的强项是让 Agent 像人在浏览器里那样操作页面。
@@ -222,7 +222,7 @@ Playwright MCP 官方文档写明了三种 profile 模式，其中默认是 **pe
 
 ### fetch-mcp
 
-GitHub：<https://github.com/zcaceres/fetch-mcp>
+<GithubInfo owner="zcaceres" repo="fetch-mcp" />
 
 `fetch-mcp` 就轻得多。它不追求完整浏览器控制，也不想把整套抓取平台都搬进来。它做的是一件更朴素的事：把网页内容按不同格式取回来。
 
@@ -271,7 +271,7 @@ npx mcp-fetch youtube https://www.youtube.com/watch?v=dQw4w9WgXcQ --lang es
 
 ### Scrapling
 
-GitHub：<https://github.com/D4Vinci/Scrapling>
+<GithubInfo owner="D4Vinci" repo="Scrapling" />
 官网：<https://scrapling.readthedocs.io/en/latest/ai/mcp-server/>
 
 Scrapling 本体是一个抓取框架，但它已经把 MCP 模式写进官方文档了。它把普通请求、动态抓取、隐身抓取、并发抓取、会话复用放进了同一个体系。
@@ -325,7 +325,7 @@ Scrapling 官方文档里有两个细节值得保留：
 
 ### CloakBrowser
 
-GitHub：<https://github.com/CloakHQ/CloakBrowser>
+<GithubInfo owner="CloakHQ" repo="CloakBrowser" />
 官网：<https://cloakbrowser.dev/>
 
 CloakBrowser 严格说不算独立的 MCP 服务器，它相当于给 Playwright、Puppeteer、Agent 浏览器栈换一层"浏览器底座"。把它放进这篇工具箱里，主要是因为很多浏览器类 MCP 迟早都要面对同一个问题：目标站点会不会把自动化流量直接拦掉。
@@ -374,7 +374,7 @@ CloakBrowser 更常见的用法是：
 
 ### free-web-search-ultimate（仓库当前名为 zero-api-key-web-search）
 
-GitHub：<https://github.com/wd041216-bit/zero-api-key-web-search>
+<GithubInfo owner="wd041216-bit" repo="zero-api-key-web-search" />
 官网：<https://pypi.org/project/zero-api-key-web-search/>
 
 free-web-search-ultimate 现已对应到 zero-api-key-web-search。这个项目主要解决的是 **给 Agent 补一条可验证的联网搜索链路**。
@@ -425,7 +425,7 @@ zero-verify "Python 3.13 is the latest stable release" --deep --json
 
 ### Awesome-MCP-ZH
 
-GitHub：<https://github.com/yzfly/Awesome-MCP-ZH>
+<GithubInfo owner="yzfly" repo="Awesome-MCP-ZH" />
 
 `Awesome-MCP-ZH` 不是可执行服务器，就是一份给中文用户找项目用的路标。
 
@@ -452,7 +452,7 @@ GitHub：<https://github.com/yzfly/Awesome-MCP-ZH>
 
 ### MeiGen-AI-Design-MCP
 
-GitHub：<https://github.com/jau123/MeiGen-AI-Design-MCP>
+<GithubInfo owner="jau123" repo="MeiGen-AI-Design-MCP" />
 官网：<https://docs.meigen.ai/en/mcp/overview>
 
 MeiGen 这类项目和前面几组完全不同。它负责把图片和视频生成、设计提示词、灵感检索、工作流管理接给 Agent。

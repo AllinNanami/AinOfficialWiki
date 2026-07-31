@@ -15,7 +15,7 @@ description: 从 Skills 商店、mattpocock/skills 到 repomix、follow-builders
 
 ## Skills 商店：入口组织
 
-GitHub：<https://github.com/davila7/claude-code-templates>
+<GithubInfo owner="davila7" repo="claude-code-templates" />
 官网：<https://aitmpl.com/skills/>
 文档：<https://docs.aitmpl.com/introduction>
 
@@ -35,7 +35,7 @@ GitHub：<https://github.com/davila7/claude-code-templates>
 
 ## mattpocock/skills：把工程习惯写成可触发的技能
 
-GitHub：<https://github.com/mattpocock/skills>
+<GithubInfo owner="mattpocock" repo="skills" />
 文档：<https://skills.sh/mattpocock/skills>
 
 Matt Pocock 的 **Skills For Real Engineers** 覆盖四类高频问题：需求没问透、语言不统一、反馈循环太弱、代码库越做越乱。仓库中的技能围绕这四类问题分布。
@@ -145,7 +145,7 @@ npx skills@latest add mattpocock/skills
 
 ## awesome-codex-skills：把分散技能重新编目
 
-GitHub：<https://github.com/ComposioHQ/awesome-codex-skills>
+<GithubInfo owner="ComposioHQ" repo="awesome-codex-skills" />
 
 `awesome-codex-skills` 是一份 curated list，按五大类组织。
 
@@ -179,7 +179,7 @@ python skill-installer/scripts/install-skill-from-github.py --repo ComposioHQ/aw
 
 ## repomix：把整个仓库打包成 AI 友好的单文件
 
-GitHub：<https://github.com/yamadashy/repomix>
+<GithubInfo owner="yamadashy" repo="repomix" />
 官网：<https://repomix.com>
 
 `repomix` 在 Skills 生态里很特殊，因为它本身不是 Skill 仓库，却几乎成了很多 Skill 工作流的基础设施。
@@ -215,7 +215,7 @@ repomix
 
 ## follow-builders：把 AI 观察清单做成定时摘要
 
-GitHub：<https://github.com/zarazhangrui/follow-builders>
+<GithubInfo owner="zarazhangrui" repo="follow-builders" />
 示例：<https://github.com/zarazhangrui/follow-builders/blob/main/examples/sample-digest.md>
 
 前面几项偏工程，这一项偏信息输入。
@@ -246,7 +246,7 @@ GitHub：<https://github.com/zarazhangrui/follow-builders>
 
 ## codex-plusplus：给 Codex 桌面版打补丁和加扩展层
 
-GitHub：<https://github.com/b-nnett/codex-plusplus>
+<GithubInfo owner="b-nnett" repo="codex-plusplus" />
 Discord：<https://discord.gg/6bY6gGX36H>
 
 这是另一个很容易被误解的项目。它是 **Codex 桌面 app 的 tweak / patch 系统**。
@@ -285,7 +285,7 @@ codexplusplus install
 
 ## keep-codex-fast：handoff 与归档维护
 
-GitHub：<https://github.com/vibeforge1111/keep-codex-fast>
+<GithubInfo owner="vibeforge1111" repo="keep-codex-fast" />
 
 `keep-codex-fast` 和前面的 `handoff` 能连得很紧。
 
@@ -322,7 +322,7 @@ GitHub：<https://github.com/vibeforge1111/keep-codex-fast>
 
 ## nuwa-skill：方法论、人格和产品感一起打包
 
-GitHub：<https://github.com/alchaincyf/nuwa-skill>
+<GithubInfo owner="alchaincyf" repo="nuwa-skill" />
 
 `nuwa-skill` 放在这里，是想看清“结构、判断、流程、产品感”是怎么一起打包的。
 
@@ -343,7 +343,7 @@ GitHub：<https://github.com/alchaincyf/nuwa-skill>
 
 ## dbskill：把商业诊断做成多技能工具箱
 
-GitHub：<https://github.com/dontbesilent2025/dbskill>
+<GithubInfo owner="dontbesilent2025" repo="dbskill" />
 
 `dbskill` 是另一个产品感很强的中文项目。
 
@@ -368,7 +368,7 @@ GitHub：<https://github.com/dontbesilent2025/dbskill>
 
 ## taste-skill：给 AI 生成的前端注入设计品味
 
-GitHub：<https://github.com/Leonxlnx/taste-skill>
+<GithubInfo owner="Leonxlnx" repo="taste-skill" />
 官网：<https://tasteskill.dev>
 
 `taste-skill` 的定位很直接：**Anti-Slop Frontend Framework for AI Agents**。它解决的是 AI 生成前端界面时最常被吐槽的问题——Inter 字体、紫色渐变、白色背景、最少动画，看起来像从同一个模板里出来的。
@@ -421,7 +421,7 @@ npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-fro
 
 ## academic-research-skills：把学术研究全流程做成 AI 协作管道
 
-GitHub：<https://github.com/Imbad0202/academic-research-skills>
+<GithubInfo owner="Imbad0202" repo="academic-research-skills" />
 
 `academic-research-skills` 回答了另一个问题：学术研究这种高度结构化、多阶段、需要严格质量控制的工作，怎么和 AI 协作。
 
@@ -477,7 +477,7 @@ ARS 的设计前提是：**人类研究者 + AI 增强，比任何一方单独�
 
 ## Auto-Empirical-Research-Skills：23000+ 社科实证研究技能库
 
-GitHub：<https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills>
+<GithubInfo owner="brycewang-stanford" repo="Auto-Empirical-Research-Skills" />
 
 斯坦福 REAP 联合 CoPaper.AI 开源的社科实证研究技能库，23000+ 个 Agent skills 覆盖经济、政治、社会、心理等 8 大学科。项目定位很直接：**20 分钟完成一篇可复现的规范实证论文**。
 
@@ -504,7 +504,7 @@ GitHub：<https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills>
 
 ## paper-plot-skills：顶会论文图表复现绘制技能库
 
-GitHub：<https://github.com/Trae1ounG/paper-plot-skills>
+<GithubInfo owner="Trae1ounG" repo="paper-plot-skills" />
 
 `paper-plot-skills` 解决的是学术论文写作中另一个高频问题：论文图表的复现和绘制。仓库标题很直接：**Top-Conference Paper Figure Reproduction & Plotting Skills | 顶会论文图表复现绘制Skills**。它提供了一套完整的顶会论文图表复现脚本和参数文档，帮助研究者快速绘制高质量的论文图表。
 
@@ -562,7 +562,7 @@ python plot-from-data/scripts/line_selfdistill.py
 
 ## matlab-agentic-toolkit：把 MATLAB 工程能力接入 AI Agent
 
-GitHub：<https://github.com/matlab/matlab-agentic-toolkit>
+<GithubInfo owner="matlab" repo="matlab-agentic-toolkit" />
 
 `matlab-agentic-toolkit` 是 MathWorks 官方出品的 AI Agent 工具包，解决的问题很直接：AI 编码助手在写 MATLAB 代码时容易幻觉出不存在的工具箱函数、遗漏新特性、用非惯用写法绕路。这个工具包通过 MCP 服务器 + 领域 Skills 两层结构，把可信的 MATLAB 能力交给 Agent。
 
@@ -623,7 +623,7 @@ cd matlab-agentic-toolkit
 
 ## reverse-skill：逆向工程/渗透测试/安全研究技能路由包
 
-GitHub：<https://github.com/zhaoxuya520/reverse-skill>
+<GithubInfo owner="zhaoxuya520" repo="reverse-skill" />
 
 `reverse-skill` 是一个 AI 驱动的逆向工程、渗透测试和安全研究技能路由包。它通过一个 routing.md 文件，告诉 AI 遇到不同的安全任务该走哪条路，实现自动路由、按需自举工具链和自动进化经验库。
 
@@ -655,7 +655,7 @@ git clone https://github.com/zhaoxuya520/reverse-skill.git
 
 ## book-to-skill：把技术书籍变成可调用的 Skill
 
-GitHub：<https://github.com/virgiliojr94/book-to-skill>
+<GithubInfo owner="virgiliojr94" repo="book-to-skill" />
 
 `book-to-skill` 解决的是另一个问题：你买了一本很好的技术书，读了一遍，三个月后连第 7 章讲什么都不记得了。
 
@@ -723,7 +723,7 @@ curl -o ~/.claude/skills/book-to-skill/scripts/extract.py \
 
 ## text-to-cad：CAD / 机器人 / 硬件设计的 Agent Skills 库
 
-GitHub：<https://github.com/earthtojake/text-to-cad>
+<GithubInfo owner="earthtojake" repo="text-to-cad" />
 官网：<https://www.cadskills.xyz>
 
 `text-to-cad`（项目名 CAD Skills）是一套面向 CAD 建模、机器人描述文件和硬件设计的 Agent Skills 库。当前 star 约 7,463，支持从自然语言或图片生成 STEP、STL、3MF、GLB 等格式的 CAD 模型，并覆盖 URDF、SDF、SRDF 等机器人描述文件和 G-code 切片等下游工作流。
@@ -780,7 +780,7 @@ claude plugin install cad@text-to-cad
 
 ## next-ai-draw-io：AI 驱动的专业绘图工具
 
-GitHub：<https://github.com/DayuanJiang/next-ai-draw-io>
+<GithubInfo owner="DayuanJiang" repo="next-ai-draw-io" />
 官网：<https://next-ai-drawio.jiang.jp/>
 
 next-ai-draw-io 是一个基于 Next.js 的 AI 绘图应用，将大语言模型与 draw.io 深度集成。项目斩获 32.5k stars，曾登顶 GitHub 热榜第一。

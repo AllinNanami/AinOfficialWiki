@@ -11,7 +11,7 @@ TencentDB Agent Memory 的处理思路，是把“保存”拆成几层：底层
 
 ## 项目背景
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://cloud.tencent.com/product/agm>
 
 TencentDB Agent Memory 是腾讯云数据库团队开源的一套 Agent 记忆系统，MIT 协议，当前同时面向两类接入形态：
@@ -24,7 +24,7 @@ TencentDB Agent Memory 是腾讯云数据库团队开源的一套 Agent 记忆�
 
 ## 目标、依赖和使用场景
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://cloud.tencent.com/developer/article/2668918>
 
 依赖和前提先说清楚，免得把它想成“装上就什么都有”。
@@ -54,7 +54,7 @@ GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
 
 ## 它怎么组织短期、长期、检索和数据库记忆
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://cloud.tencent.com/product/agm>
 
 ### 四层长期记忆：L0 到 L3
@@ -123,12 +123,12 @@ memory-tencentdb-ctl config vdb-off --purge-creds --restart
 
 ## 安装和运行
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://www.npmjs.com/package/@tencentdb-agent-memory/memory-tencentdb>
 
 ### OpenClaw 插件模式
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://www.npmjs.com/package/@tencentdb-agent-memory/memory-tencentdb>
 
 最短路径是：
@@ -191,7 +191,7 @@ bash scripts/openclaw-after-tool-call-messages.patch.sh
 
 ### Hermes 模式：一体化镜像和运维脚本都给了
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://hermes-agent.nousresearch.com/docs/>
 
 仓库里的说明、`docker/opensource/README-hermes.md` 和 `Dockerfile.hermes` 给了两条路径。
@@ -232,7 +232,7 @@ docker exec -it hermes-memory hermes
 
 ## 一个完整流程：写入、检索、更新、用于回答
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://cloud.tencent.com/product/agm>
 
 ### 1. 写入记忆：L0 收集与分层入库
@@ -299,7 +299,7 @@ L3 更新也不会每次都重写全部内容。`persona-generator.ts` 里能看
 
 ## 隐私、权限、过期和错误记忆修正
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 官网：<https://cloud.tencent.com/product/agm>
 
 这一部分不能只看宣传页，最好对照配置和运维文档。

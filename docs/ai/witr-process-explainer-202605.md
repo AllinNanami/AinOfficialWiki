@@ -12,7 +12,7 @@ description: 从 witr 官方 README、CLI 文档和安装脚本出发，解释�
 witr 的目标就一个，仓库首页也直接写在第一行：**Why is this running?** 它想交代的是这个进程从哪里来、谁把它拉起来、现在又是谁在维持它继续存在。
 
 ## 仓库背景与定位
-GitHub：<https://github.com/pranshuparmar/witr>
+<GithubInfo owner="pranshuparmar" repo="witr" />
 
 witr 是 `Pranshu Parmar` 的开源项目，仓库简介只有一句话：`Why is this running?` 这句话展开后，意思也很清楚：当系统里有某个进程、服务或监听端口时，背后总会有一条因果链。这条链可能经过 supervisor、container、service manager、shell，会分散在多个系统层上。现有工具擅长展示状态，witr 则把因果关系直接讲出来。
 

@@ -115,11 +115,7 @@
 
 **参考视频：**
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1R78yzCEQV/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="🐮 科研党必备｜Notion文献管理系统，导师看了都夸专业！" bvid="BV1R78yzCEQV" />
 
 ### Mendeley
 

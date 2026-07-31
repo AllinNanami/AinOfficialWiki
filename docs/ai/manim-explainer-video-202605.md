@@ -13,7 +13,7 @@ description: 从 Manim Community、3Blue1Brown 和官方文档出发，解释 Ma
 
 ## ManimCommunity/manim：适合新用户的主线版本
 
-GitHub：<https://github.com/ManimCommunity/manim>
+<GithubInfo owner="ManimCommunity" repo="manim" />
 官网：<https://www.manim.community/>
 文档：<https://docs.manim.community/>
 
@@ -30,7 +30,7 @@ GitHub：<https://github.com/ManimCommunity/manim>
 
 ## 3b1b/manim：理解风格源头，别和社区版混装
 
-GitHub：<https://github.com/3b1b/manim>
+<GithubInfo owner="3b1b" repo="manim" />
 文档：<https://3b1b.github.io/manim/>
 
 `3b1b/manim` 也把自己定义成"用于解释型数学视频的精确程序化动画引擎"。它最早就是 Grant Sanderson 为 3Blue1Brown 视频做的个人项目。这里对应的是 `manimgl`，安装方式和社区版不同，不能把两边的安装说明混着用。
@@ -39,7 +39,7 @@ GitHub：<https://github.com/3b1b/manim>
 
 ## 3b1b/videos：3Blue1Brown 的制作方式
 
-GitHub：<https://github.com/3b1b/videos>
+<GithubInfo owner="3b1b" repo="videos" />
 官网：<https://www.3blue1brown.com/>
 
 `3b1b/videos` 是 3Blue1Brown 自己的视频代码仓库。这里放的是频道解释视频背后的场景代码，主体几乎都由 Manim 生成。不过老项目可能依赖旧版本，不一定能直接跑起来。

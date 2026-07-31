@@ -606,32 +606,12 @@ XXX大学XXX专业
 
 **参考视频：**
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1sgeuzTECT/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="软件工程大一新生入学规划？985毕业学长经验之谈" bvid="BV1sgeuzTECT" />
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1SGz6YeEwn/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="计算机专业，警惕AI！" bvid="BV1SGz6YeEwn" />
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1wz9NYcEDW/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="计算机专业后悔录，最无用与最有用课程排行榜！" bvid="BV1wz9NYcEDW" />
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1mEndzgE9y/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="讲一些计算机学生必备的基础知识" bvid="BV1mEndzgE9y" />
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1qwzdY4EqG/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="一个视频讲透考研的一切！时间线/信息源/初试/复试/政治/外语/数学/专业课/择校/择专业" bvid="BV1qwzdY4EqG" />

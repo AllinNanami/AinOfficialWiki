@@ -8,11 +8,7 @@
 
 电脑点不亮是最常见的问题。先检查电源线有没有接好，内存有没有插紧，显卡供电有没有接。主板上的 Debug 灯能指示问题所在，对照说明书看。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1UY411W7Y9/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="电脑点不亮？黑屏？重启？ 史上最强电脑问题排查诊断攻略！装机不求人系列【超详细】" bvid="BV1UY411W7Y9" />
 
 ### 点不亮的排查流程
 
@@ -98,11 +94,7 @@
 
 蓝屏（BSOD）是 Windows 遇到严重错误时的保护机制。别慌，大多数蓝屏都能解决。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1UY411W7Y9/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="电脑点不亮？黑屏？重启？ 史上最强电脑问题排查诊断攻略！装机不求人系列【超详细】" bvid="BV1UY411W7Y9" />
 
 ### 常见蓝屏错误代码
 
@@ -170,11 +162,7 @@ chkdsk C: /f /r
 
 笔记本用久了会积灰，导致散热变差、性能下降。清灰能让性能提升 30%，温度降到 60 度。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1hCPvzyEeT/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【喵喵折】2026全网最细心的笔记本清灰教程，性能提升30%，温度降到60度！！！" bvid="BV1hCPvzyEeT" />
 
 ### 台式机清灰教程
 

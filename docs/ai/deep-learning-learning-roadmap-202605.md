@@ -24,7 +24,7 @@ description: 把 MIT Intro to Deep Learning、Dive into Deep Learning 和 PyTorc
 ## 一、MIT Intro to Deep Learning：用课和 lab 快速建立整体感觉
 
 官网：<https://introtodeeplearning.com/>
-GitHub：<https://github.com/MITDeepLearning/introtodeeplearning>
+<GithubInfo owner="MITDeepLearning" repo="introtodeeplearning" />
 视频：<https://www.youtube.com/watch?v=II4giR4vOOo&list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI>
 
 ### 它解决什么问题
@@ -55,7 +55,7 @@ MIT 这套课放在最前面很合适，原因很简单：它会让你很快知�
 ## 二、Dive into Deep Learning：把数学、模型和代码顺序铺平
 
 官网：<https://d2l.ai/>
-GitHub：<https://github.com/d2l-ai/d2l-en>
+<GithubInfo owner="d2l-ai" repo="d2l-en" />
 中文版：<https://zh.d2l.ai>
 课程：<https://courses.d2l.ai>
 
@@ -89,7 +89,7 @@ D2L 的好处在于连贯。很多教程只告诉你一个模型怎么实现，D
 ## 三、PyTorch Tutorials：把训练循环和工程细节练熟
 
 文档：<https://docs.pytorch.org/tutorials/>
-GitHub：<https://github.com/pytorch/tutorials>
+<GithubInfo owner="pytorch" repo="tutorials" />
 Basics：<https://docs.pytorch.org/beginner/basics/intro.html>
 教程：<https://docs.pytorch.org/beginner/nn_tutorial.html>
 

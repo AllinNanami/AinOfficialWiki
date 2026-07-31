@@ -5,7 +5,7 @@ description: 从仓库说明、配套网站和作者长文出发，解释 awesom
 
 # awesome-agentic-patterns 导读
 
-GitHub：<https://github.com/nibzard/awesome-agentic-patterns>
+<GithubInfo owner="nibzard" repo="awesome-agentic-patterns" />
 
 官网：<https://agentic-patterns.com/>
 

@@ -10,15 +10,15 @@ description: 收集 CiteSpace 入门与实操资料，涵盖软件下载、文�
 [toc]
 
 
-【自用】 [https://www.bilibili.com/video/BV1bb4y1j7gf/](https://www.bilibili.com/video/BV1bb4y1j7gf/)
+<BilibiliCard title="自用" bvid="BV1bb4y1j7gf" />
 
-【Citespace自学记录，全是干货关键词共现/关键词聚类/发文量分布/时间线图/关键词频次与中心度/作者共现分析/突现忘了分析了】 [https://www.bilibili.com/video/BV1jD4y1E71A/](https://www.bilibili.com/video/BV1jD4y1E71A/)
+<BilibiliCard title="Citespace自学记录，全是干货关键词共现/关键词聚类/发文量分布/时间线图/关键词频次与中心度/作者共现分析/突现忘了分析了" bvid="BV1jD4y1E71A" />
 
-【【Citespace】从下载到图谱分析  详细教程  CNKI和WOS为例—陈同学】 [https://www.bilibili.com/video/BV1di4y1d7ot/](https://www.bilibili.com/video/BV1di4y1d7ot/)
+<BilibiliCard title="【Citespace】从下载到图谱分析  详细教程  CNKI和WOS为例—陈同学" bvid="BV1di4y1d7ot" />
 
-【以中国知网为例的citespace实操（一）】 [https://www.bilibili.com/video/BV127411m7ub/](https://www.bilibili.com/video/BV127411m7ub/)
+<BilibiliCard title="以中国知网为例的citespace实操（一）" bvid="BV127411m7ub" />
 
-【以cnki为例的citespace实操（二）：作者、机构及关键词的分析】 [https://www.bilibili.com/video/BV117411m7kP/](https://www.bilibili.com/video/BV117411m7kP/)
+<BilibiliCard title="以cnki为例的citespace实操（二）：作者、机构及关键词的分析" bvid="BV117411m7kP" />
 
 ---
 

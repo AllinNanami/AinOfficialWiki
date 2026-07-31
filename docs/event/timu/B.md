@@ -38,10 +38,10 @@
 2. #### 学习教程
 
 - Git学习教程：[https://ain.hmgf.hxcn.space/guides/sre/git-basics](https://ain.hmgf.hxcn.space/guides/sre/git-basics)
-- Git 使用攻略：[https://www.bilibili.com/video/BV1u94y1n73L](https://www.bilibili.com/video/BV1u94y1n73L)
-- Git使用攻略2：[https://www.bilibili.com/video/BV1d6XVYqEuy](https://www.bilibili.com/video/BV1d6XVYqEuy)
+<BilibiliCard title="Git 使用攻略" bvid="BV1u94y1n73L" />
+<BilibiliCard title="Git使用攻略2" bvid="BV1d6XVYqEuy" />
 - Docker 入门教程：[https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html](https://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
-- Docker 实践攻略：[https://www.bilibili.com/video/BV1THKyzBER6](https://www.bilibili.com/video/BV1THKyzBER6)
+<BilibiliCard title="Docker 实践攻略" bvid="BV1THKyzBER6" />
 
 3. #### 双系统安装、软件安装、环境配置
 

@@ -13,7 +13,7 @@ description: 从 PaperBanana 的官方仓库、PaperVizAgent 原始实现和社�
 
 ### 官方延续仓库：PaperBanana
 
-GitHub：<https://github.com/dwzhu-pku/PaperBanana>
+<GithubInfo owner="dwzhu-pku" repo="PaperBanana" />
 官网：<https://dwzhu-pku.github.io/PaperBanana/>
 
 当前更容易上手的入口是 `dwzhu-pku/PaperBanana`。项目说明直接写明：Google Research 最早开源的是 `PaperVizAgent`，这个仓库是在原始内容基础上 fork 出来并持续演进的社区主线。项目说明里也给了 Hugging Face Spaces、数据集和 Hugging Face 论文页入口，说明它现在同时承担论文演示、代码更新和对外使用入口这三件事。
@@ -22,14 +22,14 @@ GitHub：<https://github.com/dwzhu-pku/PaperBanana>
 
 ### Google Research 原始仓库：PaperVizAgent
 
-GitHub：<https://github.com/google-research/papervizagent>
+<GithubInfo owner="google-research" repo="papervizagent" />
 官网：<https://dwzhu-pku.github.io/PaperBanana/>
 
 Google Research 原始仓库现在叫 `PaperVizAgent`，项目说明里直接注明"formerly PaperBanana"。这一层主要用来交代方法来源：论文标题叫 **PaperBanana: Automating Academic Illustration for AI Scientists**，而原始实现仓库后来改名为 `PaperVizAgent`。如果你在资料里同时看到两个名字，不用当成两个不同项目，它们讲的是同一条方法线。
 
 ### 社区工程化实现：llmsresearch/paperbanana
 
-GitHub：<https://github.com/llmsresearch/paperbanana>
+<GithubInfo owner="llmsresearch" repo="paperbanana" />
 
 这里用的社区仓库并非官方仓库。项目说明开头就写了 disclaimer：它是一个 unofficial, community-driven open-source implementation。它的价值，在于把 PaperBanana 的思路做得更工程化，补了 CLI、Python API、MCP server、batch、PDF 输入、full-paper orchestrate、向量导出等实际工作流里很有用的部分。
 
@@ -181,7 +181,7 @@ Critic 不只是打分，它会结合原始上下文和当前图像结果提出�
 
 ### 1. 官方仓库本地跑
 
-GitHub：<https://github.com/dwzhu-pku/PaperBanana>
+<GithubInfo owner="dwzhu-pku" repo="PaperBanana" />
 官网：<https://huggingface.co/spaces/dwzhu/PaperBanana>
 
 官方仓库推荐的本地方式是 `uv` + Python 3.12，再跑 Gradio 或 Streamlit。
@@ -200,7 +200,7 @@ python app.py
 
 ### 2. 官方 skill 路线
 
-GitHub：<https://github.com/dwzhu-pku/PaperBanana>
+<GithubInfo owner="dwzhu-pku" repo="PaperBanana" />
 官网：<https://clawhub.ai/skills/paperbanana>
 
 官方仓库里自带 `skill/SKILL.md`，相当于把最核心的 diagram 生成命令包装成了 Skill 入口。这个方式适合已经在用技能化工作流的人。
@@ -217,7 +217,7 @@ python skill/run.py \
 
 ### 3. 社区实现的 CLI / PyPI 路线
 
-GitHub：<https://github.com/llmsresearch/paperbanana>
+<GithubInfo owner="llmsresearch" repo="paperbanana" />
 官网：<https://pypi.org/project/paperbanana/>
 
 如果你更在意 CLI、批量生成、向量导出和 MCP，这条路更合适。
@@ -265,7 +265,7 @@ paperbanana generate \
 
 ### 社区 MCP server 提供了什么
 
-GitHub：<https://github.com/llmsresearch/paperbanana>
+<GithubInfo owner="llmsresearch" repo="paperbanana" />
 
 社区仓库 `mcp_server` 目录下的说明文件，明确列了工具：
 

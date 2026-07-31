@@ -29,7 +29,7 @@ Agent 很会写 HTML，这件事很多人已经接受了。
 
 ## guizang-ppt-skill：从一份网页 PPT，扩展到配图和封面
 
-GitHub：<https://github.com/op7418/guizang-ppt-skill>
+<GithubInfo owner="op7418" repo="guizang-ppt-skill" />
 
 它的定义很直接：这是一个适配 Claude Code、Codex 等 Agent 环境的网页 PPT Skill，用来生成**单文件 HTML 横向翻页 PPT**、PPT 配图和多平台封面。
 
@@ -186,7 +186,7 @@ guizang-ppt-skill/
 
 ## html-anything：把 deck 放回更大的 HTML 交付面里
 
-GitHub：<https://github.com/nexu-io/html-anything>
+<GithubInfo owner="nexu-io" repo="html-anything" />
 
 第二个项目是 [`nexu-io/html-anything`](https://github.com/nexu-io/html-anything)。
 
@@ -265,7 +265,7 @@ pnpm dev
 
 ## beautiful-html-templates：把模板选择这件事，交给 Agent 有章法地做
 
-GitHub：<https://github.com/zarazhangrui/beautiful-html-templates>
+<GithubInfo owner="zarazhangrui" repo="beautiful-html-templates" />
 
 第三个项目是 [`zarazhangrui/beautiful-html-templates`](https://github.com/zarazhangrui/beautiful-html-templates)。
 

@@ -101,7 +101,7 @@ MIT OCW 的课程说明把定位写得很直白：这是一个 **non-technical s
 
 ### How to AI (Almost) Anything
 课程页：<https://ocw.mit.edu/courses/mas-s60-how-to-ai-almost-anything-spring-2025/>
-GitHub：<https://github.com/MIT-MI/how2ai-course>
+<GithubInfo owner="MIT-MI" repo="how2ai-course" />
 
 这门课和前两门的气质不太一样。它直接把问题换成：如果 AI 不只处理文字，还要碰视觉、音频、传感器、医疗数据、音乐、艺术，方法会怎么变？
 
@@ -144,7 +144,7 @@ MIT OCW 的课程说明写到，它会介绍 modern deep learning、foundation m
 
 ### MIT Intro to Deep Learning
 课程页：<https://introtodeeplearning.com/>
-GitHub：<https://github.com/MITDeepLearning/introtodeeplearning>
+<GithubInfo owner="MITDeepLearning" repo="introtodeeplearning" />
 
 到这一步，课程强度就明显上来了。MIT 6.S191 是一个高强度 deep learning bootcamp。官方页面写得很清楚：它讲 vision、robotics、medicine、language、game play、art 等应用，也会覆盖 large language models 和 generative AI，还配了公开 slides、videos 和 labs。
 

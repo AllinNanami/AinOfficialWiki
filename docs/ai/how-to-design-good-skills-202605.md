@@ -18,8 +18,8 @@ description: 从 ianneo_ai 的六问出发，结合 Anthropic 的 skills 结构�
 
 ## 第一问：它解决哪个场景
 
-GitHub：<https://github.com/anthropics/skills>
-GitHub：<https://github.com/anthropics/claude-code>
+<GithubInfo owner="anthropics" repo="skills" />
+<GithubInfo owner="anthropics" repo="claude-code" />
 
 Skill 设计最容易犯的错，就是场景写成领域。
 

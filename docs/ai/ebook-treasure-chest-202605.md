@@ -14,7 +14,7 @@ description: 介绍 ebook-treasure-chest 仓库和搜索页的定位、分类、
 ## 仓库与网站的分工
 
 ### GitHub 仓库
-GitHub：<https://github.com/jbiaojerry/ebook-treasure-chest>
+<GithubInfo owner="jbiaojerry" repo="ebook-treasure-chest" />
 
 仓库说明的中文标题就是"电子书下载宝库"。它的自我介绍写得很直白：这是一个汇聚各类电子书下载链接的地方，涵盖帆书、微信读书、京东读书、喜马拉雅等读书 App 里的大量电子书，并按标签做了简单分类。
 
@@ -57,7 +57,7 @@ GitHub Pages 这边更偏使用入口。首页会直接显示：
 ## 分类组织
 
 ### 分类组织
-GitHub：<https://github.com/jbiaojerry/ebook-treasure-chest>
+<GithubInfo owner="jbiaojerry" repo="ebook-treasure-chest" />
 官网：<https://jbiaojerry.github.io/ebook-treasure-chest/>
 
 仓库说明和站点都把分类写得很密。这些大类在站点上都能找到对应入口或近似标签：
@@ -100,7 +100,7 @@ GitHub：<https://github.com/jbiaojerry/ebook-treasure-chest>
 ## 三种格式各适合什么设备
 
 ### epub / mobi / azw3
-GitHub：<https://github.com/jbiaojerry/ebook-treasure-chest>
+<GithubInfo owner="jbiaojerry" repo="ebook-treasure-chest" />
 官网：<https://jbiaojerry.github.io/ebook-treasure-chest/>
 
 仓库说明里明确写到，每本书通常提供三种常见格式：`epub`、`mobi`、`azw3`。这三种格式确实覆盖了比较常见的电子书阅读设备，但适配感受不完全一样。
@@ -162,7 +162,7 @@ GitHub：<https://github.com/jbiaojerry/ebook-treasure-chest>
 ## 版权和合规必须放在前面讲
 
 ### 版权与合规提醒
-GitHub：<https://github.com/jbiaojerry/ebook-treasure-chest>
+<GithubInfo owner="jbiaojerry" repo="ebook-treasure-chest" />
 官网：<https://jbiaojerry.github.io/ebook-treasure-chest/>
 
 `ebook-treasure-chest` 当前公开呈现的是电子书链接索引和下载入口。对使用者来说，最重要的提醒有几条：

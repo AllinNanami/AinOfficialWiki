@@ -514,14 +514,6 @@ HR 面会问：
 
 **参考视频：**
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1Z1XQYmE1h/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="大三的我是如何拿下三段大厂实习？计算机专业最危险的信息差，被学校骗了四年？！错过这些毕业即失业？" bvid="BV1Z1XQYmE1h" />
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV13GKpedEyo/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="给年轻大学生的一些校园和择业建议" bvid="BV13GKpedEyo" />

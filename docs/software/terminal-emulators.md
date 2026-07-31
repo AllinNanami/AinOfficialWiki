@@ -454,17 +454,9 @@ module.exports = {
 
 下面几个视频对终端的使用和配置讲得比较详细，推荐看看。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1hDDRBeEib/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【winget】被人遗忘的 Windows 包管理器｜制作一键安装脚本" bvid="BV1hDDRBeEib" />
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1xoSdBxEPY/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="tldr: 命令行装完忘了咋用？查用法最强工具" bvid="BV1xoSdBxEPY" />
 
 ## 补充资源
 

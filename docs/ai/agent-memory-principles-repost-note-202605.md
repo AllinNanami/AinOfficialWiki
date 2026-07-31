@@ -54,7 +54,7 @@ Agent 记忆可以拆成两组问题，这个框架很好用：
 
 ### OpenClaw 的记忆分类
 
-GitHub：<https://github.com/openclaw/openclaw>
+<GithubInfo owner="openclaw" repo="openclaw" />
 
 按照这篇文章的整理，OpenClaw 主要用了三类文件：
 
@@ -69,7 +69,7 @@ GitHub：<https://github.com/openclaw/openclaw>
 
 ### OpenClaw 的抽取、更新、检索
 
-GitHub：<https://github.com/openclaw/openclaw>
+<GithubInfo owner="openclaw" repo="openclaw" />
 
 OpenClaw 的写法可以概括成三类触发时机：
 
@@ -90,7 +90,7 @@ OpenClaw 的写法可以概括成三类触发时机：
 
 ### EverOS 的记忆拆得更细
 
-GitHub：<https://github.com/EverMind-AI/EverOS>
+<GithubInfo owner="EverMind-AI" repo="EverOS" />
 
 官网：<https://evermind.ai>
 
@@ -117,7 +117,7 @@ EverOS 把记忆对象分得更细。
 
 ### EverOS 重点解决的是"更新"问题
 
-GitHub：<https://github.com/EverMind-AI/EverOS>
+<GithubInfo owner="EverMind-AI" repo="EverOS" />
 
 官网：<https://evermind.ai>
 
@@ -141,7 +141,7 @@ GitHub：<https://github.com/EverMind-AI/EverOS>
 
 ### TencentDB-Agent-Memory：更强调分层和符号化记忆
 
-GitHub：<https://github.com/Tencent/TencentDB-Agent-Memory>
+<GithubInfo owner="Tencent" repo="TencentDB-Agent-Memory" />
 
 TencentDB-Agent-Memory 仓库首页直接把核心口号写成了"symbolic short-term memory + layered long-term memory"。它和上面那篇社媒长文的共识，基本在同一方向：
 
@@ -171,7 +171,7 @@ Hermes 走的是另一种组合方式。从社媒材料和相关文档摘要看�
 
 ### PageIndex：它解决的是文档检索，不等于人格记忆
 
-GitHub：<https://github.com/VectifyAI/PageIndex>
+<GithubInfo owner="VectifyAI" repo="PageIndex" />
 
 官网：<https://pageindex.ai/developer>
 

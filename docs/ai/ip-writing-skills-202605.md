@@ -23,7 +23,7 @@ description: 梳理 SoftwareCopyright-Skill 与 patent-disclosure-skill 的输�
 所以，Skill 在这里的主要价值，是把重复劳动拆成一套能复跑、能中断、能确认、能留痕的工作流。
 
 ## `SoftwareCopyright-Skill`：把软著材料生成拆成一条带门禁的流水线
-GitHub：<https://github.com/Fokkyp/SoftwareCopyright-Skill>
+<GithubInfo owner="Fokkyp" repo="SoftwareCopyright-Skill" />
 
 它是一个用于生成中文软件著作权申请资料的 Codex Skill。安装时要用的是 `software-copyright-materials/` 这个目录，不是整个仓库根目录。
 
@@ -173,7 +173,7 @@ PROJECT_DIR="<你的项目目录>" && git clone https://github.com/Fokkyp/Softwa
 - 《计算机软件著作权登记办法》：<https://www.gov.cn/zhengce/2002-02/20/content_5724627.htm>
 
 ## `patent-disclosure-skill`：专利交底书工作流
-GitHub：<https://github.com/handsomestWei/patent-disclosure-skill>
+<GithubInfo owner="handsomestWei" repo="patent-disclosure-skill" />
 
 软著 Skill 偏资料整理，这个专利 Skill 则偏交底书工作流。它的目标很直接：从项目文档走到可交付的技术交底书，覆盖专利点挖掘、查新、脱敏成文和自检闭环。
 

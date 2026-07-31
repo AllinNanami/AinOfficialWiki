@@ -46,11 +46,7 @@ CPU 命名规则比想象中复杂得多。Intel 的 i7 不一定比 i5 强，AM
 
 **关键结论：** 同品牌内，代数比等级更重要。13 代 i5 可能比 12 代 i7 还强，锐龙 7000 系的 R5 也能打赢 5000 系的 R7。买新不买旧是大原则。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV17u4y1979X/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】CPU是如何命名的，数字更大就一定更好吗？" bvid="BV17u4y1979X" />
 
 ### 核心数和线程数是什么关系？
 
@@ -90,11 +86,7 @@ AMD Radeon RX 7900 XTX：
 - **900**：定位
 - **XTX**：旗舰后缀，XT 次旗舰
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1xE421j7Uv/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】从零开始认识显卡" bvid="BV1xE421j7Uv" />
 
 ### GeForce Experience 里那些被你忽略的强大功能
 
@@ -107,11 +99,7 @@ NVIDIA 显卡自带的 GeForce Experience（现已更名为 NVIDIA App）不只�
 - **NVIDIA Broadcast**：AI 降噪、虚拟背景、目光接触，视频会议神器
 - **RTX VSR**：浏览器视频 AI 超分辨率，看低清视频也能清晰
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1DG4y1i7Lu/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】GeForce Experience里那些被你忽略的强大功能" bvid="BV1DG4y1i7Lu" />
 
 ### 一文厘清：GPU、NPU、TPU、CUDA 都是什么？
 
@@ -122,11 +110,7 @@ NVIDIA 显卡自带的 GeForce Experience（现已更名为 NVIDIA App）不只�
 - **Tensor Core**：NVIDIA 显卡里的 AI 专用计算单元，加速矩阵运算
 - **RT Core**：光线追踪专用硬件单元，加速光影渲染
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV14GxtzuE2U/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="一文厘清：GPU、NPU、TPU、CUDA...都是什么鬼？" bvid="BV14GxtzuE2U" />
 
 ### 显存容量和位宽哪个更重要？
 
@@ -177,11 +161,7 @@ NVIDIA 显卡自带的 GeForce Experience（现已更名为 NVIDIA App）不只�
 - 网口（千兆还是 2.5G）
 - 音频接口（看声卡芯片型号）
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1xQ4y1b7JS/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】从零开始认识主板" bvid="BV1xQ4y1b7JS" />
 
 ### 板型大小有什么区别？
 
@@ -213,11 +193,7 @@ NVIDIA 显卡自带的 GeForce Experience（现已更名为 NVIDIA App）不只�
 - 持续大文件写入（几十 GB 以上）：DRAM 缓存的更稳定
 - 专业工作（视频剪辑、数据库）：建议选有 DRAM 缓存的
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1aF411u7Ct/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】固态硬盘的缓存是干什么的？有缓存和无缓存有什么区别？" bvid="BV1aF411u7Ct" />
 
 ### PCIe 4.0 和 5.0 固态有什么区别？
 
@@ -262,11 +238,7 @@ OLED 每个像素独立发光，长时间显示同一画面会导致某些像素
 
 Mini-LED 是 LCD 的背光升级版，用几千个小型 LED 做背光分区，比传统 LCD 对比度高很多，接近 OLED 的黑场表现，但没有烧屏风险。价格介于 LCD 和 OLED 之间。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1Wz411B7Tf/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】全网最简洁易懂的OLED与LCD屏幕工作原理与优劣科普" bvid="BV1Wz411B7Tf" />
 
 ### 1ms 响应的屏幕也有拖影？运动模糊详解
 
@@ -286,11 +258,7 @@ Mini-LED 是 LCD 的背光升级版，用几千个小型 LED 做背光分区，�
 - 144Hz → 240Hz：提升明显，FPS 游戏玩家推荐
 - 240Hz → 360Hz+：边际递减，除非你是电竞选手
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1dVpnePEHJ/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】1ms响应的屏幕也有拖影？运动模糊到底和哪些参数有关？一期视频看懂运动清晰度和响应时间、刷新率的关系。" bvid="BV1dVpnePEHJ" />
 
 ### 分辨率和尺寸怎么搭配？
 
@@ -325,11 +293,7 @@ Mini-LED 是 LCD 的背光升级版，用几千个小型 LED 做背光分区，�
 3. **显卡驱动优化**：新驱动可能修复卡顿问题
 4. **游戏优化**：有些游戏天生优化差，跟硬件无关
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1tN411p75p/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】游戏帧数越高越流畅？未必！详解1%low帧和流畅度" bvid="BV1tN411p75p" />
 
 ### 垂直同步、G-Sync、FreeSync 有什么用？
 
@@ -371,11 +335,7 @@ Mini-LED 是 LCD 的背光升级版，用几千个小型 LED 做背光分区，�
 | 蓝牙机械 | 8-15ms | 办公、打字 |
 | 薄膜键盘 | 5-15ms | 办公 |
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV17w411w7R8/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】什么是键盘延迟？键盘延迟是如何产生的" bvid="BV17w411w7R8" />
 
 ### 机械键盘轴体怎么选？
 
@@ -429,11 +389,7 @@ IP 地址就像网络里的门牌号，设备有了它才能互相找到。
 
 没有公网 IP 也能上网，但做以上事情会比较麻烦，需要内网穿透。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1DD4y127r4/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【硬核科普】IP地址是什么东西？IPV6和IPV4有什么区别？公网IP和私有IP又是什么？" bvid="BV1DD4y127r4" />
 
 ### 网线、Wi-Fi、Mesh 组网怎么选？
 

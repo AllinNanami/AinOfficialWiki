@@ -20,7 +20,7 @@ description: 介绍 humanizer-zh、Shyft skill 页面、李承坤相关文章与
 ## humanizer-zh 的定位
 
 ### Humanizer-zh 仓库
-GitHub：<https://github.com/op7418/Humanizer-zh>
+<GithubInfo owner="op7418" repo="Humanizer-zh" />
 
 从 Humanizer-zh 的仓库说明和 `temp/humanizer-zh.md` 看，它的定位很明确：这是一个中文版去痕工具，目标是把 AI 生成文本改写得更自然。它承担的是**规则化改写技能**这一层，不负责模型生成，也不承担检测功能。
 
@@ -41,7 +41,7 @@ GitHub：<https://github.com/op7418/Humanizer-zh>
 和很多"一条 prompt 直接洗干净"的做法不同，它更像一份编辑清单。
 
 ### 安装与使用
-GitHub：<https://github.com/op7418/Humanizer-zh>
+<GithubInfo owner="op7418" repo="Humanizer-zh" />
 
 仓库说明提供了几种安装方式，最省事的是：
 
@@ -63,7 +63,7 @@ npx skills add https://github.com/op7418/Humanizer-zh.git
 
 ### Shyft 上的 Humanizer-zh
 官网：<https://shyft.ai/skills/humanizer-zh>
-GitHub：<https://github.com/op7418/Humanizer-zh>
+<GithubInfo owner="op7418" repo="Humanizer-zh" />
 
 Shyft 这页不是一手源码，但它补了一个外部视角：别人怎么把这个 skill 当成可安装工具来介绍。
 
@@ -582,7 +582,7 @@ claude install op7418/Humanizer-zh
 ## yao-open-prompts 解决的是"提示词组织"问题
 
 ### yao-open-prompts 仓库
-GitHub：<https://github.com/yaojingang/yao-open-prompts>
+<GithubInfo owner="yaojingang" repo="yao-open-prompts" />
 网页导航：<https://yaojingang.github.io/yao-open-prompts/>
 
 `yao-open-prompts` 不是专门做去 AI 味的仓库，但它很适合作为补充材料看。

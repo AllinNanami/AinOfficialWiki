@@ -19,11 +19,7 @@ winget install Google.Chrome
 winget upgrade --all
 ```
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1hDDRBeEib/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【winget】被人遗忘的 Windows 包管理器｜制作一键安装脚本" bvid="BV1hDDRBeEib" />
 
 ## 命令行帮助
 
@@ -39,11 +35,7 @@ npm install -g tldr
 tldr tar
 ```
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1xoSdBxEPY/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="tldr: 命令行装完忘了咋用？查用法最强工具" bvid="BV1xoSdBxEPY" />
 
 ## CLI 自动化
 
@@ -51,21 +43,13 @@ tldr tar
 
 把命令行和 AI 结合起来，能实现很多自动化操作。这个视频演示了如何用 CLI 工具和 AI Skill 搭建浏览器自动化框架，处理重复性工作。如果你有大量重复操作需要自动化，这个思路值得参考。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1ooDyBmE6v/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="告别一切重复枯燥任务，CLI+Skill搭建浏览器AI自动化框架" bvid="BV1ooDyBmE6v" />
 
 ### 为什么巨头都在做 CLI？比 MCP 有哪些优势？
 
 命令行界面（CLI）正在成为 AI 工具的主流交互方式。和 MCP 相比，CLI 更轻量、更灵活、更容易集成。这个视频分析了 CLI 的优势和适用场景，帮你理解为什么大厂都在推 CLI 工具。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1G29EBGE8b/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="为什么巨头都在做CLI(命令行界面)？比MCP有哪些优势？" bvid="BV1G29EBGE8b" />
 
 ## 配置文件
 
@@ -73,11 +57,7 @@ tldr tar
 
 JSON、YAML、TOML、INI、XML、ENV、HCL、Properties，每种配置文件格式都有自己的特点和适用场景。这个视频把 8 种格式的优劣都讲清楚了，帮你选择最适合的格式。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV16jDZBsE6T/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="8种配置文件格式大盘点，谁才是YYDS？" bvid="BV16jDZBsE6T" />
 
 ## 补充资源
 

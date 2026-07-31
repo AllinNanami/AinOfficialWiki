@@ -85,7 +85,7 @@ Cursor、Windsurf、Claude Code、OpenAI 的 MCP 文档都分别提到过认证�
 
 ## Context7：文档与代码示例查询
 
-GitHub：<https://github.com/upstash/context7>
+<GithubInfo owner="upstash" repo="context7" />
 官网：<https://context7.com/>
 
 ### 它解决什么问题
@@ -218,7 +218,7 @@ Context7 最常见的问题在于问得太空。下面这种问法，通常效�
 
 ## MarkItDown：资料转为 Markdown
 
-GitHub：<https://github.com/microsoft/markitdown>
+<GithubInfo owner="microsoft" repo="markitdown" />
 
 ### 它解决什么问题
 
@@ -307,7 +307,7 @@ MarkItDown 的安全提示值得单独看一眼：它会以当前进程权限执
 
 ## Chrome DevTools MCP：别再手抄控制台和网络请求
 
-GitHub：<https://github.com/ChromeDevTools/chrome-devtools-mcp>
+<GithubInfo owner="ChromeDevTools" repo="chrome-devtools-mcp" />
 
 ### 它解决什么问题
 

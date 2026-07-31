@@ -35,7 +35,7 @@ Vibe Coding 对新手最大的帮助，是把"能不能开始"这件事大幅前
 
 ### easy-vibe：零基础学习地图
 
-GitHub：<https://github.com/datawhalechina/easy-vibe>
+<GithubInfo owner="datawhalechina" repo="easy-vibe" />
 官网：<https://datawhalechina.github.io/easy-vibe/>
 
 [`datawhalechina/easy-vibe`](https://github.com/datawhalechina/easy-vibe) 的首页写得很直接：如果你会说话，就可以开始做应用。
@@ -61,7 +61,7 @@ GitHub：<https://github.com/datawhalechina/easy-vibe>
 
 ### vibe-vibe：更完整的系统教程，适合继续补上"从想法到产品"
 
-GitHub：<https://github.com/datawhalechina/vibe-vibe>
+<GithubInfo owner="datawhalechina" repo="vibe-vibe" />
 官网：<https://www.vibevibe.cn>
 
 [`datawhalechina/vibe-vibe`](https://github.com/datawhalechina/vibe-vibe) 的定位比 `easy-vibe` 更系统。仓库首页直接把它叫做"人人都能学会的 AI 编程指南"，并且把读者分得很细：完全零基础、只用过大模型没做过项目、有编程基础、想直接动手做项目，都有不同起点。
@@ -86,7 +86,7 @@ GitHub：<https://github.com/datawhalechina/vibe-vibe>
 
 ### vibe-coding-cn：资源总控台
 
-GitHub：<https://github.com/MaoTouHU/vibecodingcn>
+<GithubInfo owner="MaoTouHU" repo="vibecodingcn" />
 
 [`MaoTouHU/vibecodingcn`](https://github.com/MaoTouHU/vibecodingcn) 和前两个项目的气质不太一样。
 
@@ -107,7 +107,7 @@ GitHub：<https://github.com/MaoTouHU/vibecodingcn>
 
 ### lovable-for-beginners：面向不想先碰代码的新手
 
-GitHub：<https://github.com/cporter202/lovable-for-beginners>
+<GithubInfo owner="cporter202" repo="lovable-for-beginners" />
 
 [`cporter202/lovable-for-beginners`](https://github.com/cporter202/lovable-for-beginners) 是一门面向绝对新手的 Lovable 课程。
 
@@ -131,7 +131,7 @@ GitHub：<https://github.com/cporter202/lovable-for-beginners>
 
 ### gpt-codex：专门给国内开发者准备的 Codex 教程
 
-GitHub：<https://github.com/xianyu110/gpt-codex>
+<GithubInfo owner="xianyu110" repo="gpt-codex" />
 官网：<https://codex.maynorai.top/>
 
 清单里特别要求保留这一句：[`xianyu110/gpt-codex`](https://github.com/xianyu110/gpt-codex) **这是一个关于 OpenAI Codex 的完整教程网站，专为国内开发者打造。**
@@ -158,7 +158,7 @@ GitHub：<https://github.com/xianyu110/gpt-codex>
 
 ### ai-guide：当成总导航用，不要当成第一本教材硬啃
 
-GitHub：<https://github.com/liyupi/ai-guide>
+<GithubInfo owner="liyupi" repo="ai-guide" />
 官网：<https://ai.codefather.cn>
 
 [`liyupi/ai-guide`](https://github.com/liyupi/ai-guide) 的体量很大。官方描述也写得很满：它是鱼皮的 AI 资源大全加 Vibe Coding 零基础教程，覆盖 DeepSeek、GPT、Gemini、Claude、MCP、RAG、Claude Code、Codex、Copilot、Harness Engineering、Spring AI 等大量主题。
@@ -185,7 +185,7 @@ GitHub：<https://github.com/liyupi/ai-guide>
 
 ### vibe-kanban：把任务拆成卡片
 
-GitHub：<https://github.com/BloopAI/vibe-kanban>
+<GithubInfo owner="BloopAI" repo="vibe-kanban" />
 官网：<https://www.vibekanban.com/>
 
 [`BloopAI/vibe-kanban`](https://github.com/BloopAI/vibe-kanban) 的官方描述非常直接：**Get 10X more out of Claude Code, Codex or any coding agent**。
@@ -218,7 +218,7 @@ GitHub：<https://github.com/BloopAI/vibe-kanban>
 
 ### context-engineering-intro：把"上下文"当成一门工程来学
 
-GitHub：<https://github.com/coleam00/context-engineering-intro>
+<GithubInfo owner="coleam00" repo="context-engineering-intro" />
 
 [`coleam00/context-engineering-intro`](https://github.com/coleam00/context-engineering-intro) 的官方描述很明确：**Context engineering is the new vibe coding**。
 
@@ -263,7 +263,7 @@ context-engineering-intro/
 
 ### learn-harness-engineering：从环境、状态、验证和控制机制补课
 
-GitHub：<https://github.com/walkinglabs/learn-harness-engineering>
+<GithubInfo owner="walkinglabs" repo="learn-harness-engineering" />
 官网：<https://walkinglabs.github.io/learn-harness-engineering/>
 
 结合当前可查到的仓库资料，我这里主要参考的是 [`walkinglabs/learn-harness-engineering`](https://github.com/walkinglabs/learn-harness-engineering)。

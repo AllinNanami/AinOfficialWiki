@@ -8,31 +8,19 @@
 
 新机开荒是第一步。很多人拿到电脑就急着装软件，但先把系统设置调好更重要。这个视频覆盖了动画效果、后台服务、隐私选项、基础设置、软件下载安装注意事项。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1oUw9zKEDb/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="猛攻电脑小白薄弱点！Windows系统超基础必学调教指南，新机开荒教程，系统优化技巧，基础设置，软件下载安装注意事项。【天才赵德柱】" bvid="BV1oUw9zKEDb" />
 
 ### 全网最好的电脑优化与新机开荒攻略，没有之一
 
 另一个高质量的优化攻略，讲得更系统全面。如果你想要一个完整的优化清单，这个视频会更适合。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1PqGHzDEUx/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【电脑优化】全网最好的电脑优化与新机开荒攻略，没有之一" bvid="BV1PqGHzDEUx" />
 
 ### Win11 优化设置指南
 
 专门针对 Windows 11 的优化设置教程。让你的电脑干净又流畅，从视觉效果到后台服务都有覆盖。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1FwVNzeEXG/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【建议收藏】win11优化设置指南！让你的电脑干净又流畅，windows11设置教程" bvid="BV1FwVNzeEXG" />
 
 ### Windows 11 必做的优化设置
 
@@ -106,11 +94,7 @@ Ctrl+Shift+Esc 打开任务管理器 → 启动 → 禁用不需要的启动项
 
 Win 键看起来没什么用，但配合其他键能实现很多快捷操作。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1QADXBZE9T/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【收藏预警】电脑最废物的Win键，却藏着上班摸鱼提效神技!!!" bvid="BV1QADXBZE9T" />
 
 ### Win 键常用快捷键
 
@@ -226,11 +210,7 @@ Windows 里有三种账户类型：
 
 设置 → 账户 → 你的信息 → 看"管理员"还是"标准用户"
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1tfu4zcENX/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="Windows 中普通管理员、超级管理员（Administrator）和标准账户都有什么区别？" bvid="BV1tfu4zcENX" />
 
 ### UAC（用户账户控制）怎么设置？
 
@@ -252,11 +232,7 @@ UAC 就是安装软件时弹出的那个"是否允许此应用对你的设备进
 
 Windows 自带一堆预装软件，很多人根本用不到。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV11PXfBuEae/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="Windows 也太臃肿了，这些预装软件都不用留" bvid="BV11PXfBuEae" />
 
 ### 可以安全卸载的预装软件
 
@@ -304,11 +280,7 @@ Get-AppxPackage *Microsoft.XboxGamingOverlay* | Remove-AppxPackage
 
 有些软件卸载不干净会残留文件，甚至影响系统。这个视频以 OfficePLUS 为例，教你怎么彻底卸载有问题的软件。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1Ufw7zXEu1/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="彻底卸载二次收费软件officePLUS" bvid="BV1Ufw7zXEu1" />
 
 ### 彻底卸载软件的方法
 

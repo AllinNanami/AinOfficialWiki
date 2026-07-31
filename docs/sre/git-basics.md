@@ -828,7 +828,7 @@ E.g.
 
 ### 其他教程
 
-- [GitHub上的项目要怎么运行](https://www.bilibili.com/video/BV1VC4y1F7DG?spm_id_from=333.1245.0.0)
+<BilibiliCard title="GitHub上的项目要怎么运行" bvid="BV1VC4y1F7DG" />
 - [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 - [关于使用watt toolkit (steampp.net)加速github](https://blog.csdn.net/one_hk/article/details/143134669)
 - [github访问慢，npm 等 半天，dev-sidecar这个工具帮你轻松搞定一切。](https://zhuanlan.zhihu.com/p/361721172)

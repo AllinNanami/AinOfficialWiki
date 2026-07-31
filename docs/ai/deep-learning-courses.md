@@ -35,11 +35,7 @@ description: 吴恩达、李沐、李飞飞三大系列深度学习课程的详�
 - 缺点：节奏偏慢，有基础的人会觉得"太啰嗦"；数学深度不够，想深入理论需要额外补课；Coursera 平台需要付费才能拿证书（可以免费旁听但没有证书）
 - 适合人群：完全零基础、转行进入 AI 领域、想快速建立直觉的人
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1Fx5Wz9Eyb/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【2025版】吴恩达机器学习入门到精通系列课程！一口气学完！神经网络、监督学习、梯度下降、多个人工智能核心知识点！就怕你学不会！人工智能/神经网络/深度学习" bvid="BV1Fx5Wz9Eyb" />
 
 ### 200 集深度学习课程
 
@@ -66,11 +62,7 @@ description: 吴恩达、李沐、李飞飞三大系列深度学习课程的详�
 - 缺点：部分内容（如 RNN 的某些应用）在 2025 年看已经有些过时；TensorFlow 1.x 到 2.x 的过渡期有些作业体验不太好；GAN 和 YOLO 的覆盖深度有限
 - 适合人群：学完机器学习基础后想系统学深度学习的人
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1tKsre7EDv/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【整整200集】不愧是吴恩达，一口气把CNN、RNN、GAN、LSTM、YOLO、transformer等六大深度学习神经网路算法，新手小白秒上手！-人工智能" bvid="BV1tKsre7EDv" />
 
 ### 吴恩达系列学习建议
 
@@ -106,11 +98,7 @@ D2L 由李沐、Alex Smola、Aston Zhang、Rachel Hu 合著，在 GitHub 上有 
 - 缺点：对零基础不太友好，默认你有 Python 编程和线性代数基础；李沐的讲课风格比较"干"，没有吴恩达那种娓娓道来的感觉；视频时长较长，需要耐心
 - 适合人群：有一定编程基础，想通过动手写代码来理解深度学习的人
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1JPZEYKEvR/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【2025版】李沐动手学深度学习系列课程！包含深度学习、机器学习算法、神经网络、计算机视觉物体检测、迁移学习、大模型微调等人工智能核心知识点！草覆虫都能学会！" bvid="BV1JPZEYKEvR" />
 
 ### 一小时从函数到 Transformer
 
@@ -132,11 +120,7 @@ D2L 由李沐、Alex Smola、Aston Zhang、Rachel Hu 合著，在 GitHub 上有 
 
 李沐的风格是"用最少的话讲清核心"，不会反复解释基础概念。如果你能跟上节奏，一小时能建立很好的整体框架；如果跟不上，建议先去学更基础的课程再回来看。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1NCgVzoEG9/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【闪客】一小时从函数到 Transformer" bvid="BV1NCgVzoEG9" />
 
 ### 李沐 vs 吴恩达：怎么选？
 
@@ -179,11 +163,7 @@ D2L 由李沐、Alex Smola、Aston Zhang、Rachel Hu 合著，在 GitHub 上有 
 - 缺点：难度较大，不适合完全零基础；B 站搬运版可能缺少最新的作业和项目；部分课程内容偏向学术，工业实践覆盖相对少
 - 适合人群：想做计算机视觉方向的研究或工程，有 Python 和线性代数基础
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV126psewEVL/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="【整整200集】不愧是李飞飞，一口把深度学习、计算机视觉、神经网络、图像处理、图像分割、目标检测、物体识别给讲透了，新手小白秒上手！-人工智能/计算机视觉" bvid="BV126psewEVL" />
 
 ### 李飞飞课程的学习建议
 
@@ -271,11 +251,7 @@ Docker 在深度学习项目中几乎是必备技能——配置环境、部署�
 
 深度学习项目经常遇到"我的环境跑得好好的，换台机器就不行了"的问题。Docker 能解决这个。学完这个视频，你应该能写 Dockerfile、构建镜像、运行容器。更深的编排（Docker Compose、Kubernetes）需要额外学习。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1THKyzBER6/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="40分钟的Docker实战攻略，一期视频精通Docker" bvid="BV1THKyzBER6" />
 
 ### Harness Engineering 是什么？
 
@@ -291,11 +267,7 @@ Harness Engineering 这个概念在 AI 工程化领域比较新。它指的是"�
 
 如果你已经在做 AI 应用开发（比如用 LangChain、LlamaIndex 构建 Agent），这个视频能帮你理解更宏观的工程化思路。如果你还在入门阶段，暂时不需要看。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1dpQTB3EXg/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="Harness Engineering是什么？和提示词工程和上下文工程有什么关系？" bvid="BV1dpQTB3EXg" />
 
 ### 尽量客观锐评 8 大主流人工智能教程
 
@@ -305,11 +277,7 @@ Harness Engineering 这个概念在 AI 工程化领域比较新。它指的是"�
 
 从网络反馈来看，这类"课程评价"视频通常有一定的主观倾向——评价者自己的学习经历和偏好会影响排序。但作为"快速了解各课程特点"的参考还是有价值的。建议看完后，结合自己的基础和目标做判断，不要完全跟着别人的排名走。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1e8C2BhEX5/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="尽量客观锐评下8大主流人工智能教程的从夯到拉排名！！！——深度学习/神经网络/AI" bvid="BV1e8C2BhEX5" />
 
 ## 课程对比表格
 

@@ -17,7 +17,7 @@ description: 从 Read Frog、KISS Translator 和 SentiaRead 的官方资料出�
 
 ## Read Frog：把网页翻译做成陪读流程
 
-GitHub：<https://github.com/mengxi-ream/read-frog>
+<GithubInfo owner="mengxi-ream" repo="read-frog" />
 
 官网：<https://readfrog.app>
 
@@ -92,7 +92,7 @@ Read Frog 常见的使用场景有：
 
 ## KISS Translator：尽量保持简单，把控制权交还给用户
 
-GitHub：<https://github.com/fishjar/kiss-translator>
+<GithubInfo owner="fishjar" repo="kiss-translator" />
 
 官网：<https://fishjar.github.io/kiss-translator/options.html>
 

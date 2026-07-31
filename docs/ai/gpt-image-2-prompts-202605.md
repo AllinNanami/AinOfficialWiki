@@ -12,7 +12,7 @@ description: 从 awesome-gpt-image-2-API-and-Prompts 的分类案例出发，整
 这一篇看的是 `awesome-gpt-image-2-API-and-Prompts`。它是一个持续更新的 prompt 案例仓库，适合拿来做两件事：找灵感，顺手学别人怎么把 prompt 写成模板。
 
 ## `awesome-gpt-image-2-API-and-Prompts`：分类与案例
-GitHub：<https://github.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts>
+<GithubInfo owner="EvoLinkAI" repo="awesome-gpt-image-2-API-and-Prompts" />
 
 仓库名字很直白：`Awesome GPT Image 2 API and Prompts`。仓库首页把它定位成一个持续整理的案例库，内容包括 prompt 示例、API 使用方式、可复用工作流，以及每条案例对应的输出图。
 

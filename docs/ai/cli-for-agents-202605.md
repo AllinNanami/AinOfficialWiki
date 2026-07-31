@@ -29,7 +29,7 @@ description: 从 CLI-Anything、OpenCLI 和飞书 CLI 三个项目出发，看�
 
 ### CLI-Anything
 
-GitHub：<https://github.com/HKUDS/CLI-Anything>
+<GithubInfo owner="HKUDS" repo="CLI-Anything" />
 
 官网：<https://clianything.cc/>
 
@@ -113,7 +113,7 @@ CLI-Anything 位于"前置改造层"。它不负责让 Agent 直接写日报，�
 
 ### OpenCLI
 
-GitHub：<https://github.com/jackwener/OpenCLI>
+<GithubInfo owner="jackwener" repo="OpenCLI" />
 
 官网：<https://opencli.info/>
 
@@ -232,7 +232,7 @@ OpenCLI 和 Playwright 这类工具的分工并不一样：
 
 ### 飞书 CLI
 
-GitHub：<https://github.com/larksuite/cli>
+<GithubInfo owner="larksuite" repo="cli" />
 
 官网：<https://open.feishu.cn/document/home/index>
 
@@ -453,9 +453,9 @@ Agent 调 CLI 当然会出错，而且一旦出错，速度更快、影响面也
 
 ### 视频参考
 
-- Bilibili：<https://www.bilibili.com/video/BV1G29EBGE8b/>《为什么巨头都在做 CLI（命令行界面）？比 MCP 有哪些优势？》
-- Bilibili：<https://www.bilibili.com/video/BV18VX2ByEfA/>《飞书CLI开源，OpenClaw，Claude Code，Codex丝滑操控飞书》
-- Bilibili：<https://www.bilibili.com/video/BV16zDfBtECQ/>《为什么越来越多的人抛弃 MCP，转向 CLI？》
+<BilibiliCard title="为什么巨头都在做 CLI（命令行界面）？比 MCP 有哪些优势？" bvid="BV1G29EBGE8b" />
+<BilibiliCard title="飞书CLI开源，OpenClaw，Claude Code，Codex丝滑操控飞书" bvid="BV18VX2ByEfA" />
+<BilibiliCard title="为什么越来越多的人抛弃 MCP，转向 CLI？" bvid="BV16zDfBtECQ" />
 
 ### 官方文档与仓库
 

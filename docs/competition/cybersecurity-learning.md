@@ -415,8 +415,4 @@ CTF（Capture The Flag）是网络安全竞赛，通过解决安全挑战来获�
 
 **参考视频：**
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV12zDkBWE3e/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="网安人的天堂！12 个自学网络安全的网站" bvid="BV12zDkBWE3e" />

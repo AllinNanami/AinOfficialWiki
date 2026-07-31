@@ -36,25 +36,25 @@ OpenClaw 代表了一类强调本机权限、电脑操作与本地工作流的�
 
 #### AI 助手安装教程
 
-- [【OpenClaw龙虾安装+接入QQ保姆级教程！附上门卸载服务】](https://www.bilibili.com/video/BV1D4wcz6EVV/)
-- [OpenClaw(Clawdbot) 海量全玩法攻略，国内网络使用，本地部署](https://www.bilibili.com/video/BV1kH6nBFEPq/)
+<BilibiliCard title="【OpenClaw龙虾安装+接入QQ保姆级教程！附上门卸载服务】" bvid="BV1D4wcz6EVV" />
+<BilibiliCard title="OpenClaw(Clawdbot) 海量全玩法攻略，国内网络使用，本地部署" bvid="BV1kH6nBFEPq" />
 - [再见OpenClaw,memU Bot 接入飞书后,我的摸鱼看起来像加班](https://mp.weixin.qq.com/s/XBibeZVk6M67VVa-EfZnyQ)
 - [5 分钟上手 Nanobot：轻量级 AI 助手完整使用教程](https://zhuanlan.zhihu.com/p/2002810026927093120)
-- [linux安装openclaw对接本地模型_远程ip访问_开发的技能应用](https://www.bilibili.com/video/BV1yFFFzpE4p/)
-- [不用买macmini！手把手教你在NAS（LINUX虚拟机）里安装Clawdbot/Moltbot](https://www.bilibili.com/video/BV1fL6vB8EY7)
-- [【超简单】用一台废弃的Linux笔记本，部署了openclaw做我的AI助理，并和她飞鸽传书，帅呆了！](https://www.bilibili.com/video/BV16VFLzfEaY/)
-- [为什么Mac mini糟全球疯抢？在mini使用3天OpenClaw之后，我发现Mac mini太值了! | OpenClaw安装方法 | 评测 | 大耳朵TV](https://www.bilibili.com/video/BV1sMFLzAE42)
-- [【闪客】揭秘 Clawdbot 背后干了什么？怪不得这么费钱...](https://www.bilibili.com/video/BV1sSF6z3Eku/)
-- [搞懂 Agent 形态演进的底层逻辑！Claw 并不一定是 OpenClaw](https://www.bilibili.com/video/BV1fUwczxEJe)
-- [精通OpenClaw变高手，OpenClaw从中级到高级完整教程](https://www.bilibili.com/video/BV1ZiNwzPEhP)
+<BilibiliCard title="linux安装openclaw对接本地模型_远程ip访问_开发的技能应用" bvid="BV1yFFFzpE4p" />
+<BilibiliCard title="不用买macmini！手把手教你在NAS（LINUX虚拟机）里安装Clawdbot/Moltbot" bvid="BV1fL6vB8EY7" />
+<BilibiliCard title="【超简单】用一台废弃的Linux笔记本，部署了openclaw做我的AI助理，并和她飞鸽传书，帅呆了！" bvid="BV16VFLzfEaY" />
+<BilibiliCard title="为什么Mac mini糟全球疯抢？在mini使用3天OpenClaw之后，我发现Mac mini太值了! | OpenClaw安装方法 | 评测 | 大耳朵TV" bvid="BV1sMFLzAE42" />
+<BilibiliCard title="【闪客】揭秘 Clawdbot 背后干了什么？怪不得这么费钱..." bvid="BV1sSF6z3Eku" />
+<BilibiliCard title="搞懂 Agent 形态演进的底层逻辑！Claw 并不一定是 OpenClaw" bvid="BV1fUwczxEJe" />
+<BilibiliCard title="精通OpenClaw变高手，OpenClaw从中级到高级完整教程" bvid="BV1ZiNwzPEhP" />
 
 #### AI 早报自动化参考
 
-- [juya-ai-daily](https://github.com/imjuya/juya-ai-daily)
-- [juya-news-card](https://github.com/imjuya/juya-news-card)
-- [md2video](https://github.com/imjuya/md2video)
-- [轻松复刻！爆肝揭秘万粉 UP 主是如何炼成的，我的 AI 早报“生产线”大公开。](https://www.bilibili.com/video/BV1B82DBdEdP/)
-- [文字版 RSS 订阅上线；视频版卡片画面生成工具开源](https://www.bilibili.com/video/BV199AUzHE8q/)
+<GithubInfo owner="imjuya" repo="juya-ai-daily" />
+<GithubInfo owner="imjuya" repo="juya-news-card" />
+<GithubInfo owner="imjuya" repo="md2video" />
+<BilibiliCard title="轻松复刻！爆肝揭秘万粉 UP 主是如何炼成的，我的 AI 早报“生产线”大公开。" bvid="BV1B82DBdEdP" />
+<BilibiliCard title="文字版 RSS 订阅上线；视频版卡片画面生成工具开源" bvid="BV199AUzHE8q" />
 
 ## Level 0：认识核心工具链并安装框架
 

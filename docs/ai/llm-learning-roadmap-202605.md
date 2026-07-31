@@ -19,7 +19,7 @@ minimind 和 minimind-v 的定位容易被混掉，下面正文会逐一纠正�
 
 ## Dive into LLMs：11 个主题总览
 
-GitHub：<https://github.com/Lordog/dive-into-llms>
+<GithubInfo owner="Lordog" repo="dive-into-llms" />
 昇腾课程专区：<https://www.hiascend.com/edu/growth/lm-development#classification-floor-1>
 
 放在最前面的是 `Dive into LLMs`，因为它最适合做全局地图。
@@ -76,7 +76,7 @@ GitHub：<https://github.com/Lordog/dive-into-llms>
 
 ## minimind：自己训一遍小参数 LLM
 
-GitHub：<https://github.com/jingyaogong/minimind>
+<GithubInfo owner="jingyaogong" repo="minimind" />
 
 如果 `Dive into LLMs` 负责给你全局地图，`minimind` 负责让你上手一个小参数语言模型。
 
@@ -105,7 +105,7 @@ GitHub：<https://github.com/jingyaogong/minimind>
 
 ## minimind-v：从语言模型走到视觉多模态
 
-GitHub：<https://github.com/jingyaogong/minimind-v>
+<GithubInfo owner="jingyaogong" repo="minimind-v" />
 
 接下来是 `minimind-v`。
 
@@ -141,7 +141,7 @@ GitHub：<https://github.com/jingyaogong/minimind-v>
 
 ## minimind-o：把文、音、图收进一个 Omni 链路
 
-GitHub：<https://github.com/jingyaogong/minimind-o>
+<GithubInfo owner="jingyaogong" repo="minimind-o" />
 论文：<http://arxiv.org/abs/2605.03937>
 
 `minimind-o` 是信息密度最高的一个仓库。

@@ -13,7 +13,7 @@ description: 把 40 个常被反复转发的 GitHub 仓库按学习、工程、A
 
 ### awesome-llm-apps
 
-GitHub：<https://github.com/Shubhamsaboo/awesome-llm-apps>
+<GithubInfo owner="Shubhamsaboo" repo="awesome-llm-apps" />
 
 这个仓库不在 40 个正式名单里，但很适合作为补充目录看。等你把本文 4 组仓库读完，再回头刷 `awesome-llm-apps`，会更容易判断哪些项目值得继续跟。
 
@@ -23,7 +23,7 @@ GitHub：<https://github.com/Shubhamsaboo/awesome-llm-apps>
 
 ### freeCodeCamp
 
-GitHub：<https://github.com/freeCodeCamp/freeCodeCamp>
+<GithubInfo owner="freeCodeCamp" repo="freeCodeCamp" />
 
 文档：<https://contribute.freecodecamp.org>
 
@@ -33,7 +33,7 @@ GitHub：<https://github.com/freeCodeCamp/freeCodeCamp>
 
 ### free-programming-books
 
-GitHub：<https://github.com/EbookFoundation/free-programming-books>
+<GithubInfo owner="EbookFoundation" repo="free-programming-books" />
 
 官网：<https://ebookfoundation.github.io/free-programming-books/>
 
@@ -43,7 +43,7 @@ GitHub：<https://github.com/EbookFoundation/free-programming-books>
 
 ### developer-roadmap
 
-GitHub：<https://github.com/kamranahmedse/developer-roadmap>
+<GithubInfo owner="kamranahmedse" repo="developer-roadmap" />
 
 官网：<https://roadmap.sh>
 
@@ -53,7 +53,7 @@ GitHub：<https://github.com/kamranahmedse/developer-roadmap>
 
 ### coding-interview-university
 
-GitHub：<https://github.com/jwasham/coding-interview-university>
+<GithubInfo owner="jwasham" repo="coding-interview-university" />
 
 一句话说明：一套非常硬核的计算机基础补课清单，覆盖数据结构、算法、系统和面试准备。
 
@@ -61,7 +61,7 @@ GitHub：<https://github.com/jwasham/coding-interview-university>
 
 ### system-design-primer
 
-GitHub：<https://github.com/donnemartin/system-design-primer>
+<GithubInfo owner="donnemartin" repo="system-design-primer" />
 
 一句话说明：大型系统设计入门与面试资料库，适合建立分布式系统直觉。
 
@@ -69,7 +69,7 @@ GitHub：<https://github.com/donnemartin/system-design-primer>
 
 ### project-based-learning
 
-GitHub：<https://github.com/practical-tutorials/project-based-learning>
+<GithubInfo owner="practical-tutorials" repo="project-based-learning" />
 
 一句话说明：按项目练手的教程索引，适合把知识点变成可跑作品。
 
@@ -77,7 +77,7 @@ GitHub：<https://github.com/practical-tutorials/project-based-learning>
 
 ### build-your-own-x
 
-GitHub：<https://github.com/codecrafters-io/build-your-own-x>
+<GithubInfo owner="codecrafters-io" repo="build-your-own-x" />
 
 官网：<https://codecrafters.io>
 
@@ -87,7 +87,7 @@ GitHub：<https://github.com/codecrafters-io/build-your-own-x>
 
 ### you-dont-know-js
 
-GitHub：<https://github.com/getify/You-Dont-Know-JS>
+<GithubInfo owner="getify" repo="You-Dont-Know-JS" />
 
 一句话说明：JavaScript 进阶阅读材料，适合把"会写"推进到"真懂运行机制"。
 
@@ -95,7 +95,7 @@ GitHub：<https://github.com/getify/You-Dont-Know-JS>
 
 ### javascript-algorithms
 
-GitHub：<https://github.com/trekhleb/javascript-algorithms>
+<GithubInfo owner="trekhleb" repo="javascript-algorithms" />
 
 一句话说明：用 JavaScript 实现常见算法与数据结构，并配上解释和延伸阅读。
 
@@ -103,7 +103,7 @@ GitHub：<https://github.com/trekhleb/javascript-algorithms>
 
 ### tech-interview-handbook
 
-GitHub：<https://github.com/yangshun/tech-interview-handbook>
+<GithubInfo owner="yangshun" repo="tech-interview-handbook" />
 
 官网：<https://www.techinterviewhandbook.org>
 
@@ -117,7 +117,7 @@ GitHub：<https://github.com/yangshun/tech-interview-handbook>
 
 ### public-apis
 
-GitHub：<https://github.com/public-apis/public-apis>
+<GithubInfo owner="public-apis" repo="public-apis" />
 
 官网：<https://APILayer.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo>
 
@@ -127,7 +127,7 @@ GitHub：<https://github.com/public-apis/public-apis>
 
 ### the-art-of-command-line
 
-GitHub：<https://github.com/jlevy/the-art-of-command-line>
+<GithubInfo owner="jlevy" repo="the-art-of-command-line" />
 
 一句话说明：命令行速查手册，适合补终端、脚本和日常操作细节。
 
@@ -135,7 +135,7 @@ GitHub：<https://github.com/jlevy/the-art-of-command-line>
 
 ### the-book-of-secret-knowledge
 
-GitHub：<https://github.com/trimstray/the-book-of-secret-knowledge>
+<GithubInfo owner="trimstray" repo="the-book-of-secret-knowledge" />
 
 一句话说明：大量 cheatsheet、脚本、工具、文章和操作技巧的聚合仓库。
 
@@ -143,7 +143,7 @@ GitHub：<https://github.com/trimstray/the-book-of-secret-knowledge>
 
 ### 30-seconds-of-code
 
-GitHub：<https://github.com/Chalarangelo/30-seconds-of-code>
+<GithubInfo owner="Chalarangelo" repo="30-seconds-of-code" />
 
 官网：<https://30secondsofcode.org/>
 
@@ -153,7 +153,7 @@ GitHub：<https://github.com/Chalarangelo/30-seconds-of-code>
 
 ### gitignore
 
-GitHub：<https://github.com/github/gitignore>
+<GithubInfo owner="github" repo="gitignore" />
 
 一句话说明：常见语言、框架、编辑器的 `.gitignore` 模板集合。
 
@@ -161,7 +161,7 @@ GitHub：<https://github.com/github/gitignore>
 
 ### awesome-selfhosted
 
-GitHub：<https://github.com/awesome-selfhosted/awesome-selfhosted>
+<GithubInfo owner="awesome-selfhosted" repo="awesome-selfhosted" />
 
 官网：<https://awesome-selfhosted.net/>
 
@@ -175,7 +175,7 @@ GitHub：<https://github.com/awesome-selfhosted/awesome-selfhosted>
 
 ### ollama
 
-GitHub：<https://github.com/ollama/ollama>
+<GithubInfo owner="ollama" repo="ollama" />
 
 官网：<https://ollama.com>
 
@@ -185,7 +185,7 @@ GitHub：<https://github.com/ollama/ollama>
 
 ### open-webui
 
-GitHub：<https://github.com/open-webui/open-webui>
+<GithubInfo owner="open-webui" repo="open-webui" />
 
 官网：<https://openwebui.com>
 
@@ -195,7 +195,7 @@ GitHub：<https://github.com/open-webui/open-webui>
 
 ### n8n
 
-GitHub：<https://github.com/n8n-io/n8n>
+<GithubInfo owner="n8n-io" repo="n8n" />
 
 官网：<https://n8n.io>
 
@@ -205,7 +205,7 @@ GitHub：<https://github.com/n8n-io/n8n>
 
 ### dify
 
-GitHub：<https://github.com/langgenius/dify>
+<GithubInfo owner="langgenius" repo="dify" />
 
 官网：<https://dify.ai>
 
@@ -215,7 +215,7 @@ GitHub：<https://github.com/langgenius/dify>
 
 ### langflow
 
-GitHub：<https://github.com/langflow-ai/langflow>
+<GithubInfo owner="langflow-ai" repo="langflow" />
 
 官网：<https://www.langflow.org>
 
@@ -225,7 +225,7 @@ GitHub：<https://github.com/langflow-ai/langflow>
 
 ### markitdown
 
-GitHub：<https://github.com/microsoft/markitdown>
+<GithubInfo owner="microsoft" repo="markitdown" />
 
 一句话说明：把 PDF、Office 文档、图片等内容转成 Markdown，方便模型进一步处理。
 
@@ -233,7 +233,7 @@ GitHub：<https://github.com/microsoft/markitdown>
 
 ### lobe-hub
 
-GitHub：<https://github.com/lobehub/lobe-chat>
+<GithubInfo owner="lobehub" repo="lobe-chat" />
 
 官网：<https://lobehub.com>
 
@@ -243,7 +243,7 @@ GitHub：<https://github.com/lobehub/lobe-chat>
 
 ### stable-diffusion-webui
 
-GitHub：<https://github.com/AUTOMATIC1111/stable-diffusion-webui>
+<GithubInfo owner="AUTOMATIC1111" repo="stable-diffusion-webui" />
 
 一句话说明：经典的 Stable Diffusion Web 界面项目，适合本地或私有化图像生成实验。
 
@@ -255,7 +255,7 @@ GitHub：<https://github.com/AUTOMATIC1111/stable-diffusion-webui>
 
 ### langchain
 
-GitHub：<https://github.com/langchain-ai/langchain>
+<GithubInfo owner="langchain-ai" repo="langchain" />
 
 文档：<https://docs.langchain.com/langchain/>
 
@@ -265,7 +265,7 @@ GitHub：<https://github.com/langchain-ai/langchain>
 
 ### openclaw
 
-GitHub：<https://github.com/openclaw/openclaw>
+<GithubInfo owner="openclaw" repo="openclaw" />
 
 官网：<https://openclaw.ai>
 
@@ -275,7 +275,7 @@ GitHub：<https://github.com/openclaw/openclaw>
 
 ### mem0
 
-GitHub：<https://github.com/mem0ai/mem0>
+<GithubInfo owner="mem0ai" repo="mem0" />
 
 官网：<https://mem0.ai>
 
@@ -285,7 +285,7 @@ GitHub：<https://github.com/mem0ai/mem0>
 
 ### browser-use
 
-GitHub：<https://github.com/browser-use/browser-use>
+<GithubInfo owner="browser-use" repo="browser-use" />
 
 官网：<https://browser-use.com>
 
@@ -295,7 +295,7 @@ GitHub：<https://github.com/browser-use/browser-use>
 
 ### browserbase-skills
 
-GitHub：<https://github.com/browserbase/skills>
+<GithubInfo owner="browserbase" repo="skills" />
 
 官网：<https://www.browserbase.com/SKILL.md>
 
@@ -305,7 +305,7 @@ GitHub：<https://github.com/browserbase/skills>
 
 ### crewai
 
-GitHub：<https://github.com/crewAIInc/crewAI>
+<GithubInfo owner="crewAIInc" repo="crewAI" />
 
 官网：<https://crewai.com>
 
@@ -315,7 +315,7 @@ GitHub：<https://github.com/crewAIInc/crewAI>
 
 ### autogen
 
-GitHub：<https://github.com/microsoft/autogen>
+<GithubInfo owner="microsoft" repo="autogen" />
 
 文档：<https://microsoft.github.io/autogen/>
 
@@ -325,7 +325,7 @@ GitHub：<https://github.com/microsoft/autogen>
 
 ### metagpt
 
-GitHub：<https://github.com/FoundationAgents/MetaGPT>
+<GithubInfo owner="FoundationAgents" repo="MetaGPT" />
 
 官网：<https://atoms.dev/>
 
@@ -335,7 +335,7 @@ GitHub：<https://github.com/FoundationAgents/MetaGPT>
 
 ### hermes-agent
 
-GitHub：<https://github.com/NousResearch/hermes-agent>
+<GithubInfo owner="NousResearch" repo="hermes-agent" />
 
 官网：<https://hermes-agent.nousresearch.com>
 
@@ -345,7 +345,7 @@ GitHub：<https://github.com/NousResearch/hermes-agent>
 
 ### aider
 
-GitHub：<https://github.com/Aider-AI/aider>
+<GithubInfo owner="Aider-AI" repo="aider" />
 
 官网：<https://aider.chat/>
 
@@ -355,7 +355,7 @@ GitHub：<https://github.com/Aider-AI/aider>
 
 ### ruflo
 
-GitHub：<https://github.com/ruvnet/ruflo>
+<GithubInfo owner="ruvnet" repo="ruflo" />
 
 官网：<https://cognitum.one>
 
@@ -365,7 +365,7 @@ GitHub：<https://github.com/ruvnet/ruflo>
 
 ### agency-agents
 
-GitHub：<https://github.com/msitarzewski/agency-agents>
+<GithubInfo owner="msitarzewski" repo="agency-agents" />
 
 一句话说明：把一整套 AI agency 角色做成可调用的专家集合。
 
@@ -373,7 +373,7 @@ GitHub：<https://github.com/msitarzewski/agency-agents>
 
 ### tradingagents
 
-GitHub：<https://github.com/TauricResearch/TradingAgents>
+<GithubInfo owner="TauricResearch" repo="TradingAgents" />
 
 一句话说明：面向金融交易分析的多 Agent 框架。
 
@@ -381,7 +381,7 @@ GitHub：<https://github.com/TauricResearch/TradingAgents>
 
 ### maigret
 
-GitHub：<https://github.com/soxoj/maigret>
+<GithubInfo owner="soxoj" repo="maigret" />
 
 文档：<https://maigret.readthedocs.io>
 
@@ -391,7 +391,7 @@ GitHub：<https://github.com/soxoj/maigret>
 
 ### cocoindex
 
-GitHub：<https://github.com/cocoindex-io/cocoindex>
+<GithubInfo owner="cocoindex-io" repo="cocoindex" />
 
 官网：<https://cocoindex.io>
 
@@ -401,7 +401,7 @@ GitHub：<https://github.com/cocoindex-io/cocoindex>
 
 ### huggingface-transformers
 
-GitHub：<https://github.com/huggingface/transformers>
+<GithubInfo owner="huggingface" repo="transformers" />
 
 文档：<https://huggingface.co/transformers>
 

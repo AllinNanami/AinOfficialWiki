@@ -11,7 +11,7 @@ description: 从 ai-knowledge-graph 的项目说明、配置和公开示例出�
 
 ## 项目背景与目标
 
-GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
+<GithubInfo owner="robert-mcdermott" repo="ai-knowledge-graph" />
 官网：<https://robert-mcdermott.github.io/ai-knowledge-graph/>
 
 仓库作者是 Robert McDermott。项目首页对它的定义很直接：输入一份非结构化文本，用任意 OpenAI-compatible LLM 抽取 Subject-Predicate-Object triplets，再把关系可视化成交互式知识图谱。
@@ -28,7 +28,7 @@ GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
 
 ## 运行方式和依赖
 
-GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
+<GithubInfo owner="robert-mcdermott" repo="ai-knowledge-graph" />
 官网：<https://robert-mcdermott.github.io/ai-knowledge-graph/>
 
 项目的 Quick Start 很短，适合跑通一遍。
@@ -104,7 +104,7 @@ generate-graph --input your_text_file.txt --output knowledge_graph.html
 
 ## Medium 文章里的流程
 
-GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
+<GithubInfo owner="robert-mcdermott" repo="ai-knowledge-graph" />
 官网：<https://robert-mcdermott.github.io/ai-knowledge-graph/>
 
 除了仓库说明页，作者还写了一篇 Medium 文章：`From Unstructured Text to Interactive Knowledge Graphs Using LLMs`。这篇文章当前直接抓取会遇到 Cloudflare 挑战，正文没有完整拿到；不过标题、摘要和公开搜索结果里的流程说明，和仓库说明页能互相对上。
@@ -121,7 +121,7 @@ GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
 
 ## 从文本到图：核心步骤怎么走
 
-GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
+<GithubInfo owner="robert-mcdermott" repo="ai-knowledge-graph" />
 官网：<https://robert-mcdermott.github.io/ai-knowledge-graph/>
 
 ### 1. 文本分析：切块与逐块处理
@@ -217,7 +217,7 @@ apply_transitive = true
 
 ## 交互式图谱到底怎么帮助读文档
 
-GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
+<GithubInfo owner="robert-mcdermott" repo="ai-knowledge-graph" />
 官网：<https://robert-mcdermott.github.io/ai-knowledge-graph/>
 
 仓库自带的示例图很直观：
@@ -302,7 +302,7 @@ demo 页里能看到 `Show Filters`、`Nodes`、`Edges`、`Select a property`、
 
 ## 跑一遍仓库自带示例
 
-GitHub：<https://github.com/robert-mcdermott/ai-knowledge-graph>
+<GithubInfo owner="robert-mcdermott" repo="ai-knowledge-graph" />
 官网：<https://robert-mcdermott.github.io/ai-knowledge-graph/>
 
 仓库已经给了一份示例文本：`data/industrial-revolution.txt`。直接照命令跑就行。
@@ -357,7 +357,7 @@ generate-graph --input data/industrial-revolution.txt --output industrial-revolu
 
 ## 代码库知识图谱：Understand Anything
 
-GitHub：<https://github.com/Lum1104/Understand-Anything>
+<GithubInfo owner="Lum1104" repo="Understand-Anything" />
 官网：<https://understand-anything.com>
 
 前面讲的 `ai-knowledge-graph` 面向的是非结构化文档——把报告、历史材料、技术说明书里的实体和关系抽出来。`Understand-Anything` 做的是另一件事：**把整个代码库变成可交互的知识图谱**。

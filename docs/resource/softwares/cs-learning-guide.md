@@ -8,21 +8,13 @@
 
 985 毕业学长的经验之谈。大一该学什么、大二该做什么、大三该怎么准备实习、大四该怎么找工作，每个阶段都有具体建议。如果你刚入学不知道怎么规划，这个视频能帮你建立基本框架。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1sgeuzTECT/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="软件工程大一新生入学规划？985毕业学长经验之谈" bvid="BV1sgeuzTECT" />
 
 ### 计算机专业，警惕 AI！
 
 AI 正在改变计算机行业，有些岗位可能会被取代。这个视频分析了 AI 对计算机专业的影响，哪些方向更有前景，哪些需要警惕。如果你在选方向，这个视频值得看看。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1SGz6YeEwn/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="计算机专业，警惕AI！" bvid="BV1SGz6YeEwn" />
 
 ## 课程学习
 
@@ -30,21 +22,13 @@ AI 正在改变计算机行业，有些岗位可能会被取代。这个视频�
 
 哪些课程真的有用，哪些课程浪费时间？这个视频根据实际工作经验，对计算机专业的课程做了排名。如果你在纠结选什么课，这个排名能帮你做决定。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1wz9NYcEDW/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="计算机专业后悔录，最无用与最有用课程排行榜！" bvid="BV1wz9NYcEDW" />
 
 ### 讲一些计算机学生必备的基础知识
 
 计算机专业有些基础知识是必须掌握的，不管以后做什么方向。这个视频列出了必备的基础知识清单，帮你查漏补缺。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1mEndzgE9y/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="讲一些计算机学生必备的基础知识" bvid="BV1mEndzgE9y" />
 
 ## 实习就业
 
@@ -52,21 +36,13 @@ AI 正在改变计算机行业，有些岗位可能会被取代。这个视频�
 
 计算机专业最危险的信息差，被学校骗了四年？错过这些毕业即失业？这个视频分享了大厂实习的准备经验，包括简历、面试、项目经验等。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1Z1XQYmE1h/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="大三的我是如何拿下三段大厂实习？计算机专业最危险的信息差，被学校骗了四年？！错过这些毕业即失业？" bvid="BV1Z1XQYmE1h" />
 
 ### 给年轻大学生的一些校园和择业建议
 
 校园生活怎么过，毕业该怎么选择？这个视频给出了一些实用的建议，包括社团、竞赛、实习、考研等。如果你在纠结毕业后的选择，这个视频能帮你理清思路。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV13GKpedEyo/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="给年轻大学生的一些校园和择业建议" bvid="BV13GKpedEyo" />
 
 ## 网络安全
 
@@ -74,11 +50,7 @@ AI 正在改变计算机行业，有些岗位可能会被取代。这个视频�
 
 网络安全是计算机的一个重要方向。这个视频推荐了 12 个自学网络安全的网站，覆盖入门到进阶。如果你想了解网络安全，从这些网站开始不会错。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV12zDkBWE3e/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="网安人的天堂！12 个自学网络安全的网站" bvid="BV12zDkBWE3e" />
 
 ## 考研深造
 
@@ -86,31 +58,19 @@ AI 正在改变计算机行业，有些岗位可能会被取代。这个视频�
 
 时间线、信息源、初试、复试、政治、外语、数学、专业课、择校、择专业，考研的所有环节这个视频都讲到了。如果你在考虑考研，这个视频能帮你建立完整的考研认知。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1qwzdY4EqG/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="一个视频讲透考研的一切！时间线/信息源/初试/复试/政治/外语/数学/专业课/择校/择专业" bvid="BV1qwzdY4EqG" />
 
 ### 什么是水刊、顶刊顶会？
 
 期刊级别划分及机构售价，sci、ccf、ssci、ei、国内核心……这些概念经常混着用。这个视频把期刊和会议的级别划分讲清楚了，帮你理解学术发表的基本规则。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1yM41157yT/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="什么是水刊、顶刊顶会？期刊级别划分及机构售价，sci，ccf，ssci，ei，国内核心…" bvid="BV1yM41157yT" />
 
 ### 读研后才知道的 15 件事
 
 读研和本科完全不同。这个视频分享了读研后才知道的 15 件事，包括导师选择、论文写作、科研方法等。如果你在考虑读研，这个视频能帮你提前了解研究生生活。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1i1dWBNEKZ/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="读研后才知道的15件事" bvid="BV1i1dWBNEKZ" />
 
 ## 文献管理
 
@@ -118,11 +78,7 @@ AI 正在改变计算机行业，有些岗位可能会被取代。这个视频�
 
 科研党必备的文献管理方法。这个视频演示了如何用 Notion 建立文献管理系统，导师看了都夸专业。如果你需要管理大量文献，这个方法值得学习。
 
-<LinkCard
-  title="Bilibili 视频"
-  href="https://www.bilibili.com/video/BV1R78yzCEQV/"
-  icon="mdi:play-circle"
-/>
+<BilibiliCard title="🐮 科研党必备｜Notion文献管理系统，导师看了都夸专业！" bvid="BV1R78yzCEQV" />
 
 ## 补充资源
 

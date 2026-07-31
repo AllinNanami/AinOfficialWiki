@@ -160,7 +160,7 @@ npx skills update
 
 ### 1. Vercel：从 React 最佳实践一路管到 Web 设计审查
 
-仓库：[`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills)
+<GithubInfo owner="vercel-labs" repo="agent-skills" />
 
 安装：
 
@@ -180,7 +180,7 @@ Vercel 文档里还有一个很实用的点：它把 React Native / Expo 也纳�
 
 ### 2. Vue：让 AI 按 Vue 的语法习惯做事
 
-仓库：[`vuejs-ai/skills`](https://github.com/vuejs-ai/skills)
+<GithubInfo owner="vuejs-ai" repo="skills" />
 
 安装：
 
@@ -201,7 +201,7 @@ Vue 这一组技能把场景拆得很细：`vue-best-practices`、`vue-router-be
 
 ### 3. Svelte：把“我记不住 runes 和 load 细节”这件事制度化解决
 
-仓库：[`spences10/svelte-claude-skills`](https://github.com/spences10/svelte-claude-skills)
+<GithubInfo owner="spences10" repo="svelte-claude-skills" />
 
 安装方式采用 clone / symlink 方案：
 
@@ -222,7 +222,7 @@ Svelte 这一组技能的特点是，它没有装成“万能 Svelte 专家”�
 
 ### 4. Anthony Fu：把个人偏好、现代前端和官方文档混成一套可复用肌肉记忆
 
-仓库：[`antfu/skills`](https://github.com/antfu/skills)
+<GithubInfo owner="antfu" repo="skills" />
 
 安装：
 
@@ -243,7 +243,7 @@ Anthony Fu 这个仓库很有代表性，因为它把两类东西放在了一起
 
 官方页面：[`expo.dev/expo-skills`](https://expo.dev/expo-skills)
 
-仓库：[`expo/skills`](https://github.com/expo/skills)
+<GithubInfo owner="expo" repo="skills" />
 
 这组 Skill 很适合移动端团队，因为 Expo 把“AI 最容易胡来的地方”直接做成了显式规范。
 
@@ -288,7 +288,7 @@ npx skills add expo/skills@upgrading-expo
 
 官方页面：[`better-auth.com/docs/ai-resources/skills`](https://better-auth.com/docs/ai-resources/skills)
 
-仓库：[`better-auth/skills`](https://github.com/better-auth/skills)
+<GithubInfo owner="better-auth" repo="skills" />
 
 安装时可以装整包，也可以只装单个技能：
 
@@ -321,7 +321,7 @@ npx skills add better-auth/skills@better-auth-best-practices
 
 ### 7. reverse-skill：逆向工程/渗透测试/安全研究技能路由包
 
-仓库：[`zhaoxuya520/reverse-skill`](https://github.com/zhaoxuya520/reverse-skill)
+<GithubInfo owner="zhaoxuya520" repo="reverse-skill" />
 
 安装：
 
@@ -350,7 +350,7 @@ reverse-skill 是一个 AI 驱动的逆向工程、渗透测试和安全研究�
 
 ### 1. `ui-ux-pro-max`：一整套设计辅助工具链
 
-仓库：[`nextlevelbuilder/ui-ux-pro-max-skill`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+<GithubInfo owner="nextlevelbuilder" repo="ui-ux-pro-max-skill" />
 
 安装方式和常见 skills.sh 仓库不太一样，它既支持 Claude Code marketplace，也有自己的 CLI：
 
@@ -382,7 +382,7 @@ uipro init --ai codex
 
 ### 3. `web-design-guidelines`：把 UI 审查从主观吐槽改成规则审计
 
-来源：[`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills)
+<GithubInfo owner="vercel-labs" repo="agent-skills" />
 
 虽然它已经在 Vercel 那节提过，但放到设计语境下还得再说一次，因为它最有用的场景在“审代码”这一步。
 

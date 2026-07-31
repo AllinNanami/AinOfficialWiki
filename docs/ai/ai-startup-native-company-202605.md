@@ -23,7 +23,7 @@ Anthropic 在 2026 年 5 月 14 日发布的《The founder's playbook: Building 
 
 ### `awesome-ceo`：一份创始人的问题清单
 
-GitHub：<https://github.com/kuchin/awesome-ceo>
+<GithubInfo owner="kuchin" repo="awesome-ceo" />
 
 `awesome-ceo` 把内容分成 `Fundraising`、`Entrepreneurship`、`Product`、`Sales`、`Marketing`、`Management`、`Hiring`、`Finance`、`Books` 九类。它是一份带明显主观取舍的 CEO 阅读入口。
 
@@ -40,7 +40,7 @@ GitHub：<https://github.com/kuchin/awesome-ceo>
 
 ### `one-person-company`：一人公司常见工具坑
 
-GitHub：<https://github.com/cyfyifanchen/one-person-company>
+<GithubInfo owner="cyfyifanchen" repo="one-person-company" />
 
 `one-person-company` 是中文语境里很典型的一类资料：作者直接把仓库命名成"一人公司"，开门第一句就是"有些工具是宝，有些工具是坑"。
 
@@ -63,7 +63,7 @@ GitHub：<https://github.com/cyfyifanchen/one-person-company>
 
 ### `JustHireMe`：比"自动海投"更重要的是问题定义
 
-GitHub：<https://github.com/vasu-devs/JustHireMe>
+<GithubInfo owner="vasu-devs" repo="JustHireMe" />
 
 官网：<https://www.justhireme.ai>
 
@@ -113,7 +113,7 @@ npm run tauri dev
 
 ### `agency-agents`：把一支人工智能服务团队拆成可装配角色
 
-GitHub：<https://github.com/msitarzewski/agency-agents>
+<GithubInfo owner="msitarzewski" repo="agency-agents" />
 
 `agency-agents` 的定位非常明确：它是一整套"AI specialists"。资料里还提到，它起源于一个 Reddit 讨论串，之后经历了几个月迭代。
 
@@ -168,7 +168,7 @@ cp engineering/*.md ~/.claude/agents/
 
 ### `AiToEarn`：一人公司的内容增长与变现工具
 
-GitHub：<https://github.com/yikart/AiToEarn>
+<GithubInfo owner="yikart" repo="AiToEarn" />
 
 官网：<https://aitoearn.ai>
 

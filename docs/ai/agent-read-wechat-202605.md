@@ -48,7 +48,7 @@ wx-cli 则完全不一样。它的首页定位是：**从命令行查询本地�
 
 ### Agent Reach
 
-GitHub：<https://github.com/Panniantong/Agent-Reach>
+<GithubInfo owner="Panniantong" repo="Agent-Reach" />
 
 安装文档：<https://raw.githubusercontent.com/Panniantong/agent-reach/main/docs/install.md>
 
@@ -151,7 +151,7 @@ Agent Reach 主要对应下面几类场景：
 
 ### wx-cli
 
-GitHub：<https://github.com/jackwener/wx-cli>
+<GithubInfo owner="jackwener" repo="wx-cli" />
 
 wx-cli 走的是更重的一条路。它不去搜公众号网页，直接在本机读微信数据。项目首页把它写得很清楚：这是一个本地工具，特点包括：
 
