@@ -207,6 +207,29 @@ npm run cf:build
 - 对文章中的 Markdown 围栏代码块与 `Code` 组件，若未声明语言，应根据上下文补全语言标注。
 - 若上下文无法可靠判断语言，不要臆测；优先选择最保守写法（如 `text`）或按用户要求处理。
 
+### 链接转卡片组件规范（GithubInfo / BilibiliCard）
+
+站内链接展示优先使用以下两个块级组件（均为独占一行的自闭合元素），把“独立入口”式链接变成卡片：
+
+- `<GithubInfo owner="owner" repo="repo" />`：仅支持裸仓库地址 `https://github.com/owner/repo`，href 恒为仓库根。
+- `<BilibiliCard title="真实视频标题" bvid="BVxxx" />`：`bvid` 传裸 BV 号（不要带完整 URL 与追踪参数）；`title` 必须是真实视频标题，禁止用“Bilibili 视频”等占位标题。真实标题可经 B 站官方 API `https://api.bilibili.com/x/web-interface/view?bvid=...` 拉取（需带 User-Agent/Referer，失败时回退原文已有标题）。
+
+以下情况转为卡片：
+
+- 独立一行的 `GitHub：<https://github.com/owner/repo>` 或 `仓库：[label](url)`；
+- 列表项“整项只包含一个链接”（去掉 `- ` 前缀后换卡片）；
+- 通用 `<LinkCard title="Bilibili 视频">` 块 → `<BilibiliCard>`；
+- 段落内引入仓库的链接：把 `<GithubInfo>` 卡片放到段落开头，段内保留 `[owner/repo](url)` 超链接原文。
+
+以下情况必须保持行内链接，禁止转卡片：
+
+- 句子内嵌 / 上下文引用、`via:` 署名、标签化参考列表（`- \`x\`：<url>`）；
+- 信息字段列表（如 `- **GitHub**: ...` 且带 `- **npm**` / `- 官网：` 等同级字段）、表格单元格、代码块、引用块；
+- 子路径链接（`/tree/`、`/blob/`、`/releases`）、仅 owner 无 repo 的链接、一行多仓库、`github.com` 根；
+- B 站非视频链接（`space.`、`opus`、`search.`、`lists`）。
+
+注意：转换需逐篇人工判断，禁止脚本批量替换。
+
 ## PDF 转 Markdown 与图片处理流程
 
 ### 1. PDF 转换工具与方法
