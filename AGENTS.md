@@ -492,6 +492,36 @@ def replace_images_with_urls(markdown_file, url_map):
 6. 如有需要，在 `docs/public/_redirects` 中补充回退规则：
    - `/decks/<name>/* /decks/<name>/index.html 200`
 
+## llms.txt 生成与维护
+
+站点按 [llmstxt.org](https://llmstxt.org) 标准提供 LLM 友好的内容清单，由 `vitepress-plugin-llms` 插件在构建时自动生成（接入于 `docs/.vitepress/config.mts` 的 `vite.plugins`），产物为构建生成，禁止手动编辑。
+
+### 产物
+
+- `/llms.txt`：站点内容清单，按规范组织为 H1 + 引用块描述 + 使用说明 + `## Table of Contents` 文件列表
+- `/llms-full.txt`：全站文档一次性打包（较大）
+- 每页 `.md` 版本：页面 URL 末尾追加 `.md`（如 `/sre/git-basics` 对应 `/sre/git-basics.md`）
+
+产物写入 `docs/.vitepress/dist/`，经 `cf:build:docs` 随整个目录拷贝到 `.cloudflare-dist/`，无需额外部署步骤。
+
+### 维护要点
+
+- 新增文章自动纳入 llms 产物，无需额外操作；但新增文章后仍需按上文同步导航/侧边栏。
+- 新增“不进入站点页面”的素材/参考目录（如 `xxx/references/**`、`xxx/assets/**`）或旧路径残留/重复目录时，必须同步 `docs/.vitepress/config.mts` 中 `llmstxt({ ignoreFiles })`，与 `srcExclude`、导航/侧边栏的排除逻辑保持一致。
+- 站点有意不索引的敏感页需同时维护 `ignoreFiles` 与 `isSensitiveUrl()`（当前：`sre/proxy-network-principles-202607`、`ai/coding-plan-hub`）。
+- 侧边栏新增分组若属于旧路径/重复目录（当前黑名单：`/guides/`、`/handouts/`、`/resource/softwares/`、`/resource/pc-diy/`、`/resource/events/`），需同步 `llmstxt({ sidebar })` 过滤函数，否则构建会出现大量 “No matching file found” 告警。
+- `llms.txt` 的 H1 与使用说明维护在 `customTemplateVariables`；标题/描述默认取自 `docs/index.md` frontmatter，修改首页文案会影响 llms.txt。
+
+### 校验
+
+构建后确认产物存在且忽略项无泄漏：
+
+```bash
+ls docs/.vitepress/dist/llms.txt docs/.vitepress/dist/llms-full.txt
+# 忽略目录/敏感页不应出现在 llms.txt 中（应输出 0）
+grep -cE 'ai/references|guides/|resource/softwares|resource/pc-diy|proxy-network|coding-plan-hub' docs/.vitepress/dist/llms.txt
+```
+
 ## 智能体校验清单
 
 完成任务前，请按改动范围执行相关检查：
@@ -511,6 +541,14 @@ bun run docs:index
 bun run docs:build:search
 # 验证索引产物存在
 ls docs/.vitepress/dist/pagefind/pagefind.js
+```
+
+如果改动涉及内容结构（新增/移动文章、新增目录、敏感页调整），再执行：
+
+```bash
+# 确认 llms 产物生成且忽略项无泄漏（应输出 0）
+ls docs/.vitepress/dist/llms.txt docs/.vitepress/dist/llms-full.txt
+grep -cE 'ai/references|guides/|resource/softwares|resource/pc-diy|proxy-network|coding-plan-hub' docs/.vitepress/dist/llms.txt
 ```
 
 如果改动涉及部署路由、嵌入行为或 slide 产物，再执行：
