@@ -1,4 +1,5 @@
 import { defineConfig, type DefaultTheme } from 'vitepress'
+import llmstxt from 'vitepress-plugin-llms'
 import markdownItFootnote from 'markdown-it-footnote'
 import markdownItKatexModern from './markdown-it-katex-modern'
 import { resolveCodeLanguageMeta } from './shared/code-language-meta'
@@ -383,6 +384,53 @@ export default defineConfig({
       chunkSizeWarningLimit: 1024
     },
     plugins: [
+      llmstxt({
+        // 绝对链接便于 LLM 直接抓取
+        domain: SITE_URL,
+        // 以下内容不进入 llms.txt / llms-full.txt / 每页 .md：
+        // - ai/references/** 为原始参考素材，与 srcExclude 一致，不构建成页面
+        // - ai/assets/** 为素材目录内的 README，非站点页面
+        // - guides/**、resource/softwares/**、resource/pc-diy/** 为旧路径残留/重复内容，不在导航中
+        // - 两个敏感页与 sitemap/robots 的排除逻辑保持一致
+        ignoreFiles: [
+          'ai/references/**',
+          'ai/assets/**',
+          'guides/**',
+          'resource/softwares/**',
+          'resource/pc-diy/**',
+          'sre/proxy-network-principles-202607.md',
+          'ai/coding-plan-hub.md'
+        ],
+        // 不在页面 HTML 中注入隐藏提示文本，保持产物与现状一致
+        injectLLMHint: false,
+        // 生成 TOC 时丢弃旧路径/重复目录的侧边栏分组（与 ignoreFiles 同理），
+        // 避免每次构建输出大量 “No matching file found” 告警
+        sidebar: (sidebar) => {
+          if (!sidebar) return sidebar
+          const droppedPrefixes = [
+            '/guides/',
+            '/handouts/',
+            '/resource/softwares/',
+            '/resource/pc-diy/',
+            '/resource/events/'
+          ]
+          return Object.fromEntries(
+            Object.entries(sidebar).filter(([key]) => !droppedPrefixes.some((prefix) => key.startsWith(prefix)))
+          ) as DefaultTheme.Sidebar
+        },
+        // 定制 llms.txt 的 H1 与简介（其余变量由 index.md frontmatter 提供）
+        customTemplateVariables: {
+          title: '3D环梦工坊编程竞赛组',
+          details: [
+            '该网站是 3D 环梦工坊编程竞赛组（C++/Python 算法课程与竞赛训练）的官方知识库，内容以中文撰写，主要面向编程初学者与竞赛选手，涵盖：编程讲义（文字版与幻灯片）、开发 / SRE / AI / 写作 / 求职教程、竞赛与活动信息、科研方法、软件与电脑维护资源。',
+            '',
+            '使用说明：',
+            '- 站内每个文档页面均提供 Markdown 版本：在页面 URL 末尾追加 `.md`（如 `/sre/git-basics` 对应 `/sre/git-basics.md`）。',
+            '- 如需一次获取全站文档内容，请阅读 `/llms-full.txt`；该文件较大，也可按下方目录按需取用单个 Markdown 文件。',
+            '- `/slides/` 下的页面为幻灯片嵌入页（对应 `/decks/*` 交互页面），Markdown 版本仅包含页面简介。'
+          ].join('\n')
+        }
+      }),
       {
         name: 'serve-pagefind-in-dev',
         configureServer(server) {
