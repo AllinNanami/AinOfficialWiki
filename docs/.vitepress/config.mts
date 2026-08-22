@@ -581,7 +581,15 @@ export default defineConfig({
 
     tags.push(['meta', { name: 'robots', content: robots }])
 
+    // 声明 Markdown 变体（acceptmarkdown.com）：与 _worker.js 的内容协商及
+    // vitepress-plugin-llms 的 .md 产物对应；敏感页无 .md 变体，跳过
+    if (!pageData.isNotFound && pageData.relativePath && !isSensitiveUrl(toCanonicalPath(pageData.relativePath))) {
+      const markdownHref = canonical.endsWith('/') ? `${canonical}index.md` : `${canonical}.md`
+      tags.push(['link', { rel: 'alternate', type: 'text/markdown', href: markdownHref }])
+    }
+
     tags.push(['meta', { property: 'og:type', content: 'website' }])
+
     tags.push(['meta', { property: 'og:url', content: canonical }])
     tags.push(['meta', { property: 'og:title', content: pageTitle }])
     tags.push(['meta', { property: 'og:description', content: pageDescription }])

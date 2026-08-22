@@ -40,8 +40,8 @@ function toMarkdownPath(pathname) {
       : null
   }
   // 目录页（如 /lectures/）的 Markdown 由 llms 插件生成在上级：/lectures.md；
-  // 站点根目录无 Markdown 变体，返回 null 走 HTML 分支。
-  return decoded === '/' ? null : `${decoded.replace(/\/$/, '')}.md`
+  // 站点根路径的 Markdown 变体由 docs/public/index.md 提供
+  return decoded === '/' ? '/index.md' : `${decoded.replace(/\/$/, '')}.md`
 }
 
 
