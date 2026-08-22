@@ -48,6 +48,7 @@ import HomeLanding from './components/HomeLanding.vue'
 import DocBreadcrumbs from './components/DocBreadcrumbs.vue'
 import DocNavBreadcrumbDock from './components/DocNavBreadcrumbDock.vue'
 import NavBarSearch from './components/NavBarSearch.vue'
+import NotFoundGuide from './components/NotFoundGuide.vue'
 
 export default {
   extends: DefaultTheme,
@@ -253,6 +254,8 @@ export default {
       'aside-outline-before': () => h(ClerkToc),
       // 正文顶部插入面包屑导航
       'doc-top': () => h(DocBreadcrumbs),
+      // 自定义 404 页：为 agent 提供可恢复的文字导航（llms.txt / sitemap / 分类入口）
+      'not-found': () => h(NotFoundGuide),
       // 左侧侧边栏恢复双视图导航
       'sidebar-nav-before': () => h(SidebarNavigator),
       // 放在文档 footer 内，显示在 Next/Previous 导航上方
