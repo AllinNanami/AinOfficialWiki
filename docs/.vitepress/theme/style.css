@@ -4580,6 +4580,16 @@ h6,
   background: var(--vp-c-divider-light);
 }
 
+/* 分组标题：不可点击的弱色标签（页面操作条「问问 AI」等分组） */
+.vp-pro-dropdown-heading {
+  margin: 6px 10px 2px;
+  font-size: 11px;
+  font-weight: var(--site-weight-label, 600);
+  letter-spacing: 0.05em;
+  color: var(--vp-c-text-3);
+  user-select: none;
+}
+
 .vp-pro-dropdown-item {
   display: flex;
   align-items: center;
@@ -5058,4 +5068,167 @@ h6,
 /* 内联公式样式 */
 .katex {
   font-size: 1.1em;
+}
+
+/* ============================================================
+   文档页元信息条（DocPageMeta，注入于首个 H1 之后）
+   ============================================================ */
+.vp-pro-page-meta {
+  margin: 0 0 1.25rem;
+}
+
+/* description：与正文同样式，仅灰字（无引用竖线；显式清掉
+   .vp-doc blockquote 的基础边距/竖线，块标记不再使用） */
+.vp-doc .vp-pro-page-meta__description {
+  margin: 0 0 0.9rem;
+  padding: 0;
+  border: 0;
+  color: var(--vp-c-text-2);
+}
+
+.vp-pro-page-meta__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  row-gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* 「最后更新于」左对齐，操作按钮组右对齐 */
+.vp-pro-page-meta__updated {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--vp-c-text-3);
+}
+
+.vp-pro-page-meta__updated time {
+  font-variant-numeric: tabular-nums;
+}
+
+.vp-pro-page-meta__actions {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* Dropdown 包装层基础样式自带 1px 透明边框，会把内部触发器撑高 2px
+   并居中下移 1px，与复制按钮（固定 2rem）错位 —— 归零对齐 */
+.vp-pro-page-meta__actions .vp-pro-dropdown-trigger {
+  border: 0;
+  padding: 0;
+}
+
+.vp-pro-page-meta__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 2rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: var(--site-radius-sm);
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+  background: transparent;
+  color: var(--vp-c-brand-1);
+  font-size: 0.8125rem;
+  font-weight: var(--site-weight-medium, 500);
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.vp-pro-page-meta__copy:hover {
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+/* 自定义下拉触发器：可复制页为贴着主按钮的 chevron（左缘直角衔接），
+   不可复制页为独立「问问 AI」按钮（四角圆角） */
+.vp-pro-page-meta__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: var(--site-radius-sm);
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  margin-inline-start: -1px;
+  color: var(--vp-c-brand-1);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.vp-pro-page-meta__trigger:hover,
+.vp-pro-page-meta__trigger[aria-expanded='true'] {
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+.vp-pro-page-meta__trigger.is-standalone {
+  border-radius: var(--site-radius-sm);
+  border-start-start-radius: var(--site-radius-sm);
+  border-end-start-radius: var(--site-radius-sm);
+  margin-inline-start: 0;
+  padding: 0 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: var(--site-weight-medium, 500);
+}
+
+.vp-pro-page-meta__trigger-text {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .vp-pro-page-meta__copy,
+  .vp-pro-page-meta__trigger {
+    height: 1.75rem;
+    padding: 0 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .vp-pro-page-meta__updated {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================================
+   块级禁止选取（Code/MermaidBlock 的 copyable: false）
+   !important 压过页面锁对代码/图表的选取例外
+   ============================================================ */
+[data-noselect],
+[data-noselect] * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* ============================================================
+   页面级禁止复制（frontmatter copyable: false → .vp-pro-page-meta--locked）
+   正文区禁止选取；行内代码 / 代码块 / Mermaid / 表单控件例外。
+   copy/cut 事件由 copy-interactions 的 guardCopyUnderPageLock 拦截兜底。
+   ============================================================ */
+.VPDoc:has(.vp-pro-page-meta--locked) {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.VPDoc:has(.vp-pro-page-meta--locked) :is(pre, code, .vp-pro-mermaid, input, textarea),
+.VPDoc:has(.vp-pro-page-meta--locked) :is(pre, code, .vp-pro-mermaid, input, textarea) * {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* 「最后更新于」已上移至元信息条（只到年月、右对齐），隐藏页脚默认日期 */
+.VPDocFooter .last-updated {
+  display: none;
 }

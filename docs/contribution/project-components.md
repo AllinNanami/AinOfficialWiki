@@ -24,6 +24,7 @@ description: 组件库总览页，集中入口到每个组件的独立使用文�
     <DocOverviewCard title="Link Buttons" href="/contribution/project-components/link-buttons" description="按钮风格链接，适合入口跳转和 CTA 操作。" icon="mdi:gesture-tap-button" variant="article" />
     <DocOverviewCard title="Link Cards" href="/contribution/project-components/link-cards" description="卡片风格入口组件，适合导航页和专题索引。" icon="mdi:card-outline" variant="article" />
     <DocOverviewCard title="Steps" href="/contribution/project-components/steps" description="步骤流展示，适合教程和流程型内容。" icon="mdi:format-list-numbered" variant="article" />
+    <DocOverviewCard title="页面元信息条" href="/contribution/project-components/page-meta" description="文档页标题下方的 description 引用、复制 Markdown 与最后更新信息，支持页面级 copyable。" icon="mdi:card-text-outline" variant="article" badge="新增" />
   </DocOverviewGroup>
 
   <DocOverviewGroup title="内容展示" description="适合强化信息可读性和技术文档表达。">

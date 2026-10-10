@@ -177,6 +177,34 @@ function isInsideDocContent(node: Node | null): boolean {
   return Boolean(node.parentElement?.closest('.vp-doc'))
 }
 
+/** 不可复制页标记（frontmatter copyable: false → DocPageMeta 根节点类名） */
+function isPageCopyLocked(): boolean {
+  if (typeof document === 'undefined') return false
+  return document.querySelector('.vp-pro-page-meta--locked') != null
+}
+
+/** 页面锁下的复制白名单：选区完全落在其中才放行（块级 data-noselect 仍拦截） */
+const COPY_LOCK_ALLOWED_SELECTOR = 'pre, code, .vp-pro-mermaid'
+
+/**
+ * 不可复制页（copyable: false）的剪贴板拦截：CSS user-select 已阻止常规选取，
+ * 这里兜底 copy/cut 事件（Ctrl+C / 右键复制 / 菜单复制）。
+ * 例外：行内代码（code）、代码块（pre）、Mermaid 图表（.vp-pro-mermaid）内
+ * 的选区照常复制；但这些容器带 data-noselect（块级 copyable: false）时仍拦截。
+ */
+function guardCopyUnderPageLock(event: ClipboardEvent, selection: Selection): boolean {
+  if (!isPageCopyLocked()) return false
+
+  const ancestor = selection.commonAncestorContainer
+  const anchor = ancestor instanceof HTMLElement ? ancestor : ancestor.parentElement
+  const scope = anchor?.closest(COPY_LOCK_ALLOWED_SELECTOR) ?? null
+
+  if (scope && !scope.closest('[data-noselect]')) return true
+
+  event.preventDefault()
+  return true
+}
+
 function handleNativeCopy(event: ClipboardEvent): void {
   if (Date.now() < suppressCopyrightToastUntil) return
 
@@ -185,6 +213,8 @@ function handleNativeCopy(event: ClipboardEvent): void {
 
   const selectedText = selection.toString().trim()
   if (!selectedText) return
+
+  if (guardCopyUnderPageLock(event, selection)) return
 
   if (!isInsideDocContent(selection.anchorNode) && !isInsideDocContent(selection.focusNode)) {
     return
@@ -250,10 +280,12 @@ export function setupCopyInteractions(): () => void {
   document.addEventListener('click', handleClick, true)
   document.addEventListener('keydown', handleKeydown, true)
   document.addEventListener('copy', handleNativeCopy, true)
+  document.addEventListener('cut', handleNativeCopy, true)
 
   return () => {
     document.removeEventListener('click', handleClick, true)
     document.removeEventListener('keydown', handleKeydown, true)
     document.removeEventListener('copy', handleNativeCopy, true)
+    document.removeEventListener('cut', handleNativeCopy, true)
   }
 }

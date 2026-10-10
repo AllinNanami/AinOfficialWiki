@@ -209,8 +209,16 @@ function enhanceFenceLanguageLabel(md: any) {
     if (languageMeta.language === 'mermaid') {
       const source = String(token?.content ?? '')
       const encoded = encodeURIComponent(source)
+      // 围栏 meta 控制复制许可（```mermaid copyable=false）：false 隐藏复制按钮
+      // 并禁止选取图表与错误源码；缺省 / true 保持可复制
+      const metaRaw = info.trim().slice(rawInfo.length).trim()
+      const copyableMeta = /(?:^|\s)copyable\s*=\s*(?:"([^"]*)"|'([^']*)'|(\S+))/.exec(metaRaw)
+      const copyableValue = (copyableMeta?.[1] ?? copyableMeta?.[2] ?? copyableMeta?.[3] ?? 'true').toLowerCase()
+      const copyableAttr = copyableValue === 'false' || copyableValue === '0' || copyableValue === 'no'
+        ? ' :copyable="false"'
+        : ''
 
-      return `<ClientOnly><MermaidBlock code="${escapeHtmlAttribute(encoded)}" :encoded="true" /></ClientOnly>`
+      return `<ClientOnly><MermaidBlock code="${escapeHtmlAttribute(encoded)}" :encoded="true"${copyableAttr} /></ClientOnly>`
     }
 
     if (token && normalizedInfo !== info) {
@@ -247,6 +255,33 @@ function enhanceFenceLanguageLabel(md: any) {
         `<span class="lang" data-lang-full="${safeFullData}" data-lang-short="${safeShortData}">${safeFullLabel}</span>`
       )
   }
+}
+
+/**
+ * 把文档页元信息条（DocPageMeta）注入到正文首个 H1 之后，无 H1 时置于正文开头。
+ * 组件从 page 数据自取 frontmatter description / copyable 与 Git 最后更新时间；
+ * `layout: 'page'`（主页）与 404 页在组件内部自行跳过渲染。
+ */
+function injectDocPageMeta(md: any) {
+  md.core.ruler.push('inject-doc-page-meta', (state: any) => {
+    const tokens = state.tokens
+    if (tokens.some((token: any) => token?.type === 'html_block' && String(token.content).includes('<DocPageMeta'))) {
+      return
+    }
+
+    let insertAt = 0
+    for (let i = 0; i < tokens.length; i += 1) {
+      const token = tokens[i]
+      if (token?.type === 'heading_close' && token.tag === 'h1') {
+        insertAt = i + 1
+        break
+      }
+    }
+
+    const metaToken = new state.Token('html_block', '', 0)
+    metaToken.content = '<DocPageMeta />'
+    tokens.splice(insertAt, 0, metaToken)
+  })
 }
 
 const customElements = [
@@ -698,6 +733,7 @@ export default defineConfig({
       md.use(markdownItToc)
       useMarkdownTableDirective(md)
       enhanceFenceLanguageLabel(md)
+      injectDocPageMeta(md)
     }
   },
 
@@ -1563,7 +1599,8 @@ export default defineConfig({
                 { text: 'Breadcrumbs', link: '/contribution/project-components/breadcrumbs' },
                 { text: 'Link Buttons', link: '/contribution/project-components/link-buttons' },
                 { text: 'Link Cards', link: '/contribution/project-components/link-cards' },
-                { text: 'Steps', link: '/contribution/project-components/steps' }
+                { text: 'Steps', link: '/contribution/project-components/steps' },
+                { text: '页面元信息条', link: '/contribution/project-components/page-meta' }
               ]
             },
             {

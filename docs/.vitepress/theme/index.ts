@@ -20,6 +20,7 @@ import FileTreeFolder from './components/ui/FileTreeFolder.vue'
 import FileTreeFile from './components/ui/FileTreeFile.vue'
 import DownloadTabs from './components/ui/DownloadTabs.vue'
 import MermaidBlock from './components/ui/MermaidBlock.vue'
+import DocPageMeta from './components/DocPageMeta.vue'
 import LinkButton from './components/ui/LinkButton.vue'
 import LinkButtons from './components/ui/LinkButtons.vue'
 import Steps from './components/ui/Steps.vue'
@@ -224,6 +225,7 @@ export default {
     app.component('Code', Code)
     app.component('CodeBlock', Code)
     app.component('MermaidBlock', MermaidBlock)
+    app.component('DocPageMeta', DocPageMeta)
     app.component('FileTree', FileTree)
     app.component('FileTreeFolder', FileTreeFolder)
     app.component('FileTreeFile', FileTreeFile)
