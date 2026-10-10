@@ -267,6 +267,17 @@ flowchart LR
 
 这种写法不支持组件级主题指定，也不支持源码 / 渲染切换。
 
+围栏 meta 支持 `copyable` 参数控制复制许可：缺省（或 `true`）时图表工具条带
+「复制源码」按钮；显式 `copyable="false"` 时隐藏该按钮，并禁止选中图表与
+渲染失败时展示的源码：
+
+````md
+```mermaid copyable=false
+flowchart LR
+  A[Secret] --> B[Only]
+```
+````
+
 ### `Code` 组件：主题指定与源码 / 渲染切换
 
 <Code
@@ -487,9 +498,9 @@ flowchart LR
 }
 </Code>
 
-## 隐藏行号与禁用复制
+## 隐藏行号与禁止复制
 
-<Code lang="ts" :hide-line-numbers="true" :disable-copy="true">
+<Code lang="ts" :hide-line-numbers="true" :copyable="false">
 const status = 'display-only'
 console.log(status)
 </Code>
@@ -506,6 +517,6 @@ console.log(status)
 | `wrap` | `boolean` | `false` | 是否自动换行。 | `:wrap="true"` |
 | `color` | `string` | `''` | 自定义强调色。 | `color="#00a7b7"` |
 | `hideLineNumbers` | `boolean` | `false` | 隐藏左侧行号。 | `:hide-line-numbers="true"` |
-| `disableCopy` | `boolean` | `false` | 隐藏复制按钮并禁用复制行为。 | `:disable-copy="true"` |
+| `copyable` | `boolean` | `true` | 允许复制。`false` 时隐藏复制按钮，并禁止选中块内文本。 | `:copyable="false"` |
 | `mermaidTheme` | `string` | `default` | 仅 `lang="mermaid"` 生效，指定 Mermaid 主题预设。 | `mermaid-theme="tech-ice"` |
 | `mermaidView` | `'code' \| 'render'` | `code` | 仅 `lang="mermaid"` 生效，指定默认显示源码还是渲染图。 | `mermaid-view="render"` |

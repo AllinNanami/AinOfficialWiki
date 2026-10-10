@@ -74,7 +74,8 @@ const props = withDefaults(
     wrap?: boolean
     color?: string
     hideLineNumbers?: boolean
-    disableCopy?: boolean
+    /** 允许复制（默认 true）；false 隐藏复制按钮并禁止选取块内文本 */
+    copyable?: boolean
     mermaidTheme?: string
     mermaidView?: 'code' | 'render'
   }>(),
@@ -87,7 +88,7 @@ const props = withDefaults(
     wrap: false,
     color: '',
     hideLineNumbers: false,
-    disableCopy: false,
+    copyable: true,
     mermaidTheme: 'default',
     mermaidView: 'code'
   }
@@ -380,6 +381,7 @@ onBeforeUnmount(() => {
       'is-root-code': languageMeta.isRootUser
     }"
     :style="customStyle"
+    :data-noselect="copyable ? undefined : ''"
   >
     <header class="vp-pro-code__header">
       <span class="vp-pro-code__lead">
@@ -418,7 +420,7 @@ onBeforeUnmount(() => {
         </span>
 
         <button
-          v-if="!disableCopy"
+          v-if="copyable"
           type="button"
           class="vp-pro-code__copy"
           aria-label="复制代码"
@@ -439,6 +441,6 @@ onBeforeUnmount(() => {
     :theme-preset="mermaidTheme"
     :initial-view="mermaidView"
     :allow-view-toggle="true"
-    :disable-copy="disableCopy"
+    :copyable="copyable"
   />
 </template>

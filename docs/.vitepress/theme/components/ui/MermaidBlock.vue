@@ -15,7 +15,8 @@ const props = withDefaults(
     themePreset?: string
     initialView?: 'render' | 'code'
     allowViewToggle?: boolean
-    disableCopy?: boolean
+    /** 允许复制（默认 true）；false 隐藏复制按钮并禁止选取图表与源码 */
+    copyable?: boolean
   }>(),
   {
     encoded: false,
@@ -23,7 +24,7 @@ const props = withDefaults(
     themePreset: 'default',
     initialView: 'render',
     allowViewToggle: false,
-    disableCopy: false
+    copyable: true
   }
 )
 
@@ -108,7 +109,7 @@ async function handleCopySource() {
 </script>
 
 <template>
-  <section class="vp-pro-mermaid">
+  <section class="vp-pro-mermaid" :data-noselect="copyable ? undefined : ''">
     <header class="vp-pro-mermaid__header">
       <span class="vp-pro-code__lead">
         <span class="vp-pro-code__lang-icon" aria-hidden="true">
@@ -150,7 +151,7 @@ async function handleCopySource() {
         </span>
 
         <button
-          v-if="!disableCopy"
+          v-if="copyable"
           type="button"
           class="vp-pro-code__copy"
           aria-label="复制 Mermaid 源码"
