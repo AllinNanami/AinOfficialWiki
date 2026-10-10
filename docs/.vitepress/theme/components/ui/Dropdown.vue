@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, useSlots, watch } from 'vue'
+import BaseIcon from './BaseIcon.vue'
 
 export interface DropdownItem {
   text: string
@@ -9,6 +10,8 @@ export interface DropdownItem {
   divider?: boolean
   disabled?: boolean
   active?: boolean
+  /** 分组标题：渲染为不可点击的弱色标签（如「问问 AI」） */
+  heading?: boolean
 }
 
 export type DropdownPlacement =
@@ -35,6 +38,7 @@ const props = withDefaults(
     placement: 'bottom-start',
     trigger: 'click',
     disabled: false,
+    /** 面板最大高度（px）；0 = 不限制，完整展示所有菜单项 */
     maxHeight: 320,
     minWidth: 180
   }
@@ -152,7 +156,7 @@ function updatePosition() {
     top: `${Math.max(viewportPadding, Math.min(top, maxTop))}px`,
     left: `${Math.max(viewportPadding, Math.min(left, maxLeft))}px`,
     minWidth: `${props.minWidth}px`,
-    maxHeight: `${props.maxHeight}px`
+    maxHeight: props.maxHeight > 0 ? `${props.maxHeight}px` : 'none'
   }
 }
 
@@ -190,7 +194,7 @@ function handlePanelMouseLeave() {
 }
 
 function handleItemClick(item: DropdownItem) {
-  if (item.disabled || item.divider) return
+  if (item.disabled || item.divider || item.heading) return
   item.action?.()
   if (item.link) {
     window.location.href = item.link
@@ -280,6 +284,7 @@ onBeforeUnmount(() => {
         <div class="vp-pro-dropdown-panel__inner">
           <template v-for="(item, index) in items" :key="index">
             <div v-if="item.divider" class="vp-pro-dropdown-divider" />
+            <p v-else-if="item.heading" class="vp-pro-dropdown-heading">{{ item.text }}</p>
             <a
               v-else
               class="vp-pro-dropdown-item"
@@ -291,7 +296,9 @@ onBeforeUnmount(() => {
               @click.prevent="handleItemClick(item)"
             >
               <span v-if="item.icon" class="vp-pro-dropdown-item__icon">
-                <slot :name="'icon-' + item.icon" />
+                <slot :name="'icon-' + item.icon">
+                  <BaseIcon :icon="item.icon" :width="16" :height="16" />
+                </slot>
               </span>
               <span class="vp-pro-dropdown-item__text">{{ item.text }}</span>
               <slot :name="'item-after-' + index" />
