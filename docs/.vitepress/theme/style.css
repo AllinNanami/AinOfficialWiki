@@ -4590,6 +4590,51 @@ h6,
   user-select: none;
 }
 
+/* Tab 分组：菜单内分段控件（在 AI 中阅读 / 在 Agent 中打开） */
+.vp-pro-dropdown-tabs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2px;
+  margin: 4px 6px;
+  padding: 3px;
+  border-radius: var(--site-radius-sm);
+  background: var(--vp-c-default-soft);
+}
+
+.vp-pro-dropdown-tab {
+  padding: 5px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--vp-c-text-2);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: var(--site-weight-medium, 500);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.vp-pro-dropdown-tab:hover {
+  color: var(--vp-c-text-1);
+}
+
+.vp-pro-dropdown-tab[aria-selected='true'] {
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.vp-pro-dropdown-tabpanel {
+  padding-top: 2px;
+}
+
 .vp-pro-dropdown-item {
   display: flex;
   align-items: center;

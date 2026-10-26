@@ -14,6 +14,12 @@ export interface DropdownItem {
   heading?: boolean
 }
 
+/** Tab 分组：菜单内以分段控件切换的多组菜单项（如「在 AI 中阅读 / 在 Agent 中打开」） */
+export interface DropdownTab {
+  label: string
+  items: DropdownItem[]
+}
+
 export type DropdownPlacement =
   | 'bottom'
   | 'bottom-start'
@@ -25,6 +31,10 @@ export type DropdownPlacement =
 const props = withDefaults(
   defineProps<{
     items: DropdownItem[]
+    /** Tab 分组（可选）：渲染在固定项下方，以分段控件切换多组菜单项 */
+    tabs?: DropdownTab[]
+    /** Tab 组的可访问名（role=tablist 的 aria-label） */
+    tabsLabel?: string
     open?: boolean
     placement?: DropdownPlacement
     trigger?: 'click' | 'hover' | 'both'
@@ -34,6 +44,8 @@ const props = withDefaults(
   }>(),
   {
     items: () => [],
+    tabs: () => [],
+    tabsLabel: '',
     open: undefined,
     placement: 'bottom-start',
     trigger: 'click',
@@ -60,10 +72,29 @@ const panelStyle = ref<Record<string, string>>({})
 
 const isControlled = computed(() => props.open !== undefined)
 const isOpen = computed(() => (isControlled.value ? props.open : internalOpen.value))
-const hasItems = computed(() => props.items.length > 0)
+const hasItems = computed(() => props.items.length > 0 || props.tabs.length > 0)
 const hasCustomTrigger = computed(() => Boolean(slots.trigger))
 const supportsHoverTrigger = computed(() => props.trigger === 'hover' || props.trigger === 'both')
 const supportsClickTrigger = computed(() => props.trigger === 'click' || props.trigger === 'both')
+
+/* ---- Tab 分组：点击 / 左右方向键切换（循环），ARIA tab/tabpanel 关联 ---- */
+const activeTabIndex = ref(0)
+const tabUid = `vp-pro-tab-${Math.random().toString(36).slice(2, 8)}`
+const tabId = (index: number) => `${tabUid}-${index}`
+const tabPanelId = (index: number) => `${tabUid}-panel-${index}`
+
+function selectTab(index: number): void {
+  activeTabIndex.value = Math.max(0, Math.min(index, props.tabs.length - 1))
+  void nextTick().then(updatePosition)
+}
+
+function stepTab(from: number, offset: number): void {
+  if (props.tabs.length === 0) return
+  const next = (from + offset + props.tabs.length) % props.tabs.length
+  selectTab(next)
+  const buttons = panelRef.value?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
+  buttons?.[next]?.focus()
+}
 
 function clearHoverTimer() {
   if (hoverTimer.value != null && typeof window !== 'undefined') {
@@ -303,6 +334,58 @@ onBeforeUnmount(() => {
               <span class="vp-pro-dropdown-item__text">{{ item.text }}</span>
               <slot :name="'item-after-' + index" />
             </a>
+          </template>
+
+          <template v-if="tabs.length > 0">
+            <div class="vp-pro-dropdown-tabs" role="tablist" :aria-label="tabsLabel || undefined">
+              <button
+                v-for="(tab, index) in tabs"
+                :id="tabId(index)"
+                :key="'tab-' + index"
+                type="button"
+                role="tab"
+                class="vp-pro-dropdown-tab"
+                :aria-selected="index === activeTabIndex"
+                :aria-controls="tabPanelId(index)"
+                :tabindex="index === activeTabIndex ? 0 : -1"
+                @click.stop="selectTab(index)"
+                @keydown.left.prevent="stepTab(index, -1)"
+                @keydown.right.prevent="stepTab(index, 1)"
+              >
+                {{ tab.label }}
+              </button>
+            </div>
+
+            <div
+              v-for="(tab, tabIndex) in tabs"
+              v-show="tabIndex === activeTabIndex"
+              :id="tabPanelId(tabIndex)"
+              :key="'panel-' + tabIndex"
+              class="vp-pro-dropdown-tabpanel"
+              role="tabpanel"
+              :aria-labelledby="tabId(tabIndex)"
+            >
+              <template v-for="(item, index) in tab.items" :key="index">
+                <div v-if="item.divider" class="vp-pro-dropdown-divider" />
+                <a
+                  v-else
+                  class="vp-pro-dropdown-item"
+                  :class="{
+                    'is-disabled': item.disabled,
+                    'is-active': item.active
+                  }"
+                  :href="item.disabled ? undefined : item.link"
+                  @click.prevent="handleItemClick(item)"
+                >
+                  <span v-if="item.icon" class="vp-pro-dropdown-item__icon">
+                    <slot :name="'icon-' + item.icon">
+                      <BaseIcon :icon="item.icon" :width="16" :height="16" />
+                    </slot>
+                  </span>
+                  <span class="vp-pro-dropdown-item__text">{{ item.text }}</span>
+                </a>
+              </template>
+            </div>
           </template>
         </div>
       </div>

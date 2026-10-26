@@ -116,17 +116,41 @@ const aiWebChats: AiChat[] = [
   }
 ]
 
-const aiLocalChats: AiChat[] = [
+/**
+ * 本地 Agent 深链（顺序参考 BrushUp）：Codex → Claude Desktop → Claude Code →
+ * Cursor → Devin（深链沿用 windsurf://）→ GitHub Copilot → OpenCode
+ */
+const aiAgentChats: AiChat[] = [
   { icon: 'simple-icons:openai', label: '在 Codex 打开', pattern: 'codex://new?prompt={P}' },
-  {
-    icon: 'simple-icons:claude',
-    label: '在 Claude Code 打开',
-    pattern: 'claude-cli://open?q={P}'
-  },
   {
     icon: 'simple-icons:claude',
     label: '在 Claude Desktop 打开',
     pattern: 'claude://claude.ai/new?q={P}'
+  },
+  {
+    icon: 'simple-icons:claudecode',
+    label: '在 Claude Code 打开',
+    pattern: 'claude-cli://open?q={P}'
+  },
+  {
+    icon: 'simple-icons:cursor',
+    label: '在 Cursor 打开',
+    pattern: 'cursor://anysphere.cursor-deeplink/prompt?text={P}'
+  },
+  {
+    icon: 'provider:devin',
+    label: '在 Devin 打开',
+    pattern: 'windsurf://cascade/newChat?prompt={P}'
+  },
+  {
+    icon: 'simple-icons:githubcopilot',
+    label: '在 GitHub Copilot 打开',
+    pattern: 'ghapp://session/new?prompt={P}'
+  },
+  {
+    icon: 'simple-icons:opencode',
+    label: '在 OpenCode 打开',
+    pattern: 'opencode://new-session?prompt={P}'
   }
 ]
 
@@ -138,26 +162,22 @@ function aiItems(chats: AiChat[]) {
   }))
 }
 
-const dropdownItems = computed(() => {
-  if (locked.value) {
-    return [
-      { heading: true, text: '问问 AI' },
-      ...aiItems(aiWebChats),
-      { heading: true, text: '在 Agent 中阅读' },
-      ...aiItems(aiLocalChats)
-    ]
-  }
+/** AI 入口 Tab：在 AI 中阅读（网页）/ 在 Agent 中打开（本地深链） */
+const aiTabs = computed(() => [
+  { label: '在 AI 中阅读', items: aiItems(aiWebChats) },
+  { label: '在 Agent 中打开', items: aiItems(aiAgentChats) }
+])
 
-  return [
-    { text: '查看 .md', icon: 'mdi:file-document-outline', action: viewMarkdown },
-    { text: '下载 .md', icon: 'mdi:download-outline', action: downloadMarkdown },
-    { divider: true },
-    { heading: true, text: '问问 AI' },
-    ...aiItems(aiWebChats),
-    { heading: true, text: '在 Agent 中阅读' },
-    ...aiItems(aiLocalChats)
-  ]
-})
+/** 不可复制页无复制/下载 Markdown 入口，菜单仅保留 AI Tab */
+const dropdownItems = computed(() =>
+  locked.value
+    ? []
+    : [
+        { text: '查看 .md', icon: 'mdi:file-document-outline', action: viewMarkdown },
+        { text: '下载 .md', icon: 'mdi:download-outline', action: downloadMarkdown },
+        { divider: true }
+      ]
+)
 </script>
 
 <template>
@@ -189,6 +209,8 @@ const dropdownItems = computed(() => {
 
         <Dropdown
           :items="dropdownItems"
+          :tabs="aiTabs"
+          tabs-label="AI 阅读方式"
           placement="bottom-end"
           :min-width="230"
           :max-height="0"
