@@ -79,13 +79,58 @@ const supportsClickTrigger = computed(() => props.trigger === 'click' || props.t
 
 /* ---- Tab 分组：点击 / 左右方向键切换（循环），ARIA tab/tabpanel 关联 ---- */
 const activeTabIndex = ref(0)
+const tabsRef = ref<HTMLElement | null>(null)
+const tabsIndicatorWidth = ref('0px')
+const tabsIndicatorTransform = ref('translate3d(0, 0, 0)')
+const tabsIndicatorOpacity = ref('0')
 const tabUid = `vp-pro-tab-${Math.random().toString(36).slice(2, 8)}`
 const tabId = (index: number) => `${tabUid}-${index}`
 const tabPanelId = (index: number) => `${tabUid}-panel-${index}`
 
+/** 与本项目 Tabs / 导航同款的滑动 indicator：测量激活项位置写入 CSS 变量 */
+function syncTabsIndicator(): void {
+  const list = tabsRef.value
+  if (!list) return
+
+  const activeButton = list.querySelector<HTMLElement>('.vp-pro-dropdown-tab[aria-selected="true"]')
+  if (!activeButton) {
+    tabsIndicatorOpacity.value = '0'
+    return
+  }
+
+  const listRect = list.getBoundingClientRect()
+  const buttonRect = activeButton.getBoundingClientRect()
+
+  tabsIndicatorWidth.value = `${Math.max(0, Math.round(buttonRect.width))}px`
+  tabsIndicatorTransform.value = `translate3d(${Math.max(0, Math.round(buttonRect.left - listRect.left + list.scrollLeft))}px, 0, 0)`
+  tabsIndicatorOpacity.value = '1'
+}
+
 function selectTab(index: number): void {
   activeTabIndex.value = Math.max(0, Math.min(index, props.tabs.length - 1))
-  void nextTick().then(updatePosition)
+  void nextTick().then(() => {
+    updatePosition()
+    syncTabsIndicator()
+  })
+}
+
+/* 面板首次展开时宽度可能尚未稳定，用 ResizeObserver 跟随列表尺寸变化
+   重测 indicator（与导航 indicator 的 observeNavMenu 同款做法） */
+let tabsResizeObserver: ResizeObserver | null = null
+
+function observeTabsList(): void {
+  tabsResizeObserver?.disconnect()
+  tabsResizeObserver = null
+  const list = tabsRef.value
+  if (!list || typeof ResizeObserver === 'undefined') return
+  tabsResizeObserver = new ResizeObserver(() => syncTabsIndicator())
+  tabsResizeObserver.observe(list)
+}
+
+/** 入场动画带 transform 缩放（0.4s），期间测得的宽度偏小；动画结束后重测 */
+function handlePanelTransitionEnd(event: TransitionEvent): void {
+  if (event.target !== event.currentTarget) return
+  syncTabsIndicator()
 }
 
 function stepTab(from: number, offset: number): void {
@@ -237,8 +282,16 @@ function handleItemClick(item: DropdownItem) {
 }
 
 watch(isOpen, (nextOpen) => {
-  if (!nextOpen) return
-  void nextTick().then(updatePosition)
+  if (!nextOpen) {
+    tabsResizeObserver?.disconnect()
+    tabsResizeObserver = null
+    return
+  }
+  void nextTick().then(() => {
+    updatePosition()
+    syncTabsIndicator()
+    observeTabsList()
+  })
 })
 
 onMounted(() => {
@@ -246,16 +299,27 @@ onMounted(() => {
   document.addEventListener('click', handleDocumentClick)
   window.addEventListener('resize', updatePosition, { passive: true })
   window.addEventListener('scroll', updatePosition, true)
+  if (isOpen.value) {
+    void nextTick().then(() => {
+      updatePosition()
+      syncTabsIndicator()
+      observeTabsList()
+    })
+  }
+  window.addEventListener('resize', syncTabsIndicator, { passive: true })
 })
 
 onBeforeUnmount(() => {
   clearHoverTimer()
+  tabsResizeObserver?.disconnect()
+  tabsResizeObserver = null
   if (typeof document !== 'undefined') {
     document.removeEventListener('click', handleDocumentClick)
   }
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', updatePosition)
     window.removeEventListener('scroll', updatePosition, true)
+    window.removeEventListener('resize', syncTabsIndicator)
   }
 })
 </script>
@@ -311,6 +375,7 @@ onBeforeUnmount(() => {
         :style="panelStyle"
         @mouseenter="handlePanelMouseEnter"
         @mouseleave="handlePanelMouseLeave"
+        @transitionend="handlePanelTransitionEnd"
       >
         <div class="vp-pro-dropdown-panel__inner">
           <template v-for="(item, index) in items" :key="index">
@@ -337,7 +402,17 @@ onBeforeUnmount(() => {
           </template>
 
           <template v-if="tabs.length > 0">
-            <div class="vp-pro-dropdown-tabs" role="tablist" :aria-label="tabsLabel || undefined">
+            <div
+              ref="tabsRef"
+              class="vp-pro-dropdown-tabs"
+              role="tablist"
+              :aria-label="tabsLabel || undefined"
+              :style="{
+                '--vp-pro-dropdown-tabs-indicator-width': tabsIndicatorWidth,
+                '--vp-pro-dropdown-tabs-indicator-transform': tabsIndicatorTransform,
+                '--vp-pro-dropdown-tabs-indicator-opacity': tabsIndicatorOpacity
+              }"
+            >
               <button
                 v-for="(tab, index) in tabs"
                 :id="tabId(index)"

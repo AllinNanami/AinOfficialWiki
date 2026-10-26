@@ -18,7 +18,7 @@
   - **查看 .md**：新标签页打开本页 Markdown；
   - **下载 .md**：下载本页 Markdown 文件；
   - **AI 入口 Tab**：分段控件切换两组入口，提示词统一为「阅读 <本页 .md 地址> 回答相关问题」：
-    - **在 AI 中阅读**：ChatGPT / Claude / Grok / DeepSeek 网页版；
+    - **问问 AI**：ChatGPT / Claude / Grok / DeepSeek 网页版；
     - **在 Agent 中打开**：唤起本地 Agent 深链 —— Codex / Claude Desktop / Claude Code / Cursor / Devin / GitHub Copilot / OpenCode。
 
 `.md` 端点由 `vitepress-plugin-llms` 随构建产出（如 `/sre/git-basics` 对应 `/sre/git-basics.md`）。开发服务器不产出 `.md` 文件，此时「复制 Markdown」会提示失败；生产构建与 `docs:preview` 正常。
@@ -43,7 +43,7 @@ copyable: false
 设为 `false` 时：
 
 - 无法选取页面任何文字，`Ctrl+C`、右键「复制」与剪切均被拦截（copy / cut 事件兜底）；
-- 没有「复制 Markdown」「查看 .md」「下载 .md」入口，「更多操作」按钮替换为单独的**问问 AI**下拉——点击仅展开菜单（内含「在 AI 中阅读」「在 Agent 中打开」两个 Tab），不会直接执行某一项；
+- 没有「复制 Markdown」「查看 .md」「下载 .md」入口，「更多操作」按钮替换为单独的**问问 AI**下拉——点击仅展开菜单（内含「问问 AI」「在 Agent 中打开」两个 Tab），不会直接执行某一项；
 - **例外**：行内代码、代码块、Mermaid 图表仍可选取与复制；
 - 这只是访问侧的软限制：`.md` 端点与 `llms-full.txt` 仍公开，AI 依赖它们阅读全文。
 

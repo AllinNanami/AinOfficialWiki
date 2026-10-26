@@ -121,7 +121,7 @@ const aiWebChats: AiChat[] = [
  * Cursor → Devin（深链沿用 windsurf://）→ GitHub Copilot → OpenCode
  */
 const aiAgentChats: AiChat[] = [
-  { icon: 'simple-icons:openai', label: '在 Codex 打开', pattern: 'codex://new?prompt={P}' },
+  { icon: 'provider:codex', label: '在 Codex 打开', pattern: 'codex://new?prompt={P}' },
   {
     icon: 'simple-icons:claude',
     label: '在 Claude Desktop 打开',
@@ -162,9 +162,9 @@ function aiItems(chats: AiChat[]) {
   }))
 }
 
-/** AI 入口 Tab：在 AI 中阅读（网页）/ 在 Agent 中打开（本地深链） */
+/** AI 入口 Tab：问问 AI（网页）/ 在 Agent 中打开（本地深链） */
 const aiTabs = computed(() => [
-  { label: '在 AI 中阅读', items: aiItems(aiWebChats) },
+  { label: '问问 AI', items: aiItems(aiWebChats) },
   { label: '在 Agent 中打开', items: aiItems(aiAgentChats) }
 ])
 

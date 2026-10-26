@@ -4590,8 +4590,12 @@ h6,
   user-select: none;
 }
 
-/* Tab 分组：菜单内分段控件（在 AI 中阅读 / 在 Agent 中打开） */
+/* Tab 分组：菜单内分段控件（问问 AI / 在 Agent 中打开）。
+   激活背景由滑动 indicator（::before）承担，与本项目 Tabs / 导航同款
+   （transform + width 0.22s cubic-bezier(0.22, 1, 0.36, 1) 平滑移动） */
 .vp-pro-dropdown-tabs {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
@@ -4602,7 +4606,30 @@ h6,
   background: var(--vp-c-default-soft);
 }
 
+.vp-pro-dropdown-tabs::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  width: var(--vp-pro-dropdown-tabs-indicator-width, 0px);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  opacity: var(--vp-pro-dropdown-tabs-indicator-opacity, 0);
+  transform: var(--vp-pro-dropdown-tabs-indicator-transform, translate3d(0, 0, 0));
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.16s ease;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, width;
+}
+
 .vp-pro-dropdown-tab {
+  position: relative;
+  z-index: 1;
   padding: 5px 6px;
   border: 0;
   border-radius: 6px;
@@ -4615,10 +4642,7 @@ h6,
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
-  transition:
-    color 0.15s ease,
-    background-color 0.15s ease,
-    box-shadow 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .vp-pro-dropdown-tab:hover {
@@ -4626,9 +4650,7 @@ h6,
 }
 
 .vp-pro-dropdown-tab[aria-selected='true'] {
-  background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 .vp-pro-dropdown-tabpanel {
